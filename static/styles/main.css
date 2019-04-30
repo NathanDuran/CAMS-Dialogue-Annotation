@@ -1,0 +1,29 @@
+:root {
+    --main-bg-color: whitesmoke;
+    --main-font: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.container {
+    max-width: 1050px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.title {
+    color: #0366d6;
+    text-align: center;
+    font-family: var(--main-font);
+    font-size: 54px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+p {
+    text-align: center;
+    font-family: var(--main-font);
+    font-size: 16px;
+}
