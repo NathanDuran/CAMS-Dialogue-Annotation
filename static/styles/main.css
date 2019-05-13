@@ -1,6 +1,18 @@
+@import 'nav-bar.css';
 :root {
     --main-bg-color: whitesmoke;
     --main-font: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    --title-font-color: #0366d6;
+
+    --menu-bg-color: #24292e;
+    --menu-border-color: #48525c;
+
+    --index-color: #0366d6;
+    --schema-color: green;
+    --practice-color: purple;
+    --help-color: orange;
+
+    --max-content-width: 1500px
 }
 
 body {
@@ -8,13 +20,13 @@ body {
 }
 
 .container {
-    max-width: 1050px;
+    max-width: var(--max-content-width);
     margin-right: auto;
     margin-left: auto;
 }
 
 .title {
-    color: #0366d6;
+    color: var(--title-font-color);
     text-align: center;
     font-family: var(--main-font);
     font-size: 54px;

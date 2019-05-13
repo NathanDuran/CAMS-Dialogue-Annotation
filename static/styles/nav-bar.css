@@ -1,0 +1,87 @@
+#nav-bar {
+    background-color: var(--menu-bg-color);
+    height: 64px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+}
+
+#nav-bar img {
+    margin: 0 4px;
+}
+
+#nav-menu {
+    height: inherit;
+    width: 90%;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+#nav-menu ul {
+    height: inherit;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+#nav-menu li {
+    height: inherit;
+    padding: 0 16px;
+    float: left;
+    display: inline-block;
+    box-sizing: border-box;
+    border-bottom: 4px solid transparent;
+    border-right: 1px solid var(--menu-border-color);
+    transition: 0.1s;
+}
+
+#nav-menu li a {
+    height: inherit;
+    display: table-cell;
+    vertical-align: middle;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-family: var(--main-font);
+}
+
+#nav-menu li:last-child {
+  border-right: none;
+}
+
+/*Nav button colors*/
+#nav-menu #index.active {
+    border-bottom: 4px solid var(--index-color);
+}
+
+#nav-menu #index:hover {
+    border-bottom: 4px solid var(--index-color);
+}
+
+#nav-menu #schema.active {
+    border-bottom: 4px solid var(--schema-color);
+}
+
+#nav-menu #schema:hover {
+    border-bottom: 4px solid var(--schema-color);
+}
+
+#nav-menu #practice.active {
+    border-bottom: 4px solid var(--practice-color);
+}
+
+#nav-menu #practice:hover {
+    border-bottom: 4px solid var(--practice-color);
+}
+
+#nav-menu #help.active {
+    border-bottom: 4px solid var(--help-color);
+}
+
+#nav-menu #help:hover {
+    border-bottom: 4px solid var(--help-color);
+}

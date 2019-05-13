@@ -7,13 +7,25 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/nav-bar.html')
+
+@app.route('/nav-bar')
 def nav_bar():
     return render_template('nav-bar.html')
 
-@app.route('/hello/<name>')
-def hello(name):
-    return render_template('hello.html', name=name)
+
+@app.route('/Schema')
+def schema_page():
+    return render_template('schema.html')
+
+
+@app.route('/Practice')
+def practice_page():
+    return render_template('practice.html')
+
+
+@app.route('/Help')
+def help_page():
+    return render_template('help.html')
 
 
 if __name__ == '__main__':
