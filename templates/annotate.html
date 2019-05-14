@@ -36,7 +36,7 @@
 
             //var ap_text = document.createTextNode(utterance.ap_label);
             var ap_text = document.createElement("label");
-            ap_text.className = "ap-tag-container";
+            ap_text.className = "utt-label-container";
             if (utterance.ap_label === "") {
                 ap_text.innerText = "AP-label";
             } else {
@@ -45,7 +45,7 @@
 
 
             var da_text = document.createElement("label");
-            da_text.className = "da-tag-container";
+            da_text.className = "utt-label-container";
             if (utterance.da_label === "") {
                 da_text.innerText = "DA-label";
             } else {

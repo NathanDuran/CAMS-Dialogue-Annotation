@@ -1,8 +1,10 @@
 #dialogue-view {
     width: 100%;
+    max-height: 90vh;
     left: 0;
     top: 64px;
     position: fixed;
+    overflow: auto;
 }
 
 /* Dialogue View Menu */
@@ -27,8 +29,6 @@
     height: inherit;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-
 }
 
 #dialogue-view-menu li {
@@ -65,22 +65,18 @@
 
 #utterance-list {
     list-style: none;
+    margin: auto;
+    padding: inherit;
 }
 
 #utterance-list li {
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
 }
-
-/*#utterance-list button {*/
-
-/*}*/
 
 .utt-btn {
     max-width: 1000px;
-    margin: 2px 5px;
+    margin: 2px auto;
     font-family: var(--main-font);
     font-size: 16px;
     background-color: white;
@@ -95,22 +91,11 @@
     color: white;
 }
 
-.ap-tag-container {
+.utt-label-container {
     max-width: 100px;
-    margin: 2px 5px;
+    margin: 2px 10px;
     font-family: var(--main-font);
     font-size: 16px;
-    position: absolute;
-    right: -30%;
-}
-
-.da-tag-container {
-    max-width: 100px;
-    margin: 2px 5px;
-    font-family: var(--main-font);
-    font-size: 16px;
-    position: absolute;
-    right: -40%;
 }
 
 /* Dialogue View Buttons */
