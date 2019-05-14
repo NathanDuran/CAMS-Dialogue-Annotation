@@ -1,0 +1,152 @@
+#dialogue-view {
+    width: 100%;
+    left: 0;
+    top: 64px;
+    position: fixed;
+}
+
+/* Dialogue View Menu */
+#dialogue-view-bar {
+    background-color: var(--dialogue-view-menu-bg-color);
+    height: 64px;
+    position: relative;
+}
+
+#dialogue-view-menu {
+    height: inherit;
+    width: 90%;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#dialogue-view-menu ul {
+    height: inherit;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+#dialogue-view-menu li {
+    height: inherit;
+    padding: 0 16px;
+    float: left;
+    display: inline-block;
+    box-sizing: border-box;
+    border-bottom: 4px solid transparent;
+    border-right: 1px solid var(--menu-border-color);
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+#dialogue-view-menu li p {
+    height: inherit;
+    display: table-cell;
+    vertical-align: middle;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-family: var(--main-font);
+    cursor: pointer;
+}
+
+/* Utterance View */
+#diaglogue-view-utterances {
+    max-width: var(--max-content-width);
+    min-width: var(--min-content-width);
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+}
+
+#utterance-list {
+    list-style: none;
+}
+
+#utterance-list li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/*#utterance-list button {*/
+
+/*}*/
+
+.utt-btn {
+    max-width: 1000px;
+    margin: 2px 5px;
+    font-family: var(--main-font);
+    font-size: 16px;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid var(--dialogue-view-btn-border-color);
+    transition-duration: 0.3s;
+}
+
+.utt-btn:hover {
+    border-color: green;
+    background-color: green;
+    color: white;
+}
+
+.ap-tag-container {
+    max-width: 100px;
+    margin: 2px 5px;
+    font-family: var(--main-font);
+    font-size: 16px;
+    position: absolute;
+    right: -30%;
+}
+
+.da-tag-container {
+    max-width: 100px;
+    margin: 2px 5px;
+    font-family: var(--main-font);
+    font-size: 16px;
+    position: absolute;
+    right: -40%;
+}
+
+/* Dialogue View Buttons */
+#dialogue-view-buttons {
+    background-color: var(--dialogue-view-menu-bg-color);
+}
+
+.btn-bar {
+    width: 90%;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    display: flex;
+    /*align-items: center;*/
+    justify-content: center;
+    /*flex-direction: row;*/
+}
+
+.label-group {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.label-button {
+    display: block;
+    margin: 2px 5px;
+    font-family: var(--main-font);
+    font-size: 16px;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid black;
+    transition-duration: 0.3s;
+}
+
+.label-button:hover {
+    border-color: green;
+    background-color: green;
+    color: white;
+}

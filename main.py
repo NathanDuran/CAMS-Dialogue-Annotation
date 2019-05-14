@@ -8,10 +8,6 @@ def index():
     return render_template('index.html')
 
 
-# @app.route('/nav-bar')
-# def nav_bar():
-#     return render_template('nav-bar.html')
-
 @app.route('/home')
 def home_page():
     return render_template('home.html')
@@ -27,10 +23,13 @@ def practice_page():
     return render_template('practice.html')
 
 
-@app.route('/help')
-def help_page():
-    return render_template('help.html')
+@app.route('/annotate')
+def annotate_page():
+    return render_template('annotate.html')
 
+@app.context_processor
+def example():
+    return dict(myexample='This is an example')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)

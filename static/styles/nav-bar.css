@@ -36,7 +36,7 @@
     box-sizing: border-box;
     border-bottom: 4px solid transparent;
     border-right: 1px solid var(--menu-border-color);
-    transition: 0.1s;
+    transition-duration: 0.3s;
     cursor:pointer;
 }
 
@@ -56,7 +56,7 @@
 }
 
 /*Nav button colors*/
-#nav-menu #home.active-menu-btn {
+#nav-menu #home.active-nav-menu-btn {
     border-bottom: 4px solid var(--index-color);
 }
 
@@ -64,7 +64,7 @@
     border-bottom: 4px solid var(--index-color);
 }
 
-#nav-menu #schema.active-menu-btn {
+#nav-menu #schema.active-nav-menu-btn {
     border-bottom: 4px solid var(--schema-color);
 }
 
@@ -72,7 +72,7 @@
     border-bottom: 4px solid var(--schema-color);
 }
 
-#nav-menu #practice.active-menu-btn {
+#nav-menu #practice.active-nav-menu-btn {
     border-bottom: 4px solid var(--practice-color);
 }
 
@@ -80,10 +80,10 @@
     border-bottom: 4px solid var(--practice-color);
 }
 
-#nav-menu #help.active-menu-btn {
+#nav-menu #annotate.active-nav-menu-btn {
     border-bottom: 4px solid var(--help-color);
 }
 
-#nav-menu #help:hover {
+#nav-menu #annotate:hover {
     border-bottom: 4px solid var(--help-color);
 }
