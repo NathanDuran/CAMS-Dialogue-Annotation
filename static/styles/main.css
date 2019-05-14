@@ -19,7 +19,7 @@ body {
     background-color: whitesmoke;
 }
 
-.container {
+.content-container {
     max-width: var(--max-content-width);
     margin-right: auto;
     margin-left: auto;

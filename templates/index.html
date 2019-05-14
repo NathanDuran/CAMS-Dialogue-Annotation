@@ -7,20 +7,47 @@
     <script src="{{ url_for('static', filename='js/jquery-3.4.0.min.js') }}"></script>
     <!--<script src="../static/js/jquery-3.4.0.min.js"></script> For Local Dev -->
 </head>
-<body id="index">
-<!-- Navigation Bar -->
-<div id="nav-bar"></div>
+<body onload="loadContent()">
 
-<!-- Content -->
-<div class="container">
-    <h1 class="title">Conversation Analysis Dialogue Tagger</h1>
-    <p>Blah alskdfjlaksjdf a;lsdkfj</p>
+<!-- Navigation Bar -->
+<div id="nav-bar">
+    <div id="nav-menu">
+        <img src="../static/images/nd_logo.png" alt="ND Logo" width="60" height="60">
+        <ul>
+            <li id="home" class="active-menu-btn" onclick="navBtnClick(this)"><p>Home</p></li>
+            <li id="schema" onclick="navBtnClick(this)"><p>Schema</p></li>
+            <li id="practice" onclick="navBtnClick(this)"><p>Practice</p></li>
+            <li id="help" onclick="navBtnClick(this)"><p>Help</p></li>
+        </ul>
+    </div>
 </div>
 
+<!-- Content -->
+<div id="content"></div>
+
 <script>
-    $(function () {
-        $("#nav-bar").load("/nav-bar");
-    });
+
+    function navBtnClick(clickedBtn) {
+        // Remove current active-menu-btn class
+        var current = document.getElementsByClassName("active-menu-btn")[0];
+        current.classList.remove("active-menu-btn");
+        
+        // Set this one to active
+        clickedBtn.className = "active-menu-btn";
+
+        // Load the content div
+        loadContent(clickedBtn.id);
+    }
+
+    function loadContent(content) {
+        // On fiest page load content will be undefined
+        if (typeof content == "undefined"){
+            $("#content").load("/home");
+        }
+        else{
+            $("#content").load("/" + content);
+        }
+    }
 </script>
 </body>
 </html>

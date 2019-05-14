@@ -37,9 +37,10 @@
     border-bottom: 4px solid transparent;
     border-right: 1px solid var(--menu-border-color);
     transition: 0.1s;
+    cursor:pointer;
 }
 
-#nav-menu li a {
+#nav-menu li p {
     height: inherit;
     display: table-cell;
     vertical-align: middle;
@@ -47,6 +48,7 @@
     text-align: center;
     text-decoration: none;
     font-family: var(--main-font);
+    cursor:pointer;
 }
 
 #nav-menu li:last-child {
@@ -54,15 +56,15 @@
 }
 
 /*Nav button colors*/
-#nav-menu #index.active {
+#nav-menu #home.active-menu-btn {
     border-bottom: 4px solid var(--index-color);
 }
 
-#nav-menu #index:hover {
+#nav-menu #home:hover {
     border-bottom: 4px solid var(--index-color);
 }
 
-#nav-menu #schema.active {
+#nav-menu #schema.active-menu-btn {
     border-bottom: 4px solid var(--schema-color);
 }
 
@@ -70,7 +72,7 @@
     border-bottom: 4px solid var(--schema-color);
 }
 
-#nav-menu #practice.active {
+#nav-menu #practice.active-menu-btn {
     border-bottom: 4px solid var(--practice-color);
 }
 
@@ -78,7 +80,7 @@
     border-bottom: 4px solid var(--practice-color);
 }
 
-#nav-menu #help.active {
+#nav-menu #help.active-menu-btn {
     border-bottom: 4px solid var(--help-color);
 }
 

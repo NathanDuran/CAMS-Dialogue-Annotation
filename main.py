@@ -8,22 +8,26 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/nav-bar')
-def nav_bar():
-    return render_template('nav-bar.html')
+# @app.route('/nav-bar')
+# def nav_bar():
+#     return render_template('nav-bar.html')
+
+@app.route('/home')
+def home_page():
+    return render_template('home.html')
 
 
-@app.route('/Schema')
+@app.route('/schema')
 def schema_page():
     return render_template('schema.html')
 
 
-@app.route('/Practice')
+@app.route('/practice')
 def practice_page():
     return render_template('practice.html')
 
 
-@app.route('/Help')
+@app.route('/help')
 def help_page():
     return render_template('help.html')
 
