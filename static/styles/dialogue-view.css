@@ -1,6 +1,6 @@
 #dialogue-view {
     width: 100%;
-    max-height: 90vh;
+    max-height: 100vh;
     left: 0;
     top: 64px;
     position: fixed;
@@ -55,11 +55,10 @@
 }
 
 /* Utterance View */
-#diaglogue-view-utterances {
+#dialogue-view-utterances {
     max-width: var(--max-content-width);
     min-width: var(--min-content-width);
-    margin-right: auto;
-    margin-left: auto;
+    margin: auto;
     display: flex;
 }
 
@@ -98,19 +97,45 @@
     font-size: 16px;
 }
 
+.prev-next-btn {
+    margin: 0 10px;
+}
+
+.clear-btn {
+    width: 20px;
+    height: 20px;
+    padding-left: 1px;
+    border: 2px solid #e74c3c;
+    border-radius: 2px;
+    background-color: whitesmoke;
+    opacity: 0.6;
+    transition-duration: 0.3s;
+}
+
+.clear-btn:hover {
+    opacity: 1;
+}
+
+
+.clear-btn:active {
+    transform: translateY(2px);
+}
+
 /* Dialogue View Buttons */
 #dialogue-view-buttons {
     background-color: var(--dialogue-view-menu-bg-color);
+    /*position: fixed;*/
+    /*width: 100%;*/
+    /*bottom: 0;*/
 }
 
 .btn-bar {
     width: 90%;
     max-width: var(--max-content-width);
     margin: 0 auto;
+    padding: 5px;
     display: flex;
-    /*align-items: center;*/
     justify-content: center;
-    /*flex-direction: row;*/
 }
 
 .label-group {

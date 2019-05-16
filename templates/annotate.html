@@ -7,80 +7,16 @@
             </ul>
         </div>
     </div>
-    <div id="diaglogue-view-utterances">
-        <ul id="utterance-list"></ul>
+    <div id="dialogue-view-utterances">
+
     </div>
     <div id="dialogue-view-buttons">
-        <div id="ap-btn-bar" class="btn-bar">
 
-        </div>
-        <div id="da-btn-bar" class="btn-bar">
-
-        </div>
     </div>
 </div>
 
 
 <script>
-
-    $.getJSON("{{ url_for('static', filename='data/test.json') }}", function (dialogue) {
-        console.log(dialogue);
-
-        dialogue.utterances.forEach((utterance) => {
-            var utterance_node = document.createElement("li");
-
-            var utterance_btn = document.createElement("button");
-            utterance_btn.className = "utt-btn";
-            utterance_btn.innerHTML = utterance.speaker + ": " + utterance.text;
-
-
-            //var ap_text = document.createTextNode(utterance.ap_label);
-            var ap_text = document.createElement("label");
-            ap_text.className = "utt-label-container";
-            if (utterance.ap_label === "") {
-                ap_text.innerText = "AP-label";
-            } else {
-                ap_text.innerText = utterance.ap_label;
-            }
-
-
-            var da_text = document.createElement("label");
-            da_text.className = "utt-label-container";
-            if (utterance.da_label === "") {
-                da_text.innerText = "DA-label";
-            } else {
-                da_text.innerText = utterance.da_label;
-            }
-
-            utterance_node.appendChild(utterance_btn);
-            utterance_node.appendChild(ap_text);
-            utterance_node.appendChild(da_text);
-            document.getElementById("utterance-list").appendChild(utterance_node);
-
-        })
-    });
-
-    $.ajax({
-        url: "{{ url_for('static', filename='data/labels/ap_labels.txt') }}",
-        dataType: "text",
-        success: function (data) {
-            var lines = data.split('\n');
-            var group = [];
-
-            for (var i = 0; i < lines.length; i++) {
-
-                // If we are not on a blank line, add it to the group
-                if (lines[i].trim()) {
-                    group.push(lines[i]);
-
-                } else { // Else create button group
-
-                    createLabelBtnsGroup(group, document.getElementById("ap-btn-bar"));
-                    group = [];
-                }
-            }
-        }
-
-    });
-
+    buildDialogueViewUtterances(document.getElementById("dialogue-view-utterances"));
+    buildDialogueViewButtonBars(document.getElementById("dialogue-view-buttons"));
 </script>
