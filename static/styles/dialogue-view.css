@@ -1,23 +1,21 @@
 #dialogue-view {
     width: 100%;
-    max-height: 100vh;
-    left: 0;
-    top: 64px;
-    position: fixed;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     overflow: auto;
 }
 
 /* Dialogue View Menu */
 #dialogue-view-bar {
     background-color: var(--dialogue-view-menu-bg-color);
-    height: 64px;
-    position: relative;
+    display: flex;
+    flex: 0 1 64px;
 }
 
 #dialogue-view-menu {
     height: inherit;
     width: 90%;
-    max-width: var(--max-content-width);
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -64,13 +62,13 @@
 
 #utterance-list {
     list-style: none;
-    margin: auto;
     padding: inherit;
 }
 
 #utterance-list li {
     display: flex;
     align-items: center;
+    margin: 0 10px;
 }
 
 .utt-btn {
@@ -124,9 +122,6 @@
 /* Dialogue View Buttons */
 #dialogue-view-buttons {
     background-color: var(--dialogue-view-menu-bg-color);
-    /*position: fixed;*/
-    /*width: 100%;*/
-    /*bottom: 0;*/
 }
 
 .btn-bar {

@@ -1,392 +1,394 @@
-<h1 class="title" id="conversation-analysis-schema">Conversation Analysis Schema</h1>
+<div class="content">
+    <h1 class="title" id="conversation-analysis-schema">Conversation Analysis Schema</h1>
 
-<h1 id="overview">Overview</h1>
-<p>The Conversation Analysis (CA) schema aims to defines a domain agnostic
-    annotation scheme for dialogue that is aligned with the relevant theories from
-    within the CA literature and is also appropriate for computational modelling.
-    The schema defines both Adjacency Pairs (AP) and Dialogue Acts (DA) which
-    combine to form AP-types.</p>
-<p>There are 11 AP and the set includes FPP and SPP for <em>base</em>, <em>pre</em>, <em>post</em> and
-    <em>insert-expansions</em> as described by Liddicoat, (2007) and Sidnell, (2010).
-    Because dialogue does not always contain even numbers of utterances, there are
-    also single-labels (<em>pre</em>, <em>post</em> and <em>insert</em>) for utterances that do not
-    belong to conventional AP. These are closely related to the idea of
-    <em>minimal-expansions</em> (Schegloff, 2007), in that they are not designed to project
-    any further sequences of talk, but rather open, close or add to sequences
-    respectively.</p>
-<p>The set of 35 DA are derived from the Dialogue Act Mark-up Language (DiAML) as
-    defined in ISO 24617 (British Standards Institution, 2012). DiAML was developed
-    as an empirically and theoretically well founded, application independent, DA
-    annotation scheme and is also intended to be used by both human annotators and
-    automatic annotation methods. The two components of each DA are the <em>semantic
-        content</em> and <em>communicative function</em>. The semantic content specifies objects,
-    propositions and events that the dialogue act is about; the communicative
-    function specifies of the way an addressee should use the semantic content to
-    update the information state (Bunt <em>et al.</em>, 2012).</p>
-<h1 id="contents">Contents</h1>
-<h2 id="-adjacency-pairs-adjacency-pairs-"><a href="#adjacency-pairs">Adjacency Pairs</a></h2>
-<p><a href="#base">Base</a></p>
-<p><a href="#expansions">Expansions</a></p>
-<p><a href="#minimal-expansions">Minimal-expansions</a></p>
-<h2 id="-dialogue-acts-dialogue-acts-"><a href="#dialogue-acts">Dialogue Acts</a></h2>
-<p><a href="#information-seeking-functions">Information-seeking Functions</a></p>
-<p><a href="#information-providing-functions">Information-providing Functions</a></p>
-<p><a href="#commissive-functions">Commissive Functions</a></p>
-<p><a href="#directive-functions">Directive Functions</a></p>
-<p><a href="#feedback-functions">Feedback Functions</a></p>
-<p><a href="#time-management-functions">Time Management Functions</a></p>
-<p><a href="#own-and-partner-communication-management-functions">Own and Partner Communication Management
-    Functions</a></p>
-<p><a href="#social-obligations-management-functions">Social Obligations Management Functions</a></p>
-<h2 id="-reference-list-references-"><a href="#references">Reference List</a></h2>
-<h1 id="adjacency-pairs">Adjacency Pairs</h1>
-<p>Adjacency pairs are the basic units on which sequences in conversation are
-    built. Their core features are:</p>
-<ol>
-    <li><p>Consist of two turns by different speakers.</p>
-    </li>
-    <li><p>Placed next to each other in basic (unexpanded) form, i.e. without an
-        <em>expansion</em>.</p>
-    </li>
-    <li><p>Are ordered, so that one always occurs after another. Initiation of a
-        sequence is a <em>First Pair Part</em> (FPP) and the response <em>Second Pair Part</em>
-        (SPP).</p>
-    </li>
-    <li><p>Differentiated into AP-types. The relationship between FPP and SPP is
-        constrained by the type of FPP produced i.e. a <em>question</em> followed by an
-        <em>answer</em>.</p>
-    </li>
-</ol>
-<h2 id="base">Base</h2>
-<p>The basic sequence is composed of two ordered turns at talk, the FPP and SPP.
-    Participants in conversation orient to this basic sequence structure in
-    developing their talk and AP have a normative force in organizing conversation
-    in that AP set up expectations about how talk will proceed.</p>
-<p><strong>Labels:</strong> <em>FPP-base, SPP-base</em></p>
-<p><strong>Example:</strong></p>
-<p>A: What time is it? &emsp; <em>FPP-base - setQuestion</em></p>
-<p>B: Three o’ clock. &emsp; <em>SPP-base - answer</em></p>
-<h2 id="expansions">Expansions</h2>
-<p>Expansion allow talk which is made up of more than a single AP to be constructed
-    and understood as performing the same basic action and the various additional
-    elements are seen as doing interactional work related to the basic action under
-    way. Sequence expansion is constructed in relation to a base sequence of an FPP
-    and an SPP in which the core action under way is achieved.</p>
-<h3 id="pre-expansions">Pre-Expansions</h3>
-<p>Pre-expansions are designed to be preliminary to some projected base sequence
-    and are hearable by participants as preludes to some other action.</p>
-<p><strong>Labels:</strong> <em>FPP-pre, SPP-pre</em></p>
-<p><strong>Example:</strong></p>
-<p>A: What you doing? &emsp; <em>FPP-pre - setQuestion</em></p>
-<p>B: Not much. &emsp;&emsp;&emsp;&emsp; <em>SPP-pre - answer</em></p>
-<p>&emsp; A: Wanna drink? &emsp;&emsp; <em>FPP-base - propositionalQuestion</em></p>
-<p>&emsp; B: Sure. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>SPP-base - confirm</em></p>
-<h3 id="insert-expansions">Insert-expansions</h3>
-<p>Insert-expansions occur between base adjacency pairs and separates the FPP and
-    SPP. Insert-expansions interrupt the activity previously underway but are still
-    relevant to that action and allows the second speaker (who must produce the base
-    SPP), to do interactional work relevant to the base SPP. Insert expansion is
-    realised through a sequence of its own and is launched by a FPP from the second
-    speaker which requires a SPP for completion. Once the sequence is completed the
-    base SPP once again becomes relevant as the next action.</p>
-<p><strong>Labels:</strong> <em>FPP-insert, SPP-insert</em></p>
-<p><strong>Example:</strong></p>
-<p>A: Do you know the directions? &emsp; <em>FPP-base - setQuestion</em></p>
-<p>&emsp; B: You driving or walking? &emsp;&emsp;&emsp;&emsp; <em>FPP-insert - choiceQuestion</em></p>
-<p>&emsp; A: Walking. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>SPP-insert - answer</em></p>
-<p>B: Get on the subway. &emsp;&emsp;&emsp;&emsp; <em>SPP-base - answer</em></p>
-<h3 id="post-expansions">Post-expansions</h3>
-<p>Sequences are also potentially expandable after the completion of the base SPP.
-    Once an SPP has been completed, the sequence is potentially complete: the action
-    launched by the FPP has run its course and a new action could appropriately be
-    begun. However, it is also possible for talk to occur after the SPP which is
-    recognizably associated with the preceding sequence. That is, it is possible for
-    sequences to be expanded after their SPP.</p>
-<p><strong>Labels:</strong> <em>FPP-post, SPP-post</em></p>
-<p><strong>Example:</strong></p>
-<p>A: What is the weather like today in tomorrow? &emsp; <em>FPP-base - setQuestion</em></p>
-<p>B: Forecast for cloudy skies today. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>SPP-base - answer</em></p>
-<p>&emsp; A: Okay. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<em>FPP-post
-    - autoPositive</em></p>
-<p>&emsp; B: No problem. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-    <em>SPP-post - acceptThanking</em></p>
-<h2 id="minimal-expansions">Minimal-expansions</h2>
-<p>Minimal-expansion involves the addition of one additional turn to a sequence.
-    The turn which is added is designed not to project any further within-sequence
-    talk beyond itself; that is, it is designed to constitute a minimal expansion
-    before, during or after the pair part. The primary role is to allow for
-    additional turns that behave as expansions but consist only of one turn.</p>
-<p><strong>Labels:</strong> <em>Pre, Insert, Post</em></p>
-<p><strong>Example:</strong></p>
-<p>A: When is my dentist appointment? &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>FPP-base - setQuestion</em></p>
-<p>&emsp; A: Who am I going with? &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>Insert
-    - setQuestion</em></p>
-<p>B: The appointment is at 11 am with your Aunt. &emsp; <em>SPP-base - answer</em></p>
-<p>A: Thanks. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-    <em>Post - thanking</em></p>
-<h1 id="dialogue-acts">Dialogue Acts</h1>
-<p>An utterances DA describes not just its meaning, but the speakers intentions in
-    the wider context of the conversation, and therefore, facilitate the
-    computational modelling of communicative behaviour in dialogue (Bunt <em>et al.</em>,
-    2012). The following DA are aligned with DiAML (ISO 24617-2) (British Standards
-    Institution, 2012) and are arranged into eight categories according to their
-    function.</p>
-<h2 id="information-seeking-functions">Information-seeking Functions</h2>
-<h3 id="propositionalquestion">propositionalQuestion</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    know whether the proposition, which forms the semantic content, is true. S
-    assumes that A knows whether the proposition is true or not and puts pressure on
-    A to provide this information.</p>
-<p>A propositional question corresponds to what is commonly termed a YN-question in
-    the linguistic literature. This standard prefers the term ‘propositional
-    question’ because the term ‘YN-Question’ carries the suggestion that this kind
-    of question can only be answered by ‘yes’ or ‘no’, which is not the case.</p>
-<p><strong>Example:</strong> “Does the meeting start at ten?”</p>
-<h3 id="setquestion">setQuestion</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    know which elements of a given set have a certain property specified by the
-    semantic content; S puts pressure on the addressee, A, to provide this
-    information, which S assumes that A possesses. S believes that at least one
-    element of the set has that property.</p>
-<p>A set question corresponds to what is commonly termed a WH- question in the
-    linguistic literature. The term ‘set question’ is preferred because: (a) it
-    clearly separates form from function by removing any oblique reference to
-    syntactic criteria for the identification of such acts; and (b) it is not a
-    language specific term (it may be further noted that even in English, not all
-    questioning words begin with ’wh’, e.g. “How?”).</p>
-<p><strong>Example:</strong> “What time does the meeting start?”; “How far is it to the
-    station?”</p>
-<h3 id="choicequestion">choiceQuestion</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    know which one from a list of alternative propositions, specified by the
-    semantic content, is true; S believes that exactly one element of that list is
-    true; S assumes that the addressee, A, knows which of the alternative
-    propositions is true, and S puts pressure on A to provide this information.</p>
-<p>It is not very common in annotation schemes to specifically distinguish the
-    concept of choice questions from that of set questions. However, whereas it is
-    common for the concept set question to carry the expectation that all members of
-    the set with a given property should be returned by the addressee, for a choice-
-    question the expectation is that there will be exactly one. The different
-    preconditions and effects indicate that these are semantically different
-    concepts, and they have been treated here as such.</p>
-<p><strong>Example:</strong> “Should the telephone cable go in telephone line or in external
-    line?”</p>
-<h3 id="checkquestion">checkQuestion</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    know whether a proposition, which forms the semantic content, is true, S holds
-    the uncertain belief that it is true S. S assumes that A knows whether the
-    proposition is true or not and puts pressure on A to provide this information.</p>
-<p><strong>Example:</strong> “The meeting starts at ten, right?”</p>
-<h2 id="information-providing-functions">Information-providing Functions</h2>
-<h3 id="inform">inform</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    make the information contained in the semantic content known to the addressee,
-    A; S assumes that the information is correct.</p>
-<p>The inform function may also have more specific rhetorical functions such as:
-    explain, elaborate, exemplify and justify; this is treated in this standard by
-    means of rhetorical relations.</p>
-<p><strong>Example:</strong> “The 6.34 to Breda leaves from platform 2.”</p>
-<h3 id="answer">answer</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    make certain information available to the addressee, A, which S believes A wants
-    to know; S assumes that this information is correct.</p>
-<p><strong>Example:</strong></p>
-<p>S: “what does the display say?”</p>
-<p>A: “Send error document ready”</p>
-<h3 id="agreement">agreement</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    inform the addressee, A that S assumes a given proposition to be true, which S
-    believes that A also assumes to be true.</p>
-<p>DAMSL and SWBD-DAMSL use “Agreement” to refer to various degrees in which some
-    previous proposal, plan, opinion or statement is accepted; “accept” is one of
-    these degrees; “reject” is another.</p>
-<p><strong>Example:</strong> “Exactly”</p>
-<h3 id="disagreement">disagreement</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    inform the addressee, A that S assumes a given proposition to be false, which S
-    believes that A assumes to be true.</p>
-<p>DAMSL and SWBD-DAMSL use “Agreement” to refer to various degrees in which a
-    speaker accepts some previous proposal, plan, opinion or statement; “accept” is
-    one of these degrees; “reject” is another.</p>
-<p><strong>Example:</strong></p>
-<p>S: “Do you know where to find ink saving?”</p>
-<p>A: “ehm... oh I think to the left of the ink cartridge”</p>
-<p>S: “ehm... no”</p>
-<h3 id="correction">correction</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    inform the addressee, A, that certain information which S has reason to believe
-    that A assumes to be correct, is in fact incorrect and that instead the
-    information that S provides is correct.</p>
-<p><strong>Example:</strong> “To Montreal, not to Ottawa.”</p>
-<h3 id="confirm">confirm</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    inform the addressee, A, that certain information that A wants to know, and
-    concerning which A holds an uncertain belief, is indeed correct.</p>
-<p><strong>Example:</strong> “Indeed”</p>
-<h3 id="disconfirm">disconfirm</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    let the addressee, A, know that certain information that A wants to know, and
-    concerning which A holds an uncertain belief, is incorrect.</p>
-<p><strong>Example:</strong> “Nope”</p>
-<h2 id="commissive-functions">Commissive Functions</h2>
-<h3 id="offer">offer</h3>
-<p>Communicative function of a dialogue act by which the sender, S, indicates his
-    willingness and ability to perform the action, specified by the semantic
-    content, conditional on the consent of addressee A that S do so.</p>
-<p><strong>Example:</strong> “I will look that up for you”</p>
-<h3 id="addressrequest">addressRequest</h3>
-<p>Communicative function of a dialogue act by which the sender, S, indicates that
-    he considers the performance of an action that he was requested to perform.</p>
-<p>The addressRequest function covers a range of possible responses to a request.
-    If the response does not express a condition, then the sender commits himself
-    unconditionally to perform the requested action; this is the special case of
-    acceptRequest. If the condition is specified that the action be performed zero
-    times, then the sender in fact declines to perform the requested action (as he
-    commits him- self to not perform the action). See also the data categories for
-    the qualifiers /conditional/ and /partial/</p>
-<p><strong>Example:</strong></p>
-<p>A: “Please give me the gun.”</p>
-<p>S: “If you push the bag to me.”</p>
-<h3 id="acceptrequest">acceptRequest</h3>
-<p>Communicative function of a dialogue act by which the sender, S, commits himself
-    to perform an action that he has been requested to perform, possibly depending
-    on certain conditions that he makes explicit.</p>
-<p><strong>Example:</strong> “Sure”</p>
-<h3 id="declinerequest">declineRequest</h3>
-<p>Communicative function of a dialogue act by which the sender, S, indicates that
-    he refuses to perform an action that he has been re- quested to perform,
-    possibly depending on certain conditions that he makes explicit.</p>
-<p><strong>Example:</strong> “Not now”</p>
-<h3 id="addresssuggest">addressSuggest</h3>
-<p>Communicative function of a dialogue act by which the sender, S, indicates that
-    he considers performing an action that was suggested to him, possibly depending
-    on certain conditions that he makes explicit.</p>
-<p><strong>Example:</strong></p>
-<p>A: “Let’s go there together.”</p>
-<p>S: “Only if we’re in full agreement about the way to proceed when we get there.”</p>
-<h3 id="acceptsuggest">acceptSuggest</h3>
-<p>Communicative function of a dialogue act by which the sender, S, commits himself
-    to perform an action that was suggested to him, possibly with certain
-    restrictions or conditions concerning manner or frequency of performance.</p>
-<p><strong>Example:</strong> “Let’s do that”</p>
-<h3 id="declinesuggest">declineSuggest</h3>
-<p>Communicative function of a dialogue act by which the sender, S, indicates that
-    he will not perform an action that was suggested to him, possibly depending on
-    certain conditions that he makes explicit.</p>
-<p><strong>Example:</strong> “I don’t think so”</p>
-<h2 id="directive-functions">Directive Functions</h2>
-<h3 id="request">request</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    create a commitment for the addressee, A, to perform a certain action in the
-    manner or with the frequency described by the semantic content, conditional on
-    A’s consent to perform the action. S assumes that A is able to perform this
-    action.</p>
-<p><strong>Example:</strong> “Please turn to page five”; “Please don’t do this ever again”;
-    “Please drive very carefully”.</p>
-<h3 id="suggest">suggest</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    make the addressee, A, consider the performance of a certain action, specified
-    by the semantic content, S believes that this action is in A’s interest, and
-    assumes that A is able to perform the action.</p>
-<p><strong>Example:</strong> “Let’s wait for the speaker to finish.”</p>
-<h3 id="addressoffer">addressOffer</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    indicate that he is considering the possibility that A performs the action.</p>
-<p><strong>Example:</strong> “That would be good!”</p>
-<h3 id="acceptoffer">acceptOffer</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    inform the addressee, A, that S would like A to perform the action that A has
-    offered to perform, possibly with certain conditions that he makes explicit.</p>
-<p><strong>Example:</strong> “Yes please”</p>
-<h3 id="declineoffer">declineOffer</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    inform the addressee, A, that S does not want A to perform the action that A has
-    offered to perform, possibly depending on certain conditions that he makes
-    explicit.</p>
-<p><strong>Example:</strong> “No thank you”</p>
-<h2 id="feedback-functions">Feedback Functions</h2>
-<h3 id="autopositive">autoPositive</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    inform the addressee, A that S believes that S’s processing of the previous
-    utterance(s) was successful.</p>
-<p>Feedback mostly concerns the processing of the last utterance from the
-    addressee, but sometimes, especially in the case of positive feed- back, it
-    concerns a longer stretch of dialogue.</p>
-<p><strong>Example:</strong> “Uh-huh”; “Okay”; “Yes”</p>
-<h3 id="autonegative">autoNegative</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    inform the addressee, A that S’s processing of the previous utterance(s)
-    encountered a problem.</p>
-<p><strong>Example:</strong> “Sorry?”; “What?”</p>
-<h2 id="time-management-functions">Time Management Functions</h2>
-<h3 id="stalling-pausing-">stalling (pausing)</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    have a little extra time to construct his contribution or to suspend the
-    dialogue for a short while.</p>
-<p>Pausing occurs either in preparation of continuing the dialogue, or because
-    something else came up which is more urgent for the sender to attend to.</p>
-<p><strong>Example: “</strong>Let me see...”; “Ehm...”; “Just a moment”</p>
-<h2 id="own-and-partner-communication-management-functions">Own and Partner Communication Management Functions</h2>
-<h3 id="retraction-abandon-">retraction (abandon)</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    withdraw something that he just said within the same turn.</p>
-<p><strong>Example:</strong> “then we’re going to g– ”</p>
-<h2 id="social-obligations-management-functions">Social Obligations Management Functions</h2>
-<h3 id="initialgreeting">initialGreeting</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    inform the addressee, A that S is present and aware of A’s presence; S puts
-    pressure on A to acknowledge this.</p>
-<p>Greetings usually come in initiative-response pairs within a dialogue; this data
-    category corresponds to the first element of such a pair.</p>
-<p><strong>Example:</strong> “Hello!”; “Good morning”</p>
-<h3 id="returngreeting">returnGreeting</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    acknowledge that S is aware of the presence of the addressee, A, and of A having
-    signalled his presence to S.</p>
-<h3 id="initialgoodbye">initialGoodbye</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    inform the addressee, A, that S intends the current utterance to be his final
-    contribution to the dialogue; S puts pressure on A to acknowledge this.</p>
-<p>Goodbyes usually come in initiative-response pairs within a dialogue; this data
-    category corresponds to the second element of such a pair. Initial and return
-    goodbyes are commonly used to close a dialogue</p>
-<p><strong>Example:</strong> “Bye bye, see you later”</p>
-<h3 id="returngoodbye">returnGoodbye</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    acknowledge his awareness that the addressee, A, has signalled his final
-    contribution to the dialogue and S signals in return his agreement to end the
-    dialogue; S has been pressured to respond to an initialGoodbye by A.</p>
-<p><strong>Example: “</strong>Bye bye, see you.”</p>
-<h3 id="thanking">thanking</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    inform the addressee, A, that S is grateful for some action performed by A; S
-    puts pressure on A to acknowledge this.</p>
-<p>Utterances used for thanking often also indicate that the sender wants to end
-    the dialogue.</p>
-<p><strong>Example:</strong> “Thanks a lot.”</p>
-<h3 id="acceptthanking">acceptThanking</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    mitigate to the feelings of gratitude which the addressee, A’, has expressed.</p>
-<p><strong>Example:</strong> “Don’t mention it”</p>
-<h3 id="apology">apology</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    signal that he wants the addressee, A, to know that S regrets something; S puts
-    pressure on A to acknowledge this.</p>
-<p><strong>Example:</strong> “Sorry about that.”</p>
-<h3 id="acceptapology">acceptApology</h3>
-<p>Communicative function of a dialogue act performed by the sender, S, in order to
-    mitigate, the feelings of regret that the addressee, A, has expressed.</p>
-<p><strong>Example: “</strong>No problem.”</p>
-<h1 id="references">References</h1>
-<p>British Standards Institution (2012) ‘ISO 24617-2: Language Resource Management
-    <em>-</em> Semantic Annotation Framework (SemAF) Part 2: Dialogue acts’. British
-    Standards Institution.</p>
-<p>Bunt, H. <em>et al.</em> (2012) ‘ISO 24617-2 : A Semantically-based Standard for
-    Dialogue Annotation’, in <em>Proceedings of LREC 2012</em>, pp. 430–437.</p>
-<p>Liddicoat, A. J. (2007) <em>An Introduction to Conversation Analysis</em>. London:
-    Continuum.</p>
-<p>Schegloff, E. A. (2007) <em>Sequence Oranization in Interaction: A Primer in
-    Conversation Analysis I</em>. Cambridge: Cambridge University Press. doi:
-    10.1017/CBO9780511791208.</p>
-<p>Sidnell, J. (2010) <em>Conversation Analysis - An Introduction</em>. Whiley-Blackwell.
-    doi: 10.1093/acrefore/9780199384655.013.40.</p>
+    <h1 id="overview">Overview</h1>
+    <p>The Conversation Analysis (CA) schema aims to defines a domain agnostic
+        annotation scheme for dialogue that is aligned with the relevant theories from
+        within the CA literature and is also appropriate for computational modelling.
+        The schema defines both Adjacency Pairs (AP) and Dialogue Acts (DA) which
+        combine to form AP-types.</p>
+    <p>There are 11 AP and the set includes FPP and SPP for <em>base</em>, <em>pre</em>, <em>post</em> and
+        <em>insert-expansions</em> as described by Liddicoat, (2007) and Sidnell, (2010).
+        Because dialogue does not always contain even numbers of utterances, there are
+        also single-labels (<em>pre</em>, <em>post</em> and <em>insert</em>) for utterances that do not
+        belong to conventional AP. These are closely related to the idea of
+        <em>minimal-expansions</em> (Schegloff, 2007), in that they are not designed to project
+        any further sequences of talk, but rather open, close or add to sequences
+        respectively.</p>
+    <p>The set of 35 DA are derived from the Dialogue Act Mark-up Language (DiAML) as
+        defined in ISO 24617 (British Standards Institution, 2012). DiAML was developed
+        as an empirically and theoretically well founded, application independent, DA
+        annotation scheme and is also intended to be used by both human annotators and
+        automatic annotation methods. The two components of each DA are the <em>semantic
+            content</em> and <em>communicative function</em>. The semantic content specifies objects,
+        propositions and events that the dialogue act is about; the communicative
+        function specifies of the way an addressee should use the semantic content to
+        update the information state (Bunt <em>et al.</em>, 2012).</p>
+    <h1 id="contents">Contents</h1>
+    <h2 id="-adjacency-pairs-adjacency-pairs-"><a href="#adjacency-pairs">Adjacency Pairs</a></h2>
+    <p><a href="#base">Base</a></p>
+    <p><a href="#expansions">Expansions</a></p>
+    <p><a href="#minimal-expansions">Minimal-expansions</a></p>
+    <h2 id="-dialogue-acts-dialogue-acts-"><a href="#dialogue-acts">Dialogue Acts</a></h2>
+    <p><a href="#information-seeking-functions">Information-seeking Functions</a></p>
+    <p><a href="#information-providing-functions">Information-providing Functions</a></p>
+    <p><a href="#commissive-functions">Commissive Functions</a></p>
+    <p><a href="#directive-functions">Directive Functions</a></p>
+    <p><a href="#feedback-functions">Feedback Functions</a></p>
+    <p><a href="#time-management-functions">Time Management Functions</a></p>
+    <p><a href="#own-and-partner-communication-management-functions">Own and Partner Communication Management
+        Functions</a></p>
+    <p><a href="#social-obligations-management-functions">Social Obligations Management Functions</a></p>
+    <h2 id="-reference-list-references-"><a href="#references">Reference List</a></h2>
+    <h1 id="adjacency-pairs">Adjacency Pairs</h1>
+    <p>Adjacency pairs are the basic units on which sequences in conversation are
+        built. Their core features are:</p>
+    <ol>
+        <li><p>Consist of two turns by different speakers.</p>
+        </li>
+        <li><p>Placed next to each other in basic (unexpanded) form, i.e. without an
+            <em>expansion</em>.</p>
+        </li>
+        <li><p>Are ordered, so that one always occurs after another. Initiation of a
+            sequence is a <em>First Pair Part</em> (FPP) and the response <em>Second Pair Part</em>
+            (SPP).</p>
+        </li>
+        <li><p>Differentiated into AP-types. The relationship between FPP and SPP is
+            constrained by the type of FPP produced i.e. a <em>question</em> followed by an
+            <em>answer</em>.</p>
+        </li>
+    </ol>
+    <h2 id="base">Base</h2>
+    <p>The basic sequence is composed of two ordered turns at talk, the FPP and SPP.
+        Participants in conversation orient to this basic sequence structure in
+        developing their talk and AP have a normative force in organizing conversation
+        in that AP set up expectations about how talk will proceed.</p>
+    <p><strong>Labels:</strong> <em>FPP-base, SPP-base</em></p>
+    <p><strong>Example:</strong></p>
+    <p>A: What time is it? &emsp; <em>FPP-base - setQuestion</em></p>
+    <p>B: Three o’ clock. &emsp; <em>SPP-base - answer</em></p>
+    <h2 id="expansions">Expansions</h2>
+    <p>Expansion allow talk which is made up of more than a single AP to be constructed
+        and understood as performing the same basic action and the various additional
+        elements are seen as doing interactional work related to the basic action under
+        way. Sequence expansion is constructed in relation to a base sequence of an FPP
+        and an SPP in which the core action under way is achieved.</p>
+    <h3 id="pre-expansions">Pre-Expansions</h3>
+    <p>Pre-expansions are designed to be preliminary to some projected base sequence
+        and are hearable by participants as preludes to some other action.</p>
+    <p><strong>Labels:</strong> <em>FPP-pre, SPP-pre</em></p>
+    <p><strong>Example:</strong></p>
+    <p>A: What you doing? &emsp; <em>FPP-pre - setQuestion</em></p>
+    <p>B: Not much. &emsp;&emsp;&emsp;&emsp; <em>SPP-pre - answer</em></p>
+    <p>&emsp; A: Wanna drink? &emsp;&emsp; <em>FPP-base - propositionalQuestion</em></p>
+    <p>&emsp; B: Sure. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>SPP-base - confirm</em></p>
+    <h3 id="insert-expansions">Insert-expansions</h3>
+    <p>Insert-expansions occur between base adjacency pairs and separates the FPP and
+        SPP. Insert-expansions interrupt the activity previously underway but are still
+        relevant to that action and allows the second speaker (who must produce the base
+        SPP), to do interactional work relevant to the base SPP. Insert expansion is
+        realised through a sequence of its own and is launched by a FPP from the second
+        speaker which requires a SPP for completion. Once the sequence is completed the
+        base SPP once again becomes relevant as the next action.</p>
+    <p><strong>Labels:</strong> <em>FPP-insert, SPP-insert</em></p>
+    <p><strong>Example:</strong></p>
+    <p>A: Do you know the directions? &emsp; <em>FPP-base - setQuestion</em></p>
+    <p>&emsp; B: You driving or walking? &emsp;&emsp;&emsp;&emsp; <em>FPP-insert - choiceQuestion</em></p>
+    <p>&emsp; A: Walking. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>SPP-insert - answer</em></p>
+    <p>B: Get on the subway. &emsp;&emsp;&emsp;&emsp; <em>SPP-base - answer</em></p>
+    <h3 id="post-expansions">Post-expansions</h3>
+    <p>Sequences are also potentially expandable after the completion of the base SPP.
+        Once an SPP has been completed, the sequence is potentially complete: the action
+        launched by the FPP has run its course and a new action could appropriately be
+        begun. However, it is also possible for talk to occur after the SPP which is
+        recognizably associated with the preceding sequence. That is, it is possible for
+        sequences to be expanded after their SPP.</p>
+    <p><strong>Labels:</strong> <em>FPP-post, SPP-post</em></p>
+    <p><strong>Example:</strong></p>
+    <p>A: What is the weather like today in tomorrow? &emsp; <em>FPP-base - setQuestion</em></p>
+    <p>B: Forecast for cloudy skies today. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>SPP-base - answer</em></p>
+    <p>&emsp; A: Okay. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<em>FPP-post
+        - autoPositive</em></p>
+    <p>&emsp; B: No problem. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+        <em>SPP-post - acceptThanking</em></p>
+    <h2 id="minimal-expansions">Minimal-expansions</h2>
+    <p>Minimal-expansion involves the addition of one additional turn to a sequence.
+        The turn which is added is designed not to project any further within-sequence
+        talk beyond itself; that is, it is designed to constitute a minimal expansion
+        before, during or after the pair part. The primary role is to allow for
+        additional turns that behave as expansions but consist only of one turn.</p>
+    <p><strong>Labels:</strong> <em>Pre, Insert, Post</em></p>
+    <p><strong>Example:</strong></p>
+    <p>A: When is my dentist appointment? &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>FPP-base - setQuestion</em></p>
+    <p>&emsp; A: Who am I going with? &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <em>Insert
+        - setQuestion</em></p>
+    <p>B: The appointment is at 11 am with your Aunt. &emsp; <em>SPP-base - answer</em></p>
+    <p>A: Thanks. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+        <em>Post - thanking</em></p>
+    <h1 id="dialogue-acts">Dialogue Acts</h1>
+    <p>An utterances DA describes not just its meaning, but the speakers intentions in
+        the wider context of the conversation, and therefore, facilitate the
+        computational modelling of communicative behaviour in dialogue (Bunt <em>et al.</em>,
+        2012). The following DA are aligned with DiAML (ISO 24617-2) (British Standards
+        Institution, 2012) and are arranged into eight categories according to their
+        function.</p>
+    <h2 id="information-seeking-functions">Information-seeking Functions</h2>
+    <h3 id="propositionalquestion">propositionalQuestion</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        know whether the proposition, which forms the semantic content, is true. S
+        assumes that A knows whether the proposition is true or not and puts pressure on
+        A to provide this information.</p>
+    <p>A propositional question corresponds to what is commonly termed a YN-question in
+        the linguistic literature. This standard prefers the term ‘propositional
+        question’ because the term ‘YN-Question’ carries the suggestion that this kind
+        of question can only be answered by ‘yes’ or ‘no’, which is not the case.</p>
+    <p><strong>Example:</strong> “Does the meeting start at ten?”</p>
+    <h3 id="setquestion">setQuestion</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        know which elements of a given set have a certain property specified by the
+        semantic content; S puts pressure on the addressee, A, to provide this
+        information, which S assumes that A possesses. S believes that at least one
+        element of the set has that property.</p>
+    <p>A set question corresponds to what is commonly termed a WH- question in the
+        linguistic literature. The term ‘set question’ is preferred because: (a) it
+        clearly separates form from function by removing any oblique reference to
+        syntactic criteria for the identification of such acts; and (b) it is not a
+        language specific term (it may be further noted that even in English, not all
+        questioning words begin with ’wh’, e.g. “How?”).</p>
+    <p><strong>Example:</strong> “What time does the meeting start?”; “How far is it to the
+        station?”</p>
+    <h3 id="choicequestion">choiceQuestion</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        know which one from a list of alternative propositions, specified by the
+        semantic content, is true; S believes that exactly one element of that list is
+        true; S assumes that the addressee, A, knows which of the alternative
+        propositions is true, and S puts pressure on A to provide this information.</p>
+    <p>It is not very common in annotation schemes to specifically distinguish the
+        concept of choice questions from that of set questions. However, whereas it is
+        common for the concept set question to carry the expectation that all members of
+        the set with a given property should be returned by the addressee, for a choice-
+        question the expectation is that there will be exactly one. The different
+        preconditions and effects indicate that these are semantically different
+        concepts, and they have been treated here as such.</p>
+    <p><strong>Example:</strong> “Should the telephone cable go in telephone line or in external
+        line?”</p>
+    <h3 id="checkquestion">checkQuestion</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        know whether a proposition, which forms the semantic content, is true, S holds
+        the uncertain belief that it is true S. S assumes that A knows whether the
+        proposition is true or not and puts pressure on A to provide this information.</p>
+    <p><strong>Example:</strong> “The meeting starts at ten, right?”</p>
+    <h2 id="information-providing-functions">Information-providing Functions</h2>
+    <h3 id="inform">inform</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        make the information contained in the semantic content known to the addressee,
+        A; S assumes that the information is correct.</p>
+    <p>The inform function may also have more specific rhetorical functions such as:
+        explain, elaborate, exemplify and justify; this is treated in this standard by
+        means of rhetorical relations.</p>
+    <p><strong>Example:</strong> “The 6.34 to Breda leaves from platform 2.”</p>
+    <h3 id="answer">answer</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        make certain information available to the addressee, A, which S believes A wants
+        to know; S assumes that this information is correct.</p>
+    <p><strong>Example:</strong></p>
+    <p>S: “what does the display say?”</p>
+    <p>A: “Send error document ready”</p>
+    <h3 id="agreement">agreement</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        inform the addressee, A that S assumes a given proposition to be true, which S
+        believes that A also assumes to be true.</p>
+    <p>DAMSL and SWBD-DAMSL use “Agreement” to refer to various degrees in which some
+        previous proposal, plan, opinion or statement is accepted; “accept” is one of
+        these degrees; “reject” is another.</p>
+    <p><strong>Example:</strong> “Exactly”</p>
+    <h3 id="disagreement">disagreement</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        inform the addressee, A that S assumes a given proposition to be false, which S
+        believes that A assumes to be true.</p>
+    <p>DAMSL and SWBD-DAMSL use “Agreement” to refer to various degrees in which a
+        speaker accepts some previous proposal, plan, opinion or statement; “accept” is
+        one of these degrees; “reject” is another.</p>
+    <p><strong>Example:</strong></p>
+    <p>S: “Do you know where to find ink saving?”</p>
+    <p>A: “ehm... oh I think to the left of the ink cartridge”</p>
+    <p>S: “ehm... no”</p>
+    <h3 id="correction">correction</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        inform the addressee, A, that certain information which S has reason to believe
+        that A assumes to be correct, is in fact incorrect and that instead the
+        information that S provides is correct.</p>
+    <p><strong>Example:</strong> “To Montreal, not to Ottawa.”</p>
+    <h3 id="confirm">confirm</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        inform the addressee, A, that certain information that A wants to know, and
+        concerning which A holds an uncertain belief, is indeed correct.</p>
+    <p><strong>Example:</strong> “Indeed”</p>
+    <h3 id="disconfirm">disconfirm</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        let the addressee, A, know that certain information that A wants to know, and
+        concerning which A holds an uncertain belief, is incorrect.</p>
+    <p><strong>Example:</strong> “Nope”</p>
+    <h2 id="commissive-functions">Commissive Functions</h2>
+    <h3 id="offer">offer</h3>
+    <p>Communicative function of a dialogue act by which the sender, S, indicates his
+        willingness and ability to perform the action, specified by the semantic
+        content, conditional on the consent of addressee A that S do so.</p>
+    <p><strong>Example:</strong> “I will look that up for you”</p>
+    <h3 id="addressrequest">addressRequest</h3>
+    <p>Communicative function of a dialogue act by which the sender, S, indicates that
+        he considers the performance of an action that he was requested to perform.</p>
+    <p>The addressRequest function covers a range of possible responses to a request.
+        If the response does not express a condition, then the sender commits himself
+        unconditionally to perform the requested action; this is the special case of
+        acceptRequest. If the condition is specified that the action be performed zero
+        times, then the sender in fact declines to perform the requested action (as he
+        commits him- self to not perform the action). See also the data categories for
+        the qualifiers /conditional/ and /partial/</p>
+    <p><strong>Example:</strong></p>
+    <p>A: “Please give me the gun.”</p>
+    <p>S: “If you push the bag to me.”</p>
+    <h3 id="acceptrequest">acceptRequest</h3>
+    <p>Communicative function of a dialogue act by which the sender, S, commits himself
+        to perform an action that he has been requested to perform, possibly depending
+        on certain conditions that he makes explicit.</p>
+    <p><strong>Example:</strong> “Sure”</p>
+    <h3 id="declinerequest">declineRequest</h3>
+    <p>Communicative function of a dialogue act by which the sender, S, indicates that
+        he refuses to perform an action that he has been re- quested to perform,
+        possibly depending on certain conditions that he makes explicit.</p>
+    <p><strong>Example:</strong> “Not now”</p>
+    <h3 id="addresssuggest">addressSuggest</h3>
+    <p>Communicative function of a dialogue act by which the sender, S, indicates that
+        he considers performing an action that was suggested to him, possibly depending
+        on certain conditions that he makes explicit.</p>
+    <p><strong>Example:</strong></p>
+    <p>A: “Let’s go there together.”</p>
+    <p>S: “Only if we’re in full agreement about the way to proceed when we get there.”</p>
+    <h3 id="acceptsuggest">acceptSuggest</h3>
+    <p>Communicative function of a dialogue act by which the sender, S, commits himself
+        to perform an action that was suggested to him, possibly with certain
+        restrictions or conditions concerning manner or frequency of performance.</p>
+    <p><strong>Example:</strong> “Let’s do that”</p>
+    <h3 id="declinesuggest">declineSuggest</h3>
+    <p>Communicative function of a dialogue act by which the sender, S, indicates that
+        he will not perform an action that was suggested to him, possibly depending on
+        certain conditions that he makes explicit.</p>
+    <p><strong>Example:</strong> “I don’t think so”</p>
+    <h2 id="directive-functions">Directive Functions</h2>
+    <h3 id="request">request</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        create a commitment for the addressee, A, to perform a certain action in the
+        manner or with the frequency described by the semantic content, conditional on
+        A’s consent to perform the action. S assumes that A is able to perform this
+        action.</p>
+    <p><strong>Example:</strong> “Please turn to page five”; “Please don’t do this ever again”;
+        “Please drive very carefully”.</p>
+    <h3 id="suggest">suggest</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        make the addressee, A, consider the performance of a certain action, specified
+        by the semantic content, S believes that this action is in A’s interest, and
+        assumes that A is able to perform the action.</p>
+    <p><strong>Example:</strong> “Let’s wait for the speaker to finish.”</p>
+    <h3 id="addressoffer">addressOffer</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        indicate that he is considering the possibility that A performs the action.</p>
+    <p><strong>Example:</strong> “That would be good!”</p>
+    <h3 id="acceptoffer">acceptOffer</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        inform the addressee, A, that S would like A to perform the action that A has
+        offered to perform, possibly with certain conditions that he makes explicit.</p>
+    <p><strong>Example:</strong> “Yes please”</p>
+    <h3 id="declineoffer">declineOffer</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        inform the addressee, A, that S does not want A to perform the action that A has
+        offered to perform, possibly depending on certain conditions that he makes
+        explicit.</p>
+    <p><strong>Example:</strong> “No thank you”</p>
+    <h2 id="feedback-functions">Feedback Functions</h2>
+    <h3 id="autopositive">autoPositive</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        inform the addressee, A that S believes that S’s processing of the previous
+        utterance(s) was successful.</p>
+    <p>Feedback mostly concerns the processing of the last utterance from the
+        addressee, but sometimes, especially in the case of positive feed- back, it
+        concerns a longer stretch of dialogue.</p>
+    <p><strong>Example:</strong> “Uh-huh”; “Okay”; “Yes”</p>
+    <h3 id="autonegative">autoNegative</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        inform the addressee, A that S’s processing of the previous utterance(s)
+        encountered a problem.</p>
+    <p><strong>Example:</strong> “Sorry?”; “What?”</p>
+    <h2 id="time-management-functions">Time Management Functions</h2>
+    <h3 id="stalling-pausing-">stalling (pausing)</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        have a little extra time to construct his contribution or to suspend the
+        dialogue for a short while.</p>
+    <p>Pausing occurs either in preparation of continuing the dialogue, or because
+        something else came up which is more urgent for the sender to attend to.</p>
+    <p><strong>Example: “</strong>Let me see...”; “Ehm...”; “Just a moment”</p>
+    <h2 id="own-and-partner-communication-management-functions">Own and Partner Communication Management Functions</h2>
+    <h3 id="retraction-abandon-">retraction (abandon)</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        withdraw something that he just said within the same turn.</p>
+    <p><strong>Example:</strong> “then we’re going to g– ”</p>
+    <h2 id="social-obligations-management-functions">Social Obligations Management Functions</h2>
+    <h3 id="initialgreeting">initialGreeting</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        inform the addressee, A that S is present and aware of A’s presence; S puts
+        pressure on A to acknowledge this.</p>
+    <p>Greetings usually come in initiative-response pairs within a dialogue; this data
+        category corresponds to the first element of such a pair.</p>
+    <p><strong>Example:</strong> “Hello!”; “Good morning”</p>
+    <h3 id="returngreeting">returnGreeting</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        acknowledge that S is aware of the presence of the addressee, A, and of A having
+        signalled his presence to S.</p>
+    <h3 id="initialgoodbye">initialGoodbye</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        inform the addressee, A, that S intends the current utterance to be his final
+        contribution to the dialogue; S puts pressure on A to acknowledge this.</p>
+    <p>Goodbyes usually come in initiative-response pairs within a dialogue; this data
+        category corresponds to the second element of such a pair. Initial and return
+        goodbyes are commonly used to close a dialogue</p>
+    <p><strong>Example:</strong> “Bye bye, see you later”</p>
+    <h3 id="returngoodbye">returnGoodbye</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        acknowledge his awareness that the addressee, A, has signalled his final
+        contribution to the dialogue and S signals in return his agreement to end the
+        dialogue; S has been pressured to respond to an initialGoodbye by A.</p>
+    <p><strong>Example: “</strong>Bye bye, see you.”</p>
+    <h3 id="thanking">thanking</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        inform the addressee, A, that S is grateful for some action performed by A; S
+        puts pressure on A to acknowledge this.</p>
+    <p>Utterances used for thanking often also indicate that the sender wants to end
+        the dialogue.</p>
+    <p><strong>Example:</strong> “Thanks a lot.”</p>
+    <h3 id="acceptthanking">acceptThanking</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        mitigate to the feelings of gratitude which the addressee, A’, has expressed.</p>
+    <p><strong>Example:</strong> “Don’t mention it”</p>
+    <h3 id="apology">apology</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        signal that he wants the addressee, A, to know that S regrets something; S puts
+        pressure on A to acknowledge this.</p>
+    <p><strong>Example:</strong> “Sorry about that.”</p>
+    <h3 id="acceptapology">acceptApology</h3>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to
+        mitigate, the feelings of regret that the addressee, A, has expressed.</p>
+    <p><strong>Example: “</strong>No problem.”</p>
+    <h1 id="references">References</h1>
+    <p>British Standards Institution (2012) ‘ISO 24617-2: Language Resource Management
+        <em>-</em> Semantic Annotation Framework (SemAF) Part 2: Dialogue acts’. British
+        Standards Institution.</p>
+    <p>Bunt, H. <em>et al.</em> (2012) ‘ISO 24617-2 : A Semantically-based Standard for
+        Dialogue Annotation’, in <em>Proceedings of LREC 2012</em>, pp. 430–437.</p>
+    <p>Liddicoat, A. J. (2007) <em>An Introduction to Conversation Analysis</em>. London:
+        Continuum.</p>
+    <p>Schegloff, E. A. (2007) <em>Sequence Oranization in Interaction: A Primer in
+        Conversation Analysis I</em>. Cambridge: Cambridge University Press. doi:
+        10.1017/CBO9780511791208.</p>
+    <p>Sidnell, J. (2010) <em>Conversation Analysis - An Introduction</em>. Whiley-Blackwell.
+        doi: 10.1093/acrefore/9780199384655.013.40.</p>
+</div>

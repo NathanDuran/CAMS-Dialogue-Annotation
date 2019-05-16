@@ -23,13 +23,21 @@
 
 body {
     background-color: whitesmoke;
+    margin: 0;
 }
 
 .content-container {
-    max-width: var(--max-content-width);
+    height: 100%;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 64px;
     font-family: var(--main-font);
+    font-size: 16px;
+}
+
+.content {
+    max-width: var(--max-content-width);
+    margin: 5%;
 }
 
 .title {
@@ -40,15 +48,7 @@ body {
     margin-bottom: 50px;
 }
 
-h1, h2, h3, h4 {
-
-}
-
 .title-paragraph {
     text-align: center;
-    font-size: 16px;
 }
 
-p {
-    font-size: 16px;
-}
