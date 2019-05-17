@@ -1,14 +1,25 @@
-// Get the current unlabeled utterance
+// Get the next unlabeled utterance
 function getUnlabeledUttIndex(dialogue) {
 
-    var uttIndex = 0;
+    var uttIndex = null;
     for (var i = 0; i < dialogue.utterances.length; i++) {
-        if (!dialogue.utterances[i].is_labeled){
+        if (!dialogue.utterances[i].is_labeled) {
             uttIndex = i;
-            break;
+            return uttIndex;
         }
     }
     return uttIndex;
+}
+
+// Toggles the buttons labeled state
+function setButtonLabeledState(button) {
+    // Get the index of the button that was clicked
+    var index = button.id.split("_")[1];
+    if (checkLabels(currentDialogue.utterances[index])) {
+        button.className = "utt-btn labeled";
+    } else {
+        button.className = "utt-btn";
+    }
 }
 
 // Checks if this utterance is completely labeled

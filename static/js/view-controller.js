@@ -4,7 +4,7 @@ var dialogue_view_btn_bar_node = "dialogue-view-buttons";
 
 // Current dialogue and utterance index
 var currentDialogue = null;
-var currentUttIndex = 0;
+var currentUttIndex = null;
 
 // Default labels
 var default_ap_label = "AP-Label";
@@ -56,49 +56,108 @@ function next_btn_click() {
 
 // Dialogue view utterances
 function utterance_btn_click() {
+    console.log("Utterance button clicked");
     console.log(this);
+
+    // Get the index of the button that was clicked
+    var index = parseInt(this.id.split("_")[1]);
+
+    // If this is the currently selected button unselect it
+    if (index === currentUttIndex) {
+        // Check if it is already labeled
+        setButtonLabeledState(this);
+        currentUttIndex = null;
+
+    } else {
+        // Otherwise remove the currently selected button state and select this one
+        var current_utt_btn = document.getElementById("utt-btn_" + currentUttIndex);
+        if (current_utt_btn) {
+            // Check if it is already labeled
+            setButtonLabeledState(current_utt_btn);
+        }
+        this.className = this.className + " current";
+        currentUttIndex = index;
+    }
 }
 
 function utt_clear_btn_click() {
+    console.log("Clear button clicked...");
     console.log(this);
+
+    // Get the index of the button that was clicked
+    var index = parseInt(this.id.split("_")[1]);
+
+    // Set label elements to default
+    var ap_label = document.getElementById("ap-label_" + index);
+    ap_label.innerHTML = default_ap_label;
+    var da_label = document.getElementById("da-label_" + index);
+    da_label.innerHTML = default_da_label;
+
+    // Set the utterance labels to default on the current dialogue and labeled to false
+    currentDialogue.utterances[index].ap_label = default_ap_label;
+    currentDialogue.utterances[index].da_label = default_da_label;
+    currentDialogue.utterances[index].is_labeled = false;
+
+    // If this is not the currently selected utterance remove its labeled state
+    if (index !== currentUttIndex) {
+        var utt_btn = document.getElementById("utt-btn_" + index);
+        utt_btn.className = "utt-btn";
+    }
 }
 
 // Dialogue view label button bar
 function label_btn_click() {
     console.log(this.id + " button clicked...");
     console.log(this);
+
     // Get the label text and its type (DA or AP)
     var label_text = this.innerHTML;
     var label_type = this.id.split("_")[0];
 
-    // Select the appropriate element and set its label
-    var label = document.getElementById(label_type + "_" + currentUttIndex);
-    label.innerHTML = label_text; //TODO what if this is null because current utt index is too large?
+    // Check there is a button selected
+    if (currentUttIndex !== null) {
 
-    // Also update the current dialogue
-    if (label_type === "ap-label"){
-        currentDialogue.utterances[currentUttIndex].ap_label = label_text;
-    } else if (label_type === "da-label"){
-        currentDialogue.utterances[currentUttIndex].da_label = label_text;
-    }
+        // Select the appropriate element and set its label
+        var label = document.getElementById(label_type + "_" + currentUttIndex);
+        label.innerHTML = label_text;
 
-    // Check if this utterance is now completely labeled
-    // If so then set it to labeled and increment to next utterance
-    if (checkLabels(currentDialogue.utterances[currentUttIndex])){
-        // Set this utterance to labeled
-        currentDialogue.utterances[currentUttIndex].is_labeled = true;
-
-        // Get the currently selected utterance button and set to labeled
-        var utt_btn = document.getElementById("utt-btn_" + currentUttIndex);
-        utt_btn.className = "utt-btn labeled";
-
-        // Increment the current utterance index
-        currentUttIndex += 1;
-        if (currentUttIndex < currentDialogue.utterances.length){
-            // Set the new current utterance button
-            utt_btn = document.getElementById("utt-btn_" + currentUttIndex);
-            utt_btn.className = "utt-btn current";
+        // Also update the current dialogue
+        if (label_type === "ap-label") {
+            currentDialogue.utterances[currentUttIndex].ap_label = label_text;
+        } else if (label_type === "da-label") {
+            currentDialogue.utterances[currentUttIndex].da_label = label_text;
         }
+
+        // Check if this utterance is now completely labeled
+        // If so then set it to labeled and increment to next utterance
+        if (checkLabels(currentDialogue.utterances[currentUttIndex])) {
+
+            // Set this utterance to labeled
+            currentDialogue.utterances[currentUttIndex].is_labeled = true;
+
+            // Get the currently selected utterance button and set to labeled
+            var utt_btn = document.getElementById("utt-btn_" + currentUttIndex);
+            utt_btn.className = "utt-btn labeled";
+
+            // Increment the current utterance index
+            currentUttIndex += 1;
+
+            // If it was not the last one in the list get the next
+            if (currentUttIndex < currentDialogue.utterances.length) {
+                // Set the new current utterance button
+                utt_btn = document.getElementById("utt-btn_" + currentUttIndex);
+                utt_btn.className = "utt-btn current";
+            } else {
+                // Otherwise get the next unlabeled if it exists
+                currentUttIndex = getUnlabeledUttIndex(currentDialogue);
+                if (currentUttIndex !== null) {
+                    utt_btn = document.getElementById("utt-btn_" + currentUttIndex);
+                    utt_btn.className = "utt-btn current";
+                }
+            }
+        }
+    } else {
+        console.log("No current utterance selected!");// TODO show user message?
     }
 }
 

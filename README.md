@@ -1,6 +1,4 @@
 # CA Dialogue Tagger
-###TODO
-fix resizing labels on change of label pushing utterance button.
 
 ### Example JSON Format
 The following is an example of the JSON format
