@@ -1,7 +1,7 @@
 import json
 
 import utilities as utils
-from flask import Flask, url_for, render_template, jsonify
+from flask import Flask, url_for, render_template, jsonify, request
 
 dialogue_data_path = "static/data/"
 user_data_path = "static/data/users"
@@ -47,18 +47,27 @@ def get_current_dialogue():
     return jsonify(current_dialogue)
 
 
-@app.route('/prev_dialogue/')
-def prev_dialogue():
+@app.route('/save_current_dialogue/', methods=['POST'])
+def save_current_dialogue():
+    # Parse the request JSON
+    dialogue = request.get_json()
+    # Update the model with the new dialogue
+    success = model.update_dialogue(dialogue)
+    return json.dumps({'success': success}), 200, {'ContentType':'application/json'}
+
+
+@app.route('/get_prev_dialogue/')
+def get_prev_dialogue():
     # Increment to models next dialogue
     success = model.dec_current_dialogue()
-    return str(success)
+    return json.dumps({'success': success}), 200, {'ContentType':'application/json'}
 
 
-@app.route('/next_dialogue/')
-def next_dialogue():
+@app.route('/get_next_dialogue/')
+def get_next_dialogue():
     # Increment to models next dialogue
     success = model.inc_current_dialogue()
-    return str(success)
+    return json.dumps({'success': success}), 200, {'ContentType':'application/json'}
 
 
 @app.route('/get_labels/<filename>')

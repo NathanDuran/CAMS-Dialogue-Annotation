@@ -1,3 +1,25 @@
+// Saves the current dialogue to the server model
+function saveDialogue(dialogue) {
+
+    $.ajax({
+        type: 'post',
+        url: "/save_current_dialogue/",
+        data: JSON.stringify(dialogue),
+        dataType: "json",
+        contentType: 'application/json;charset=UTF-8',
+        success: function (result) {
+
+            if (result.success){
+                console.log("Saved dialogue: " + dialogue.dialogue_id)
+            }
+            else {
+                console.log("Failed to save dialogue: " + dialogue.dialogue_id)
+            }
+            return result;
+        }
+    });
+}
+
 // Get the next unlabeled utterance
 function getUnlabeledUttIndex(dialogue) {
 

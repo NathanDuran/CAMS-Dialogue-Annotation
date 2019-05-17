@@ -15,14 +15,16 @@ var default_da_label = "DA-Label";
 function prev_btn_click() {
     console.log("Prev button clicked...");
     console.log(this);
-    // Save the current dialogue TODO
+
+    // Call save dialogue function
+    saveDialogue(currentDialogue);
 
     // Clear the dialogue view
     clearAllChildren(document.getElementById("dialogue-view-utterances"));
 
     // Call prev dialogue function
     $.ajax({
-        url: "/prev_dialogue/",
+        url: "/get_prev_dialogue/",
         dataType: "text",
         success: function (result) {
 
@@ -36,14 +38,16 @@ function prev_btn_click() {
 function next_btn_click() {
     console.log("Next button clicked...");
     console.log(this);
-    // Save the current dialogue TODO
+
+    // Call save dialogue function
+    saveDialogue(currentDialogue);
 
     // Clear the dialogue view
     clearAllChildren(document.getElementById(dialogue_view_utt_node));
 
     // Call next dialogue function
     $.ajax({
-        url: "/next_dialogue/",
+        url: "/get_next_dialogue/",
         dataType: "text",
         success: function (result) {
 

@@ -32,6 +32,23 @@ class DialogueModel:
 
         return True
 
+    def update_dialogue(self, dialogue_data):
+
+        # Find the matching dialogue
+        for dialogue in self.dialogues:
+            if dialogue.dialogue_id == dialogue_data['dialogue_id']:
+
+                # Set the new utterance labels
+                new_utterances = dialogue_data['utterances']
+                for i, utterance in enumerate(dialogue.utterances):
+                    utterance.set_ap_label(new_utterances[i]['ap_label'])
+                    utterance.set_da_label(new_utterances[i]['da_label'])
+
+                # Check if this dialogue is now fully labeled
+                dialogue.check_labels()
+
+        return True
+
     def get_dialogues_states(self):
 
         # Reset labeled and unlabeled lists
@@ -61,11 +78,6 @@ class DialogueModel:
         # Set new current dialogue with index
         self.set_current_dialogue(self.current_dialogue_index)
 
-        # # Only change current utterance if this isn't the last dialogue
-        # if num_dialogues > 1:
-        #     # Set new current dialogue utterance index to 0
-        #     self.current_dialogue.set_current_utt(0)
-
         return True
 
     def dec_current_dialogue(self):
@@ -79,11 +91,6 @@ class DialogueModel:
         # Set new current dialogue with index
         self.set_current_dialogue(self.current_dialogue_index)
 
-        # # Only change current utterance if this isn't the last dialogue
-        # if num_dialogues > 1:
-        #     # Set new current dialogue utterance index to 0
-        #     self.current_dialogue.set_current_utt(0)
-
         return True
 
 
@@ -93,14 +100,14 @@ class Dialogue:
         self.dialogue_id = dialogue_id
         self.utterances = utterances
         self.num_utterances = len(self.utterances)
-        self.current_utterance_index = 0
-        self.current_utterance = self.utterances[0]
+        # self.current_utterance_index = 0
+        # self.current_utterance = self.utterances[0]
         self.is_labeled = False
         self.check_labels()
 
-    def set_current_utt(self, index):
-        self.current_utterance_index = index
-        self.current_utterance = self.utterances[self.current_utterance_index]
+    # def set_current_utt(self, index):
+    #     self.current_utterance_index = index
+    #     self.current_utterance = self.utterances[self.current_utterance_index]
 
     # def set_utterances(self, utterances):
     #
