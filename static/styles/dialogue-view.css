@@ -1,16 +1,7 @@
-#dialogue-view {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-}
-
 /* Dialogue View Menu */
 #dialogue-view-bar {
     background-color: var(--dialogue-view-menu-bg-color);
-    display: flex;
-    flex: 0 1 64px;
+    height: 64px;
 }
 
 #dialogue-view-menu {
@@ -18,9 +9,7 @@
     width: 90%;
     margin: 0 auto;
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-direction: row;
 }
 
 #dialogue-view-menu ul {
@@ -56,13 +45,15 @@
 #dialogue-view-utterances {
     max-width: var(--max-content-width);
     min-width: var(--min-content-width);
-    margin: auto;
+    margin-top: auto;
+    margin-right: auto;
+    margin-left: auto;
     display: flex;
 }
 
 #utterance-list {
     list-style: none;
-    padding: inherit;
+    margin: auto;
 }
 
 #utterance-list li {
@@ -122,6 +113,7 @@
 /* Dialogue View Buttons */
 #dialogue-view-buttons {
     background-color: var(--dialogue-view-menu-bg-color);
+    margin-top: auto;
 }
 
 .btn-bar {

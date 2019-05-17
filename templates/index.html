@@ -6,10 +6,10 @@
     <link rel="stylesheet" href='../static/styles/main.css'/>
     <script src="{{ url_for('static', filename='js/jquery-3.4.0.min.js') }}"></script>
     <!--<script src="../static/js/jquery-3.4.0.min.js"></script> For Local Dev -->
-    <script src="{{ url_for('static', filename='js/view-utilities.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/view-actions.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/view-controller.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/utilities.js') }}"></script>
 </head>
-<body onload="loadContent()">
+<body id="body" onload="loadContent()">
 
 <!-- Navigation Bar -->
 <div id="nav-bar">

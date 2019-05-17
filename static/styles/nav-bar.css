@@ -2,10 +2,6 @@
     background-color: var(--menu-bg-color);
     height: 64px;
     width: 100%;
-    left: 0;
-    top: 0;
-    z-index: 10000;
-    position: fixed;
 }
 
 #nav-bar img {
