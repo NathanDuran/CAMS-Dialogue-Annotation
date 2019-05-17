@@ -9,8 +9,8 @@
         {
           "speaker": "DER",
           "text": "perhaps I'll do some rudimentary experiments on my own.",
-          "ap_label": "",
-          "da_label": "",
+          "ap_label": "FPP-base",
+          "da_label": "question",
           "slots": {}
         },
         {

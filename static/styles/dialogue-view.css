@@ -58,7 +58,7 @@
 #utterance-list li {
     display: flex;
     align-items: center;
-    margin: 0 10px;
+    /*margin: 0 10px;*/
 }
 
 .utt-btn {
@@ -72,23 +72,49 @@
     transition-duration: 0.3s;
 }
 
-.utt-btn:hover {
+.utt-btn.labeled {
     border-color: green;
     background-color: green;
     color: white;
 }
 
-.utt-label-container {
+.utt-btn.current {
+    border-color: blue;
+    background-color: blue;
+    color: white;
+}
+
+.utt-btn:hover {
+    border-color: lightblue;
+    background-color: lightblue;
+    color: black;
+}
+
+/*.utt-btn:focus {*/
+/*    border-color: blue;*/
+/*    background-color: blue;*/
+/*    color: white;*/
+/*}*/
+
+.ap-label-container {
     max-width: 100px;
+    min-width: 100px;
     margin: 2px 10px;
-    font-family: var(--main-font);
-    font-size: 16px;
+    text-align: center;
+}
+
+.da-label-container {
+    max-width: 150px;
+    min-width: 150px;
+    margin: 2px 10px;
+    text-align: center;
 }
 
 .clear-btn {
     width: 20px;
     height: 20px;
     padding-left: 1px;
+    margin-left: 10px;
     border: 2px solid #e74c3c;
     border-radius: 2px;
     background-color: whitesmoke;

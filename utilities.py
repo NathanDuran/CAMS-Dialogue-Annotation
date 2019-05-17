@@ -121,6 +121,7 @@ def dialogue_to_dict(dialogue):
         tmp_utterance['text'] = utterance.text
         tmp_utterance['ap_label'] = utterance.ap_label
         tmp_utterance['da_label'] = utterance.da_label
+        tmp_utterance['is_labeled'] = utterance.is_labeled
 
         # Add to utterance list
         utterances.append(tmp_utterance)

@@ -2,16 +2,16 @@
 var dialogue_view_utt_node = "dialogue-view-utterances";
 var dialogue_view_btn_bar_node = "dialogue-view-buttons";
 
+// Current dialogue and utterance index
+var currentDialogue = null;
+var currentUttIndex = 0;
+
+// Default labels
+var default_ap_label = "AP-Label";
+var default_da_label = "DA-Label";
+
 ///// Actions /////
-// Dialogue view utterances
-function utterance_btn_click() {
-    console.log(this);
-}
-
-function utterance_clear_btn_click() {
-    console.log(this);
-}
-
+// Control bar
 function prev_btn_click() {
     console.log("Prev button clicked...");
     console.log(this);
@@ -54,9 +54,52 @@ function next_btn_click() {
     });
 }
 
+// Dialogue view utterances
+function utterance_btn_click() {
+    console.log(this);
+}
+
+function utt_clear_btn_click() {
+    console.log(this);
+}
+
 // Dialogue view label button bar
 function label_btn_click() {
+    console.log(this.id + " button clicked...");
     console.log(this);
+    // Get the label text and its type (DA or AP)
+    var label_text = this.innerHTML;
+    var label_type = this.id.split("_")[0];
+
+    // Select the appropriate element and set its label
+    var label = document.getElementById(label_type + "_" + currentUttIndex);
+    label.innerHTML = label_text; //TODO what if this is null because current utt index is too large?
+
+    // Also update the current dialogue
+    if (label_type === "ap-label"){
+        currentDialogue.utterances[currentUttIndex].ap_label = label_text;
+    } else if (label_type === "da-label"){
+        currentDialogue.utterances[currentUttIndex].da_label = label_text;
+    }
+
+    // Check if this utterance is now completely labeled
+    // If so then set it to labeled and increment to next utterance
+    if (checkLabels(currentDialogue.utterances[currentUttIndex])){
+        // Set this utterance to labeled
+        currentDialogue.utterances[currentUttIndex].is_labeled = true;
+
+        // Get the currently selected utterance button and set to labeled
+        var utt_btn = document.getElementById("utt-btn_" + currentUttIndex);
+        utt_btn.className = "utt-btn labeled";
+
+        // Increment the current utterance index
+        currentUttIndex += 1;
+        if (currentUttIndex < currentDialogue.utterances.length){
+            // Set the new current utterance button
+            utt_btn = document.getElementById("utt-btn_" + currentUttIndex);
+            utt_btn.className = "utt-btn current";
+        }
+    }
 }
 
 ///// Build Functions /////
@@ -69,6 +112,8 @@ function buildDialogueViewUtterances(target) {
         url: "/get_current_dialogue/",
         dataType: "json",
         success: function (dialogue_data) {
+            console.log(dialogue_data);
+            currentDialogue = dialogue_data;
 
             // Build the utterance list
             var utterance_list = document.createElement("ul");
@@ -86,6 +131,9 @@ function buildDialogueViewUtterances(target) {
 // Creates buttons for the utterances and DA/AP labels and appends it to the target
 function createUtteranceList(dialogue, target) {
 
+    // Get the current unlabeled utterance index
+    currentUttIndex = getUnlabeledUttIndex(dialogue);
+
     // For each utterance in the dialogue
     for (var i = 0; i < dialogue.utterances.length; i++) {
 
@@ -98,27 +146,35 @@ function createUtteranceList(dialogue, target) {
 
         // Create the button
         var utterance_btn = document.createElement("button");
-        utterance_btn.className = "utt-btn";
+        // Check if this utterance is already labeled or the current unlabeled
+        if (utterance.is_labeled) {
+            utterance_btn.className = "utt-btn labeled";
+        } else if (i === currentUttIndex) {
+            utterance_btn.className = "utt-btn current";
+        } else {
+            utterance_btn.className = "utt-btn";
+        }
+
         utterance_btn.id = "utt-btn_" + i;
         utterance_btn.innerHTML = utterance.speaker + ": " + utterance.text;
         utterance_btn.addEventListener("click", utterance_btn_click);
 
         // Create the AP label
         var ap_text = document.createElement("label");
-        ap_text.className = "utt-label-container";
+        ap_text.className = "ap-label-container";
         ap_text.id = "ap-label_" + i;
         if (utterance.ap_label === "") {
-            ap_text.innerText = "AP-label";
+            ap_text.innerText = default_ap_label;
         } else {
             ap_text.innerText = utterance.ap_label;
         }
 
         // Create the DA label
         var da_text = document.createElement("label");
-        da_text.className = "utt-label-container";
-        ap_text.id = "da-label_" + i;
+        da_text.className = "da-label-container";
+        da_text.id = "da-label_" + i;
         if (utterance.da_label === "") {
-            da_text.innerText = "DA-label";
+            da_text.innerText = default_da_label;
         } else {
             da_text.innerText = utterance.da_label;
         }
@@ -128,7 +184,7 @@ function createUtteranceList(dialogue, target) {
         clear_btn.className = "clear-btn";
         clear_btn.id = "clear-btn_" + i;
         clear_btn.innerHTML = '<img src="../static/images/delete.png" alt="Clear" width="15" height="15"/>';
-        clear_btn.addEventListener("click", utterance_clear_btn_click);
+        clear_btn.addEventListener("click", utt_clear_btn_click);
 
         // Append all to the list
         utterance_node.appendChild(utterance_btn);
@@ -151,7 +207,7 @@ function buildDialogueViewButtonBars(target) {
     ap_btn_bar.id = "ap-btn-bar";
 
     // Get and build the labels
-    createLabelBtns('ap_labels', ap_btn_bar);
+    createLabelBtns('ap_labels', "ap-label", ap_btn_bar);
 
     // Append to the target
     target.appendChild(ap_btn_bar);
@@ -162,7 +218,7 @@ function buildDialogueViewButtonBars(target) {
     da_btn_bar.id = "da-btn-bar";
 
     // Get and build the labels
-    createLabelBtns('da_labels', da_btn_bar);
+    createLabelBtns('da_labels', "da-label", da_btn_bar);
 
     // Append to the target
     target.appendChild(da_btn_bar);
@@ -170,7 +226,7 @@ function buildDialogueViewButtonBars(target) {
 }
 
 // Creates button groups for the DA or AP labels and appends it to the target
-function createLabelBtns(label_group, target) {
+function createLabelBtns(label_group, group_type, target) {
 
     $.ajax({
         url: "get_labels/" + label_group,
@@ -191,7 +247,7 @@ function createLabelBtns(label_group, target) {
                     // Create button for label
                     var label_btn = document.createElement("button");
                     label_btn.className = "label-button";
-                    label_btn.id = group[j];
+                    label_btn.id = group_type + "_" + group[j];
                     label_btn.innerHTML = group[j];
                     label_btn.addEventListener("click", label_btn_click);
 
