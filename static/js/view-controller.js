@@ -70,15 +70,6 @@ function buildDialogueViewUtterances(target) {
         dataType: "json",
         success: function (dialogue_data) {
 
-            // Create the previous dialogue button
-            var prev_btn = document.createElement("button");
-            prev_btn.className = "prev-next-btn";
-            prev_btn.id = "prev-btn";
-            prev_btn.innerHTML = '<img src="../static/images/prev.png" alt="Previous" width="60" height="60">';
-            prev_btn.addEventListener("click", prev_btn_click);
-            // Append to target
-            target.appendChild(prev_btn);
-
             // Build the utterance list
             var utterance_list = document.createElement("ul");
             utterance_list.id = "utterance-list";
@@ -86,15 +77,6 @@ function buildDialogueViewUtterances(target) {
             createUtteranceList(dialogue_data, utterance_list);
             // Append to target
             target.appendChild(utterance_list);
-
-            // Create the previous dialogue button
-            var next_btn = document.createElement("button");
-            next_btn.className = "prev-next-btn";
-            next_btn.id = "next-btn";
-            next_btn.innerHTML = '<img src="../static/images/next.png" alt="Previous" width="60" height="60">';
-            next_btn.addEventListener("click", next_btn_click);
-            // Append to target
-            target.appendChild(next_btn);
 
             return dialogue_data;
         }

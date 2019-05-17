@@ -13,32 +13,31 @@
 }
 
 #dialogue-view-menu ul {
-    height: inherit;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: row;
 }
 
 #dialogue-view-menu li {
-    height: inherit;
-    padding: 0 16px;
-    float: left;
-    display: inline-block;
+    padding: 0 15px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
     box-sizing: border-box;
-    border-bottom: 4px solid transparent;
-    border-right: 1px solid var(--menu-border-color);
     transition: 0.1s;
     cursor: pointer;
 }
 
 #dialogue-view-menu li p {
-    height: inherit;
-    display: table-cell;
-    vertical-align: middle;
     color: white;
-    text-align: center;
     text-decoration: none;
     font-family: var(--main-font);
     cursor: pointer;
+}
+
+.prev-next-btn {
+    margin: 0 10px;
 }
 
 /* Utterance View */
@@ -86,10 +85,6 @@
     font-size: 16px;
 }
 
-.prev-next-btn {
-    margin: 0 10px;
-}
-
 .clear-btn {
     width: 20px;
     height: 20px;
@@ -104,7 +99,6 @@
 .clear-btn:hover {
     opacity: 1;
 }
-
 
 .clear-btn:active {
     transform: translateY(2px);
