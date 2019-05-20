@@ -1,9 +1,12 @@
 
 class DialogueModel:
-    def __init__(self, dataset, dialogues):
+    def __init__(self, dataset, dialogues, user_id):
 
         # Load data
         self.dataset = dataset
+
+        # Set the user
+        self.user_id = user_id
 
         # All dialogues
         self.dialogues = dialogues

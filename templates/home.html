@@ -1,2 +1,21 @@
 <h1 class="title">Conversation Analysis Dialogue Tagger</h1>
-<p class="title-paragraph">{{ myexample }}</p>
+<p class="title-paragraph">
+
+Blah Blah
+
+</p>
+<div class="text-content">
+{% if message %}
+    {{ message }}
+{% endif %}
+{% if not current_user.is_authenticated %}
+
+    <form id="login_form" action="javascript:login()">
+        <p><label for="username">User Name: </label><input id="user_name" type=text name="username" value="" /></p>
+        <p><button onclick="login()">Start</button></p>
+    </form>
+
+    {% else %}
+    logout/start
+{% endif %}
+</div>

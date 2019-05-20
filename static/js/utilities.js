@@ -1,19 +1,41 @@
+function login() {
+
+    console.log("Login");
+    var user_name = document.getElementById("user_name").value;
+    console.log(user_name);
+    $.ajax({
+        type: 'post',
+        url: "/login.do",
+        data: user_name,
+        dataType: "json",
+        success: function (result) {
+            if (result.success) {
+                console.log("Logged in as: " + user_name);
+                loadContent('annotate')
+            } else {
+                console.log("Failed to login: " + user_name);
+                alert("failed to login!")
+            }
+            return result;
+        }
+    });
+}
+
 // Saves the current dialogue to the server model
 function saveDialogue(dialogue) {
 
     $.ajax({
         type: 'post',
-        url: "/save_current_dialogue/",
+        url: "/save_current_dialogue.do",
         data: JSON.stringify(dialogue),
         dataType: "json",
         contentType: 'application/json;charset=UTF-8',
         success: function (result) {
 
-            if (result.success){
-                console.log("Saved dialogue: " + dialogue.dialogue_id)
-            }
-            else {
-                console.log("Failed to save dialogue: " + dialogue.dialogue_id)
+            if (result.success) {
+                console.log("Saved dialogue: " + dialogue.dialogue_id);
+            } else {
+                console.log("Failed to save dialogue: " + dialogue.dialogue_id);
             }
             return result;
         }

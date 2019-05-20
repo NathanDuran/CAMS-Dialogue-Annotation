@@ -24,7 +24,7 @@ function prev_btn_click() {
 
     // Call prev dialogue function
     $.ajax({
-        url: "/get_prev_dialogue/",
+        url: "/get_prev_dialogue.do",
         dataType: "text",
         success: function (result) {
 
@@ -47,7 +47,7 @@ function next_btn_click() {
 
     // Call next dialogue function
     $.ajax({
-        url: "/get_next_dialogue/",
+        url: "/get_next_dialogue.do",
         dataType: "text",
         success: function (result) {
 
@@ -172,7 +172,7 @@ function buildDialogueViewUtterances(target) {
 
     // Make call for current dialogue
     $.ajax({
-        url: "/get_current_dialogue/",
+        url: "/get_current_dialogue.do",
         dataType: "json",
         success: function (dialogue_data) {
             console.log(dialogue_data);

@@ -1,4 +1,6 @@
 # CA Dialogue Tagger
+### TODO
+-Save on page leave
 
 ### Example JSON Format
 The following is an example of the JSON format

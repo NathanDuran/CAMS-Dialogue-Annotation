@@ -48,7 +48,7 @@ def load_label_groups(labels):
 
 
 # Creates a dialogue model from the specified dialogue file
-def create_model(data_path, dialogue_file):
+def create_model(data_path, dialogue_file, user_id):
 
     # Load JSON file
     data = load_json_data(data_path, dialogue_file)
@@ -65,7 +65,7 @@ def create_model(data_path, dialogue_file):
         print("Unable to load dialogue JSON data...")
 
     # Create the dialogue model
-    model = DialogueModel(data['dataset'], dialogues)
+    model = DialogueModel(data['dataset'], dialogues, user_id)
 
     return model
 
