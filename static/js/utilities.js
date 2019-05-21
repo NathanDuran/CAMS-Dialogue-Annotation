@@ -1,6 +1,55 @@
+function loadContent(content) {
+    // On first page load content will be undefined
+    if (typeof content == "undefined") {
+        content = 'home';
+    }
+
+    // Load the specified content
+    $("#content-container").load("/" + content);
+
+    // Check if we need to change the active nav button
+    changeActiveNavBtn(content);
+}
+
+function changeActiveNavBtn(content) {
+
+    // Get the currently active and target button based on content
+    var currentBtn = document.getElementsByClassName("active-nav-menu-btn")[0];
+    var targetBtn = document.getElementById(content);
+
+    // If we are not on the right page then swap active state
+    if (currentBtn.id !== targetBtn.id) {
+        currentBtn.classList.remove("active-nav-menu-btn");
+        targetBtn.className = "active-nav-menu-btn";
+    }
+}
+
 function login() {
 
     console.log("Login");
+    var user_name = document.getElementById("user_name").value;
+    console.log(user_name);
+    $.ajax({
+        type: 'post',
+        url: "/login.do",
+        data: user_name,
+        dataType: "json",
+        success: function (result) {
+            if (result.success) {
+                console.log("Logged in as: " + user_name);
+                loadContent('annotate')
+            } else {
+                console.log("Failed to login: " + user_name);
+                alert("failed to login!")
+            }
+            return result;
+        }
+    });
+}
+
+function logout() {
+
+    console.log("Logout");
     var user_name = document.getElementById("user_name").value;
     console.log(user_name);
     $.ajax({

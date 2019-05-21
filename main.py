@@ -14,11 +14,11 @@ user_data_path = "static/data/users"
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
 app.config['TESTING'] = False
-app.config['LOGIN_DISABLED'] = False
+# app.config['LOGIN_DISABLED'] = True
 
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = "/home"
+# login_manager.login_view = "/home"
 users = dict()
 
 dialogue_file = "test_1"
@@ -31,8 +31,7 @@ def index():
 
 
 @app.route('/home')
-@app.route('/home/<message>')
-def home_page(message=None):
+def home_page():
     return render_template('home.html')
 
 
@@ -51,7 +50,7 @@ def practice_page():
 def annotate_page():
     print(current_user.is_authenticated)
     if not current_user.is_authenticated:
-        return render_template('home.html', message='please login first!')
+        return render_template('home.html', message='Please login first!')
     return render_template('annotate.html')
 
 # callback to reload the user object

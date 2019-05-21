@@ -1,6 +1,6 @@
 /* Dialogue View Menu */
 #dialogue-view-bar {
-    background-color: var(--dialogue-view-menu-bg-color);
+    background-color: var(--my-mid-grey);
     height: 64px;
 }
 
@@ -57,55 +57,37 @@
 
 #utterance-list {
     list-style: none;
-    margin: auto;
+    padding: 0;
 }
 
 #utterance-list li {
     display: flex;
     align-items: center;
-    /*margin: 0 10px;*/
 }
 
 .utt-btn {
-    max-width: 1000px;
+    max-width: 800px;
     margin: 2px auto;
-    font-family: var(--main-font);
-    font-size: 16px;
-    background-color: white;
-    border-radius: 4px;
-    border: 1px solid var(--dialogue-view-btn-border-color);
-    transition-duration: 0.3s;
 }
 
 .utt-btn.labeled {
-    border-color: green;
-    background-color: green;
+    border-color: var(--my-green-color);
+    background-color: var(--my-green-color);
     color: white;
 }
 
 .utt-btn.current {
-    border-color: #0366d6;;
-    background-color: #0366d6;;
+    border-color: var(--my-blue-color);
+    background-color: var(--my-blue-color);
     color: white;
 }
-
-.utt-btn:hover {
-    border-color: lightblue;
-    background-color: lightblue;
-    color: black;
-}
-
-/*.utt-btn:focus {*/
-/*    border-color: blue;*/
-/*    background-color: blue;*/
-/*    color: white;*/
-/*}*/
 
 .ap-label-container {
     max-width: 100px;
     min-width: 100px;
     margin: 2px 10px;
     text-align: center;
+    font-weight: bold;
 }
 
 .da-label-container {
@@ -113,13 +95,15 @@
     min-width: 150px;
     margin: 2px 10px;
     text-align: center;
+    font-weight: bold;
 }
 
 .clear-btn {
     width: 20px;
     height: 20px;
     padding-left: 1px;
-    margin-left: 10px;
+    margin: 2px 10px;
+    font-family: initial;
     border: 2px solid #e74c3c;
     border-radius: 2px;
     background-color: whitesmoke;
@@ -137,7 +121,7 @@
 
 /* Dialogue View Buttons */
 #dialogue-view-buttons {
-    background-color: var(--dialogue-view-menu-bg-color);
+    background-color: var(--my-mid-grey);
     margin-top: auto;
 }
 
@@ -154,21 +138,4 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-}
-
-.label-button {
-    display: block;
-    margin: 2px 5px;
-    font-family: var(--main-font);
-    font-size: 16px;
-    background-color: white;
-    border-radius: 4px;
-    border: 1px solid black;
-    transition-duration: 0.3s;
-}
-
-.label-button:hover {
-    border-color: green;
-    background-color: green;
-    color: white;
 }
