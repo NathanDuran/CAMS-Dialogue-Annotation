@@ -1,3 +1,4 @@
+// Loads the specified content to the content container
 function loadContent(content) {
     // On first page load content will be undefined
     if (typeof content == "undefined") {
@@ -11,6 +12,7 @@ function loadContent(content) {
     changeActiveNavBtn(content);
 }
 
+// Changes the current active nav menu button to the specified content
 function changeActiveNavBtn(content) {
 
     // Get the currently active and target button based on content
@@ -25,45 +27,50 @@ function changeActiveNavBtn(content) {
 }
 
 function login() {
-
     console.log("Login");
+
+    // Get the user name from the input box
     var user_name = document.getElementById("user_name").value;
-    console.log(user_name);
-    $.ajax({
-        type: 'post',
-        url: "/login.do",
-        data: user_name,
-        dataType: "json",
-        success: function (result) {
-            if (result.success) {
-                console.log("Logged in as: " + user_name);
-                loadContent('annotate')
-            } else {
-                console.log("Failed to login: " + user_name);
-                alert("failed to login!")
+
+    // If it is blank don't bother with POST request
+    if (user_name !== '') {
+        $.ajax({
+            type: 'post',
+            url: "/login.do",
+            data: user_name,
+            dataType: "json",
+            success: function (result) {
+                if (result.success) {
+                    console.log("Logged in as: " + user_name);
+                    loadContent('annotate')
+                } else {
+                    console.log("Failed to login: " + user_name);
+                    alert("Failed to login: " + user_name)
+                }
+                return result;
             }
-            return result;
-        }
-    });
+        });
+    } else {
+        alert("Login ID cannot be blank!")
+    }
 }
 
 function logout() {
-
     console.log("Logout");
-    var user_name = document.getElementById("user_name").value;
-    console.log(user_name);
+
     $.ajax({
-        type: 'post',
-        url: "/login.do",
-        data: user_name,
+        type: 'get',
+        url: "/logout.do",
         dataType: "json",
         success: function (result) {
+
+            // If they were successfully logged out load home page
             if (result.success) {
-                console.log("Logged in as: " + user_name);
-                loadContent('annotate')
+                console.log("Logged out: " + result.user_name);
+                loadContent('home')
             } else {
-                console.log("Failed to login: " + user_name);
-                alert("failed to login!")
+                console.log("Failed to logout: " + result.user_name);
+                alert("Failed to logout!")
             }
             return result;
         }

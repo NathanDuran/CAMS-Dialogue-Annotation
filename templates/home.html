@@ -2,14 +2,12 @@
 <p class="title-paragraph">Blah Blah</p>
 
 <div class="content">
-    {% if message %}
-        <p>{{ message }}</p>
-    {% endif %}
     {% if not current_user.is_authenticated %}
 
         <form id="login_form" action="javascript:login()">
-            <p><input id="user_name" type=text name="username" value=""/></p>
-            <p><button class="login-out-btn" onclick="login()">Start</button></p>
+            <label for="username">Login ID{% if message %}&emsp;{{ message }}{% endif %}</label><br>
+            <input id="user_name" type=text name="username" value=""/>
+            <button class="login-out-btn">Start</button>
         </form>
 
     {% else %}

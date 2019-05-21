@@ -113,6 +113,8 @@
 
 .clear-btn:hover {
     opacity: 1;
+    border: 2px solid #e74c3c;
+    background-color: whitesmoke;
 }
 
 .clear-btn:active {
