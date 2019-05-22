@@ -73,6 +73,7 @@ button {
     border-radius: 4px;
     border: 1px solid var(--my-mid-grey);
     transition-duration: 0.3s;
+    cursor: pointer;
 }
 
 button:hover {

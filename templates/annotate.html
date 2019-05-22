@@ -3,14 +3,25 @@
 
         <ul>
             <li>
-                <button id="prev-btn" class="prev-next-btn" onclick="prev_btn_click(this)">
+                <button id="prev-btn" class="prev-next-btn" onclick="prevBtnClick(this)">
                     <img src="../static/images/prev.png" alt="Previous" width="50" height="50">
                 </button>
             </li>
-            <li><p>Save</p></li>
-            <li><p>Clear</p></li>
             <li>
-                <button id="next-btn" class="prev-next-btn" onclick="next_btn_click(this)">
+                <p>Dialogue Set:&nbsp</p>
+                <p id="dataset-lbl"></p>
+            </li>
+            <li>
+                <p>Dialogue:&nbsp</p>
+                <p id="current-dialogue-id-lbl"></p>
+            </li>
+            <li>
+                <p id="current-dialogue-index-lbl"></p>
+                <p>&nbsp/&nbsp</p>
+                <p id="num-dialogues-lbl"></p>
+            </li>
+            <li>
+                <button id="next-btn" class="prev-next-btn" onclick="nextBtnClick(this)">
                     <img src="../static/images/next.png" alt="Next" width="50" height="50">
                 </button>
             </li>
@@ -26,6 +37,6 @@
 </div>
 
 <script>
-    buildDialogueViewUtterances(document.getElementById(dialogue_view_utt_node));
-    buildDialogueViewButtonBars(document.getElementById(dialogue_view_btn_bar_node));
+    buildDialogueViewUtterances(document.getElementById(dialogueViewUttNode));
+    buildDialogueViewButtonBars(document.getElementById(dialogueViewBtnBarNode));
 </script>

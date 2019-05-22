@@ -1,18 +1,21 @@
 // Dialogue view DOM element id's
-var dialogue_view_utt_node = "dialogue-view-utterances";
-var dialogue_view_btn_bar_node = "dialogue-view-buttons";
+var dialogueViewUttNode = "dialogue-view-utterances";
+var dialogueViewBtnBarNode = "dialogue-view-buttons";
 
-// Current dialogue and utterance index
+// Current dialogue and stats
+var dataset = null;
+var numDialogues = null;
 var currentDialogue = null;
+var currentDialogueIndex = null;
 var currentUttIndex = null;
 
 // Default labels
-var default_ap_label = "AP-Label";
-var default_da_label = "DA-Label";
+var defaultApLabel = "AP-Label";
+var defaultDaLabel = "DA-Label";
 
 ///// Actions /////
 // Control bar
-function prev_btn_click() {
+function prevBtnClick() {
     console.log("Prev button clicked...");
     console.log(this);
 
@@ -29,13 +32,13 @@ function prev_btn_click() {
         success: function (result) {
 
             // Rebuild dialogue view with new current dialogue
-            buildDialogueViewUtterances(document.getElementById(dialogue_view_utt_node));
+            buildDialogueViewUtterances(document.getElementById(dialogueViewUttNode));
             return result;
         }
     });
 }
 
-function next_btn_click() {
+function nextBtnClick() {
     console.log("Next button clicked...");
     console.log(this);
 
@@ -43,7 +46,7 @@ function next_btn_click() {
     saveDialogue(currentDialogue);
 
     // Clear the dialogue view
-    clearAllChildren(document.getElementById(dialogue_view_utt_node));
+    clearAllChildren(document.getElementById(dialogueViewUttNode));
 
     // Call next dialogue function
     $.ajax({
@@ -59,7 +62,7 @@ function next_btn_click() {
 }
 
 // Dialogue view utterances
-function utterance_btn_click() {
+function utteranceBtnClick() {
     console.log("Utterance button clicked");
     console.log(this);
 
@@ -74,17 +77,17 @@ function utterance_btn_click() {
 
     } else {
         // Otherwise remove the currently selected button state and select this one
-        var current_utt_btn = document.getElementById("utt-btn_" + currentUttIndex);
-        if (current_utt_btn) {
+        var currentUttBtn = document.getElementById("utt-btn_" + currentUttIndex);
+        if (currentUttBtn) {
             // Check if it is already labeled
-            setButtonLabeledState(current_utt_btn);
+            setButtonLabeledState(currentUttBtn);
         }
         this.className = this.className + " current";
         currentUttIndex = index;
     }
 }
 
-function utt_clear_btn_click() {
+function uttClearBtnClick() {
     console.log("Clear button clicked...");
     console.log(this);
 
@@ -92,14 +95,14 @@ function utt_clear_btn_click() {
     var index = parseInt(this.id.split("_")[1]);
 
     // Set label elements to default
-    var ap_label = document.getElementById("ap-label_" + index);
-    ap_label.innerHTML = default_ap_label;
-    var da_label = document.getElementById("da-label_" + index);
-    da_label.innerHTML = default_da_label;
+    var apLabel = document.getElementById("ap-label_" + index);
+    apLabel.innerHTML = defaultApLabel;
+    var daLabel = document.getElementById("da-label_" + index);
+    daLabel.innerHTML = defaultDaLabel;
 
     // Set the utterance labels to default on the current dialogue and labeled to false
-    currentDialogue.utterances[index].ap_label = default_ap_label;
-    currentDialogue.utterances[index].da_label = default_da_label;
+    currentDialogue.utterances[index].ap_label = defaultApLabel;
+    currentDialogue.utterances[index].da_label = defaultDaLabel;
     currentDialogue.utterances[index].is_labeled = false;
 
     // If this is not the currently selected utterance remove its labeled state
@@ -110,26 +113,26 @@ function utt_clear_btn_click() {
 }
 
 // Dialogue view label button bar
-function label_btn_click() {
+function labelBtnClick() {
     console.log(this.id + " button clicked...");
     console.log(this);
 
     // Get the label text and its type (DA or AP)
-    var label_text = this.innerHTML;
-    var label_type = this.id.split("_")[0];
+    var labelText = this.innerHTML;
+    var labelType = this.id.split("_")[0];
 
     // Check there is a button selected
     if (currentUttIndex !== null) {
 
         // Select the appropriate element and set its label
-        var label = document.getElementById(label_type + "_" + currentUttIndex);
-        label.innerHTML = label_text;
+        var label = document.getElementById(labelType + "_" + currentUttIndex);
+        label.innerHTML = labelText;
 
         // Also update the current dialogue
-        if (label_type === "ap-label") {
-            currentDialogue.utterances[currentUttIndex].ap_label = label_text;
-        } else if (label_type === "da-label") {
-            currentDialogue.utterances[currentUttIndex].da_label = label_text;
+        if (labelType === "ap-label") {
+            currentDialogue.utterances[currentUttIndex].ap_label = labelText;
+        } else if (labelType === "da-label") {
+            currentDialogue.utterances[currentUttIndex].da_label = labelText;
         }
 
         // Check if this utterance is now completely labeled
@@ -140,8 +143,8 @@ function label_btn_click() {
             currentDialogue.utterances[currentUttIndex].is_labeled = true;
 
             // Get the currently selected utterance button and set to labeled
-            var utt_btn = document.getElementById("utt-btn_" + currentUttIndex);
-            utt_btn.className = "utt-btn labeled";
+            var uttBtn = document.getElementById("utt-btn_" + currentUttIndex);
+            uttBtn.className = "utt-btn labeled";
 
             // Increment the current utterance index
             currentUttIndex += 1;
@@ -149,14 +152,14 @@ function label_btn_click() {
             // If it was not the last one in the list get the next
             if (currentUttIndex < currentDialogue.utterances.length) {
                 // Set the new current utterance button
-                utt_btn = document.getElementById("utt-btn_" + currentUttIndex);
-                utt_btn.className = "utt-btn current";
+                uttBtn = document.getElementById("utt-btn_" + currentUttIndex);
+                uttBtn.className = "utt-btn current";
             } else {
                 // Otherwise get the next unlabeled if it exists
                 currentUttIndex = getUnlabeledUttIndex(currentDialogue);
                 if (currentUttIndex !== null) {
-                    utt_btn = document.getElementById("utt-btn_" + currentUttIndex);
-                    utt_btn.className = "utt-btn current";
+                    uttBtn = document.getElementById("utt-btn_" + currentUttIndex);
+                    uttBtn.className = "utt-btn current";
                 }
             }
         }
@@ -166,8 +169,7 @@ function label_btn_click() {
 }
 
 ///// Build Functions /////
-
-// Builds the dialogue view next/prev buttons and utterance list
+// Builds the dialogue view utterance list and updates the stats
 function buildDialogueViewUtterances(target) {
 
     // Make call for current dialogue
@@ -176,15 +178,20 @@ function buildDialogueViewUtterances(target) {
         dataType: "json",
         success: function (dialogue_data) {
             console.log(dialogue_data);
-            currentDialogue = dialogue_data;
 
-            // Build the utterance list
-            var utterance_list = document.createElement("ul");
-            utterance_list.id = "utterance-list";
-            // Call create button/labels function
-            createUtteranceList(dialogue_data, utterance_list);
+            // Get the current dialogue and stats from response
+            dataset = dialogue_data.dataset;
+            numDialogues = dialogue_data.num_dialogues;
+            currentDialogue = dialogue_data.current_dialogue;
+            currentDialogueIndex = dialogue_data.current_dialogue_index;
+
+            // Create button/labels list for current dialogue
+            var utterance_list = createUtteranceList(currentDialogue);
             // Append to target
             target.appendChild(utterance_list);
+
+            // Update the stats
+            updateCurrentStats();
 
             return dialogue_data;
         }
@@ -192,10 +199,14 @@ function buildDialogueViewUtterances(target) {
 }
 
 // Creates buttons for the utterances and DA/AP labels and appends it to the target
-function createUtteranceList(dialogue, target) {
+function createUtteranceList(dialogue) {
 
     // Get the current unlabeled utterance index
     currentUttIndex = getUnlabeledUttIndex(dialogue);
+
+    // Build the utterance list
+    var utteranceList = document.createElement("ul");
+    utteranceList.id = "utterance-list";
 
     // For each utterance in the dialogue
     for (var i = 0; i < dialogue.utterances.length; i++) {
@@ -204,122 +215,122 @@ function createUtteranceList(dialogue, target) {
         var utterance = dialogue.utterances[i];
 
         // Create list element
-        var utterance_node = document.createElement("li");
-        utterance_node.id = "utt_" + i;
+        var utteranceNode = document.createElement("li");
+        utteranceNode.id = "utt_" + i;
 
         // Create the button
-        var utterance_btn = document.createElement("button");
+        var utteranceBtn = document.createElement("button");
         // Check if this utterance is already labeled or the current unlabeled
         if (utterance.is_labeled) {
-            utterance_btn.className = "utt-btn labeled";
+            utteranceBtn.className = "utt-btn labeled";
         } else if (i === currentUttIndex) {
-            utterance_btn.className = "utt-btn current";
+            utteranceBtn.className = "utt-btn current";
         } else {
-            utterance_btn.className = "utt-btn";
+            utteranceBtn.className = "utt-btn";
         }
 
-        utterance_btn.id = "utt-btn_" + i;
-        utterance_btn.innerHTML = utterance.speaker + ": " + utterance.text;
-        utterance_btn.addEventListener("click", utterance_btn_click);
+        utteranceBtn.id = "utt-btn_" + i;
+        utteranceBtn.innerHTML = utterance.speaker + ": " + utterance.text;
+        utteranceBtn.addEventListener("click", utteranceBtnClick);
 
         // Create the AP label
-        var ap_text = document.createElement("label");
-        ap_text.className = "ap-label-container";
-        ap_text.id = "ap-label_" + i;
+        var apText = document.createElement("label");
+        apText.className = "ap-label-container";
+        apText.id = "ap-label_" + i;
         if (utterance.ap_label === "") {
-            ap_text.innerText = default_ap_label;
+            apText.innerText = defaultApLabel;
         } else {
-            ap_text.innerText = utterance.ap_label;
+            apText.innerText = utterance.ap_label;
         }
 
         // Create the DA label
-        var da_text = document.createElement("label");
-        da_text.className = "da-label-container";
-        da_text.id = "da-label_" + i;
+        var daText = document.createElement("label");
+        daText.className = "da-label-container";
+        daText.id = "da-label_" + i;
         if (utterance.da_label === "") {
-            da_text.innerText = default_da_label;
+            daText.innerText = defaultDaLabel;
         } else {
-            da_text.innerText = utterance.da_label;
+            daText.innerText = utterance.da_label;
         }
 
         // Create clear button
-        var clear_btn = document.createElement("button");
-        clear_btn.className = "clear-btn";
-        clear_btn.id = "clear-btn_" + i;
-        clear_btn.innerHTML = '<img src="../static/images/delete.png" alt="Clear" width="15" height="15"/>';
-        clear_btn.addEventListener("click", utt_clear_btn_click);
+        var clearBtn = document.createElement("button");
+        clearBtn.className = "clear-btn";
+        clearBtn.id = "clear-btn_" + i;
+        clearBtn.innerHTML = '<img src="../static/images/delete.png" alt="Clear" width="15" height="15"/>';
+        clearBtn.addEventListener("click", uttClearBtnClick);
 
         // Append all to the list
-        utterance_node.appendChild(utterance_btn);
-        utterance_node.appendChild(ap_text);
-        utterance_node.appendChild(da_text);
-        utterance_node.appendChild(clear_btn);
+        utteranceNode.appendChild(utteranceBtn);
+        utteranceNode.appendChild(apText);
+        utteranceNode.appendChild(daText);
+        utteranceNode.appendChild(clearBtn);
 
         // Append to the target
-        target.appendChild(utterance_node);
-
+        utteranceList.appendChild(utteranceNode);
     }
+    return utteranceList;
 }
 
 // Builds the dialogue view label button bars
 function buildDialogueViewButtonBars(target) {
 
     // Create AP button bar div
-    var ap_btn_bar = document.createElement("div");
-    ap_btn_bar.className = "btn-bar";
-    ap_btn_bar.id = "ap-btn-bar";
+    var apBtnBar = document.createElement("div");
+    apBtnBar.className = "btn-bar";
+    apBtnBar.id = "ap-btn-bar";
 
     // Get and build the labels
-    createLabelBtns('ap_labels', "ap-label", ap_btn_bar);
+    createLabelBtns('ap_labels', "ap-label", apBtnBar);
 
     // Append to the target
-    target.appendChild(ap_btn_bar);
+    target.appendChild(apBtnBar);
 
     // Create DA button bar div
-    var da_btn_bar = document.createElement("div");
-    da_btn_bar.className = "btn-bar";
-    da_btn_bar.id = "da-btn-bar";
+    var daBtnBar = document.createElement("div");
+    daBtnBar.className = "btn-bar";
+    daBtnBar.id = "da-btn-bar";
 
     // Get and build the labels
-    createLabelBtns('da_labels', "da-label", da_btn_bar);
+    createLabelBtns('da_labels', "da-label", daBtnBar);
 
     // Append to the target
-    target.appendChild(da_btn_bar);
+    target.appendChild(daBtnBar);
 
 }
 
 // Creates button groups for the DA or AP labels and appends it to the target
-function createLabelBtns(label_group, group_type, target) {
+function createLabelBtns(labelGroup, groupType, target) {
 
     $.ajax({
-        url: "get_labels/" + label_group,
+        url: "get_labels/" + labelGroup,
         dataType: "json",
-        success: function (label_groups) {
+        success: function (labelGroups) {
 
             // For each label group
-            for (var i = 0; i < label_groups.length; i++) {
-                var group = label_groups[i];
+            for (var i = 0; i < labelGroups.length; i++) {
+                var group = labelGroups[i];
 
                 // Create label group div
-                var label_group = document.createElement("div");
-                label_group.className = "label-group";
+                var labelGroupDiv = document.createElement("div");
+                labelGroupDiv.className = "label-group";
 
                 // For each label
                 for (var j = 0; j < group.length; j++) {
 
                     // Create button for label
-                    var label_btn = document.createElement("button");
-                    label_btn.className = "label-button";
-                    label_btn.id = group_type + "_" + group[j];
-                    label_btn.innerHTML = group[j];
-                    label_btn.addEventListener("click", label_btn_click);
+                    var labelBtn = document.createElement("button");
+                    labelBtn.className = "label-button";
+                    labelBtn.id = groupType + "_" + group[j];
+                    labelBtn.innerHTML = group[j];
+                    labelBtn.addEventListener("click", labelBtnClick);
 
                     // Append to group
-                    label_group.appendChild(label_btn);
+                    labelGroupDiv.appendChild(labelBtn);
                 }
 
                 // Append to target
-                target.append(label_group);
+                target.append(labelGroupDiv);
             }
         }
     });

@@ -30,22 +30,22 @@ function login() {
     console.log("Login");
 
     // Get the user name from the input box
-    var user_name = document.getElementById("user_name").value;
+    var userName = document.getElementById("user-name").value;
 
     // If it is blank don't bother with POST request
-    if (user_name !== '') {
+    if (userName !== '') {
         $.ajax({
             type: 'post',
             url: "/login.do",
-            data: user_name,
+            data: userName,
             dataType: "json",
             success: function (result) {
                 if (result.success) {
-                    console.log("Logged in as: " + user_name);
+                    console.log("Logged in as: " + userName);
                     loadContent('annotate')
                 } else {
-                    console.log("Failed to login: " + user_name);
-                    alert("Failed to login: " + user_name)
+                    console.log("Failed to login: " + userName);
+                    alert("Failed to login: " + userName)
                 }
                 return result;
             }
@@ -98,7 +98,20 @@ function saveDialogue(dialogue) {
     });
 }
 
-// Get the next unlabeled utterance
+// Updates the current dialogue stats
+function updateCurrentStats() {
+
+    // Dataset
+    document.getElementById('dataset-lbl').innerText = dataset;
+
+    // Dialogue
+    document.getElementById('current-dialogue-id-lbl').innerText = currentDialogue.dialogue_id;
+    document.getElementById('current-dialogue-index-lbl').innerText = currentDialogueIndex + 1;
+    document.getElementById('num-dialogues-lbl').innerText = numDialogues;
+}
+
+
+// Gets the next unlabeled utterance index
 function getUnlabeledUttIndex(dialogue) {
 
     var uttIndex = null;
@@ -111,7 +124,7 @@ function getUnlabeledUttIndex(dialogue) {
     return uttIndex;
 }
 
-// Toggles the buttons labeled state
+// Toggles the utterance buttons labeled state
 function setButtonLabeledState(button) {
     // Get the index of the button that was clicked
     var index = button.id.split("_")[1];
@@ -124,7 +137,7 @@ function setButtonLabeledState(button) {
 
 // Checks if this utterance is completely labeled
 function checkLabels(utterance) {
-    return !(utterance.ap_label === default_ap_label || utterance.da_label === default_da_label);
+    return !(utterance.ap_label === defaultApLabel || utterance.da_label === defaultDaLabel);
 }
 
 // Clears all children from current node
