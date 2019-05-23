@@ -1,3 +1,6 @@
+// Keeps track of which content view we are on
+var currentView = null;
+
 // Dialogue view DOM element id's
 var dialogueViewUttNode = "dialogue-view-utterances";
 var dialogueViewBtnBarNode = "dialogue-view-buttons";

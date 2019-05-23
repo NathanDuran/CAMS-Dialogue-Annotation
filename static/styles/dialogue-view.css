@@ -45,7 +45,7 @@
 /* Utterance View */
 #dialogue-view-utterances {
     max-width: var(--max-content-width);
-    min-width: var(--min-content-width);
+    /*min-width: var(--min-content-width);*/
     margin-top: auto;
     margin-right: auto;
     margin-left: auto;

@@ -3,11 +3,11 @@ import os
 import utilities as utils
 from user import User
 from flask_login import LoginManager, login_required, login_user, logout_user, current_user
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, request
 
 dialogue_data_path = "static/data/"
-label_data_path = "static/data/labels"
-user_data_path = "static/data/users"
+label_data_path = "static/data/labels/"
+user_data_path = "static/user_data/"
 
 app = Flask(__name__)
 app.secret_key = os.urandom(32)

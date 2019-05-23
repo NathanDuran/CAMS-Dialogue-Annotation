@@ -1,30 +1,73 @@
+window.onload = function () {
+
+    // Get the content view the user was last looking at
+    currentView = sessionStorage.getItem("currentView");
+
+    // Reset the session storage, else on first page load content will be undefined
+    if (currentView) {
+        sessionStorage.removeItem("currentView");
+    } else {
+        currentView = 'home'
+    }
+
+    // Load the content view
+    loadContent(currentView);
+};
+
+window.onbeforeunload = function () {
+
+    // Save the current content view the user was on
+    sessionStorage.setItem("currentView", currentView);
+
+    // Check if we need to save the current dialogue
+    if (currentDialogue) {
+        saveDialogue(currentDialogue);
+    }
+};
+
 // Loads the specified content to the content container
 function loadContent(content) {
-    // On first page load content will be undefined
-    if (typeof content == "undefined") {
-        content = 'home';
-    }
 
-    // Load the specified content
-    $("#content-container").load("/" + content);
+    // Check if we need to save the dialogue before navigating away from annotate
+    if (currentView === 'annotate') {
+        saveDialogue(currentDialogue);
+    }
 
     // Check if we need to change the active nav button
-    changeActiveNavBtn(content);
-}
-
-// Changes the current active nav menu button to the specified content
-function changeActiveNavBtn(content) {
-
-    // Get the currently active and target button based on content
-    var currentBtn = document.getElementsByClassName("active-nav-menu-btn")[0];
-    var targetBtn = document.getElementById(content);
-
-    // If we are not on the right page then swap active state
-    if (currentBtn.id !== targetBtn.id) {
-        currentBtn.classList.remove("active-nav-menu-btn");
-        targetBtn.className = "active-nav-menu-btn";
+    if (currentView !== content) {
+        document.getElementById(currentView).classList.remove("active-nav-menu-btn");
+        document.getElementById(content).className = "active-nav-menu-btn"
+    } else {
+        document.getElementById(content).className = "active-nav-menu-btn"
     }
+
+    // Load the specified content and update the current view
+    $("#main-content-container").load("/" + content, function () {
+        currentView = content;
+
+        // If we are loading the annotate view then build it
+        if (currentView === 'annotate' &&
+            document.getElementById(dialogueViewUttNode) !== null &&
+            document.getElementById(dialogueViewBtnBarNode) !== null) {
+            buildDialogueViewUtterances(document.getElementById(dialogueViewUttNode));
+            buildDialogueViewButtonBars(document.getElementById(dialogueViewBtnBarNode));
+        }
+    });
 }
+
+// // Changes the current active nav menu button to the specified content
+// function changeActiveNavBtn(content) {
+//
+//     // Get the currently active and target button based on content
+//     var currentBtn = document.getElementsByClassName("active-nav-menu-btn")[0];
+//     var targetBtn = document.getElementById(content);
+//
+//     // If we are not on the right page then swap active state
+//     if (currentBtn.id !== targetBtn.id) {
+//         currentBtn.classList.remove("active-nav-menu-btn");
+//         targetBtn.className = "active-nav-menu-btn";
+//     }
+// }
 
 function login() {
     console.log("Login");
@@ -80,22 +123,24 @@ function logout() {
 // Saves the current dialogue to the server model
 function saveDialogue(dialogue) {
 
-    $.ajax({
-        type: 'post',
-        url: "/save_current_dialogue.do",
-        data: JSON.stringify(dialogue),
-        dataType: "json",
-        contentType: 'application/json;charset=UTF-8',
-        success: function (result) {
+    if (currentDialogue !== null) {
+        $.ajax({
+            type: 'post',
+            url: "/save_current_dialogue.do",
+            data: JSON.stringify(dialogue),
+            dataType: "json",
+            contentType: 'application/json;charset=UTF-8',
+            success: function (result) {
 
-            if (result.success) {
-                console.log("Saved dialogue: " + dialogue.dialogue_id);
-            } else {
-                console.log("Failed to save dialogue: " + dialogue.dialogue_id);
+                if (result.success) {
+                    console.log("Saved dialogue: " + dialogue.dialogue_id);
+                } else {
+                    console.log("Failed to save dialogue: " + dialogue.dialogue_id);
+                }
+                return result;
             }
-            return result;
-        }
-    });
+        });
+    }
 }
 
 // Updates the current dialogue stats
