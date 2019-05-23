@@ -5,8 +5,8 @@ from user import User
 from flask_login import LoginManager, login_required, login_user, logout_user, current_user
 from flask import Flask, render_template, request
 
+label_data_path = "static/labels/"
 dialogue_data_path = "static/data/"
-label_data_path = "static/data/labels/"
 user_data_path = "static/user_data/"
 
 app = Flask(__name__)
@@ -19,10 +19,6 @@ login_manager.init_app(app)
 # login_manager.login_view = "/home"
 current_users = dict()
 valid_users = ['test_1', 'test_2']  # TODO read from file
-
-
-# dialogue_file = "test_1"
-# model = utils.create_model(dialogue_data_path, dialogue_file)
 
 
 @app.route('/')
@@ -74,10 +70,16 @@ def login():
             # Login the user
             login_user(user)
 
-            # Todo Get the relevant dialogue file
-            dialogue_file = user_name
-            # Create a model for the user
-            success = user.set_model(utils.create_model(dialogue_data_path, dialogue_file, user.get_id()))
+            # Get the relevant dialogue file and create a model for the user
+            # If the user already has a file return that
+            if os.path.isfile(user_data_path + user.get_id() + ".json"):
+                dialogue_file = user.get_id()
+                success = user.set_model(utils.create_model(user_data_path, dialogue_file, user.get_id()))
+            # Else determine which one of the originals to return
+            else:
+                user_dataset = user.get_id().split('_')[1]
+                dialogue_file = "set_" + user_dataset
+                success = user.set_model(utils.create_model(dialogue_data_path, dialogue_file, user.get_id()))
 
     return json.dumps({'success': success}), 200, {'ContentType': 'application/json'}
 
@@ -117,7 +119,6 @@ def get_current_dialogue():
 
 @app.route('/save_current_dialogue.do', methods=['POST'])
 def save_current_dialogue():
-    # Todo save to the users json file
     # Get the current users model
     user = current_users[current_user.get_id()]
     model = user.get_model()
@@ -126,7 +127,10 @@ def save_current_dialogue():
     dialogue = request.get_json()
 
     # Update the model with the new dialogue
-    success = model.update_dialogue(dialogue)
+    model.update_dialogue(dialogue)
+
+    # Save to the users JSON file
+    success = utils.save_model(user_data_path, model, user.get_id())
     return json.dumps({'success': success}), 200, {'ContentType': 'application/json'}
 
 

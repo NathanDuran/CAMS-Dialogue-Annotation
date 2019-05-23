@@ -70,7 +70,6 @@ function loadContent(content) {
 // }
 
 function login() {
-    console.log("Login");
 
     // Get the user name from the input box
     var userName = document.getElementById("user-name").value;
@@ -99,7 +98,6 @@ function login() {
 }
 
 function logout() {
-    console.log("Logout");
 
     $.ajax({
         type: 'get',

@@ -1,4 +1,3 @@
-
 class DialogueModel:
     def __init__(self, dataset, dialogues, user_id):
 
@@ -13,10 +12,8 @@ class DialogueModel:
         self.num_dialogues = len(self.dialogues)
 
         # Labeled and unlabeled
-        self.labeled_dialogues = []
-        self.unlabeled_dialogues = []
-        self.num_labeled = len(self.labeled_dialogues)
-        self.num_unlabeled = len(self.unlabeled_dialogues)
+        self.num_labeled = 0
+        self.num_unlabeled = 0
 
         # Current dialogue
         self.current_dialogue_index = 0
@@ -50,25 +47,27 @@ class DialogueModel:
                 # Check if this dialogue is now fully labeled
                 dialogue.check_labels()
 
+        self.get_dialogues_states()
+
         return True
 
     def get_dialogues_states(self):
 
         # Reset labeled and unlabeled lists
-        self.labeled_dialogues = []
-        self.unlabeled_dialogues = []
+        labeled_dialogues = []
+        unlabeled_dialogues = []
 
         # Split dialogues into lists
         for dialogue in self.dialogues:
 
             if dialogue.check_labels():
-                self.labeled_dialogues.append(dialogue)
+                labeled_dialogues.append(dialogue)
             else:
-                self.unlabeled_dialogues.append(dialogue)
+                unlabeled_dialogues.append(dialogue)
 
         # Set number of labeled, unlabeled and total
-        self.num_labeled = len(self.labeled_dialogues)
-        self.num_unlabeled = len(self.unlabeled_dialogues)
+        self.num_labeled = len(labeled_dialogues)
+        self.num_unlabeled = len(unlabeled_dialogues)
 
     def inc_current_dialogue(self):
 
@@ -99,37 +98,13 @@ class DialogueModel:
 
 class Dialogue:
 
-    def __init__(self, dialogue_id, utterances):
+    def __init__(self, dialogue_id, utterances, num_utterances):
         self.dialogue_id = dialogue_id
         self.utterances = utterances
-        self.num_utterances = len(self.utterances)
-        # self.current_utterance_index = 0
-        # self.current_utterance = self.utterances[0]
+        self.num_utterances = num_utterances
         self.is_labeled = False
+        self.timing = 0.0
         self.check_labels()
-
-    # def set_current_utt(self, index):
-    #     self.current_utterance_index = index
-    #     self.current_utterance = self.utterances[self.current_utterance_index]
-
-    # def set_utterances(self, utterances):
-    #
-    #     # Replace utterances
-    #     self.utterances = utterances
-    #     self.num_utterances = len(self.utterances)
-    #
-    #     # Reset current utterance to 0
-    #     self.set_current_utt(0)
-    #
-    #     # Check labels
-    #     self.check_labels()
-
-    # def clear_labels(self):
-    #
-    #     # Set utterances to default labels
-    #     for utt in self.utterances:
-    #         utt.clear_ap_label()
-    #         utt.clear_da_label()
 
     def check_labels(self):
 
@@ -160,14 +135,7 @@ class Utterance:
         self.da_label = label
         self.check_labels()
 
-    def clear_ap_label(self):
-        self.set_ap_label('AP-Label')
-
-    def clear_da_label(self):
-        self.set_da_label('DA-Label')
-
     def check_labels(self):
-
         # Check if utterance still has default labels
         if self.ap_label == 'AP-Label' or self.da_label == 'DA-Label':
             self.is_labeled = False

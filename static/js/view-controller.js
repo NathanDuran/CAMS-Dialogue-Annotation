@@ -20,7 +20,6 @@ var defaultDaLabel = "DA-Label";
 // Control bar
 function prevBtnClick() {
     console.log("Prev button clicked...");
-    console.log(this);
 
     // Call save dialogue function
     saveDialogue(currentDialogue);
@@ -43,7 +42,6 @@ function prevBtnClick() {
 
 function nextBtnClick() {
     console.log("Next button clicked...");
-    console.log(this);
 
     // Call save dialogue function
     saveDialogue(currentDialogue);
