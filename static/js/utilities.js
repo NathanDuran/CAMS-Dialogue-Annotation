@@ -1,3 +1,4 @@
+// Loads the content view on page load
 window.onload = function () {
 
     // Get the content view the user was last looking at
@@ -14,6 +15,7 @@ window.onload = function () {
     loadContent(currentView);
 };
 
+// Saves the content view and current dialogue before page refresh
 window.onbeforeunload = function () {
 
     // Save the current content view the user was on
@@ -122,6 +124,9 @@ function logout() {
 function saveDialogue(dialogue) {
 
     if (currentDialogue !== null) {
+
+        endTimer();
+
         $.ajax({
             type: 'post',
             url: "/save_current_dialogue.do",
@@ -139,6 +144,25 @@ function saveDialogue(dialogue) {
             }
         });
     }
+}
+
+// Starts a timer for the current dialogue
+function startTimer() {
+
+    dialogueStartTime = Date.now();
+    console.log("Timer started @ " + new Date().toUTCString());
+    console.log("Current dialogue time: " + currentDialogue.time);
+}
+
+// Ends a timer for the current dialogue
+function endTimer() {
+
+    var timeDelta = Date.now() - dialogueStartTime;
+    currentDialogue.time = currentDialogue.time + timeDelta;
+    console.log("Timer ended @ " + new Date().toUTCString());
+    console.log("Time taken: " + timeDelta);
+    console.log("Current dialogue time: " + currentDialogue.time);
+    dialogueStartTime = null;
 }
 
 // Updates the current dialogue stats

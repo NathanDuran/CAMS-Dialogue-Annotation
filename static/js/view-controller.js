@@ -12,6 +12,9 @@ var currentDialogue = null;
 var currentDialogueIndex = null;
 var currentUttIndex = null;
 
+// To keep track of when the dialogue labelling started
+var dialogueStartTime = null;
+
 // Default labels
 var defaultApLabel = "AP-Label";
 var defaultDaLabel = "DA-Label";
@@ -193,6 +196,9 @@ function buildDialogueViewUtterances(target) {
 
             // Update the stats
             updateCurrentStats();
+
+            // Start the timer for this dialogue
+            startTimer();
 
             return dialogue_data;
         }

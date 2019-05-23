@@ -144,11 +144,11 @@ def dialogue_from_dict(dialogue):
         # Create a new dialogue with the utterances
         tmp_dialogue = Dialogue(dialogue['dialogue_id'], utterances, len(utterances))
 
-        # Check if the labeled and timing values are also set
+        # Check if the labeled and time values are also set
         if 'is_labeled' in dialogue.keys():
             tmp_dialogue.is_labeled = dialogue['is_labeled']
-        if 'timing' in dialogue.keys():
-            tmp_dialogue.timing = dialogue['timing']
+        if 'time' in dialogue.keys():
+            tmp_dialogue.time = dialogue['time']
 
     except KeyError:
         traceback.print_exc()
@@ -191,10 +191,10 @@ def dialogue_to_dict(dialogue):
         # Add to utterance list
         utterances.append(utt_dict)
 
-    # Add id, number of utterances, utterances, is labeled and timing to dialogue
+    # Add id, number of utterances, utterances, is labeled and time to dialogue
     dialogue_dict['dialogue_id'] = dialogue.dialogue_id
     dialogue_dict['is_labeled'] = dialogue.is_labeled
-    dialogue_dict['timing'] = dialogue.timing
+    dialogue_dict['time'] = dialogue.time
     dialogue_dict['num_utterances'] = dialogue.num_utterances
     dialogue_dict['utterances'] = utterances
 

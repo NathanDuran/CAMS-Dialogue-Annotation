@@ -38,14 +38,29 @@ class DialogueModel:
         for dialogue in self.dialogues:
             if dialogue.dialogue_id == dialogue_data['dialogue_id']:
 
-                # Set the new utterance labels
-                new_utterances = dialogue_data['utterances']
-                for i, utterance in enumerate(dialogue.utterances):
-                    utterance.set_ap_label(new_utterances[i]['ap_label'])
-                    utterance.set_da_label(new_utterances[i]['da_label'])
+                # Loop over the utterances in the dialogue
+                utterances = []
+                for utterance in dialogue_data['utterances']:
 
-                # Check if this dialogue is now fully labeled
-                dialogue.check_labels()
+                    # Create a new utterance
+                    tmp_utterance = Utterance(utterance['text'], utterance['speaker'])
+
+                    # Set utterance labels if not blank
+                    if utterance['ap_label'] is not "":
+                        tmp_utterance.set_ap_label(utterance['ap_label'])
+                    if utterance['da_label'] is not "":
+                        tmp_utterance.set_da_label(utterance['da_label'])
+
+                    # Get labeled state if it exists
+                    if 'is_labeld' in utterance.keys():
+                        tmp_utterance.is_labeled = utterance['is_labeled']
+
+                    # Add to utterance list
+                    utterances.append(tmp_utterance)
+
+                # Check if the labeled and time values are also set
+                dialogue.is_labeled = dialogue_data['is_labeled']
+                dialogue.time = dialogue_data['time']
 
         self.get_dialogues_states()
 
@@ -103,7 +118,7 @@ class Dialogue:
         self.utterances = utterances
         self.num_utterances = num_utterances
         self.is_labeled = False
-        self.timing = 0.0
+        self.time = 0.0
         self.check_labels()
 
     def check_labels(self):
