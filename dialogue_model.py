@@ -1,3 +1,6 @@
+from random import shuffle
+
+
 class DialogueModel:
     def __init__(self, dataset, dialogues, user_id):
 
@@ -9,6 +12,7 @@ class DialogueModel:
 
         # All dialogues
         self.dialogues = dialogues
+        # shuffle(self.dialogues)  # TODO Uncomment when deployed
         self.num_dialogues = len(self.dialogues)
 
         # Labeled and unlabeled

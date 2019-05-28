@@ -1,6 +1,5 @@
 # CA Dialogue Tagger
 ### TODO
-- randomise the order in which dialogues are shown to each user
 - practice
 - generate valid user list
 ### Example JSON Format

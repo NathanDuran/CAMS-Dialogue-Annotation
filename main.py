@@ -11,7 +11,7 @@ user_data_path = "static/user_data/"
 
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
-app.config['TESTING'] = False
+# app.config['TESTING'] = False
 # app.config['LOGIN_DISABLED'] = True
 
 login_manager = LoginManager()
