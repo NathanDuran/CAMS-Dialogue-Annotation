@@ -15,16 +15,16 @@ class DialogueModel:
         # shuffle(self.dialogues)  # TODO Uncomment when deployed
         self.num_dialogues = len(self.dialogues)
 
-        # Labeled and unlabeled
-        self.num_labeled = 0
-        self.num_unlabeled = 0
-
         # Current dialogue
         self.current_dialogue_index = 0
         self.current_dialogue = self.dialogues[self.current_dialogue_index]
 
-        # Split into labeled and unlabeled
-        self.get_dialogues_states()
+        # Labelled and unlabelled counts
+        self.num_labelled = 0
+        self.num_unlabelled = 0
+
+        # Count labelled and unlabelled dialogues
+        self.update_labelled_dialogue_counts()
 
     def get_current_dialogue(self):
         return self.current_dialogue
@@ -36,57 +36,39 @@ class DialogueModel:
 
         return True
 
-    def update_dialogue(self, dialogue_data):
-
+    def get_dialogue(self, dialogue_id):
         # Find the matching dialogue
         for dialogue in self.dialogues:
-            if dialogue.dialogue_id == dialogue_data['dialogue_id']:
+            if dialogue.dialogue_id == dialogue_id:
+                return dialogue
+            else:
+                return False
 
-                # Loop over the utterances in the dialogue
-                utterances = []
-                for utterance in dialogue_data['utterances']:
+    def set_dialogue(self, dialogue_data, target_id):
+        # Find the matching dialogue
+        for i, dialogue in enumerate(self.dialogues):
+            if dialogue.dialogue_id == target_id:
+                # Set the new dialogue data
+                self.dialogues[i] = dialogue_data
+                # Update dialogue states
+                self.update_labelled_dialogue_counts()
+                return True
+            else:
+                return False
 
-                    # Create a new utterance
-                    tmp_utterance = Utterance(utterance['text'], utterance['speaker'])
+    def update_labelled_dialogue_counts(self):
 
-                    # Set utterance labels if not blank
-                    if utterance['ap_label'] is not "":
-                        tmp_utterance.set_ap_label(utterance['ap_label'])
-                    if utterance['da_label'] is not "":
-                        tmp_utterance.set_da_label(utterance['da_label'])
+        # Reset labeled and unlabeled counts
+        self.num_labelled = 0
+        self.num_unlabelled = 0
 
-                    # Get labeled state if it exists
-                    if 'is_labeld' in utterance.keys():
-                        tmp_utterance.is_labeled = utterance['is_labeled']
-
-                    # Add to utterance list
-                    utterances.append(tmp_utterance)
-
-                # Check if the labeled and time values are also set
-                dialogue.is_labeled = dialogue_data['is_labeled']
-                dialogue.time = dialogue_data['time']
-
-        self.get_dialogues_states()
-
-        return True
-
-    def get_dialogues_states(self):
-
-        # Reset labeled and unlabeled lists
-        labeled_dialogues = []
-        unlabeled_dialogues = []
-
-        # Split dialogues into lists
+        # Update counts
         for dialogue in self.dialogues:
 
             if dialogue.check_labels():
-                labeled_dialogues.append(dialogue)
+                self.num_labelled += 1
             else:
-                unlabeled_dialogues.append(dialogue)
-
-        # Set number of labeled, unlabeled and total
-        self.num_labeled = len(labeled_dialogues)
-        self.num_unlabeled = len(unlabeled_dialogues)
+                self.num_unlabelled += 1
 
     def inc_current_dialogue(self):
 
@@ -126,10 +108,8 @@ class Dialogue:
         self.check_labels()
 
     def check_labels(self):
-
         # Check if any utterances still have default labels
         for utt in self.utterances:
-
             if not utt.check_labels():
                 self.is_labeled = False
                 return self.is_labeled

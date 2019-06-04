@@ -1,6 +1,6 @@
 {
     "dataset": "set_2",
-    "user_id": "test_2",
+    "user_id": "usr_2",
     "num_dialogues": 5,
     "num_labeled": 1,
     "num_unlabeled": 4,
@@ -8,35 +8,35 @@
         {
             "dialogue_id": "test_1",
             "is_labeled": true,
-            "time": 348091,
+            "time": 154355,
             "num_utterances": 7,
             "utterances": [
                 {
                     "speaker": "USR",
                     "text": "where's the nearest parking garage",
-                    "ap_label": "FPP-pre",
-                    "da_label": "offer",
+                    "ap_label": "Post",
+                    "da_label": "suggest",
                     "is_labeled": true
                 },
                 {
                     "speaker": "SYS",
                     "text": "The nearest parking garage is Dish Parking at 550 Alester Ave.",
-                    "ap_label": "FPP-pre",
-                    "da_label": "offer",
+                    "ap_label": "Post",
+                    "da_label": "suggest",
                     "is_labeled": true
                 },
                 {
                     "speaker": "SYS",
                     "text": "Would you like directions there?",
                     "ap_label": "SPP-post",
-                    "da_label": "offer",
+                    "da_label": "addressSuggest",
                     "is_labeled": true
                 },
                 {
                     "speaker": "USR",
                     "text": "Yes, please set directions via a route that avoids all heavy traffic if possible.",
-                    "ap_label": "SPP-post",
-                    "da_label": "offer",
+                    "ap_label": "Post",
+                    "da_label": "addressSuggest",
                     "is_labeled": true
                 },
                 {
@@ -65,7 +65,7 @@
         {
             "dialogue_id": "test_2",
             "is_labeled": false,
-            "time": 5235,
+            "time": 0.0,
             "num_utterances": 7,
             "utterances": [
                 {
@@ -122,7 +122,7 @@
         {
             "dialogue_id": "test_3",
             "is_labeled": false,
-            "time": 1369,
+            "time": 0.0,
             "num_utterances": 7,
             "utterances": [
                 {
@@ -179,7 +179,7 @@
         {
             "dialogue_id": "test_4",
             "is_labeled": false,
-            "time": 1702,
+            "time": 0.0,
             "num_utterances": 4,
             "utterances": [
                 {
@@ -215,7 +215,7 @@
         {
             "dialogue_id": "test_5",
             "is_labeled": false,
-            "time": 642,
+            "time": 0.0,
             "num_utterances": 5,
             "utterances": [
                 {

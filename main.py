@@ -18,7 +18,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 # login_manager.login_view = "/home"
 current_users = dict()
-valid_users = ['test_1', 'test_2']  # TODO read from file
+valid_users = ['usr_1', 'usr_2']  # TODO read from file
 
 
 @app.route('/')
@@ -124,10 +124,13 @@ def save_current_dialogue():
     model = user.get_model()
 
     # Parse the request JSON
-    dialogue = request.get_json()
+    dialogue_data = request.get_json()
+
+    # Convert dialogue JSON/Dict to dialogue object
+    dialogue = utils.dialogue_from_dict(dialogue_data)
 
     # Update the model with the new dialogue
-    model.update_dialogue(dialogue)
+    model.set_dialogue(dialogue, dialogue.dialogue_id)
 
     # Save to the users JSON file
     success = utils.save_model(user_data_path, model, user.get_id())

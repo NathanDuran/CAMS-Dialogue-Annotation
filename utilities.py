@@ -61,9 +61,9 @@ def load_label_groups(labels):
 
 
 # Creates a dialogue model from the specified dialogue dataset file
-def create_model(data_path, datset_file, user_id):
+def create_model(data_path, dataset_file, user_id):
     # Load JSON file
-    data = load_json_data(data_path, datset_file)
+    data = load_json_data(data_path, dataset_file)
 
     # If file is not valid or invalid JSON
     if not data:
@@ -74,7 +74,7 @@ def create_model(data_path, datset_file, user_id):
 
     # If JSON is not valid or keys missing
     if not dialogues:
-        print("Unable to load dialogue JSON data...")
+        print("Unable to load dialogues JSON data...")
 
     # Create the dialogue model
     model = DialogueModel(data['dataset'], dialogues, user_id)
@@ -89,8 +89,8 @@ def save_model(data_path, model, user_id):
     model_dict['dataset'] = model.dataset
     model_dict['user_id'] = model.user_id
     model_dict['num_dialogues'] = model.num_dialogues
-    model_dict['num_labeled'] = model.num_labeled
-    model_dict['num_unlabeled'] = model.num_unlabeled
+    model_dict['num_labelled'] = model.num_labelled
+    model_dict['num_unlabelled'] = model.num_unlabelled
     model_dict['dialogues'] = dialogues_to_dict(model.dialogues)
 
     # Save to JSON
@@ -152,6 +152,9 @@ def dialogue_from_dict(dialogue):
 
     except KeyError:
         traceback.print_exc()
+
+    # Check if the dialogue is labelled or not
+    tmp_dialogue.check_labels()
 
     return tmp_dialogue
 
