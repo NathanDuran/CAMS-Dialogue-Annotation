@@ -26,6 +26,14 @@ class DialogueModel:
         # Count labelled and unlabelled dialogues
         self.update_labelled_dialogue_counts()
 
+    def __repr__(self):
+        to_string = "Dataset: " + self.dataset + "\n"
+        to_string += "User ID: " + self.user_id + "\n"
+        to_string += "Num Dialogues: " + str(self.num_dialogues) + "\n"
+        to_string += "Num Labelled: " + str(self.num_labelled) + "\n"
+        to_string += "Num Unlabelled: " + str(self.num_unlabelled) + "\n"
+        return to_string
+
     def get_current_dialogue(self):
         return self.current_dialogue
 
@@ -44,17 +52,15 @@ class DialogueModel:
             else:
                 return False
 
-    def set_dialogue(self, dialogue_data, target_id):
+    def set_dialogue(self, new_dialogue):
         # Find the matching dialogue
         for i, dialogue in enumerate(self.dialogues):
-            if dialogue.dialogue_id == target_id:
-                # Set the new dialogue data
-                self.dialogues[i] = dialogue_data
+            if dialogue.dialogue_id == new_dialogue.dialogue_id:
+                # Update dialogue with new data
+                self.dialogues[i] = new_dialogue
                 # Update dialogue states
                 self.update_labelled_dialogue_counts()
                 return True
-            else:
-                return False
 
     def update_labelled_dialogue_counts(self):
 
@@ -107,6 +113,15 @@ class Dialogue:
         self.time = 0.0
         self.check_labels()
 
+    def __repr__(self):
+        to_string = "Dialogue ID: " + self.dialogue_id + "\n"
+        to_string += "Num Utterances: " + str(self.num_utterances) + "\n"
+        to_string += "Labelled: " + str(self.is_labeled) + "\n"
+        to_string += "Time: " + str(self.time) + "\n"
+        for utt in self.utterances:
+            to_string += str(utt) + "\n"
+        return to_string
+
     def check_labels(self):
         # Check if any utterances still have default labels
         for utt in self.utterances:
@@ -125,6 +140,12 @@ class Utterance:
         self.ap_label = ap_label
         self.da_label = da_label
         self.is_labeled = False
+
+    def __repr__(self):
+        return self.speaker + " " + self.text +\
+                    " AP-Label: " + self.ap_label +\
+                    " DA-Label: " + self.da_label +\
+                    " Labelled: " + str(self.is_labeled)
 
     def set_ap_label(self, label):
         self.ap_label = label

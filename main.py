@@ -130,7 +130,7 @@ def save_current_dialogue():
     dialogue = utils.dialogue_from_dict(dialogue_data)
 
     # Update the model with the new dialogue
-    model.set_dialogue(dialogue, dialogue.dialogue_id)
+    model.set_dialogue(dialogue)
 
     # Save to the users JSON file
     success = utils.save_model(user_data_path, model, user.get_id())
