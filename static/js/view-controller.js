@@ -119,7 +119,6 @@ function uttClearBtnClick() {
 // Dialogue view label button bar
 function labelBtnClick() {
     console.log(this.id + " button clicked...");
-    console.log(this);
 
     // Get the label text and its type (DA or AP)
     var labelText = this.innerHTML;
@@ -141,7 +140,7 @@ function labelBtnClick() {
 
         // Check if this utterance is now completely labeled
         // If so then set it to labeled and increment to next utterance
-        if (checkLabels(currentDialogue.utterances[currentUttIndex])) {
+        if (checkUtteranceLabels(currentDialogue.utterances[currentUttIndex])) {
 
             // Set this utterance to labeled
             currentDialogue.utterances[currentUttIndex].is_labeled = true;

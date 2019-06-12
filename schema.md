@@ -98,7 +98,7 @@ Contents
 
 [Information-providing Functions](#information-providing-functions)
 
-&emsp; [inform](#inform)
+&emsp; [inform (Statement)](#inform-statement)
 
 &emsp; [answer](#answer)
 
@@ -381,7 +381,7 @@ proposition is true or not and puts pressure on A to provide this information.
 Information-providing Functions
 -------------------------------
 
-### inform
+### inform (Statement)
 
 Communicative function of a dialogue act performed by the sender, S, in order to
 make the information contained in the semantic content known to the addressee,

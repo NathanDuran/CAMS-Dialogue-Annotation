@@ -24,6 +24,14 @@ window.onbeforeunload = function () {
     // Check if we need to save the current dialogue
     if (currentDialogue) {
         saveDialogue(currentDialogue);
+
+        // Reset current dialogue and stat variable TODO Unnecessary?
+        dataset = null;
+        numDialogues = null;
+        currentDialogue = null;
+        currentDialogueIndex = null;
+        currentUttIndex = null;
+        dialogueStartTime = null;
     }
 };
 
@@ -195,7 +203,7 @@ function getUnlabeledUttIndex(dialogue) {
 function setButtonLabeledState(button) {
     // Get the index of the button that was clicked
     var index = button.id.split("_")[1];
-    if (checkLabels(currentDialogue.utterances[index])) {
+    if (checkUtteranceLabels(currentDialogue.utterances[index])) {
         button.className = "utt-btn labeled";
     } else {
         button.className = "utt-btn";
@@ -203,7 +211,7 @@ function setButtonLabeledState(button) {
 }
 
 // Checks if this utterance is completely labeled
-function checkLabels(utterance) {
+function checkUtteranceLabels(utterance) {
     return !(utterance.ap_label === defaultApLabel || utterance.da_label === defaultDaLabel);
 }
 

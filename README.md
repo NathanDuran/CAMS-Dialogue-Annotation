@@ -1,10 +1,14 @@
 # CA Dialogue Tagger
 ### TODO
-- practice
+- practice?
+- utterance label button timing
 - generate valid user list
 - Check Corpora - set default ap and da utt labels to not be empty string?
-- put in check for labelled state in javascript?
+- put in check for labelled state in javascript
 - Fix alignment of clear utt button (make a new icon?)
+- Use the simpler label format
+- Questionnaire popup
+- Complete/finish dialogue labelling button?
 ### Example JSON Format
 The following is an example of the JSON format
 ```json

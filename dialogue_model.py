@@ -17,7 +17,7 @@ class DialogueModel:
 
         # Current dialogue
         self.current_dialogue_index = 0
-        self.current_dialogue = self.dialogues[self.current_dialogue_index]
+        #self.current_dialogue = self.dialogues[self.current_dialogue_index]
 
         # Labelled and unlabelled counts
         self.num_labelled = 0
@@ -35,13 +35,10 @@ class DialogueModel:
         return to_string
 
     def get_current_dialogue(self):
-        return self.current_dialogue
+        return self.dialogues[self.current_dialogue_index]
 
     def set_current_dialogue(self, index):
-
         self.current_dialogue_index = index
-        self.current_dialogue = self.dialogues[self.current_dialogue_index]
-
         return True
 
     def get_dialogue(self, dialogue_id):
@@ -84,9 +81,6 @@ class DialogueModel:
         else:
             self.current_dialogue_index = 0
 
-        # Set new current dialogue with index
-        self.set_current_dialogue(self.current_dialogue_index)
-
         return True
 
     def dec_current_dialogue(self):
@@ -96,9 +90,6 @@ class DialogueModel:
             self.current_dialogue_index = self.num_dialogues - 1
         else:
             self.current_dialogue_index -= 1
-
-        # Set new current dialogue with index
-        self.set_current_dialogue(self.current_dialogue_index)
 
         return True
 
@@ -118,8 +109,8 @@ class Dialogue:
         to_string += "Num Utterances: " + str(self.num_utterances) + "\n"
         to_string += "Labelled: " + str(self.is_labeled) + "\n"
         to_string += "Time: " + str(self.time) + "\n"
-        for utt in self.utterances:
-            to_string += str(utt) + "\n"
+        # for utt in self.utterances:
+        #     to_string += str(utt) + "\n"
         return to_string
 
     def check_labels(self):
