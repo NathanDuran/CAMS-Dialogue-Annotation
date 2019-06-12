@@ -82,7 +82,7 @@ function loadContent(content) {
 function login() {
 
     // Get the user name from the input box
-    var userName = document.getElementById("user-name").value;
+    let userName = document.getElementById("user-name").value;
 
     // If it is blank don't bother with POST request
     if (userName !== '') {
@@ -133,7 +133,10 @@ function saveDialogue(dialogue) {
 
     if (currentDialogue !== null) {
 
-        endTimer();
+        // Check if a timer was started i.e. it isn't/wasn't labelled
+        if(dialogueStartTime !== null){
+            endDialogueTimer();
+        }
 
         $.ajax({
             type: 'post',
@@ -155,7 +158,7 @@ function saveDialogue(dialogue) {
 }
 
 // Starts a timer for the current dialogue
-function startTimer() {
+function startDialogueTimer() {
 
     dialogueStartTime = Date.now();
     console.log("Timer started @ " + new Date().toUTCString());
@@ -163,7 +166,7 @@ function startTimer() {
 }
 
 // Ends a timer for the current dialogue
-function endTimer() {
+function endDialogueTimer() {
 
     var timeDelta = Date.now() - dialogueStartTime;
     currentDialogue.time = currentDialogue.time + timeDelta;
@@ -187,10 +190,10 @@ function updateCurrentStats() {
 
 
 // Gets the next unlabeled utterance index
-function getUnlabeledUttIndex(dialogue) {
+function getUnlabeledUttIndex(dialogue, index) {
 
-    var uttIndex = null;
-    for (var i = 0; i < dialogue.utterances.length; i++) {
+    let uttIndex = null;
+    for (let i = index; i < dialogue.utterances.length; i++) {
         if (!dialogue.utterances[i].is_labeled) {
             uttIndex = i;
             return uttIndex;
@@ -199,10 +202,10 @@ function getUnlabeledUttIndex(dialogue) {
     return uttIndex;
 }
 
-// Toggles the utterance buttons labeled state
+// Toggles the utterance buttons labelled state
 function setButtonLabeledState(button) {
     // Get the index of the button that was clicked
-    var index = button.id.split("_")[1];
+    let index = button.id.split("_")[1];
     if (checkUtteranceLabels(currentDialogue.utterances[index])) {
         button.className = "utt-btn labeled";
     } else {
@@ -210,11 +213,22 @@ function setButtonLabeledState(button) {
     }
 }
 
-// Checks if this utterance is completely labeled
+// Checks if this utterance is completely labelled
 function checkUtteranceLabels(utterance) {
     return !(utterance.ap_label === defaultApLabel || utterance.da_label === defaultDaLabel);
 }
 
+// Checks if this dialogue is completely labelled
+function checkDialogueLabels(dialogue) {
+
+    // For each utterance in the dialogue
+    for (let i = 0; i < dialogue.utterances.length; i++) {
+        if (!checkUtteranceLabels(dialogue.utterances[i])) {
+            return false;
+        }
+    }
+    return true;
+}
 // Clears all children from current node
 function clearAllChildren(target) {
     while (target.firstChild) {
