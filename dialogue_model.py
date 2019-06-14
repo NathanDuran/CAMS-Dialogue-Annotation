@@ -17,7 +17,6 @@ class DialogueModel:
 
         # Current dialogue
         self.current_dialogue_index = 0
-        #self.current_dialogue = self.dialogues[self.current_dialogue_index]
 
         # Labelled and unlabelled counts
         self.num_labelled = 0
@@ -100,14 +99,14 @@ class Dialogue:
         self.dialogue_id = dialogue_id
         self.utterances = utterances
         self.num_utterances = num_utterances
-        self.is_labeled = False
+        self.is_labelled = False
         self.time = 0.0
         self.check_labels()
 
     def __repr__(self):
         to_string = "Dialogue ID: " + self.dialogue_id + "\n"
         to_string += "Num Utterances: " + str(self.num_utterances) + "\n"
-        to_string += "Labelled: " + str(self.is_labeled) + "\n"
+        to_string += "Labelled: " + str(self.is_labelled) + "\n"
         to_string += "Time: " + str(self.time) + "\n"
         # for utt in self.utterances:
         #     to_string += str(utt) + "\n"
@@ -117,11 +116,11 @@ class Dialogue:
         # Check if any utterances still have default labels
         for utt in self.utterances:
             if not utt.check_labels():
-                self.is_labeled = False
-                return self.is_labeled
+                self.is_labelled = False
+                return self.is_labelled
 
-        self.is_labeled = True
-        return self.is_labeled
+        self.is_labelled = True
+        return self.is_labelled
 
 
 class Utterance:
@@ -130,13 +129,15 @@ class Utterance:
         self.speaker = speaker
         self.ap_label = ap_label
         self.da_label = da_label
-        self.is_labeled = False
+        self.is_labelled = False
+        self.time = 0.0
+        self.check_labels()
 
     def __repr__(self):
         return self.speaker + " " + self.text +\
                     " AP-Label: " + self.ap_label +\
                     " DA-Label: " + self.da_label +\
-                    " Labelled: " + str(self.is_labeled)
+                    " Labelled: " + str(self.is_labelled)
 
     def set_ap_label(self, label):
         self.ap_label = label
@@ -149,8 +150,8 @@ class Utterance:
     def check_labels(self):
         # Check if utterance still has default labels
         if self.ap_label == 'AP-Label' or self.da_label == 'DA-Label':
-            self.is_labeled = False
-            return self.is_labeled
+            self.is_labelled = False
+            return self.is_labelled
 
-        self.is_labeled = True
-        return self.is_labeled
+        self.is_labelled = True
+        return self.is_labelled

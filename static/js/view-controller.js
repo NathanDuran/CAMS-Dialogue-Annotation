@@ -10,10 +10,12 @@ var dataset = null;
 var numDialogues = null;
 var currentDialogue = null;
 var currentDialogueIndex = null;
+var currentUtt = null;
 var currentUttIndex = null;
 
-// To keep track of when the dialogue labelling started
+// To keep track of when the dialogue/utterance labelling started
 var dialogueStartTime = null;
+var utteranceStartTime = null;
 
 // Default labels
 var defaultApLabel = "AP-Label";
@@ -75,18 +77,17 @@ function utteranceBtnClick() {
 
     // If this is the currently selected button unselect it
     if (index === currentUttIndex) {
-        // Check if it is already labeled
-        setButtonLabeledState(this);
+        setButtonSelectedState(this, false);
         currentUttIndex = null;
 
     } else {
         // Otherwise remove the currently selected button state and select this one
         let currentUttBtn = document.getElementById("utt-btn_" + currentUttIndex);
         if (currentUttBtn) {
-            // Check if it is already labeled
-            setButtonLabeledState(currentUttBtn);
+            setButtonSelectedState(currentUttBtn, false);
         }
-        this.className = this.className + " current";
+
+        setButtonSelectedState(this, true);
         currentUttIndex = index;
     }
 }
@@ -105,20 +106,16 @@ function uttClearBtnClick() {
     daLabel.innerHTML = defaultDaLabel;
 
     // Remove the labelled state
-    let utt_btn = document.getElementById("utt-btn_" + index);
-    if (index === currentUttIndex) {
-        utt_btn.className = "utt-btn current";
-    } else {
-        utt_btn.className = "utt-btn"
-    }
+    let uttBtn = document.getElementById("utt-btn_" + index);
+    setButtonLabelledState(uttBtn, false);
 
     // Set the utterance labels to default on the current dialogue and labelled to false
     currentDialogue.utterances[index].ap_label = defaultApLabel;
     currentDialogue.utterances[index].da_label = defaultDaLabel;
-    currentDialogue.utterances[index].is_labeled = false;
+    currentDialogue.utterances[index].is_labelled = false;
 
     // Check if the timer is stopped i.e this dialogue was fully labelled before
-    if(dialogueStartTime === null){
+    if (dialogueStartTime === null) {
         // If so, start the timer
         startDialogueTimer()
     }
@@ -146,28 +143,31 @@ function labelBtnClick() {
             currentDialogue.utterances[currentUttIndex].da_label = labelText;
         }
 
-        // Check if this utterance is now completely labeled
-        // If so then set it to labeled and increment to next utterance
+        // Check if this utterance is now completely labelled
+        // If so then set it to labelled and increment to next utterance
         if (checkUtteranceLabels(currentDialogue.utterances[currentUttIndex])) {
 
-            // Set this utterance to labeled
-            currentDialogue.utterances[currentUttIndex].is_labeled = true;
-
-            // Get the currently selected utterance button and set to labeled
+            // Get the currently selected utterance button and set to labelled
             let uttBtn = document.getElementById("utt-btn_" + currentUttIndex);
-            uttBtn.className = "utt-btn labeled";
+            // uttBtn.className = "utt-btn labelled";
+            setButtonLabelledState(uttBtn, true);
+            currentDialogue.utterances[currentUttIndex].is_labelled = true;
 
-            // Get the next unlabelled utterance index
-            if(getUnlabeledUttIndex(currentDialogue, currentUttIndex)){
-                currentUttIndex = getUnlabeledUttIndex(currentDialogue, currentUttIndex);
+            // Unselect this utterance
+            setButtonSelectedState(uttBtn, false);
+
+            // Get the next unlabelled utterance starting from the current index
+            if (getUnlabelledUttIndex(currentDialogue, currentUttIndex)) {
+                currentUttIndex = getUnlabelledUttIndex(currentDialogue, currentUttIndex);
             } else {
-                currentUttIndex = getUnlabeledUttIndex(currentDialogue, 0);
+                // Otherwise try and get any unlabelled utterance index
+                currentUttIndex = getUnlabelledUttIndex(currentDialogue, 0);
             }
 
             // If there was an unlabelled utterance set the new current utterance button
-            if (currentUttIndex < currentDialogue.utterances.length && currentUttIndex !== null) {
-                uttBtn = document.getElementById("utt-btn_" + currentUttIndex);
-                uttBtn.className = "utt-btn current";
+            if (currentUttIndex !== null) {
+                let uttBtn = document.getElementById("utt-btn_" + currentUttIndex);
+                setButtonSelectedState(uttBtn, true)
             }
         }
     } else {
@@ -175,12 +175,12 @@ function labelBtnClick() {
     }
 
     // Check if the current dialogue is now fully labelled
-    if(checkDialogueLabels(currentDialogue)){
+    if (checkDialogueLabels(currentDialogue)) {
         // Set the current dialogue to labelled
-        currentDialogue.is_labeled = true;
+        currentDialogue.is_labelled = true;
 
         // If it wasn't already fully labelled, stop the timer
-        if(dialogueStartTime !== null){
+        if (dialogueStartTime !== null) {
             endDialogueTimer();
         }
     }
@@ -212,7 +212,7 @@ function buildDialogueViewUtterances(target) {
             updateCurrentStats();
 
             // Start the timer for this dialogue if it is not labelled
-            if(!checkDialogueLabels(currentDialogue)){
+            if (!checkDialogueLabels(currentDialogue)) {
                 startDialogueTimer();
             }
 
@@ -224,8 +224,8 @@ function buildDialogueViewUtterances(target) {
 // Creates buttons for the utterances and DA/AP labels and appends it to the target
 function createUtteranceList(dialogue) {
 
-    // Get the first unlabeled utterance index
-    currentUttIndex = getUnlabeledUttIndex(dialogue, 0);
+    // Get the first unlabelled utterance index
+    currentUttIndex = getUnlabelledUttIndex(dialogue, 0);
 
     // Build the utterance list
     var utteranceList = document.createElement("ul");
@@ -234,7 +234,7 @@ function createUtteranceList(dialogue) {
     // For each utterance in the dialogue
     for (let i = 0; i < dialogue.utterances.length; i++) {
 
-        // Get current utterance
+        // Get an utterance
         let utterance = dialogue.utterances[i];
 
         // Create list element
@@ -243,23 +243,23 @@ function createUtteranceList(dialogue) {
 
         // Create the button
         let utteranceBtn = document.createElement("button");
-        // Check if this utterance is already labeled or the current unlabeled
-        if (utterance.is_labeled) {
-            utteranceBtn.className = "utt-btn labeled";
+        utteranceBtn.id = "utt-btn_" + i;
+        utteranceBtn.className = "utt-btn";
+        // Check if this utterance is already labelled or the current unlabelled
+        if (utterance.is_labelled) {
+            setButtonLabelledState(utteranceBtn, true);
         } else if (i === currentUttIndex) {
-            utteranceBtn.className = "utt-btn current";
-        } else {
-            utteranceBtn.className = "utt-btn";
+
+            setButtonSelectedState(utteranceBtn, true);
         }
 
-        utteranceBtn.id = "utt-btn_" + i;
         utteranceBtn.innerHTML = utterance.speaker + ": " + utterance.text;
         utteranceBtn.addEventListener("click", utteranceBtnClick);
 
         // Create the AP label
         let apText = document.createElement("label");
-        apText.className = "ap-label-container";
         apText.id = "ap-label_" + i;
+        apText.className = "ap-label-container";
         if (utterance.ap_label === "") {
             apText.innerText = defaultApLabel;
         } else {
@@ -268,8 +268,8 @@ function createUtteranceList(dialogue) {
 
         // Create the DA label
         let daText = document.createElement("label");
-        daText.className = "da-label-container";
         daText.id = "da-label_" + i;
+        daText.className = "da-label-container";
         if (utterance.da_label === "") {
             daText.innerText = defaultDaLabel;
         } else {
@@ -278,8 +278,8 @@ function createUtteranceList(dialogue) {
 
         // Create clear button
         let clearBtn = document.createElement("button");
-        clearBtn.className = "clear-btn";
         clearBtn.id = "clear-btn_" + i;
+        clearBtn.className = "clear-btn";
         clearBtn.innerHTML = '<img src="../static/images/delete.png" alt="Clear" width="15" height="15"/>';
         clearBtn.addEventListener("click", uttClearBtnClick);
 

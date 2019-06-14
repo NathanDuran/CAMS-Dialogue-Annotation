@@ -134,9 +134,11 @@ def dialogue_from_dict(dialogue):
             if utterance['da_label'] is not "":
                 tmp_utterance.set_da_label(utterance['da_label'])
 
-            # Get labeled state if it exists
-            if 'is_labeld' in utterance.keys():
-                tmp_utterance.is_labeled = utterance['is_labeled']
+            # Check if the labelled and time values are also set
+            if 'is_labelled' in utterance.keys():
+                tmp_utterance.is_labelled = utterance['is_labelled']
+            if 'time' in utterance.keys():
+                tmp_utterance.time = utterance['time']
 
             # Add to utterance list
             utterances.append(tmp_utterance)
@@ -144,9 +146,9 @@ def dialogue_from_dict(dialogue):
         # Create a new dialogue with the utterances
         tmp_dialogue = Dialogue(dialogue['dialogue_id'], utterances, len(utterances))
 
-        # Check if the labeled and time values are also set
-        if 'is_labeled' in dialogue.keys():
-            tmp_dialogue.is_labeled = dialogue['is_labeled']
+        # Check if the labelled and time values are also set
+        if 'is_labelled' in dialogue.keys():
+            tmp_dialogue.is_labelled = dialogue['is_labelled']
         if 'time' in dialogue.keys():
             tmp_dialogue.time = dialogue['time']
 
@@ -189,14 +191,15 @@ def dialogue_to_dict(dialogue):
         utt_dict['text'] = utterance.text
         utt_dict['ap_label'] = utterance.ap_label
         utt_dict['da_label'] = utterance.da_label
-        utt_dict['is_labeled'] = utterance.is_labeled
+        utt_dict['is_labelled'] = utterance.is_labelled
+        utt_dict['time'] = utterance.time
 
         # Add to utterance list
         utterances.append(utt_dict)
 
-    # Add id, number of utterances, utterances, is labeled and time to dialogue
+    # Add id, number of utterances, utterances, is labelled and time to dialogue
     dialogue_dict['dialogue_id'] = dialogue.dialogue_id
-    dialogue_dict['is_labeled'] = dialogue.is_labeled
+    dialogue_dict['is_labelled'] = dialogue.is_labelled
     dialogue_dict['time'] = dialogue.time
     dialogue_dict['num_utterances'] = dialogue.num_utterances
     dialogue_dict['utterances'] = utterances

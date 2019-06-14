@@ -176,6 +176,25 @@ function endDialogueTimer() {
     dialogueStartTime = null;
 }
 
+// Starts a timer for the current utterance
+function startUtteranceTimer() {
+
+    utteranceStartTime = Date.now();
+    console.log("Timer started @ " + new Date().toUTCString());
+    console.log("Current utterance time: " + currentDialogue.time);
+}
+
+// Ends a timer for the current utterance
+function endUtteranceTimer() {
+
+    var timeDelta = Date.now() - utteranceStartTime;
+    currentUtterance.time = currentDialogue.time + timeDelta;
+    console.log("Timer ended @ " + new Date().toUTCString());
+    console.log("Time taken: " + timeDelta);
+    console.log("Current dialogue time: " + currentDialogue.time);
+    dialogueStartTime = null;
+}
+
 // Updates the current dialogue stats
 function updateCurrentStats() {
 
@@ -189,12 +208,12 @@ function updateCurrentStats() {
 }
 
 
-// Gets the next unlabeled utterance index
-function getUnlabeledUttIndex(dialogue, index) {
+// Gets the next unlabelled utterance index
+function getUnlabelledUttIndex(dialogue, index) {
 
     let uttIndex = null;
     for (let i = index; i < dialogue.utterances.length; i++) {
-        if (!dialogue.utterances[i].is_labeled) {
+        if (!dialogue.utterances[i].is_labelled) {
             uttIndex = i;
             return uttIndex;
         }
@@ -202,14 +221,20 @@ function getUnlabeledUttIndex(dialogue, index) {
     return uttIndex;
 }
 
+function setButtonSelectedState(button, state){
+    if(state === true && !button.className.includes('selected')){
+        button.className += " selected";
+    } else if(state === false && button.className.includes('selected')){
+        button.className = button.className.replace(' selected', '')
+    }
+}
+
 // Toggles the utterance buttons labelled state
-function setButtonLabeledState(button) {
-    // Get the index of the button that was clicked
-    let index = button.id.split("_")[1];
-    if (checkUtteranceLabels(currentDialogue.utterances[index])) {
-        button.className = "utt-btn labeled";
-    } else {
-        button.className = "utt-btn";
+function setButtonLabelledState(button, state) {
+        if(state === true && !button.className.includes('labelled')){
+        button.className += " labelled";
+    } else if(state === false && button.className.includes('labelled')){
+        button.className = button.className.replace(' labelled', '')
     }
 }
 
@@ -229,6 +254,7 @@ function checkDialogueLabels(dialogue) {
     }
     return true;
 }
+
 // Clears all children from current node
 function clearAllChildren(target) {
     while (target.firstChild) {
