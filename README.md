@@ -4,9 +4,8 @@
 
 - generate valid user list
 
-
-- Fix alignment of clear utt button (make a new icon?)
-- Use the simpler label format
+- Label button tooltips
+- Highlight DA/AP labels once labelled?
 - Questionnaire popup
 
 - Complete/finish dialogue labelling button?

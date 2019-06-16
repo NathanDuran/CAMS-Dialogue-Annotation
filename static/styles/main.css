@@ -81,3 +81,7 @@ button:hover {
     background-color: lightblue;
     color: black;
 }
+
+button:focus {
+    outline: none;
+}

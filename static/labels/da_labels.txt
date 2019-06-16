@@ -1,4 +1,4 @@
-propositionalQuestion
+yesNoQuestion
 setQuestion
 choiceQuestion
 checkQuestion

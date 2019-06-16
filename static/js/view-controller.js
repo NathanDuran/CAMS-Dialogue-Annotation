@@ -264,7 +264,7 @@ function createUtteranceList(dialogue) {
         // Create the AP label
         let apText = document.createElement("label");
         apText.id = "ap-label_" + i;
-        apText.className = "ap-label-container";
+        apText.className = "label-container";
         if (utterance.ap_label === "") {
             apText.innerText = defaultApLabel;
         } else {
@@ -274,7 +274,7 @@ function createUtteranceList(dialogue) {
         // Create the DA label
         let daText = document.createElement("label");
         daText.id = "da-label_" + i;
-        daText.className = "da-label-container";
+        daText.className = "label-container";
         if (utterance.da_label === "") {
             daText.innerText = defaultDaLabel;
         } else {
@@ -285,7 +285,6 @@ function createUtteranceList(dialogue) {
         let clearBtn = document.createElement("button");
         clearBtn.id = "clear-btn_" + i;
         clearBtn.className = "clear-btn";
-        clearBtn.innerHTML = '<img src="../static/images/delete.png" alt="Clear" width="15" height="15"/>';
         clearBtn.addEventListener("click", uttClearBtnClick);
 
         // Append all to the list
