@@ -78,6 +78,7 @@ function utteranceBtnClick() {
     // If this is the currently selected button unselect it
     if (index === currentUttIndex) {
         setButtonSelectedState(this, false);
+        endUtteranceTimer();
         currentUttIndex = null;
 
     } else {
@@ -85,10 +86,13 @@ function utteranceBtnClick() {
         let currentUttBtn = document.getElementById("utt-btn_" + currentUttIndex);
         if (currentUttBtn) {
             setButtonSelectedState(currentUttBtn, false);
+            endUtteranceTimer();
+            currentUttIndex = null;
         }
 
         setButtonSelectedState(this, true);
         currentUttIndex = index;
+        startUtteranceTimer();
     }
 }
 
@@ -130,7 +134,7 @@ function labelBtnClick() {
     let labelType = this.id.split("_")[0];
 
     // Check there is a button selected
-    if (currentUttIndex !== null) {
+    if (currentUttIndex !== null && currentUtt !== null) {
 
         // Select the appropriate element and set its label
         let label = document.getElementById(labelType + "_" + currentUttIndex);
@@ -138,23 +142,23 @@ function labelBtnClick() {
 
         // Also update the current dialogue
         if (labelType === "ap-label") {
-            currentDialogue.utterances[currentUttIndex].ap_label = labelText;
+            currentUtt.ap_label = labelText;
         } else if (labelType === "da-label") {
-            currentDialogue.utterances[currentUttIndex].da_label = labelText;
+            currentUtt.da_label = labelText;
         }
 
         // Check if this utterance is now completely labelled
         // If so then set it to labelled and increment to next utterance
-        if (checkUtteranceLabels(currentDialogue.utterances[currentUttIndex])) {
+        if (checkUtteranceLabels(currentUtt)) {
 
             // Get the currently selected utterance button and set to labelled
             let uttBtn = document.getElementById("utt-btn_" + currentUttIndex);
-            // uttBtn.className = "utt-btn labelled";
             setButtonLabelledState(uttBtn, true);
-            currentDialogue.utterances[currentUttIndex].is_labelled = true;
+            currentUtt.is_labelled = true;
 
             // Unselect this utterance
             setButtonSelectedState(uttBtn, false);
+            endUtteranceTimer();
 
             // Get the next unlabelled utterance starting from the current index
             if (getUnlabelledUttIndex(currentDialogue, currentUttIndex)) {
@@ -167,7 +171,8 @@ function labelBtnClick() {
             // If there was an unlabelled utterance set the new current utterance button
             if (currentUttIndex !== null) {
                 let uttBtn = document.getElementById("utt-btn_" + currentUttIndex);
-                setButtonSelectedState(uttBtn, true)
+                setButtonSelectedState(uttBtn, true);
+                startUtteranceTimer();
             }
         }
     } else {
@@ -248,9 +253,9 @@ function createUtteranceList(dialogue) {
         // Check if this utterance is already labelled or the current unlabelled
         if (utterance.is_labelled) {
             setButtonLabelledState(utteranceBtn, true);
-        } else if (i === currentUttIndex) {
-
+        } else if (i === currentUttIndex && currentUttIndex !== null) {
             setButtonSelectedState(utteranceBtn, true);
+            startUtteranceTimer();
         }
 
         utteranceBtn.innerHTML = utterance.speaker + ": " + utterance.text;

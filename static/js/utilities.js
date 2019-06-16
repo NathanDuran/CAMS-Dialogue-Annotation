@@ -2,12 +2,11 @@
 window.onload = function () {
 
     // Get the content view the user was last looking at
-    currentView = sessionStorage.getItem("currentView");
-
-    // Reset the session storage, else on first page load content will be undefined
-    if (currentView) {
+    if (sessionStorage.getItem("currentView")) {
+        currentView = sessionStorage.getItem("currentView");
         sessionStorage.removeItem("currentView");
     } else {
+        // Else on first page load content will be undefined
         currentView = 'home'
     }
 
@@ -25,11 +24,12 @@ window.onbeforeunload = function () {
     if (currentDialogue) {
         saveDialogue(currentDialogue);
 
-        // Reset current dialogue and stat variable TODO Unnecessary?
+        // Reset current dialogue and stat variables
         dataset = null;
         numDialogues = null;
         currentDialogue = null;
         currentDialogueIndex = null;
+        currentUtt = null;
         currentUttIndex = null;
         dialogueStartTime = null;
     }
@@ -64,20 +64,6 @@ function loadContent(content) {
         }
     });
 }
-
-// // Changes the current active nav menu button to the specified content
-// function changeActiveNavBtn(content) {
-//
-//     // Get the currently active and target button based on content
-//     var currentBtn = document.getElementsByClassName("active-nav-menu-btn")[0];
-//     var targetBtn = document.getElementById(content);
-//
-//     // If we are not on the right page then swap active state
-//     if (currentBtn.id !== targetBtn.id) {
-//         currentBtn.classList.remove("active-nav-menu-btn");
-//         targetBtn.className = "active-nav-menu-btn";
-//     }
-// }
 
 function login() {
 
@@ -133,9 +119,13 @@ function saveDialogue(dialogue) {
 
     if (currentDialogue !== null) {
 
-        // Check if a timer was started i.e. it isn't/wasn't labelled
-        if(dialogueStartTime !== null){
+        // Check if a dialogue timer was started i.e. it isn't/wasn't labelled
+        if (dialogueStartTime !== null) {
             endDialogueTimer();
+        }
+        // Check if an utterance timer was started i.e. it was selected
+        if (utteranceStartTime !== null) {
+            endUtteranceTimer();
         }
 
         $.ajax({
@@ -168,7 +158,7 @@ function startDialogueTimer() {
 // Ends a timer for the current dialogue
 function endDialogueTimer() {
 
-    var timeDelta = Date.now() - dialogueStartTime;
+    let timeDelta = Date.now() - dialogueStartTime;
     currentDialogue.time = currentDialogue.time + timeDelta;
     console.log("Timer ended @ " + new Date().toUTCString());
     console.log("Time taken: " + timeDelta);
@@ -179,27 +169,40 @@ function endDialogueTimer() {
 // Starts a timer for the current utterance
 function startUtteranceTimer() {
 
-    utteranceStartTime = Date.now();
-    console.log("Timer started @ " + new Date().toUTCString());
-    console.log("Current utterance time: " + currentDialogue.time);
+    // Make sure we have an utterance selected
+    if (currentUttIndex !== null) {
+        currentUtt = currentDialogue.utterances[currentUttIndex];
+
+        utteranceStartTime = Date.now();
+        console.log("Timer started @ " + new Date().toUTCString());
+        console.log("Current utterance time: " + currentUtt.time);
+    } else {
+        alert("No utterance selected! cannot start timer!")
+    }
 }
 
 // Ends a timer for the current utterance
 function endUtteranceTimer() {
+    // Make sure we have an utterance selected
+    if (currentUttIndex !== null && currentUtt !== null) {
 
-    var timeDelta = Date.now() - utteranceStartTime;
-    currentUtterance.time = currentDialogue.time + timeDelta;
-    console.log("Timer ended @ " + new Date().toUTCString());
-    console.log("Time taken: " + timeDelta);
-    console.log("Current dialogue time: " + currentDialogue.time);
-    dialogueStartTime = null;
+        let timeDelta = Date.now() - utteranceStartTime;
+        currentUtt.time = currentUtt.time + timeDelta;
+        console.log("Timer ended @ " + new Date().toUTCString());
+        console.log("Time taken: " + timeDelta);
+        console.log("Current utterance time: " + currentUtt.time);
+        utteranceStartTime = null;
+        currentUtt = null;
+    } else {
+        alert("No utterance selected! cannot start timer!")
+    }
 }
 
 // Updates the current dialogue stats
 function updateCurrentStats() {
 
     // Dataset
-    document.getElementById('dataset-lbl').innerText = dataset;
+    document.getElementById('dataset-lbl').innerText = dataset.split('_')[1];
 
     // Dialogue
     document.getElementById('current-dialogue-id-lbl').innerText = currentDialogue.dialogue_id;
@@ -221,19 +224,20 @@ function getUnlabelledUttIndex(dialogue, index) {
     return uttIndex;
 }
 
-function setButtonSelectedState(button, state){
-    if(state === true && !button.className.includes('selected')){
+// Toggles the utterance buttons selected state
+function setButtonSelectedState(button, state) {
+    if (state === true && !button.className.includes('selected')) {
         button.className += " selected";
-    } else if(state === false && button.className.includes('selected')){
+    } else if (state === false && button.className.includes('selected')) {
         button.className = button.className.replace(' selected', '')
     }
 }
 
 // Toggles the utterance buttons labelled state
 function setButtonLabelledState(button, state) {
-        if(state === true && !button.className.includes('labelled')){
+    if (state === true && !button.className.includes('labelled')) {
         button.className += " labelled";
-    } else if(state === false && button.className.includes('labelled')){
+    } else if (state === false && button.className.includes('labelled')) {
         button.className = button.className.replace(' labelled', '')
     }
 }

@@ -1,13 +1,14 @@
 # CA Dialogue Tagger
 ### TODO
 - practice?
-- utterance label button timing
+
 - generate valid user list
-- Check Corpora - set default ap and da utt labels to not be empty string?
+
 
 - Fix alignment of clear utt button (make a new icon?)
 - Use the simpler label format
 - Questionnaire popup
+
 - Complete/finish dialogue labelling button?
 
 - on/before shutdown save all users?
