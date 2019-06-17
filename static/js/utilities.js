@@ -57,10 +57,10 @@ function loadContent(content) {
 
         // If we are loading the annotate view then build it
         if (currentView === 'annotate' &&
-            document.getElementById(dialogueViewUttNode) !== null &&
-            document.getElementById(dialogueViewBtnBarNode) !== null) {
-            buildDialogueViewUtterances(document.getElementById(dialogueViewUttNode));
-            buildDialogueViewButtonBars(document.getElementById(dialogueViewBtnBarNode));
+            document.getElementById(dialogueViewUttNodeId) !== null &&
+            document.getElementById(dialogueViewBtnBarNodeId) !== null) {
+            buildDialogueViewUtterances(document.getElementById(dialogueViewUttNodeId));
+            buildDialogueViewButtonBars(document.getElementById(dialogueViewBtnBarNodeId));
         }
     });
 }

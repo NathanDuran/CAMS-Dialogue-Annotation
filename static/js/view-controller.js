@@ -2,8 +2,8 @@
 var currentView = null;
 
 // Dialogue view DOM element id's
-var dialogueViewUttNode = "dialogue-view-utterances";
-var dialogueViewBtnBarNode = "dialogue-view-buttons";
+var dialogueViewUttNodeId = "dialogue-view-utterances";
+var dialogueViewBtnBarNodeId = "dialogue-view-buttons";
 
 // Current dialogue and stats
 var dataset = null;
@@ -39,7 +39,7 @@ function prevBtnClick() {
         success: function (result) {
 
             // Rebuild dialogue view with new current dialogue
-            buildDialogueViewUtterances(document.getElementById(dialogueViewUttNode));
+            buildDialogueViewUtterances(document.getElementById(dialogueViewUttNodeId));
             return result;
         }
     });
@@ -52,7 +52,7 @@ function nextBtnClick() {
     saveDialogue(currentDialogue);
 
     // Clear the dialogue view
-    clearAllChildren(document.getElementById(dialogueViewUttNode));
+    clearAllChildren(document.getElementById(dialogueViewUttNodeId));
 
     // Call next dialogue function
     $.ajax({
@@ -226,15 +226,16 @@ function buildDialogueViewUtterances(target) {
     });
 }
 
-// Creates buttons for the utterances and DA/AP labels and appends it to the target
+// Creates buttons for the utterances and DA/AP labels
 function createUtteranceList(dialogue) {
 
     // Get the first unlabelled utterance index
     currentUttIndex = getUnlabelledUttIndex(dialogue, 0);
 
     // Build the utterance list
-    var utteranceList = document.createElement("ul");
-    utteranceList.id = "utterance-list";
+    let utteranceList = document.createElement("ul");
+    utteranceList.id = "dialogue-utterance-list";
+    utteranceList.className = "utterance-list";
 
     // For each utterance in the dialogue
     for (let i = 0; i < dialogue.utterances.length; i++) {

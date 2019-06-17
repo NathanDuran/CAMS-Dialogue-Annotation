@@ -1,3 +1,4 @@
+<!-- Dialogue View Controls/Stats Bar -->
 <div id="dialogue-view-bar">
     <div id="dialogue-view-menu">
         <ul>
@@ -7,17 +8,20 @@
                 </button>
             </li>
             <li>
-                <p>Set:&nbsp</p>
-                <p id="dataset-lbl"></p>
+                <label>Set:&nbsp</label>
+                <label id="dataset-lbl"></label>
             </li>
             <li>
-                <p>Dialogue:&nbsp</p>
-                <p id="current-dialogue-id-lbl"></p>
+                <label>Dialogue:&nbsp</label>
+                <label id="current-dialogue-id-lbl"></label>
             </li>
             <li>
-                <p id="current-dialogue-index-lbl"></p>
-                <p>&nbsp/&nbsp</p>
-                <p id="num-dialogues-lbl"></p>
+                <label id="current-dialogue-index-lbl"></label>
+                <label>&nbsp/&nbsp</label>
+                <label id="num-dialogues-lbl"></label>
+            </li>
+            <li>
+                <button id="questionnaire-open-btn" onclick="openQuestionnaire()">Finish Dialogue</button>
             </li>
             <li>
                 <button id="next-btn" class="prev-next-btn" onclick="nextBtnClick(this)">
@@ -28,9 +32,57 @@
     </div>
 </div>
 
-<div id="dialogue-view-utterances">
+<!-- Dialogue View -->
+<div id="dialogue-view-utterances" class="utterance-view"></div>
 
-</div>
-<div id="dialogue-view-buttons">
+<!-- Dialogue Label Buttons -->
+<div id="dialogue-view-buttons" class="label-buttons"></div>
+
+<!-- Questionnaire -->
+<div id="questionnaire-popup" class="questionnaire">
+
+    <!-- Questionnaire content -->
+    <div class="questionnaire-content">
+        <div class="questionnaire-header">
+            <span class="questionnaire-close-btn" onclick="closeQuestionnaire()">&times;</span>
+            <h2>Modal Header</h2>
+        </div>
+        <div class="questionnaire-body">
+            <!-- Questionnaire Range Sliders -->
+            <div class="range-slider-container">
+                <label for="slider_1">Here is where the question goes.</label><br>
+                <input id="slider_1" class="range-slider" type="range" min="1" max="7" step="1" value="4"
+                       oninput="updateSlider(this)">
+
+                <ul id="slider-labels_1" class="slider-labels">
+                    <li onclick="updateSlider(this)">This is a bit longer</li>
+                    <li onclick="updateSlider(this)">2 days</li>
+                    <li onclick="updateSlider(this)">3 days</li>
+                    <li class="active" onclick="updateSlider(this)">and this</li>
+                    <li onclick="updateSlider(this)">5 days</li>
+                    <li onclick="updateSlider(this)">6 days</li>
+                    <li onclick="updateSlider(this)">So is this</li>
+                </ul>
+            </div>
+            <div class="range-slider-container">
+                <label for="slider_2">Here is where another question goes.</label><br>
+                <input id="slider_2" class="range-slider" type="range" min="1" max="7" step="1" value="4"
+                       oninput="updateSlider(this)">
+
+                <ul id="slider-labels_2" class="slider-labels">
+                    <li onclick="updateSlider(this)">This is a bit longer</li>
+                    <li onclick="updateSlider(this)">2 days</li>
+                    <li onclick="updateSlider(this)">3 days</li>
+                    <li class="active" onclick="updateSlider(this)">and this</li>
+                    <li onclick="updateSlider(this)">5 days</li>
+                    <li onclick="updateSlider(this)">6 days</li>
+                    <li onclick="updateSlider(this)">So is this</li>
+                </ul>
+            </div>
+
+            <!-- Questionnaire Utterances -->
+            <div id="questionnaire-view-utterances" class="utterance-view"></div>
+        </div>
+    </div>
 
 </div>

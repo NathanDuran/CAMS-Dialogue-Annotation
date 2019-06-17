@@ -4,13 +4,15 @@
 
 - generate valid user list
 
+- Remove state flag from setButtonLabelled/Selected State?
+
 - Label button tooltips
 - Highlight DA/AP labels once labelled?
+
 - Questionnaire popup
+- Complete/finish dialogue labelling button? at bottom of popup
 
-- Complete/finish dialogue labelling button?
-
-- on/before shutdown save all users?
+- on/before shutdown logout and save all users?
 ### Example JSON Format
 The following is an example of the JSON format
 ```json

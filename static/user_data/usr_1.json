@@ -1,0 +1,457 @@
+{
+    "dataset": "set_1",
+    "user_id": "usr_1",
+    "num_dialogues": 6,
+    "num_labelled": 2,
+    "num_unlabelled": 4,
+    "dialogues": [
+        {
+            "dialogue_id": "jason-clone",
+            "is_labelled": true,
+            "time": 48665,
+            "num_utterances": 20,
+            "utterances": [
+                {
+                    "speaker": "DER",
+                    "text": "perhaps I'll do some rudimentary experiments on my own.",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 31192
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "yeah, Mike, we could probably, you know, uh, get one of mike's hairbrushes and get started.",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 817
+                },
+                {
+                    "speaker": "DER",
+                    "text": "isn't that uh, somehow you have to increase the metabolism rate to have it grow?",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 738
+                },
+                {
+                    "speaker": "DER",
+                    "text": "what would, what would they",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 769
+                },
+                {
+                    "speaker": "DER",
+                    "text": "that would automatically uh multiply the cell growth to the age of nineteen xxx.",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 1164
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "and then, we could then, we could then try it, though.",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 802
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "so it would be better than mike, you know, his personality we could kill mike off, and then we'd have a better roommate to live with.",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 716
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "and nobody'd ever know the difference.",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 769
+                },
+                {
+                    "speaker": "DER",
+                    "text": "okay, yeah, let's see, what'd we want, what do we want to do to the new mike.",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 756
+                },
+                {
+                    "speaker": "DER",
+                    "text": "okay.",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 1270
+                },
+                {
+                    "speaker": "DER",
+                    "text": "we don't xxx that's so quite so arrogant.",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 818
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "quite so arrogant.",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 777
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "not quite so arrogant.",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 809
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "more subservient.",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 716
+                },
+                {
+                    "speaker": "DER",
+                    "text": "yeah, ahuh yeah.",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 737
+                },
+                {
+                    "speaker": "DER",
+                    "text": "he should have to give us more things too.",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 764
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "yeah, he's got a lot more things jammed in his room than I've got in here.",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 792
+                },
+                {
+                    "speaker": "DER",
+                    "text": "he should um, perhaps, sleep out in the hallway more often.",
+                    "ap_label": "Insert",
+                    "da_label": "addressRequest",
+                    "is_labelled": true,
+                    "time": 740
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "you know, or, like you could probably blast out look, you could um, you could divide this room right in half, and blast out mike's wall, and then we could just have two rooms, two big rooms.",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 1804
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "and mike could sleep in the hallway closet or something.",
+                    "ap_label": "Insert",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 1709
+                }
+            ]
+        },
+        {
+            "dialogue_id": "test_1",
+            "is_labelled": true,
+            "time": 0,
+            "num_utterances": 7,
+            "utterances": [
+                {
+                    "speaker": "USR",
+                    "text": "where's the nearest parking garage",
+                    "ap_label": "FPP-pre",
+                    "da_label": "offer",
+                    "is_labelled": true,
+                    "time": 0
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "The nearest parking garage is Dish Parking at 550 Alester Ave.",
+                    "ap_label": "FPP-pre",
+                    "da_label": "offer",
+                    "is_labelled": true,
+                    "time": 0
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "Would you like directions there?",
+                    "ap_label": "SPP-post",
+                    "da_label": "offer",
+                    "is_labelled": true,
+                    "time": 0
+                },
+                {
+                    "speaker": "USR",
+                    "text": "Yes, please set directions via a route that avoids all heavy traffic if possible.",
+                    "ap_label": "SPP-post",
+                    "da_label": "offer",
+                    "is_labelled": true,
+                    "time": 0
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "It looks like there is a road block being reported on the route but I will still find the quickest route to 550 Alester Ave.",
+                    "ap_label": "SPP-post",
+                    "da_label": "offer",
+                    "is_labelled": true,
+                    "time": 0
+                },
+                {
+                    "speaker": "USR",
+                    "text": "Thanks so much for your help.",
+                    "ap_label": "SPP-post",
+                    "da_label": "offer",
+                    "is_labelled": true,
+                    "time": 0
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "You're very welcome!",
+                    "ap_label": "SPP-post",
+                    "da_label": "autoNegative",
+                    "is_labelled": true,
+                    "time": 0
+                }
+            ]
+        },
+        {
+            "dialogue_id": "test_2",
+            "is_labelled": false,
+            "time": 0.0,
+            "num_utterances": 7,
+            "utterances": [
+                {
+                    "speaker": "USR",
+                    "text": "Where is the nearest gas station?",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "There is a 76 4 miles away.",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "USR",
+                    "text": "What is the address?",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "The 76 gas station is located at 91 El Camino Real.",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "It is 4 miles away through moderate traffic",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "USR",
+                    "text": "Thanks!",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "Anytime!",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                }
+            ]
+        },
+        {
+            "dialogue_id": "test_3",
+            "is_labelled": false,
+            "time": 0.0,
+            "num_utterances": 7,
+            "utterances": [
+                {
+                    "speaker": "USR",
+                    "text": "show me the closest location where i can get chinese food",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "The closest chinese restaurant is PF Changs, located 5 miles away.",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "USR",
+                    "text": "OK, please give me an address and directions via a route that avoids all heavy traffic.",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "P.F. Changs route set to 669 El Camino Real with only moderate traffic noted.",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "USR",
+                    "text": "Thank you",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "You're welcome.",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "Drive safely, and enjoy.",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                }
+            ]
+        },
+        {
+            "dialogue_id": "test_4",
+            "is_labelled": false,
+            "time": 0.0,
+            "num_utterances": 4,
+            "utterances": [
+                {
+                    "speaker": "USR",
+                    "text": "Hi, please set up a reminder for my dinner on the 11th at 4pm with my sister.",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "USR",
+                    "text": "Thanks!",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "Set!",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "Have a good time",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                }
+            ]
+        },
+        {
+            "dialogue_id": "test_5",
+            "is_labelled": false,
+            "time": 0.0,
+            "num_utterances": 5,
+            "utterances": [
+                {
+                    "speaker": "USR",
+                    "text": "What time is dinner and who is it with?",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "Dinner is at 7 pm with Jon.",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "USR",
+                    "text": "Okay, perfect!",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "USR",
+                    "text": "Thanks.",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "you're welcome",
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 0.0
+                }
+            ]
+        }
+    ]
+}

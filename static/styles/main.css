@@ -1,7 +1,7 @@
 @import "nav-bar.css";
 @import "dialogue-view.css";
 @import "range-slider.css";
-
+@import "questionnaire-popup.css";
 :root {
     --main-bg-color: whitesmoke;
     --main-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -52,6 +52,12 @@ body {
     margin: 0 auto auto;
 }
 
+/* TODO only necessary for questionnaire? */
+h2 {
+    margin-block-start: 0.75em;
+    line-height: 28px;
+}
+
 input[type=text] {
     width: 200px;
     padding: 10px 10px;
@@ -78,7 +84,7 @@ button {
 }
 
 button:hover {
-    border-color: lightblue;
+    border-color: black;
     background-color: lightblue;
     color: black;
 }

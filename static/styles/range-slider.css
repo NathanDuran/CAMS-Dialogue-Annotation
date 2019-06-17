@@ -1,7 +1,13 @@
+/* Range Slider */
 .range-slider-container {
     height: 100px;
-    margin: 10px;
+    margin: auto;
     padding: 10px;
+}
+
+/* Label */
+.range-slider-container label {
+    font-weight: bold;
 }
 
 /* Slider */
@@ -60,7 +66,7 @@
     width: 91px;
     font-family: var(--main-font);
     font-size: 16px;
-    color: var(--my-mid-grey);
+    color: black;
     text-align: center;
     cursor: pointer;
 }
