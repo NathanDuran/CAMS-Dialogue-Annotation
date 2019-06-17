@@ -1,2 +1,35 @@
 <h1 class="title">Practice</h1>
 <p class="title-paragraph">Blah Blah</p>
+<div class="content">
+
+    <div class="range-slider-container">
+        <label for="slider_1">Here is where the question goes.</label><br>
+        <input id="slider_1" class="range-slider" type="range" min="1" max="7" step="1" value="4"
+               oninput="updateSlider(this)">
+
+        <ul id="slider-labels_1" class="slider-labels">
+            <li onclick="updateSlider(this)">This is a bit longer</li>
+            <li onclick="updateSlider(this)">2 days</li>
+            <li onclick="updateSlider(this)">3 days</li>
+            <li class="active" onclick="updateSlider(this)">and this</li>
+            <li onclick="updateSlider(this)">5 days</li>
+            <li onclick="updateSlider(this)">6 days</li>
+            <li onclick="updateSlider(this)">So is this</li>
+        </ul>
+    </div>
+    <div class="range-slider-container">
+        <label for="slider_2">Here is where another question goes.</label><br>
+        <input id="slider_2" class="range-slider" type="range" min="1" max="7" step="1" value="4"
+               oninput="updateSlider(this)">
+
+        <ul id="slider-labels_2" class="slider-labels">
+            <li onclick="updateSlider(this)">This is a bit longer</li>
+            <li onclick="updateSlider(this)">2 days</li>
+            <li onclick="updateSlider(this)">3 days</li>
+            <li class="active" onclick="updateSlider(this)">and this</li>
+            <li onclick="updateSlider(this)">5 days</li>
+            <li onclick="updateSlider(this)">6 days</li>
+            <li onclick="updateSlider(this)">So is this</li>
+        </ul>
+    </div>
+</div>

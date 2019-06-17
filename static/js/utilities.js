@@ -270,3 +270,42 @@ function insertAfter(newNode, referenceNode) {
     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
+// Updates the selected item of the range slider
+function updateSlider(element) {
+    console.log(element);
+
+    // Get the id of the slider and/or list that was clicked
+    let groupId = null;
+    if(element.nodeName === 'LI') {
+            groupId = element.parentNode.id.split("_")[1];
+
+    }else if (element.nodeName === 'INPUT'){
+        groupId = element.id.split("_")[1];
+    }
+
+    // Get the slider labels list
+    let labelsList = document.getElementById("slider-labels_" + groupId).getElementsByTagName("li");
+
+    // Get the index of the current slider selection depending on what was clicked (list or slider)
+    let index = null;
+    if(element.nodeName === 'LI'){
+        for (let i = 0; i < labelsList.length; i++) {
+            if(labelsList[i] === element){
+                index = i + 1;
+            }
+        }
+    }else if (element.nodeName === 'INPUT'){
+        index = element.value;
+    }
+
+    // Remove the currently active
+    for (let i = 0; i < labelsList.length; i++) {
+        if (labelsList[i].className.includes('active')) {
+            labelsList[i].classList.remove("active");
+        }
+    }
+
+    // Set the new active
+    labelsList[index - 1].className = 'active';
+    document.getElementById("slider_" + groupId).value = index;
+}

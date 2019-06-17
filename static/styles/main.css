@@ -1,5 +1,6 @@
 @import "nav-bar.css";
 @import "dialogue-view.css";
+@import "range-slider.css";
 
 :root {
     --main-bg-color: whitesmoke;

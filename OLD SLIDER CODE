@@ -1,0 +1,71 @@
+    {#    $( "#range-slider" ).slider({#}
+    {#    value: 4,#}
+    {#    min: 1,#}
+    {#    max: 7,#}
+    {#    step: 1#}
+    //{#})#}
+    {#.each(function() {#}
+    {##}
+    {#  //#}
+    {#  // Add labels to slider whose values#}
+    {#  // are specified by min, max and whose#}
+    {#  // step is set to 1#}
+    {#  //#}
+    {#    console.log("ger");#}
+    {#  // Get the options for this slider#}
+    {#  var opt = $(this).data().uiSlider.options;#}
+    {##}
+    {#  // Get the number of possible values#}
+    {#  var vals = opt.max - opt.min;#}
+    {##}
+    {#  // Space out values#}
+    {#  for (var i = 0; i <= vals; i++) {#}
+    {##}
+    {#    var el = $('<label>'+(i+1)+'</label>').css('left',(i/vals*100)+'%');#}
+    {##}
+    {#    $( "#range-slider" ).append(el);#}
+    {##}
+    {#  }#}
+    {##}
+    //{#});#}
+
+    // https://codepen.io/trevanhetzel/pen/rOVrGK
+    {#    var sheet = document.createElement('style'),#}
+    {#  $rangeInput = $('.range input'),#}
+    {#  prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track'];#}
+    {##}
+    {#document.body.appendChild(sheet);#}
+    {##}
+    {#var getTrackStyle = function (el) {#}
+    {#  var curVal = el.value,#}
+    {#      val = (curVal - 1) * 16.666666667,#}
+    {#      style = '';#}
+    {##}
+    {#  // Set active label#}
+    {#  $('.range-labels li').removeClass('active selected');#}
+    {##}
+    {#  var curLabel = $('.range-labels').find('li:nth-child(' + curVal + ')');#}
+    {##}
+    {#  curLabel.addClass('active selected');#}
+    {#  curLabel.prevAll().addClass('selected');#}
+    {##}
+    {#  // Change background gradient#}
+    {#  for (var i = 0; i < prefs.length; i++) {#}
+    {#    style += '.range {background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #fff ' + val + '%, #fff 100%)}';#}
+    {#    style += '.range input::-' + prefs[i] + '{background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #b2b2b2 ' + val + '%, #b2b2b2 100%)}';#}
+    {#  }#}
+    {##}
+    {#  return style;#}
+    //{#};#}
+    {##}
+    {#$rangeInput.on('input', function () {#}
+    {#  sheet.textContent = getTrackStyle(this);#}
+    //{#});#}
+    {##}
+    {#// Change input value on label click#}
+    {#$('.range-labels li').on('click', function () {#}
+    {#  var index = $(this).index();#}
+    {##}
+    {#  $rangeInput.val(index + 1).trigger('input');#}
+    {##}
+    //{#});#}
