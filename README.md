@@ -10,7 +10,7 @@
 - Highlight DA/AP labels once labelled?
 
 - Questionnaire popup
-- Complete/finish dialogue labelling button? at bottom of popup
+- Complete/finish dialogue labelling button? at bottom of popup?
 
 - on/before shutdown logout and save all users?
 ### Example JSON Format

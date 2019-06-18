@@ -240,7 +240,7 @@
         {
             "dialogue_id": "test_2",
             "is_labelled": false,
-            "time": 0.0,
+            "time": 1096,
             "num_utterances": 7,
             "utterances": [
                 {
@@ -249,7 +249,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 0.0
+                    "time": 1096
                 },
                 {
                     "speaker": "SYS",
@@ -257,7 +257,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 0.0
+                    "time": 0
                 },
                 {
                     "speaker": "USR",
@@ -265,7 +265,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 0.0
+                    "time": 0
                 },
                 {
                     "speaker": "SYS",
@@ -273,7 +273,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 0.0
+                    "time": 0
                 },
                 {
                     "speaker": "SYS",
@@ -281,7 +281,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 0.0
+                    "time": 0
                 },
                 {
                     "speaker": "USR",
@@ -289,7 +289,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 0.0
+                    "time": 0
                 },
                 {
                     "speaker": "SYS",
@@ -297,7 +297,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 0.0
+                    "time": 0
                 }
             ]
         },

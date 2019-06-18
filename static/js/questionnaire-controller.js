@@ -6,7 +6,7 @@ let questionnaireViewUtterancesId = "questionnaire-view-utterances";
 function openQuestionnaire() {
 
     // Generate the utterance list first
-    if (currentDialogue !== null && currentDialogue.is_labelled) {
+    if (currentDialogue !== null && currentDialogue.is_labelled) { // TODO only add utts if not already there or save state
         // Create button/labels list for current dialogue
         let utterance_list = createQuestionnaireUtteranceList(currentDialogue);
         // Append to target

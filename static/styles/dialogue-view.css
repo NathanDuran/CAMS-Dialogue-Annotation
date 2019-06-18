@@ -46,15 +46,17 @@
 .utterance-view {
     max-width: var(--max-content-width);
     min-width: var(--min-content-width);
-    margin-top: auto;
-    margin-right: auto;
-    margin-left: auto;
+    margin: auto;
     display: flex;
+    flex-direction: column;
 }
 
 .utterance-list {
     list-style: none;
     padding: 0;
+    margin: auto;
+    flex: 1;
+    overflow: auto;
 }
 
 .utterance-list li {
@@ -110,7 +112,6 @@
 /* Dialogue View Label Buttons */
 .label-buttons {
     background-color: var(--my-mid-grey);
-    margin-top: auto;
 }
 
 .btn-bar {

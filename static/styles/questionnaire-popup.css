@@ -79,3 +79,12 @@
   from {opacity: 0}
   to {opacity: 1}
 }
+
+.questionnaire-utterance-view {
+    max-width: var(--max-content-width);
+    min-width: var(--min-content-width);
+    max-height: 550px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
