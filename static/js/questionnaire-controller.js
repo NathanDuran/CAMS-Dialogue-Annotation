@@ -5,6 +5,8 @@ let questionnaireViewUtterancesId = "questionnaire-view-utterances";
 // Opens the questionnaire popup
 function openQuestionnaire() {
 
+    // TODO save before hand
+    // TODO disable button unless fully labelled?
     // Generate the utterance list first
     if (currentDialogue !== null && currentDialogue.is_labelled) { // TODO only add utts if not already there or save state
         // Create button/labels list for current dialogue
@@ -17,7 +19,7 @@ function openQuestionnaire() {
 }
 
 // Closes the questionnaire popup
-function closeQuestionnaire() {
+function closeQuestionnaire() { // TODO save state?
     document.getElementById(questionnaireViewNodeId).style.display = "none";
     // Clear the utterance list
     clearAllChildren(document.getElementById(questionnaireViewUtterancesId));
@@ -45,7 +47,7 @@ function createQuestionnaireUtteranceList(dialogue) {
     // Build the utterance list
     let utteranceList = document.createElement("ul");
     utteranceList.id = "questionnaire-utterance-list";
-    utteranceList.className = "utterance-list";
+    utteranceList.className = "questionnaire-utterance-list";
 
     // For each utterance in the dialogue
     for (let i = 0; i < dialogue.utterances.length; i++) {

@@ -52,11 +52,13 @@
 
 .questionnaire-body {
     max-width: var(--max-content-width);
+    max-height: 80vh;
     padding: 0 5%;
     margin: 0 auto auto;
     flex: 1;
     display: flex;
     flex-direction: column;
+    overflow: auto;
 }
 
 /* Add Animation */
@@ -80,11 +82,22 @@
   to {opacity: 1}
 }
 
-.questionnaire-utterance-view {
-    max-width: var(--max-content-width);
-    min-width: var(--min-content-width);
-    max-height: 550px;
+/* Question Label */
+.questionnaire-label {
+    font-weight: bold;
     margin: auto;
+    padding: 10px;
+}
+
+/* Utterance List */
+.questionnaire-utterance-list {
+    list-style: none;
+    padding: 0;
+    margin: auto;
+    flex: 1;
+}
+
+.questionnaire-utterance-list li {
     display: flex;
-    flex-direction: column;
+    align-items: center;
 }

@@ -176,16 +176,16 @@
         {
             "dialogue_id": "test_1",
             "is_labelled": true,
-            "time": 0,
+            "time": 23296,
             "num_utterances": 7,
             "utterances": [
                 {
                     "speaker": "USR",
                     "text": "where's the nearest parking garage",
                     "ap_label": "FPP-pre",
-                    "da_label": "offer",
+                    "da_label": "request",
                     "is_labelled": true,
-                    "time": 0
+                    "time": 6268
                 },
                 {
                     "speaker": "SYS",
@@ -240,7 +240,7 @@
         {
             "dialogue_id": "test_2",
             "is_labelled": false,
-            "time": 1096,
+            "time": 27895,
             "num_utterances": 7,
             "utterances": [
                 {
@@ -249,7 +249,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 1096
+                    "time": 27898
                 },
                 {
                     "speaker": "SYS",

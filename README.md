@@ -4,14 +4,16 @@
 
 - generate valid user list
 
-- Remove state flag from setButtonLabelled/Selected State?
+- Remove state flag from setButtonLabelled/Selected State function?
 
 - Label button tooltips
 - Highlight DA/AP labels once labelled?
 
 - Questionnaire popup
+- have labels as buttons not utterances.
 - Complete/finish dialogue labelling button? at bottom of popup?
 
+- Custom scroll bar?
 - on/before shutdown logout and save all users?
 ### Example JSON Format
 The following is an example of the JSON format
