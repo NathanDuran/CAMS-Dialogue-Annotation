@@ -4,12 +4,11 @@
 
 - generate valid user list
 
-- Remove state flag from setButtonLabelled/Selected State function?
-
 - Label button tooltips
 - Highlight DA/AP labels once labelled?
 
 - Questionnaire popup
+- Only open if dialogue is labelled
 - have labels as buttons not utterances.
 - Complete/finish dialogue labelling button? at bottom of popup?
 

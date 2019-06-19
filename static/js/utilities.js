@@ -225,19 +225,19 @@ function getUnlabelledUttIndex(dialogue, index) {
 }
 
 // Toggles the utterance buttons selected state
-function setButtonSelectedState(button, state) {
-    if (state === true && !button.className.includes('selected')) {
+function toggleButtonSelectedState(button) {
+    if (!button.className.includes('selected')) {
         button.className += " selected";
-    } else if (state === false && button.className.includes('selected')) {
+    } else if (button.className.includes('selected')) {
         button.className = button.className.replace(' selected', '')
     }
 }
 
 // Toggles the utterance buttons labelled state
-function setButtonLabelledState(button, state) {
-    if (state === true && !button.className.includes('labelled')) {
+function toggleButtonLabelledState(button) {
+    if (!button.className.includes('labelled')) {
         button.className += " labelled";
-    } else if (state === false && button.className.includes('labelled')) {
+    } else if (button.className.includes('labelled')) {
         button.className = button.className.replace(' labelled', '')
     }
 }

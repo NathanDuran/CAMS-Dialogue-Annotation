@@ -7,17 +7,17 @@
     "dialogues": [
         {
             "dialogue_id": "test_1",
-            "is_labelled": true,
-            "time": 0,
+            "is_labelled": false,
+            "time": 7569,
             "num_utterances": 7,
             "utterances": [
                 {
                     "speaker": "USR",
                     "text": "where's the nearest parking garage",
-                    "ap_label": "FPP-pre",
-                    "da_label": "offer",
-                    "is_labelled": true,
-                    "time": 0
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
+                    "time": 11217
                 },
                 {
                     "speaker": "SYS",
@@ -38,105 +38,105 @@
                 {
                     "speaker": "USR",
                     "text": "Yes, please set directions via a route that avoids all heavy traffic if possible.",
-                    "ap_label": "SPP-post",
-                    "da_label": "offer",
-                    "is_labelled": true,
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
                     "time": 0
                 },
                 {
                     "speaker": "SYS",
                     "text": "It looks like there is a road block being reported on the route but I will still find the quickest route to 550 Alester Ave.",
-                    "ap_label": "SPP-post",
-                    "da_label": "offer",
-                    "is_labelled": true,
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
                     "time": 0
                 },
                 {
                     "speaker": "USR",
                     "text": "Thanks so much for your help.",
-                    "ap_label": "SPP-post",
-                    "da_label": "offer",
-                    "is_labelled": true,
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
                     "time": 0
                 },
                 {
                     "speaker": "SYS",
                     "text": "You're very welcome!",
-                    "ap_label": "SPP-post",
-                    "da_label": "autoNegative",
-                    "is_labelled": true,
+                    "ap_label": "AP-Label",
+                    "da_label": "DA-Label",
+                    "is_labelled": false,
                     "time": 0
                 }
             ]
         },
         {
             "dialogue_id": "test_2",
-            "is_labelled": false,
-            "time": 3625,
+            "is_labelled": true,
+            "time": 39292,
             "num_utterances": 7,
             "utterances": [
                 {
                     "speaker": "USR",
                     "text": "Where is the nearest gas station?",
-                    "ap_label": "AP-Label",
-                    "da_label": "DA-Label",
-                    "is_labelled": false,
-                    "time": 3625
+                    "ap_label": "FPP-base",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 11414
                 },
                 {
                     "speaker": "SYS",
                     "text": "There is a 76 4 miles away.",
-                    "ap_label": "AP-Label",
-                    "da_label": "DA-Label",
-                    "is_labelled": false,
-                    "time": 0
+                    "ap_label": "Pre",
+                    "da_label": "addressRequest",
+                    "is_labelled": true,
+                    "time": 3040
                 },
                 {
                     "speaker": "USR",
                     "text": "What is the address?",
-                    "ap_label": "AP-Label",
-                    "da_label": "DA-Label",
-                    "is_labelled": false,
-                    "time": 0
+                    "ap_label": "SPP-pre",
+                    "da_label": "acceptRequest",
+                    "is_labelled": true,
+                    "time": 4564
                 },
                 {
                     "speaker": "SYS",
                     "text": "The 76 gas station is located at 91 El Camino Real.",
-                    "ap_label": "AP-Label",
-                    "da_label": "DA-Label",
-                    "is_labelled": false,
-                    "time": 0
+                    "ap_label": "SPP-pre",
+                    "da_label": "addressRequest",
+                    "is_labelled": true,
+                    "time": 2512
                 },
                 {
                     "speaker": "SYS",
                     "text": "It is 4 miles away through moderate traffic",
-                    "ap_label": "AP-Label",
-                    "da_label": "DA-Label",
-                    "is_labelled": false,
-                    "time": 0
+                    "ap_label": "SPP-pre",
+                    "da_label": "addressRequest",
+                    "is_labelled": true,
+                    "time": 4767
                 },
                 {
                     "speaker": "USR",
                     "text": "Thanks!",
-                    "ap_label": "AP-Label",
-                    "da_label": "DA-Label",
-                    "is_labelled": false,
-                    "time": 0
+                    "ap_label": "Pre",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 3332
                 },
                 {
                     "speaker": "SYS",
                     "text": "Anytime!",
-                    "ap_label": "AP-Label",
-                    "da_label": "DA-Label",
-                    "is_labelled": false,
-                    "time": 0
+                    "ap_label": "Insert",
+                    "da_label": "suggest",
+                    "is_labelled": true,
+                    "time": 9663
                 }
             ]
         },
         {
             "dialogue_id": "test_3",
             "is_labelled": false,
-            "time": 0.0,
+            "time": 1564,
             "num_utterances": 7,
             "utterances": [
                 {
@@ -145,7 +145,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 0.0
+                    "time": 1564
                 },
                 {
                     "speaker": "SYS",
@@ -153,7 +153,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 0.0
+                    "time": 0
                 },
                 {
                     "speaker": "USR",
@@ -161,7 +161,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 0.0
+                    "time": 0
                 },
                 {
                     "speaker": "SYS",
@@ -169,7 +169,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 0.0
+                    "time": 0
                 },
                 {
                     "speaker": "USR",
@@ -177,7 +177,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 0.0
+                    "time": 0
                 },
                 {
                     "speaker": "SYS",
@@ -185,7 +185,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 0.0
+                    "time": 0
                 },
                 {
                     "speaker": "SYS",
@@ -193,7 +193,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 0.0
+                    "time": 0
                 }
             ]
         },
