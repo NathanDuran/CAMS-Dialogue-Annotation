@@ -8,7 +8,7 @@
         {
             "dialogue_id": "test_1",
             "is_labelled": false,
-            "time": 7569,
+            "time": 24210,
             "num_utterances": 7,
             "utterances": [
                 {
@@ -17,15 +17,15 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 11217
+                    "time": 16757
                 },
                 {
                     "speaker": "SYS",
                     "text": "The nearest parking garage is Dish Parking at 550 Alester Ave.",
-                    "ap_label": "FPP-pre",
+                    "ap_label": "FPP-base",
                     "da_label": "offer",
                     "is_labelled": true,
-                    "time": 0
+                    "time": 1138
                 },
                 {
                     "speaker": "SYS",
@@ -38,10 +38,10 @@
                 {
                     "speaker": "USR",
                     "text": "Yes, please set directions via a route that avoids all heavy traffic if possible.",
-                    "ap_label": "AP-Label",
-                    "da_label": "DA-Label",
-                    "is_labelled": false,
-                    "time": 0
+                    "ap_label": "Pre",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 7465
                 },
                 {
                     "speaker": "SYS",
@@ -49,7 +49,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 0
+                    "time": 1616
                 },
                 {
                     "speaker": "USR",
@@ -79,9 +79,9 @@
                     "speaker": "USR",
                     "text": "Where is the nearest gas station?",
                     "ap_label": "FPP-base",
-                    "da_label": "request",
+                    "da_label": "yesNoQuestion",
                     "is_labelled": true,
-                    "time": 11414
+                    "time": 12630
                 },
                 {
                     "speaker": "SYS",
@@ -119,9 +119,9 @@
                     "speaker": "USR",
                     "text": "Thanks!",
                     "ap_label": "Pre",
-                    "da_label": "request",
+                    "da_label": "acceptThanking",
                     "is_labelled": true,
-                    "time": 3332
+                    "time": 11730
                 },
                 {
                     "speaker": "SYS",

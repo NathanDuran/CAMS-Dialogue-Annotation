@@ -9,7 +9,6 @@
 
 - Questionnaire popup
 - Only open if dialogue is labelled
-- have labels as buttons not utterances.
 - Complete/finish dialogue labelling button? at bottom of popup?
 
 - Custom scroll bar?

@@ -77,7 +77,7 @@ function utteranceBtnClick() {
 
     // If this is the currently selected button unselect it
     if (index === currentUttIndex) {
-        toggleButtonSelectedState(this);
+        toggleButtonSelectedState(this, false);
         endUtteranceTimer();
         currentUttIndex = null;
 
@@ -85,12 +85,12 @@ function utteranceBtnClick() {
         // Otherwise remove the currently selected button state and select this one
         let currentUttBtn = document.getElementById("utt-btn_" + currentUttIndex);
         if (currentUttBtn) {
-            toggleButtonSelectedState(currentUttBtn);
+            toggleButtonSelectedState(currentUttBtn, false);
             endUtteranceTimer();
             currentUttIndex = null;
         }
 
-        toggleButtonSelectedState(this);
+        toggleButtonSelectedState(this, true);
         currentUttIndex = index;
         startUtteranceTimer();
     }
@@ -111,7 +111,7 @@ function uttClearBtnClick() {
 
     // Remove the labelled state
     let uttBtn = document.getElementById("utt-btn_" + index);
-    toggleButtonLabelledState(uttBtn);
+    toggleButtonLabelledState(uttBtn, false);
 
     // Set the utterance labels to default on the current dialogue and labelled to false
     currentDialogue.utterances[index].ap_label = defaultApLabel;
@@ -153,11 +153,11 @@ function labelBtnClick() {
 
             // Get the currently selected utterance button and set to labelled
             let uttBtn = document.getElementById("utt-btn_" + currentUttIndex);
-            toggleButtonLabelledState(uttBtn);
+            toggleButtonLabelledState(uttBtn, true);
             currentUtt.is_labelled = true;
 
             // Unselect this utterance
-            toggleButtonSelectedState(uttBtn);
+            toggleButtonSelectedState(uttBtn, false);
             endUtteranceTimer();
 
             // Get the next unlabelled utterance starting from the current index
@@ -171,7 +171,7 @@ function labelBtnClick() {
             // If there was an unlabelled utterance set the new current utterance button
             if (currentUttIndex !== null) {
                 let uttBtn = document.getElementById("utt-btn_" + currentUttIndex);
-                toggleButtonSelectedState(uttBtn);
+                toggleButtonSelectedState(uttBtn, true);
                 startUtteranceTimer();
             }
         }
@@ -253,9 +253,9 @@ function createUtteranceList(dialogue) {
         utteranceBtn.className = "utt-btn";
         // Check if this utterance is already labelled or the current unlabelled
         if (utterance.is_labelled) {
-            toggleButtonLabelledState(utteranceBtn);
+            toggleButtonLabelledState(utteranceBtn, true);
         } else if (i === currentUttIndex && currentUttIndex !== null) {
-            toggleButtonSelectedState(utteranceBtn);
+            toggleButtonSelectedState(utteranceBtn, true);
             startUtteranceTimer();
         }
 
