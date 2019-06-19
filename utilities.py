@@ -134,6 +134,12 @@ def dialogue_from_dict(dialogue):
             if utterance['da_label'] is not "":
                 tmp_utterance.set_da_label(utterance['da_label'])
 
+            # Set utterance flags if set
+            if 'ap_flag' in utterance.keys():
+                tmp_utterance.set_ap_flag(utterance['ap_flag'])
+            if 'da_flag' in utterance.keys():
+                tmp_utterance.set_da_flag(utterance['da_flag'])
+
             # Check if the labelled and time values are also set
             if 'is_labelled' in utterance.keys():
                 tmp_utterance.is_labelled = utterance['is_labelled']
@@ -151,6 +157,8 @@ def dialogue_from_dict(dialogue):
             tmp_dialogue.is_labelled = dialogue['is_labelled']
         if 'time' in dialogue.keys():
             tmp_dialogue.time = dialogue['time']
+        if 'questions' in dialogue.keys():
+            tmp_dialogue.questions = dialogue['questions']
 
     except KeyError:
         traceback.print_exc()
@@ -193,6 +201,8 @@ def dialogue_to_dict(dialogue):
         utt_dict['da_label'] = utterance.da_label
         utt_dict['is_labelled'] = utterance.is_labelled
         utt_dict['time'] = utterance.time
+        utt_dict['ap_flag'] = utterance.ap_flag
+        utt_dict['da_flag'] = utterance.da_flag
 
         # Add to utterance list
         utterances.append(utt_dict)
@@ -201,6 +211,7 @@ def dialogue_to_dict(dialogue):
     dialogue_dict['dialogue_id'] = dialogue.dialogue_id
     dialogue_dict['is_labelled'] = dialogue.is_labelled
     dialogue_dict['time'] = dialogue.time
+    dialogue_dict['questions'] = dialogue.questions
     dialogue_dict['num_utterances'] = dialogue.num_utterances
     dialogue_dict['utterances'] = utterances
 

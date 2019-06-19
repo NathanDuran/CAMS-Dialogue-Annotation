@@ -8,8 +8,10 @@
 - Highlight DA/AP labels once labelled?
 
 - Questionnaire popup
-- Only open if dialogue is labelled
+- Open when dialogue is labelled?
+- Disable finish dialogue button until labelled
 - Complete/finish dialogue labelling button? at bottom of popup?
+- Questionnaire header?
 
 - Custom scroll bar?
 - on/before shutdown logout and save all users?

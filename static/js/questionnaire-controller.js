@@ -2,24 +2,36 @@
 let questionnaireViewNodeId = "questionnaire-popup";
 let questionnaireViewUtterancesId = "questionnaire-view-utterances";
 
+// Keeps track of number of range sliders and the default value
+let numRangeSliders = 3;
+let rangeSliderDefaultValue = 4;
+
 // Opens the questionnaire popup
 function openQuestionnaire() {
 
-    // TODO save before hand
-    // TODO disable button unless fully labelled?
-    // Generate the utterance list first
-    if (currentDialogue !== null && currentDialogue.is_labelled) { // TODO only add utts if not already there or save state
+    // Generate the utterance list and range slider values
+    if (currentDialogue !== null && currentDialogue.is_labelled) {
+
+        // Set the sliders values
+        setSlidersValues(currentDialogue);
+
         // Create button/labels list for current dialogue
         let utterance_list = createQuestionnaireUtteranceList(currentDialogue);
         // Append to target
         document.getElementById(questionnaireViewUtterancesId).appendChild(utterance_list);
+
+        // Open the popup
+        document.getElementById(questionnaireViewNodeId).style.display = "block";
     }
-    // Open the popup
-    document.getElementById(questionnaireViewNodeId).style.display = "block";
 }
 
 // Closes the questionnaire popup
-function closeQuestionnaire() { // TODO save state?
+function closeQuestionnaire() {
+
+    // Save the state of the range sliders
+    currentDialogue.questions = getSlidersValues();
+
+    // Set back to invisible
     document.getElementById(questionnaireViewNodeId).style.display = "none";
     // Clear the utterance list
     clearAllChildren(document.getElementById(questionnaireViewUtterancesId));
@@ -32,13 +44,110 @@ window.onclick = function (event) {
     }
 };
 
-function questionnaireLabelBtnClick(){
-    if (!this.className.includes('selected')) {
-        this.className += " selected";
-    } else if (this.className.includes('selected')) {
-        this.className = this.className.replace(' selected', '')
+// Toggles label selected and updates utterance labelled flag
+function questionnaireLabelBtnClick() {
+    console.log("Questionnaire label button clicked...");
+
+    // Get the label/button type (AP or DA) and utterances index
+    let btnType = this.id.split("_")[0];
+    let index = this.id.split("_")[1];
+    let utterance = currentDialogue.utterances[index];
+
+    // Determine if we are selecting or un-selecting
+    let selected = null;
+    if (this.className.includes('selected')) {
+        selected = false;
+    } else if (!this.className.includes('selected')) {
+        selected = true;
+    }
+
+    // Toggle the buttons state and set the utterances label flag
+    toggleButtonSelectedState(this, selected);
+
+    if (btnType === 'ap-btn') {
+        utterance.ap_flag = selected;
+    } else if (btnType === 'da-btn') {
+        utterance.da_flag = selected;
     }
 }
+
+// Updates the selected item of the range slider on interaction
+function updateSlider(element) {
+
+    // Get the id of the slider and/or list that was clicked
+    let groupId = null;
+    if (element.nodeName === 'LI') {
+        groupId = element.parentNode.id.split("_")[1];
+
+    } else if (element.nodeName === 'INPUT') {
+        groupId = element.id.split("_")[1];
+    }
+
+    // Get the slider labels list
+    let labelsList = document.getElementById("slider-labels_" + groupId).getElementsByTagName("li");
+
+    // Get the index of the current slider selection depending on what was clicked (list or slider)
+    let index = null;
+    if (element.nodeName === 'LI') {
+        for (let i = 0; i < labelsList.length; i++) {
+            if (labelsList[i] === element) {
+                index = i + 1;
+            }
+        }
+    } else if (element.nodeName === 'INPUT') {
+        index = element.value;
+    }
+
+    // Remove the currently active
+    for (let i = 0; i < labelsList.length; i++) {
+        if (labelsList[i].className.includes('active')) {
+            labelsList[i].classList.remove("active");
+        }
+    }
+
+    // Set the new active
+    if (index) {
+        labelsList[index - 1].className = 'active';
+        document.getElementById("slider_" + groupId).value = index;
+    }
+    console.log("Slider" +groupId + " value: " + document.getElementById("slider_" + groupId).value)
+}
+
+// Sets the range slider values to those of the current dialogue, else to default
+function setSlidersValues(dialogue) {
+
+    // Get the state of the range sliders/questions from the dialogue
+    let questions = [];
+    if (dialogue.questions && dialogue.questions.length) {
+        questions = dialogue.questions;
+    } // Otherwise just use default values
+    else {
+        for (let i = 0; i < numRangeSliders; i++) {
+            questions[i] = rangeSliderDefaultValue;
+        }
+    }
+
+    // Set each sliders values
+    for (let i = 0; i < questions.length; i++) {
+        let currentSlider = document.getElementById("slider_" + (i + 1));
+        currentSlider.value = questions[i];
+        updateSlider(currentSlider);
+    }
+}
+
+// Gets the current values of the range sliders as a list
+function getSlidersValues() {
+
+    // Create a list to hold the slider values
+    let questions = [];
+    for (let i = 0; i < numRangeSliders; i++) {
+        questions[i] = document.getElementById("slider_" + (i + 1)).value;
+    }
+
+    // Return the current values
+    return questions;
+}
+
 function createQuestionnaireUtteranceList(dialogue) {
 
     // Build the utterance list
@@ -64,23 +173,23 @@ function createQuestionnaireUtteranceList(dialogue) {
 
         // Create the AP button
         let apBtn = document.createElement("button");
-        apBtn.id = "qst-ap-btn_" + i;
+        apBtn.id = "ap-btn_" + i;
         apBtn.className = "qst-label-btn";
-        if (utterance.ap_label === "") {
-            apBtn.innerHTML = defaultApLabel;
-        } else {
-            apBtn.innerHTML = utterance.ap_label;
+        apBtn.innerHTML = utterance.ap_label;
+        // Set to selected if it was already flagged in questionnaire
+        if (utterance.ap_flag === true) {
+            toggleButtonSelectedState(apBtn, true);
         }
         apBtn.addEventListener("click", questionnaireLabelBtnClick);
 
         // Create the DA label
         let daBtn = document.createElement("button");
-        daBtn.id = "qst-da-label_" + i;
+        daBtn.id = "da-btn_" + i;
         daBtn.className = "qst-label-btn";
-        if (utterance.da_label === "") {
-            daBtn.innerHTML = defaultDaLabel;
-        } else {
-            daBtn.innerHTML = utterance.da_label;
+        daBtn.innerHTML = utterance.da_label;
+        // Set to selected if it was already flagged in questionnaire
+        if (utterance.da_flag === true) {
+            toggleButtonSelectedState(daBtn, true);
         }
         daBtn.addEventListener("click", questionnaireLabelBtnClick);
 
@@ -94,6 +203,7 @@ function createQuestionnaireUtteranceList(dialogue) {
     }
     return utteranceList;
 }
+
 ///THIS VERSION IS FOR UTTERANCES AS BUTTONS
 // Creates buttons for the utterances and DA/AP labels for the questionnaire
 // function createQuestionnaireUtteranceList(dialogue) {

@@ -101,6 +101,7 @@ class Dialogue:
         self.num_utterances = num_utterances
         self.is_labelled = False
         self.time = 0.0
+        self.questions = []
         self.check_labels()
 
     def __repr__(self):
@@ -131,6 +132,8 @@ class Utterance:
         self.da_label = da_label
         self.is_labelled = False
         self.time = 0.0
+        self.ap_flag = False
+        self.da_flag = False
         self.check_labels()
 
     def __repr__(self):
@@ -146,6 +149,12 @@ class Utterance:
     def set_da_label(self, label):
         self.da_label = label
         self.check_labels()
+
+    def set_ap_flag(self, value):
+        self.ap_flag = value
+
+    def set_da_flag(self, value):
+        self.da_flag = value
 
     def check_labels(self):
         # Check if utterance still has default labels

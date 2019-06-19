@@ -43,21 +43,23 @@
 
     <!-- Questionnaire content -->
     <div class="questionnaire-content">
+
         <div class="questionnaire-header">
             <span class="questionnaire-close-btn" onclick="closeQuestionnaire()">&times;</span>
             <h2>Modal Header</h2>
         </div>
+
         <div class="questionnaire-body">
 
             <!-- Questionnaire Range Sliders -->
             <label class="questionnaire-label" for="slider_1">How do you think your <u>Dialogue Act</u> labels describe the meaning of this dialogues utterances?</label>
             <div class="range-slider-container">
-                <input id="slider_1" class="range-slider" type="range" min="1" max="7" step="1" value="4" oninput="updateSlider(this)">
+                <input id="slider_1" class="range-slider" type="range" min="1" max="7" step="1" oninput="updateSlider(this)">
                 <ul id="slider-labels_1" class="slider-labels">
                     <li onclick="updateSlider(this)">1 Not at all</li>
                     <li onclick="updateSlider(this)">2</li>
                     <li onclick="updateSlider(this)">3</li>
-                    <li class="active" onclick="updateSlider(this)">4</li>
+                    <li onclick="updateSlider(this)">4</li>
                     <li onclick="updateSlider(this)">5</li>
                     <li onclick="updateSlider(this)">6</li>
                     <li onclick="updateSlider(this)">7 Perfectly</li>
@@ -66,12 +68,12 @@
 
             <label class="questionnaire-label" for="slider_2">How do you think your <u>Adjacency Pair</u> labels describe the structure of this dialogues utterances?</label>
             <div class="range-slider-container">
-                <input id="slider_2" class="range-slider" type="range" min="1" max="7" step="1" value="4" oninput="updateSlider(this)">
+                <input id="slider_2" class="range-slider" type="range" min="1" max="7" step="1" oninput="updateSlider(this)">
                 <ul id="slider-labels_2" class="slider-labels">
                     <li onclick="updateSlider(this)">1 Not at all</li>
                     <li onclick="updateSlider(this)">2</li>
                     <li onclick="updateSlider(this)">3</li>
-                    <li class="active" onclick="updateSlider(this)">4</li>
+                    <li onclick="updateSlider(this)">4</li>
                     <li onclick="updateSlider(this)">5</li>
                     <li onclick="updateSlider(this)">6</li>
                     <li onclick="updateSlider(this)">7 Perfectly</li>
@@ -80,12 +82,12 @@
 
             <label class="questionnaire-label" for="slider_3">How do you think your <u>combination</u> of labels describe the structure and meaning of this dialogue?</label>
             <div class="range-slider-container">
-                <input id="slider_3" class="range-slider" type="range" min="1" max="7" step="1" value="4" oninput="updateSlider(this)">
+                <input id="slider_3" class="range-slider" type="range" min="1" max="7" step="1" oninput="updateSlider(this)">
                 <ul id="slider-labels_3" class="slider-labels">
                     <li onclick="updateSlider(this)">1 Not at all</li>
                     <li onclick="updateSlider(this)">2</li>
                     <li onclick="updateSlider(this)">3</li>
-                    <li class="active" onclick="updateSlider(this)">4</li>
+                    <li onclick="updateSlider(this)">4</li>
                     <li onclick="updateSlider(this)">5</li>
                     <li onclick="updateSlider(this)">6</li>
                     <li onclick="updateSlider(this)">7 Perfectly</li>
@@ -95,7 +97,9 @@
             <label class="questionnaire-label" for="questionnaire-view-utterances">
                 If you wish, you can select any label(s) that you <u>do not</u> think adequately describe the utterance or selection of utterances.</label>
             <div id="questionnaire-view-utterances" class="utterance-view"></div>
+
         </div>
+
     </div>
 
 </div>

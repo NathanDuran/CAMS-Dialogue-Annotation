@@ -209,9 +209,9 @@ function buildDialogueViewUtterances(target) {
             currentDialogueIndex = dialogue_data.current_dialogue_index;
 
             // Create button/labels list for current dialogue
-            let utterance_list = createUtteranceList(currentDialogue);
+            let utteranceList = createUtteranceList(currentDialogue);
             // Append to target
-            target.appendChild(utterance_list);
+            target.appendChild(utteranceList);
 
             // Update the stats
             updateCurrentStats();
