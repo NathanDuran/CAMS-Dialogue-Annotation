@@ -21,7 +21,7 @@
                 <label id="num-dialogues-lbl"></label>
             </li>
             <li>
-                <button id="questionnaire-open-btn" onclick="openQuestionnaire()">Finish Dialogue</button>
+                <button id="revise-dialogue-btn" onclick="reviseDialogueBtnClick()">Revise Dialogue</button>
             </li>
             <li>
                 <button id="next-btn" class="prev-next-btn" onclick="nextBtnClick(this)">
@@ -46,15 +46,19 @@
 
         <div class="questionnaire-header">
             <span class="questionnaire-close-btn" onclick="closeQuestionnaire()">&times;</span>
-            <h2>Modal Header</h2>
+            <p>Please answer the following questions for this dialogue. When you are done click the submit button.<br>
+                You can return to the annotation screen by clicking the 'X' or anywhere outside of this popup.
+            </p>
         </div>
 
         <div class="questionnaire-body">
 
             <!-- Questionnaire Range Sliders -->
-            <label class="questionnaire-label" for="slider_1">How do you think your <u>Dialogue Act</u> labels describe the meaning of this dialogues utterances?</label>
+            <label class="questionnaire-label" for="slider_1">Please rate how you think your <u>Dialogue Act</u> labels describe
+                the meaning of this dialogues utterances?</label>
             <div class="range-slider-container">
-                <input id="slider_1" class="range-slider" type="range" min="1" max="7" step="1" oninput="updateSlider(this)">
+                <input id="slider_1" class="range-slider" type="range" min="1" max="7" step="1"
+                       oninput="updateSlider(this)">
                 <ul id="slider-labels_1" class="slider-labels">
                     <li onclick="updateSlider(this)">1 Not at all</li>
                     <li onclick="updateSlider(this)">2</li>
@@ -66,9 +70,11 @@
                 </ul>
             </div>
 
-            <label class="questionnaire-label" for="slider_2">How do you think your <u>Adjacency Pair</u> labels describe the structure of this dialogues utterances?</label>
+            <label class="questionnaire-label" for="slider_2">Please rate how you think your <u>Adjacency Pair</u> labels
+                describe the structure of this dialogues utterances?</label>
             <div class="range-slider-container">
-                <input id="slider_2" class="range-slider" type="range" min="1" max="7" step="1" oninput="updateSlider(this)">
+                <input id="slider_2" class="range-slider" type="range" min="1" max="7" step="1"
+                       oninput="updateSlider(this)">
                 <ul id="slider-labels_2" class="slider-labels">
                     <li onclick="updateSlider(this)">1 Not at all</li>
                     <li onclick="updateSlider(this)">2</li>
@@ -80,9 +86,11 @@
                 </ul>
             </div>
 
-            <label class="questionnaire-label" for="slider_3">How do you think your <u>combination</u> of labels describe the structure and meaning of this dialogue?</label>
+            <label class="questionnaire-label" for="slider_3">PLease rate how you think your <u>combination</u> of labels
+                describe the structure and meaning of this dialogue?</label>
             <div class="range-slider-container">
-                <input id="slider_3" class="range-slider" type="range" min="1" max="7" step="1" oninput="updateSlider(this)">
+                <input id="slider_3" class="range-slider" type="range" min="1" max="7" step="1"
+                       oninput="updateSlider(this)">
                 <ul id="slider-labels_3" class="slider-labels">
                     <li onclick="updateSlider(this)">1 Not at all</li>
                     <li onclick="updateSlider(this)">2</li>
@@ -95,9 +103,14 @@
             </div>
             <!-- Questionnaire Utterances -->
             <label class="questionnaire-label" for="questionnaire-view-utterances">
-                If you wish, you can select any label(s) that you <u>do not</u> think adequately describe the utterance or selection of utterances.</label>
+                Please highlight any label(s) that you <u>do not</u> think adequately describe the utterance
+                or a selection of utterances. You can select as few or as many as you like.</label>
+
             <div id="questionnaire-view-utterances" class="utterance-view"></div>
 
+        </div>
+        <div class="questionnaire-footer">
+            <button class="questionnaire-submit-btn" onclick="questionnaireSubmitBtnClick()">Submit</button>
         </div>
 
     </div>

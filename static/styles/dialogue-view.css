@@ -69,13 +69,13 @@
     margin: 2px auto;
 }
 
-.utt-btn.labelled {
+.utt-btn.labelled, .utt-btn.labelled:hover {
     border-color: var(--my-green-color);
     background-color: var(--my-green-color);
     color: white;
 }
 
-.utt-btn.selected {
+.utt-btn.selected, .utt-btn.selected:hover {
     border-color: var(--my-blue-color);
     background-color: var(--my-blue-color);
     color: white;
@@ -100,7 +100,7 @@
     opacity: 0.7;
 }
 
-.clear-btn:hover {
+.clear-btn:hover:enabled {
     opacity: 1;
     background-color: whitesmoke;
 }

@@ -55,12 +55,6 @@ body {
     margin: 0 auto auto;
 }
 
-/* TODO only necessary for questionnaire header? */
-h2 {
-    margin-block-start: 0.75em;
-    line-height: 28px;
-}
-
 input[type=text] {
     width: 200px;
     padding: 10px 10px;
@@ -86,7 +80,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+button:hover:enabled {
     border-color: black;
     background-color: lightblue;
     color: black;
@@ -94,4 +88,8 @@ button:hover {
 
 button:focus {
     outline: none;
+}
+
+button:disabled {
+    opacity: 0.6;
 }

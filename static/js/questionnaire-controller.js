@@ -71,6 +71,25 @@ function questionnaireLabelBtnClick() {
     }
 }
 
+// Sets the current dialogue to completed and closes questionnaire
+function questionnaireSubmitBtnClick() {
+    console.log("Questionnaire submit button clicked...");
+
+    // Set the dialogue to completed and disable the buttons
+    if (currentDialogue !== null && currentDialogue.is_labelled) {
+        currentDialogue.complete = true;
+        toggleDialogueDisabledState(currentDialogue, true);
+
+        // Also enable the revise dialogue button
+        toggleReviseDialogueBtnState(true);
+    }
+
+    // TODO update the stats
+
+    // Close the questionnaire
+    closeQuestionnaire();
+}
+
 // Updates the selected item of the range slider on interaction
 function updateSlider(element) {
 
@@ -110,7 +129,12 @@ function updateSlider(element) {
         labelsList[index - 1].className = 'active';
         document.getElementById("slider_" + groupId).value = index;
     }
-    console.log("Slider" +groupId + " value: " + document.getElementById("slider_" + groupId).value)
+
+    // Set the dialogues questions array value as well
+    if (currentDialogue.questions && currentDialogue.questions.length === numRangeSliders) {
+        currentDialogue.questions[groupId - 1] = document.getElementById("slider_" + groupId).value;
+    }
+    console.log("Slider " + groupId + " value: " + document.getElementById("slider_" + groupId).value)
 }
 
 // Sets the range slider values to those of the current dialogue, else to default
@@ -120,10 +144,11 @@ function setSlidersValues(dialogue) {
     let questions = [];
     if (dialogue.questions && dialogue.questions.length) {
         questions = dialogue.questions;
-    } // Otherwise just use default values
+    } // Otherwise just use default values and set them for the current dialogue
     else {
         for (let i = 0; i < numRangeSliders; i++) {
             questions[i] = rangeSliderDefaultValue;
+            currentDialogue.questions = questions;
         }
     }
 

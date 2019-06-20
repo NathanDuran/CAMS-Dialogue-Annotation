@@ -155,6 +155,8 @@ def dialogue_from_dict(dialogue):
         # Check if the labelled and time values are also set
         if 'is_labelled' in dialogue.keys():
             tmp_dialogue.is_labelled = dialogue['is_labelled']
+        if 'complete' in dialogue.keys():
+            tmp_dialogue.complete = dialogue['complete']
         if 'time' in dialogue.keys():
             tmp_dialogue.time = dialogue['time']
         if 'questions' in dialogue.keys():
@@ -210,6 +212,7 @@ def dialogue_to_dict(dialogue):
     # Add id, number of utterances, utterances, is labelled and time to dialogue
     dialogue_dict['dialogue_id'] = dialogue.dialogue_id
     dialogue_dict['is_labelled'] = dialogue.is_labelled
+    dialogue_dict['complete'] = dialogue.complete
     dialogue_dict['time'] = dialogue.time
     dialogue_dict['questions'] = dialogue.questions
     dialogue_dict['num_utterances'] = dialogue.num_utterances

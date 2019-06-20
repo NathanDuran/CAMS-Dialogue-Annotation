@@ -4,6 +4,7 @@ var currentView = null;
 // Dialogue view DOM element id's
 var dialogueViewUttNodeId = "dialogue-view-utterances";
 var dialogueViewBtnBarNodeId = "dialogue-view-buttons";
+var reviseDialogueBtnId = "revise-dialogue-btn";
 
 // Current dialogue and stats
 var dataset = null;
@@ -29,20 +30,25 @@ function prevBtnClick() {
     // Call save dialogue function
     saveDialogue(currentDialogue);
 
-    // Clear the dialogue view
-    clearAllChildren(document.getElementById("dialogue-view-utterances"));
+    // Check if we need to open the questionnaire because it is labelled but not complete
+    if (checkDialogueLabels(currentDialogue) && !currentDialogue.complete) {
+        openQuestionnaire();
+    } else {
+        // Clear the dialogue view
+        clearAllChildren(document.getElementById(dialogueViewUttNodeId));
 
-    // Call prev dialogue function
-    $.ajax({
-        url: "/get_prev_dialogue.do",
-        dataType: "text",
-        success: function (result) {
+        // Call prev dialogue function
+        $.ajax({
+            url: "/get_prev_dialogue.do",
+            dataType: "text",
+            success: function (result) {
 
-            // Rebuild dialogue view with new current dialogue
-            buildDialogueViewUtterances(document.getElementById(dialogueViewUttNodeId));
-            return result;
-        }
-    });
+                // Rebuild dialogue view with new current dialogue
+                buildDialogueViewUtterances(document.getElementById(dialogueViewUttNodeId));
+                return result;
+            }
+        });
+    }
 }
 
 function nextBtnClick() {
@@ -51,20 +57,39 @@ function nextBtnClick() {
     // Call save dialogue function
     saveDialogue(currentDialogue);
 
-    // Clear the dialogue view
-    clearAllChildren(document.getElementById(dialogueViewUttNodeId));
+    // Check if we need to open the questionnaire because it is labelled but not complete
+    if (checkDialogueLabels(currentDialogue)&& !currentDialogue.complete) {
+        openQuestionnaire();
+    } else {
+        // Clear the dialogue view
+        clearAllChildren(document.getElementById(dialogueViewUttNodeId));
 
-    // Call next dialogue function
-    $.ajax({
-        url: "/get_next_dialogue.do",
-        dataType: "text",
-        success: function (result) {
+        // Call next dialogue function
+        $.ajax({
+            url: "/get_next_dialogue.do",
+            dataType: "text",
+            success: function (result) {
 
-            // Rebuild dialogue view with new current dialogue
-            buildDialogueViewUtterances(document.getElementById("dialogue-view-utterances"));
-            return result;
-        }
-    });
+                // Rebuild dialogue view with new current dialogue
+                buildDialogueViewUtterances(document.getElementById(dialogueViewUttNodeId));
+                return result;
+            }
+        });
+    }
+}
+
+function reviseDialogueBtnClick() {
+    console.log("Revise dialogue button clicked...")
+
+    // Make sure the current dialogue is labelled and completed
+    if (currentDialogue.is_labelled && currentDialogue.complete) {
+        // Set complete flag back to false
+        currentDialogue.complete = false;
+        // Toggle all of the utterances back to enabled
+        toggleDialogueDisabledState(currentDialogue, false);
+        // Remove itself from the page
+        toggleReviseDialogueBtnState(false);
+    }
 }
 
 // Dialogue view utterances
@@ -208,17 +233,35 @@ function buildDialogueViewUtterances(target) {
             currentDialogue = dialogue_data.current_dialogue;
             currentDialogueIndex = dialogue_data.current_dialogue_index;
 
-            // Create button/labels list for current dialogue
-            let utteranceList = createUtteranceList(currentDialogue);
-            // Append to target
-            target.appendChild(utteranceList);
+            if (currentDialogue !== null) {
+                // Create button/labels list for current dialogue
+                let utteranceList = createUtteranceList(currentDialogue);
+                // Append to target
+                target.appendChild(utteranceList);
 
-            // Update the stats
-            updateCurrentStats();
+                // Update the stats
+                updateCurrentStats();
 
-            // Start the timer for this dialogue if it is not labelled
-            if (!checkDialogueLabels(currentDialogue)) {
-                startDialogueTimer();
+                // Get the new current dialogues labelled state
+                let is_labelled = checkDialogueLabels(currentDialogue);
+
+                // Start the timer for this dialogue if it is not labelled or complete
+                if (!is_labelled && !currentDialogue.complete) {
+                    startDialogueTimer();
+                    // Also disable the revise dialogue button
+                    toggleReviseDialogueBtnState(false);
+
+                } // If it is labelled and complete disable the buttons
+                else if (is_labelled && currentDialogue.complete) {
+                    toggleDialogueDisabledState(currentDialogue, true);
+
+                    // Also enable the revise dialogue button
+                    toggleReviseDialogueBtnState(true);
+
+                } // Else just make sure revise dialogue button is disabled
+                else if (is_labelled && !currentDialogue.complete){
+                    toggleReviseDialogueBtnState(false);
+                }
             }
 
             return dialogue_data;

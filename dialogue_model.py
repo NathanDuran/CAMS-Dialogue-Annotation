@@ -102,6 +102,7 @@ class Dialogue:
         self.is_labelled = False
         self.time = 0.0
         self.questions = []
+        self.complete = False
         self.check_labels()
 
     def __repr__(self):

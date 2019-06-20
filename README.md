@@ -4,16 +4,17 @@
 
 - generate valid user list
 
+- stop auto redirect to annotate page if logged in from home.
+
+- Getters and setters for dialogue model vars (is_labelled etc)
+- Better checks for dialogue model vars
+
+- checks for labelled false and completed true.
+- update stats with completed dialogues
+
 - Label button tooltips
 - Highlight DA/AP labels once labelled?
 
-- Questionnaire popup
-- Open when dialogue is labelled?
-- Disable finish dialogue button until labelled
-- Complete/finish dialogue labelling button? at bottom of popup?
-- Questionnaire header?
-
-- Custom scroll bar?
 - on/before shutdown logout and save all users?
 ### Example JSON Format
 The following is an example of the JSON format

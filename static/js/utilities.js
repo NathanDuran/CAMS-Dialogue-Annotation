@@ -150,20 +150,30 @@ function saveDialogue(dialogue) {
 // Starts a timer for the current dialogue
 function startDialogueTimer() {
 
-    dialogueStartTime = Date.now();
-    console.log("Timer started @ " + new Date().toUTCString());
-    console.log("Current dialogue time: " + currentDialogue.time);
+    // Make sure we have a current dialogue
+    if (currentDialogue !== null) {
+        dialogueStartTime = Date.now();
+        console.log("Timer started @ " + new Date().toUTCString());
+        console.log("Current dialogue time: " + currentDialogue.time);
+    } else {
+        alert("No dialogue selected! cannot start timer!")
+    }
 }
 
 // Ends a timer for the current dialogue
 function endDialogueTimer() {
 
-    let timeDelta = Date.now() - dialogueStartTime;
-    currentDialogue.time = currentDialogue.time + timeDelta;
-    console.log("Timer ended @ " + new Date().toUTCString());
-    console.log("Time taken: " + timeDelta);
-    console.log("Current dialogue time: " + currentDialogue.time);
-    dialogueStartTime = null;
+    // Make sure we have a current dialogue and a timer was started
+    if (currentDialogue !== null && dialogueStartTime !== null) {
+        let timeDelta = Date.now() - dialogueStartTime;
+        currentDialogue.time = currentDialogue.time + timeDelta;
+        console.log("Timer ended @ " + new Date().toUTCString());
+        console.log("Time taken: " + timeDelta);
+        console.log("Current dialogue time: " + currentDialogue.time);
+        dialogueStartTime = null;
+    } else {
+        alert("No dialogue selected! cannot start timer!")
+    }
 }
 
 // Starts a timer for the current utterance
@@ -183,8 +193,8 @@ function startUtteranceTimer() {
 
 // Ends a timer for the current utterance
 function endUtteranceTimer() {
-    // Make sure we have an utterance selected
-    if (currentUttIndex !== null && currentUtt !== null) {
+    // Make sure we have an utterance selected and timer started
+    if (currentUttIndex !== null && currentUtt !== null && utteranceStartTime !== null) {
 
         let timeDelta = Date.now() - utteranceStartTime;
         currentUtt.time = currentUtt.time + timeDelta;
@@ -224,7 +234,42 @@ function getUnlabelledUttIndex(dialogue, index) {
     return uttIndex;
 }
 
-// Toggles the utterance buttons selected state
+// Shows/hides the revise dialogue button
+function toggleReviseDialogueBtnState(state){
+    // Get the revise dialogue button
+    let reviseBtn = document.getElementById(reviseDialogueBtnId);
+    if(state){
+        reviseBtn.style.display = "block";
+    } else if (!state){
+        reviseBtn.style.display = "none";
+    }
+}
+
+// Toggles disabled state for dialogue utterance and clear buttons
+function toggleDialogueDisabledState(dialogue, state) {
+
+    // Get the number of utterance in the dialogue
+    let numUtt = dialogue.utterances.length;
+
+    // Select all the utterance and clear buttons and set state
+    for(let i = 0; i < numUtt; i++){
+        let uttBtn = document.getElementById("utt-btn_" + i);
+        toggleButtonDisabledState(uttBtn, state);
+        let clearBtn = document.getElementById("clear-btn_" + i);
+        toggleButtonDisabledState(clearBtn, state);
+    }
+}
+
+// Toggles the buttons disabled state
+function toggleButtonDisabledState(button, state) {
+    if (state && !button.disabled) {
+        button.disabled = true;
+    } else if (!state && button.disabled) {
+        button.disabled = false;
+    }
+}
+
+// Toggles the buttons selected state
 function toggleButtonSelectedState(button, state) {
     if (state && !button.className.includes('selected')) {
         button.className += " selected";
@@ -235,7 +280,6 @@ function toggleButtonSelectedState(button, state) {
 
 // Toggles the utterance buttons labelled state
 function toggleButtonLabelledState(button, state) {
-
     if (state && !button.className.includes('labelled')) {
         button.className += " labelled";
     } else if (!state && button.className.includes('labelled')) {
