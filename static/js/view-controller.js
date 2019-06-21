@@ -4,11 +4,12 @@ var currentView = null;
 // Dialogue view DOM element id's
 var dialogueViewUttNodeId = "dialogue-view-utterances";
 var dialogueViewBtnBarNodeId = "dialogue-view-buttons";
-var reviseDialogueBtnId = "revise-dialogue-btn";
+var dialogueCompleteBtn = "dialogue-complete-btn";
 
 // Current dialogue and stats
 var dataset = null;
 var numDialogues = null;
+var numCompleteDialogues = null;
 var currentDialogue = null;
 var currentDialogueIndex = null;
 var currentUtt = null;
@@ -30,8 +31,8 @@ function prevBtnClick() {
     // Call save dialogue function
     saveDialogue(currentDialogue);
 
-    // Check if we need to open the questionnaire because it is labelled but not complete
-    if (checkDialogueLabels(currentDialogue) && !currentDialogue.complete) {
+    // Check if we need to open the questionnaire because it is labelled but not is_complete
+    if (checkDialogueLabels(currentDialogue) && !currentDialogue.is_complete) {
         openQuestionnaire();
     } else {
         // Clear the dialogue view
@@ -57,8 +58,8 @@ function nextBtnClick() {
     // Call save dialogue function
     saveDialogue(currentDialogue);
 
-    // Check if we need to open the questionnaire because it is labelled but not complete
-    if (checkDialogueLabels(currentDialogue)&& !currentDialogue.complete) {
+    // Check if we need to open the questionnaire because it is labelled but not is_complete
+    if (checkDialogueLabels(currentDialogue) && !currentDialogue.is_complete) {
         openQuestionnaire();
     } else {
         // Clear the dialogue view
@@ -78,17 +79,26 @@ function nextBtnClick() {
     }
 }
 
-function reviseDialogueBtnClick() {
-    console.log("Revise dialogue button clicked...")
+function dialogueCompleteBtnClick() {
+    console.log("Revise dialogue button clicked...");
 
-    // Make sure the current dialogue is labelled and completed
-    if (currentDialogue.is_labelled && currentDialogue.complete) {
-        // Set complete flag back to false
-        currentDialogue.complete = false;
+    // If the current dialogue is labelled and completed set to incomplete
+    if (currentDialogue.is_labelled && currentDialogue.is_complete) {
+        // Set is_complete flag back to false and decrement number of complete
+        currentDialogue.is_complete = false;
+        numCompleteDialogues -= 1;
         // Toggle all of the utterances back to enabled
         toggleDialogueDisabledState(currentDialogue, false);
-        // Remove itself from the page
-        toggleReviseDialogueBtnState(false);
+        // Change button to incomplete dialogue state
+        toggleDialogueCompleteBtnState(false);
+        // Update stats
+        updateCurrentStats();
+    } // Else if it is labelled but incomplete, open the questionnaire
+    else if (currentDialogue.is_labelled && !currentDialogue.is_complete) {
+        openQuestionnaire();
+    } // Otherwise just alert user
+    else if (!currentDialogue.is_labelled && !currentDialogue.is_complete) {
+        alert("Please label all utterances first!")
     }
 }
 
@@ -228,8 +238,8 @@ function buildDialogueViewUtterances(target) {
             console.log(dialogue_data);
 
             // Get the current dialogue and stats from response
-            dataset = dialogue_data.dataset;
             numDialogues = dialogue_data.num_dialogues;
+            numCompleteDialogues = dialogue_data.num_complete;
             currentDialogue = dialogue_data.current_dialogue;
             currentDialogueIndex = dialogue_data.current_dialogue_index;
 
@@ -245,22 +255,22 @@ function buildDialogueViewUtterances(target) {
                 // Get the new current dialogues labelled state
                 let is_labelled = checkDialogueLabels(currentDialogue);
 
-                // Start the timer for this dialogue if it is not labelled or complete
-                if (!is_labelled && !currentDialogue.complete) {
+                // Start the timer for this dialogue if it is not labelled or is_complete
+                if (!is_labelled && !currentDialogue.is_complete) {
                     startDialogueTimer();
-                    // Also disable the revise dialogue button
-                    toggleReviseDialogueBtnState(false);
+                    // Also enable is_complete dialogue  button state
+                    toggleDialogueCompleteBtnState(false);
 
-                } // If it is labelled and complete disable the buttons
-                else if (is_labelled && currentDialogue.complete) {
+                } // If it is labelled and is_complete disable the buttons
+                else if (is_labelled && currentDialogue.is_complete) {
                     toggleDialogueDisabledState(currentDialogue, true);
 
-                    // Also enable the revise dialogue button
-                    toggleReviseDialogueBtnState(true);
+                    // Also enable the revise dialogue button state
+                    toggleDialogueCompleteBtnState(true);
 
-                } // Else just make sure revise dialogue button is disabled
-                else if (is_labelled && !currentDialogue.complete){
-                    toggleReviseDialogueBtnState(false);
+                } // Else just make sure is_complete dialogue button is enabled
+                else if (is_labelled && !currentDialogue.is_complete) {
+                    toggleDialogueCompleteBtnState(false);
                 }
             }
 

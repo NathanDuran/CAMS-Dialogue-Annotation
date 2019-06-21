@@ -8,20 +8,27 @@
                 </button>
             </li>
             <li>
-                <label>Set:&nbsp</label>
-                <label id="dataset-lbl"></label>
-            </li>
-            <li>
                 <label>Dialogue:&nbsp</label>
                 <label id="current-dialogue-id-lbl"></label>
             </li>
             <li>
+                <label>Number:&nbsp</label>
                 <label id="current-dialogue-index-lbl"></label>
                 <label>&nbsp/&nbsp</label>
-                <label id="num-dialogues-lbl"></label>
+                <label id="num-dialogues-lbl_1"></label>
             </li>
             <li>
-                <button id="revise-dialogue-btn" onclick="reviseDialogueBtnClick()">Revise Dialogue</button>
+                <label>Completed:&nbsp</label>
+                <label id="current-dialogue-completed-lbl"></label>
+            </li>
+            <li>
+                <label>Progress:&nbsp</label>
+                <label id="complete-dialogues-lbl"></label>
+                <label>&nbsp/&nbsp</label>
+                <label id="num-dialogues-lbl_2"></label>
+            </li>
+            <li>
+                <button id="dialogue-complete-btn" onclick="dialogueCompleteBtnClick()"></button>
             </li>
             <li>
                 <button id="next-btn" class="prev-next-btn" onclick="nextBtnClick(this)">
@@ -54,8 +61,8 @@
         <div class="questionnaire-body">
 
             <!-- Questionnaire Range Sliders -->
-            <label class="questionnaire-label" for="slider_1">Please rate how you think your <u>Dialogue Act</u> labels describe
-                the meaning of this dialogues utterances?</label>
+            <label class="questionnaire-label" for="slider_1">Please rate how you think your <u>Dialogue Act</u> labels
+                describe the meaning of this dialogues utterances?</label>
             <div class="range-slider-container">
                 <input id="slider_1" class="range-slider" type="range" min="1" max="7" step="1"
                        oninput="updateSlider(this)">
@@ -70,8 +77,8 @@
                 </ul>
             </div>
 
-            <label class="questionnaire-label" for="slider_2">Please rate how you think your <u>Adjacency Pair</u> labels
-                describe the structure of this dialogues utterances?</label>
+            <label class="questionnaire-label" for="slider_2">Please rate how you think your <u>Adjacency Pair</u>
+                labels describe the structure of this dialogues utterances?</label>
             <div class="range-slider-container">
                 <input id="slider_2" class="range-slider" type="range" min="1" max="7" step="1"
                        oninput="updateSlider(this)">
@@ -86,8 +93,8 @@
                 </ul>
             </div>
 
-            <label class="questionnaire-label" for="slider_3">PLease rate how you think your <u>combination</u> of labels
-                describe the structure and meaning of this dialogue?</label>
+            <label class="questionnaire-label" for="slider_3">PLease rate how you think your <u>combination</u> of
+                labels describe the structure and meaning of this dialogue?</label>
             <div class="range-slider-container">
                 <input id="slider_3" class="range-slider" type="range" min="1" max="7" step="1"
                        oninput="updateSlider(this)">

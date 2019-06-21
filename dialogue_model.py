@@ -18,9 +18,11 @@ class DialogueModel:
         # Current dialogue
         self.current_dialogue_index = 0
 
-        # Labelled and unlabelled counts
+        # Labelled and completed dialogue counts
         self.num_labelled = 0
         self.num_unlabelled = 0
+        self.num_complete = 0
+        self.num_incomplete = 0
 
         # Count labelled and unlabelled dialogues
         self.update_labelled_dialogue_counts()
@@ -60,17 +62,25 @@ class DialogueModel:
 
     def update_labelled_dialogue_counts(self):
 
-        # Reset labeled and unlabeled counts
+        # Reset labelled and completed counts
         self.num_labelled = 0
         self.num_unlabelled = 0
+        self.num_complete = 0
+        self.num_incomplete = 0
 
         # Update counts
         for dialogue in self.dialogues:
 
+            # Labelled
             if dialogue.check_labels():
                 self.num_labelled += 1
             else:
                 self.num_unlabelled += 1
+            # Completed
+            if dialogue.is_complete:
+                self.num_complete += 1
+            else:
+                self.num_incomplete += 1
 
     def inc_current_dialogue(self):
 
@@ -100,9 +110,9 @@ class Dialogue:
         self.utterances = utterances
         self.num_utterances = num_utterances
         self.is_labelled = False
+        self.is_complete = False
         self.time = 0.0
         self.questions = []
-        self.complete = False
         self.check_labels()
 
     def __repr__(self):
@@ -132,9 +142,9 @@ class Utterance:
         self.ap_label = ap_label
         self.da_label = da_label
         self.is_labelled = False
-        self.time = 0.0
         self.ap_flag = False
         self.da_flag = False
+        self.time = 0.0
         self.check_labels()
 
     def __repr__(self):

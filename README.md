@@ -8,12 +8,11 @@
 
 - Getters and setters for dialogue model vars (is_labelled etc)
 - Better checks for dialogue model vars
-
-- checks for labelled false and completed true.
-- update stats with completed dialogues
+- checks for (labelled false and completed true) when saving/in dialogue model.py/utilities.py.
 
 - Label button tooltips
 - Highlight DA/AP labels once labelled?
+- Colour code or otherwise highlight the AP and DA labele buttons differently?
 
 - on/before shutdown logout and save all users?
 ### Example JSON Format

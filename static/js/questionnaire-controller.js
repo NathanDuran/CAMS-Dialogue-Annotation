@@ -77,14 +77,16 @@ function questionnaireSubmitBtnClick() {
 
     // Set the dialogue to completed and disable the buttons
     if (currentDialogue !== null && currentDialogue.is_labelled) {
-        currentDialogue.complete = true;
+        currentDialogue.is_complete = true;
+        numCompleteDialogues += 1;
         toggleDialogueDisabledState(currentDialogue, true);
 
-        // Also enable the revise dialogue button
-        toggleReviseDialogueBtnState(true);
+        // Also enable the revise dialogue button state
+        toggleDialogueCompleteBtnState(true);
     }
 
-    // TODO update the stats
+    // Update the stats
+    updateCurrentStats();
 
     // Close the questionnaire
     closeQuestionnaire();

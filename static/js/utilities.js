@@ -211,13 +211,20 @@ function endUtteranceTimer() {
 // Updates the current dialogue stats
 function updateCurrentStats() {
 
-    // Dataset
-    document.getElementById('dataset-lbl').innerText = dataset.split('_')[1];
-
-    // Dialogue
+    // Dialogue name and number
     document.getElementById('current-dialogue-id-lbl').innerText = currentDialogue.dialogue_id;
     document.getElementById('current-dialogue-index-lbl').innerText = currentDialogueIndex + 1;
-    document.getElementById('num-dialogues-lbl').innerText = numDialogues;
+    document.getElementById('num-dialogues-lbl_1').innerText = numDialogues;
+
+    // Dialogue completed state
+    if (currentDialogue.is_labelled && currentDialogue.is_complete) {
+        document.getElementById("current-dialogue-completed-lbl").innerText = "\u2714";
+    } else {
+        document.getElementById("current-dialogue-completed-lbl").innerText = "\u274C";
+    }
+
+    document.getElementById("complete-dialogues-lbl").innerText = numCompleteDialogues;
+    document.getElementById('num-dialogues-lbl_2').innerText = numDialogues;
 }
 
 
@@ -235,13 +242,13 @@ function getUnlabelledUttIndex(dialogue, index) {
 }
 
 // Shows/hides the revise dialogue button
-function toggleReviseDialogueBtnState(state){
-    // Get the revise dialogue button
-    let reviseBtn = document.getElementById(reviseDialogueBtnId);
-    if(state){
-        reviseBtn.style.display = "block";
-    } else if (!state){
-        reviseBtn.style.display = "none";
+function toggleDialogueCompleteBtnState(state) {
+    // Get the dialogue is_complete button
+    let btn = document.getElementById(dialogueCompleteBtn);
+    if (state) {
+        btn.innerText = "Revise Dialogue";
+    } else if (!state) {
+        btn.innerText = "Complete Dialogue";
     }
 }
 
@@ -252,7 +259,7 @@ function toggleDialogueDisabledState(dialogue, state) {
     let numUtt = dialogue.utterances.length;
 
     // Select all the utterance and clear buttons and set state
-    for(let i = 0; i < numUtt; i++){
+    for (let i = 0; i < numUtt; i++) {
         let uttBtn = document.getElementById("utt-btn_" + i);
         toggleButtonDisabledState(uttBtn, state);
         let clearBtn = document.getElementById("clear-btn_" + i);

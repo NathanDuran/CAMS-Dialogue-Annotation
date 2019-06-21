@@ -111,6 +111,7 @@ def get_current_dialogue():
     # Build the response object
     dialogue_data = dict({'dataset': model.dataset,
                           'num_dialogues': model.num_dialogues,
+                          'num_complete': model.num_complete,
                           'current_dialogue': current_dialogue,
                           'current_dialogue_index': model.current_dialogue_index})
 
