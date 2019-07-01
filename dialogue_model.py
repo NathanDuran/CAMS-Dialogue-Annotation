@@ -1,5 +1,3 @@
-from random import shuffle
-
 
 class DialogueModel:
     def __init__(self, dataset, dialogues, user_id):
@@ -12,7 +10,6 @@ class DialogueModel:
 
         # All dialogues
         self.dialogues = dialogues
-        # shuffle(self.dialogues)  # TODO Uncomment when deployed
         self.num_dialogues = len(self.dialogues)
 
         # Current dialogue
@@ -111,7 +108,7 @@ class Dialogue:
         self.num_utterances = num_utterances
         self.is_labelled = False
         self.is_complete = False
-        self.time = 0.0
+        self.time = 0
         self.questions = []
         self.check_labels()
 
@@ -123,6 +120,30 @@ class Dialogue:
         # for utt in self.utterances:
         #     to_string += str(utt) + "\n"
         return to_string
+
+    def set_is_labelled(self, value):
+        if isinstance(value, bool):
+            self.is_labelled = value
+        else:
+            print("Error! " + value + " is not a bool!")
+
+    def set_is_complete(self, value):
+        if isinstance(value, bool):
+            self.is_complete = value
+        else:
+            print("Error! " + value + " is not a bool!")
+
+    def set_time(self, value):
+        if isinstance(value, int):
+            self.time = value
+        else:
+            print("Error! " + value + " is not an int!")
+
+    def set_questions(self, value):
+        if isinstance(value, list):
+            self.questions = value
+        else:
+            print("Error! " + value + " is not a list!")
 
     def check_labels(self):
         # Check if any utterances still have default labels
@@ -144,7 +165,7 @@ class Utterance:
         self.is_labelled = False
         self.ap_flag = False
         self.da_flag = False
-        self.time = 0.0
+        self.time = 0
         self.check_labels()
 
     def __repr__(self):
@@ -154,18 +175,42 @@ class Utterance:
                     " Labelled: " + str(self.is_labelled)
 
     def set_ap_label(self, label):
-        self.ap_label = label
-        self.check_labels()
+        if isinstance(label, str):
+            self.ap_label = label
+            self.check_labels()
+        else:
+            print("Error! " + label + " is not a string!")
 
     def set_da_label(self, label):
-        self.da_label = label
-        self.check_labels()
+        if isinstance(label, str):
+            self.da_label = label
+            self.check_labels()
+        else:
+            print("Error! " + label + " is not a string!")
+
+    def set_is_labelled(self, value):
+        if isinstance(value, bool):
+            self.is_labelled = value
+        else:
+            print("Error! " + value + " is not a bool!")
 
     def set_ap_flag(self, value):
-        self.ap_flag = value
+        if isinstance(value, bool):
+            self.ap_flag = value
+        else:
+            print("Error! " + value + " is not a bool!")
 
     def set_da_flag(self, value):
-        self.da_flag = value
+        if isinstance(value, bool):
+            self.da_flag = value
+        else:
+            print("Error! " + value + " is not a bool!")
+
+    def set_time(self, value):
+        if isinstance(value, int):
+            self.time = value
+        else:
+            print("Error! " + value + " is not an int!")
 
     def check_labels(self):
         # Check if utterance still has default labels

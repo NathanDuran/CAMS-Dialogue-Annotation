@@ -1,57 +1,7 @@
 {
   "dataset": "set_1",
-  "num_dialogues": 5,
+  "num_dialogues": 4,
   "dialogues": [
-    {
-      "dialogue_id": "practice",
-      "num_utterances": 6,
-      "utterances": [
-        {
-          "speaker": "USR",
-          "text": "is it going to snow this week",
-          "ap_label": "",
-          "da_label": ""
-        },
-        {
-          "speaker": "SYS",
-          "text": "Where should I check for snow?",
-          "ap_label": "",
-          "da_label": "",
-          "slots": {
-            "weather_attribute": "snow",
-            "date": "this week"
-          }
-        },
-        {
-          "speaker": "USR",
-          "text": "Corona",
-          "ap_label": "",
-          "da_label": ""
-        },
-        {
-          "speaker": "SYS",
-          "text": "There will be no snow in Corona this week.",
-          "ap_label": "",
-          "da_label": "",
-          "slots": {
-            "location": "Corona"
-          }
-        },
-        {
-          "speaker": "USR",
-          "text": "Thank you car!",
-          "ap_label": "",
-          "da_label": ""
-        },
-        {
-          "speaker": "SYS",
-          "text": "No problem my driver!",
-          "ap_label": "",
-          "da_label": "",
-          "slots": {}
-        }
-      ]
-    },
     {
       "dialogue_id": "jason-clone",
       "num_utterances": 20,
@@ -205,14 +155,14 @@
         {
           "speaker": "USR",
           "text": "where's the nearest parking garage",
-          "ap_label": "FPP-pre",
-          "da_label": "offer"
+          "ap_label": "",
+          "da_label": ""
         },
         {
           "speaker": "SYS",
           "text": "The nearest parking garage is Dish Parking at 550 Alester Ave.",
-          "ap_label": "FPP-pre",
-          "da_label": "offer",
+          "ap_label": "",
+          "da_label": "",
           "slots": {
             "distance": "nearest",
             "poi_type": "parking garage"
@@ -221,8 +171,8 @@
         {
           "speaker": "SYS",
           "text": "Would you like directions there?",
-          "ap_label": "SPP-post",
-          "da_label": "offer",
+          "ap_label": "",
+          "da_label": "",
           "slots": {
             "distance": "nearest",
             "poi_type": "parking garage"
@@ -231,14 +181,14 @@
         {
           "speaker": "USR",
           "text": "Yes, please set directions via a route that avoids all heavy traffic if possible.",
-          "ap_label": "SPP-post",
-          "da_label": "offer"
+          "ap_label": "",
+          "da_label": ""
         },
         {
           "speaker": "SYS",
           "text": "It looks like there is a road block being reported on the route but I will still find the quickest route to 550 Alester Ave.",
-          "ap_label": "SPP-post",
-          "da_label": "offer",
+          "ap_label": "",
+          "da_label": "",
           "slots": {
             "traffic_info": "avoid heavy traffic ",
             "poi": "dish parking"
@@ -247,14 +197,14 @@
         {
           "speaker": "USR",
           "text": "Thanks so much for your help.",
-          "ap_label": "SPP-post",
-          "da_label": "offer"
+          "ap_label": "",
+          "da_label": ""
         },
         {
           "speaker": "SYS",
           "text": "You're very welcome!",
-          "ap_label": "SPP-post",
-          "da_label": "autoNegative",
+          "ap_label": "",
+          "da_label": "",
           "slots": {}
         }
       ],

@@ -16,9 +16,11 @@ app.secret_key = os.urandom(32)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
-# login_manager.login_view = "/home"
+
+# Load the valid user list
 current_users = dict()
-valid_users = ['usr_1', 'usr_2']  # TODO read from file
+# valid_users = utils.load_txt_data(user_data_path, "user_id_list")
+valid_users = ['usr-1', 'usr-2']  # TODO remove when deployed
 
 
 @app.route('/')
@@ -77,7 +79,7 @@ def login():
                 success = user.set_model(utils.create_model(user_data_path, dialogue_file, user.get_id()))
             # Else determine which one of the originals to return
             else:
-                user_dataset = user.get_id().split('_')[1]
+                user_dataset = user.get_id().split('-')[1]
                 dialogue_file = "set_" + user_dataset
                 success = user.set_model(utils.create_model(dialogue_data_path, dialogue_file, user.get_id()))
 

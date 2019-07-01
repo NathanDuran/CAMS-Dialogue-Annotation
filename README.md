@@ -1,22 +1,8 @@
 # CA Dialogue Tagger
 ### TODO
-- practice?
-
-- generate valid user list
-
-- stop auto redirect to annotate page if logged in from home.
-
-- Randomise all but practice dialogue
-
-- Getters and setters for dialogue model vars (is_labelled etc)
-- Better checks for dialogue model vars
-- checks for (labelled false and completed true) when saving/in dialogue model.py/utilities.py.
-
-- Label button tooltips
+- Label button tooltips?
 - Highlight DA/AP labels once labelled?
-
-- on Logout save just in case?
-- on/before shutdown logout and save all users? 
+- Finish this readme!
 ### Example JSON Format
 The following is an example of the JSON format
 ```json

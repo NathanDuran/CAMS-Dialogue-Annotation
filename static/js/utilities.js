@@ -95,6 +95,9 @@ function login() {
 
 function logout() {
 
+    // Save the current dialogue first
+    saveDialogue(currentDialogue);
+
     $.ajax({
         type: 'get',
         url: "/logout.do",

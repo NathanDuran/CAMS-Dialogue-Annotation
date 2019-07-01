@@ -1,4 +1,5 @@
 import os
+from random import shuffle
 import traceback
 import json
 from dialogue_model import *
@@ -62,15 +63,21 @@ def load_label_groups(labels):
 
 # Creates a dialogue model from the specified dialogue dataset file
 def create_model(data_path, dataset_file, user_id):
-    # Load JSON file
+    # Load JSON files
     data = load_json_data(data_path, dataset_file)
+    practice_data = load_json_data(data_path, "practice")
 
     # If file is not valid or invalid JSON
-    if not data:
+    if not data or not practice_data:
         print("Unable to load JSON data...")
 
-    # Create dialogue object
+    # Create dialogue objects
     dialogues = dialogues_from_dict(data)
+    practice_dialogue = dialogue_from_dict(practice_data)
+
+    # Shuffle the actual dialogues and insert the practice at the start
+    shuffle(dialogues)
+    dialogues.insert(0, practice_dialogue)
 
     # If JSON is not valid or keys missing
     if not dialogues:
@@ -91,6 +98,8 @@ def save_model(data_path, model, user_id):
     model_dict['num_dialogues'] = model.num_dialogues
     model_dict['num_labelled'] = model.num_labelled
     model_dict['num_unlabelled'] = model.num_unlabelled
+    model_dict['num_complete'] = model.num_complete
+    model_dict['num_incomplete'] = model.num_incomplete
     model_dict['dialogues'] = dialogues_to_dict(model.dialogues)
 
     # Save to JSON
@@ -142,9 +151,9 @@ def dialogue_from_dict(dialogue):
 
             # Check if the labelled and time values are also set
             if 'is_labelled' in utterance.keys():
-                tmp_utterance.is_labelled = utterance['is_labelled']
+                tmp_utterance.set_is_labelled(utterance['is_labelled'])
             if 'time' in utterance.keys():
-                tmp_utterance.time = utterance['time']
+                tmp_utterance.set_time(utterance['time'])
 
             # Add to utterance list
             utterances.append(tmp_utterance)
@@ -154,13 +163,13 @@ def dialogue_from_dict(dialogue):
 
         # Check if the labelled and time values are also set
         if 'is_labelled' in dialogue.keys():
-            tmp_dialogue.is_labelled = dialogue['is_labelled']
+            tmp_dialogue.set_is_labelled(dialogue['is_labelled'])
         if 'is_complete' in dialogue.keys():
-            tmp_dialogue.is_complete = dialogue['is_complete']
+            tmp_dialogue.set_is_complete(dialogue['is_complete'])
         if 'time' in dialogue.keys():
-            tmp_dialogue.time = dialogue['time']
+            tmp_dialogue.set_time(dialogue['time'])
         if 'questions' in dialogue.keys():
-            tmp_dialogue.questions = dialogue['questions']
+            tmp_dialogue.set_questions(dialogue['questions'])
 
     except KeyError:
         traceback.print_exc()
