@@ -86,8 +86,8 @@
     color: white;
 }
 
-.label-container{
-    width:120px;
+.label-container {
+    width: 120px;
     min-width: 120px;
     margin: 2px 10px;
     text-align: center;
@@ -122,10 +122,26 @@
 .btn-bar {
     width: 90%;
     max-width: var(--max-content-width);
+    min-width: var(--min-content-width);
     margin: 0 auto;
     padding: 5px;
     display: flex;
     justify-content: center;
+}
+
+.btn-bar label {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-family: var(--main-font);
+    font-weight: bold;
+}
+
+.btn-bar-group {
+    display: inline-flex;
+    border: 1px solid black;
+    border-radius: 4px;
+    background: var(--my-dark-grey);
 }
 
 .label-group {

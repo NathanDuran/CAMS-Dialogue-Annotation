@@ -6,15 +6,17 @@
 
 - stop auto redirect to annotate page if logged in from home.
 
+- Randomise all but practice dialogue
+
 - Getters and setters for dialogue model vars (is_labelled etc)
 - Better checks for dialogue model vars
 - checks for (labelled false and completed true) when saving/in dialogue model.py/utilities.py.
 
 - Label button tooltips
 - Highlight DA/AP labels once labelled?
-- Colour code or otherwise highlight the AP and DA labele buttons differently?
 
-- on/before shutdown logout and save all users?
+- on Logout save just in case?
+- on/before shutdown logout and save all users? 
 ### Example JSON Format
 The following is an example of the JSON format
 ```json

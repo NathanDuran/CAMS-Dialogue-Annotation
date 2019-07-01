@@ -356,26 +356,44 @@ function createUtteranceList(dialogue) {
 // Builds the dialogue view label button bars
 function buildDialogueViewButtonBars(target) {
 
-    // Create AP button bar div
+    // Create AP button bar and group divs
     let apBtnBar = document.createElement("div");
     apBtnBar.className = "btn-bar";
     apBtnBar.id = "ap-btn-bar";
 
+    let apBtnBarLabel = document.createElement("label");
+    apBtnBarLabel.innerText = "Adjacency Pairs";
+
+    let apBtnBarGroup = document.createElement("div");
+    apBtnBarGroup.className = "btn-bar-group";
+    apBtnBarGroup.id = "ap-btn-bar-group";
+
     // Get and build the labels
-    createLabelBtns('ap_labels', "ap-label", apBtnBar);
+    createLabelBtns('ap_labels', "ap-label", apBtnBarGroup);
 
     // Append to the target
+    apBtnBarGroup.appendChild(apBtnBarLabel);
+    apBtnBar.appendChild(apBtnBarGroup);
     target.appendChild(apBtnBar);
 
-    // Create DA button bar div
+    // Create DA button bar and group divs
     let daBtnBar = document.createElement("div");
     daBtnBar.className = "btn-bar";
     daBtnBar.id = "da-btn-bar";
 
+    let daBtnBarLabel = document.createElement("label");
+    daBtnBarLabel.innerText = "Dialogue Acts";
+
+    let daBtnBarGroup = document.createElement("div");
+    daBtnBarGroup.className = "btn-bar-group";
+    daBtnBarGroup.id = "da-btn-bar-group";
+
     // Get and build the labels
-    createLabelBtns('da_labels', "da-label", daBtnBar);
+    createLabelBtns('da_labels', "da-label", daBtnBarGroup);
 
     // Append to the target
+    daBtnBarGroup.appendChild(daBtnBarLabel);
+    daBtnBar.appendChild(daBtnBarGroup);
     target.appendChild(daBtnBar);
 
 }
