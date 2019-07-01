@@ -1,7 +1,78 @@
 <h1 class="title">Conversation Analysis Dialogue Tagger</h1>
-<p class="title-paragraph">Blah Blah</p>
 
 <div class="content">
+    <p class="title-paragraph">Welcome to the Conversation Analysis (CA) Dialogue Tagger.
+        This software tool allows users to quickly annotate dialogues using a CA labelling schema
+        that combines Dialogue Acts (DA) and Adjacency Pairs (AP) into AP-type labels for each utterance.
+        A full description of the schema, labels and annotation instructions can be found on the
+        <a title="Link to CA Schema" href="schema" onclick="loadContent('schema');return false;">Schema</a> tab above.
+        You can return to the schema page at any time during annotation and your progress will be saved.
+        Please read the following instructions carefully before you begin.</p>
+
+    <h1 id="instructions">Instructions</h1>
+    <p>You will be given a set of five unlabelled dialogues that are a mixture of task-oriented and non-task-oriented
+        conversations. For each dialogue you will be asked to label each utterance with one AP and one DA label which
+        combine into an AP-type label.
+        Once a dialogue is fully labelled you will be asked to rate the different AP, DA and DA-type labels you have
+        provided using a 7 point scale.
+        You will also be given the opportunity to highlight any labels, or combination of labels
+        that you do not think adequately describe the dialogue.</p>
+
+    <h3 id="annotation-instructions">Annotation Screen</h3>
+    <p>Once you have logged in using your unique user-id you can access the annotation screen by clicking on the
+        <a title="Link to Annotate" href="annotate" onclick="loadContent('annotate');return false;">Annotate</a> tab
+        above. The first dialogue you see will be a short practice dialogue to give you an opportunity to get used to
+        the tools controls and the process of applying the labels.<br><br>
+
+        The currently selected utterance is highlighted in <span style="color: #0366d6; font-weight: bold">blue</span>.
+        You can select an utterance to label at any time just by clicking on it.
+        As you can see, the first utterance is automatically selected for you.<br><br>
+
+        To apply labels to this utterance simply click on one of the AP buttons and one of the DA buttons from the set
+        at the bottom of the screen. The labels to the right of the utterance will change to reflect your selection.
+        Once you have selected one of each label type (DA and AP) the utterance will turn
+        <span style="color: green; font-weight: bold">green</span>
+        and the next unlabelled utterance will be automatically selected for you.<br><br>
+
+        You can remove the labels for any utterance by clicking on the
+        <img alt="clear button" src="../static/images/delete_square.png" width="25" height="25"> button next to the
+        labels.
+    </p>
+
+    <img alt="annotate screen" src="../static/images/annotation_screen.png" width="1100" height="650">
+
+    <br><br>
+    <h3>Questionnaire Screen</h3>
+    <p>Once every utterance in the dialogue is labelled you can click the 'Complete Dialogue' button or either of the
+        navigation buttons <img alt="prev button" src="../static/images/prev.png" width="25" height="25">
+        <img alt="next button" src="../static/images/next.png" width="25" height="25"> to open the question popup for
+        this dialogue.
+        Here you will be asked to rate the DA and AP labels you have selected for this dialogue as well as the
+        combination of labels i.e. the AP-type labels.<br><br>
+
+        You also have the opportunity to select any labels or combination of labels that you do not think adequately
+        describe the dialogue.
+        You can select as many you want, or none, but please try and highlight any labels that you found difficult or
+        did not quite fit the utterance(s).<br><br>
+
+        Once you have finished the questionnaire click submit to finish the current dialogue. If you want to change
+        your annotations or answers at any time just click the 'Revise Dialogue' button.<br><br>
+
+        You can now use the navigation buttons
+        <img alt="prev button" src="../static/images/prev.png" width="25" height="25">
+        <img alt="next button" src="../static/images/next.png" width="25" height="25">
+        to move on to the next dialogue.
+    </p>
+
+    <img alt="questionnaire screen" src="../static/images/questionnaire_screen.png" width="1100" height="650">
+
+    <h3>Login to Start</h3>
+    <p>If you are ready to start, please log in below using the user-id that has been provided to you.
+        You will be taken directly to the annotation page.
+        Remember, you can return to the Home or Schema page at any time and your progress will be saved.<br><br>
+
+        Please log out here when you are finished and thank you for taking part!
+    </p>
     {% if not current_user.is_authenticated %}
 
         <form id="login_form" action="javascript:login()">

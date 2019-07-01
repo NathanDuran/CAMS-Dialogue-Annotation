@@ -3,7 +3,7 @@
 Overview
 ========
 
-The Conversation Analysis (CA) schema aims to defines a domain agnostic annotation scheme for dialogue that is aligned
+The Conversation Analysis (CA) schema defines a domain agnostic annotation scheme for dialogue that is aligned
 with the relevant theories from within the CA literature and is also appropriate for computational modelling.
 The schema defines both Adjacency Pairs (AP) and Dialogue Acts (DA) which combine to form AP-types.
 

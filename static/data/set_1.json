@@ -1,7 +1,57 @@
 {
   "dataset": "set_1",
-  "num_dialogues": 6,
+  "num_dialogues": 5,
   "dialogues": [
+    {
+      "dialogue_id": "practice",
+      "num_utterances": 6,
+      "utterances": [
+        {
+          "speaker": "USR",
+          "text": "is it going to snow this week",
+          "ap_label": "",
+          "da_label": ""
+        },
+        {
+          "speaker": "SYS",
+          "text": "Where should I check for snow?",
+          "ap_label": "",
+          "da_label": "",
+          "slots": {
+            "weather_attribute": "snow",
+            "date": "this week"
+          }
+        },
+        {
+          "speaker": "USR",
+          "text": "Corona",
+          "ap_label": "",
+          "da_label": ""
+        },
+        {
+          "speaker": "SYS",
+          "text": "There will be no snow in Corona this week.",
+          "ap_label": "",
+          "da_label": "",
+          "slots": {
+            "location": "Corona"
+          }
+        },
+        {
+          "speaker": "USR",
+          "text": "Thank you car!",
+          "ap_label": "",
+          "da_label": ""
+        },
+        {
+          "speaker": "SYS",
+          "text": "No problem my driver!",
+          "ap_label": "",
+          "da_label": "",
+          "slots": {}
+        }
+      ]
+    },
     {
       "dialogue_id": "jason-clone",
       "num_utterances": 20,
@@ -506,149 +556,6 @@
             "poi_type": "hospital",
             "address": "611 Ames Ave",
             "poi": "Palo Alto Medical Foundation"
-          }
-        ]
-      }
-    },
-    {
-      "dialogue_id": "test_4",
-      "num_utterances": 4,
-      "utterances": [
-        {
-          "speaker": "USR",
-          "text": "Hi, please set up a reminder for my dinner on the 11th at 4pm with my sister.",
-          "ap_label": "AP-Label",
-          "da_label": "DA-Label"
-        },
-        {
-          "speaker": "USR",
-          "text": "Thanks!",
-          "ap_label": "AP-Label",
-          "da_label": "DA-Label"
-        },
-        {
-          "speaker": "SYS",
-          "text": "Set!",
-          "ap_label": "AP-Label",
-          "da_label": "DA-Label",
-          "slots": {
-            "date": "11th ",
-            "party": "sister",
-            "event": "dinner ",
-            "time": "4pm "
-          }
-        },
-        {
-          "speaker": "SYS",
-          "text": "Have a good time",
-          "ap_label": "AP-Label",
-          "da_label": "DA-Label",
-          "slots": {
-            "date": "11th ",
-            "party": "sister",
-            "event": "dinner ",
-            "time": "4pm "
-          }
-        }
-      ],
-      "scenario": {
-        "db_id": "97da7e92-0d43-4f03-aaf2-3c67c5fd02ac",
-        "db_type": "calendar",
-        "task": "schedule",
-        "items": null
-      }
-    },
-    {
-      "dialogue_id": "test_5",
-      "num_utterances": 5,
-      "utterances": [
-        {
-          "speaker": "USR",
-          "text": "What time is dinner and who is it with?",
-          "ap_label": "AP-Label",
-          "da_label": "DA-Label"
-        },
-        {
-          "speaker": "SYS",
-          "text": "Dinner is at 7 pm with Jon.",
-          "ap_label": "AP-Label",
-          "da_label": "DA-Label",
-          "slots": {
-            "event": "dinner"
-          }
-        },
-        {
-          "speaker": "USR",
-          "text": "Okay, perfect!",
-          "ap_label": "AP-Label",
-          "da_label": "DA-Label"
-        },
-        {
-          "speaker": "USR",
-          "text": "Thanks.",
-          "ap_label": "AP-Label",
-          "da_label": "DA-Label"
-        },
-        {
-          "speaker": "SYS",
-          "text": "you're welcome",
-          "ap_label": "AP-Label",
-          "da_label": "DA-Label",
-          "slots": {}
-        }
-      ],
-      "scenario": {
-        "db_id": "abc61848-73c5-478d-ab89-65be9585f487",
-        "db_type": "calendar",
-        "task": "schedule",
-        "items": [
-          {
-            "room": "-",
-            "agenda": "-",
-            "time": "10am",
-            "date": "the 8th",
-            "party": "aunt",
-            "event": "dentist appointment"
-          },
-          {
-            "room": "-",
-            "agenda": "-",
-            "time": "5pm",
-            "date": "saturday",
-            "party": "Marie",
-            "event": "taking medicine"
-          },
-          {
-            "room": "-",
-            "agenda": "-",
-            "time": "4pm",
-            "date": "monday",
-            "party": "Alex",
-            "event": "football activity"
-          },
-          {
-            "room": "-",
-            "agenda": "-",
-            "time": "4pm",
-            "date": "the 4th",
-            "party": "Marie",
-            "event": "yoga activity"
-          },
-          {
-            "room": "-",
-            "agenda": "-",
-            "time": "5pm",
-            "date": "the 13th",
-            "party": "father",
-            "event": "lab appointment"
-          },
-          {
-            "room": "-",
-            "agenda": "-",
-            "time": "7pm",
-            "date": "the 8th",
-            "party": "Jon",
-            "event": "dinner"
           }
         ]
       }

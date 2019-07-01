@@ -90,7 +90,7 @@ function dialogueCompleteBtnClick() {
         // Toggle all of the utterances back to enabled
         toggleDialogueDisabledState(currentDialogue, false);
         // Change button to incomplete dialogue state
-        toggleDialogueCompleteBtnState(false);
+        toggleDialogueCompleteBtnState(false, false);
         // Update stats
         updateCurrentStats();
     } // Else if it is labelled but incomplete, open the questionnaire
@@ -147,11 +147,14 @@ function uttClearBtnClick() {
     // Remove the labelled state
     let uttBtn = document.getElementById("utt-btn_" + index);
     toggleButtonLabelledState(uttBtn, false);
+    toggleDialogueCompleteBtnState(false, true);
 
     // Set the utterance labels to default on the current dialogue and labelled to false
     currentDialogue.utterances[index].ap_label = defaultApLabel;
     currentDialogue.utterances[index].da_label = defaultDaLabel;
     currentDialogue.utterances[index].is_labelled = false;
+    currentDialogue.is_labelled = false;
+
 
     // Check if the timer is stopped i.e this dialogue was fully labelled before
     if (dialogueStartTime === null) {
@@ -219,6 +222,9 @@ function labelBtnClick() {
         // Set the current dialogue to labelled
         currentDialogue.is_labelled = true;
 
+        // And activate the dialogue complete button
+        toggleDialogueCompleteBtnState(false, false);
+
         // If it wasn't already fully labelled, stop the timer
         if (dialogueStartTime !== null) {
             endDialogueTimer();
@@ -259,18 +265,18 @@ function buildDialogueViewUtterances(target) {
                 if (!is_labelled && !currentDialogue.is_complete) {
                     startDialogueTimer();
                     // Also enable is_complete dialogue  button state
-                    toggleDialogueCompleteBtnState(false);
+                    toggleDialogueCompleteBtnState(false, true);
 
                 } // If it is labelled and is_complete disable the buttons
                 else if (is_labelled && currentDialogue.is_complete) {
                     toggleDialogueDisabledState(currentDialogue, true);
 
                     // Also enable the revise dialogue button state
-                    toggleDialogueCompleteBtnState(true);
+                    toggleDialogueCompleteBtnState(true, false);
 
                 } // Else just make sure is_complete dialogue button is enabled
                 else if (is_labelled && !currentDialogue.is_complete) {
-                    toggleDialogueCompleteBtnState(false);
+                    toggleDialogueCompleteBtnState(false, false);
                 }
             }
 
@@ -362,7 +368,7 @@ function buildDialogueViewButtonBars(target) {
     apBtnBar.id = "ap-btn-bar";
 
     let apBtnBarLabel = document.createElement("label");
-    apBtnBarLabel.innerText = "Adjacency Pairs";
+    apBtnBarLabel.innerHTML = "Adjacency<br>Pairs";
 
     let apBtnBarGroup = document.createElement("div");
     apBtnBarGroup.className = "btn-bar-group";
@@ -382,7 +388,7 @@ function buildDialogueViewButtonBars(target) {
     daBtnBar.id = "da-btn-bar";
 
     let daBtnBarLabel = document.createElement("label");
-    daBtnBarLabel.innerText = "Dialogue Acts";
+    daBtnBarLabel.innerHTML = "Dialogue<br>Acts";
 
     let daBtnBarGroup = document.createElement("div");
     daBtnBarGroup.className = "btn-bar-group";

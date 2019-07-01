@@ -54,6 +54,16 @@ body {
     max-width: var(--max-content-width);
     padding: 0 5%;
     margin: 0 auto auto;
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    margin: 5px auto;
+}
+
+img {
+    margin: 0 auto;
 }
 
 input[type=text] {

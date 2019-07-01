@@ -242,13 +242,15 @@ function getUnlabelledUttIndex(dialogue, index) {
 }
 
 // Shows/hides the revise dialogue button
-function toggleDialogueCompleteBtnState(state) {
+function toggleDialogueCompleteBtnState(state, disabled) {
     // Get the dialogue is_complete button
     let btn = document.getElementById(dialogueCompleteBtn);
     if (state) {
         btn.innerText = "Revise Dialogue";
+        btn.disabled = false;
     } else if (!state) {
         btn.innerText = "Complete Dialogue";
+        btn.disabled = disabled;
     }
 }
 
