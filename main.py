@@ -19,7 +19,7 @@ login_manager.init_app(app)
 
 # Load the valid user list
 current_users = dict()
-# valid_users = utils.load_txt_data(user_data_path, "user_id_list")
+# valid_users = utils.load_txt_data(dialogue_data_path, "user_id_list")
 valid_users = ['usr-1', 'usr-2']  # TODO remove when deployed
 
 
@@ -76,12 +76,12 @@ def login():
             # If the user already has a file return that
             if os.path.isfile(user_data_path + user.get_id() + ".json"):
                 dialogue_file = user.get_id()
-                success = user.set_model(utils.create_model(user_data_path, dialogue_file, user.get_id()))
+                success = user.set_model(utils.create_model(user_data_path, dialogue_file, user.get_id(), user_data=True))
             # Else determine which one of the originals to return
             else:
                 user_dataset = user.get_id().split('-')[1]
                 dialogue_file = "set_" + user_dataset
-                success = user.set_model(utils.create_model(dialogue_data_path, dialogue_file, user.get_id()))
+                success = user.set_model(utils.create_model(dialogue_data_path, dialogue_file, user.get_id(), user_data=False))
 
     return json.dumps({'success': success}), 200, {'ContentType': 'application/json'}
 
@@ -162,18 +162,17 @@ def get_next_dialogue():
     return json.dumps({'success': success}), 200, {'ContentType': 'application/json'}
 
 
-@app.route('/get_labels/<filename>')
-def get_labels(filename):
-    # Load the specified labels file
-    labels_data = utils.load_txt_data(label_data_path, filename)
+@app.route('/get_labels.do')
+def get_labels():
+    # Load the labels files
+    labels = utils.load_json_data(label_data_path, "labels")
 
     # If unable to load labels inform user
-    if not labels_data:
+    if not labels:
         print("unable to load label lists...")
 
-    # Split into groups
-    labels_groups = utils.load_label_groups(labels_data)
-    return json.dumps(labels_groups), 200, {'ContentType': 'application/json'}
+    # Return as json/dict
+    return json.dumps(labels), 200, {'ContentType': 'application/json'}
 
 
 if __name__ == '__main__':

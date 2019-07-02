@@ -1,4 +1,3 @@
-import os
 from random import shuffle
 import traceback
 import json
@@ -41,43 +40,26 @@ def load_txt_data(path, file_name):
 
     return lines
 
-
-# Splits label groups on empty lines and returns 2d array of groups
-def load_label_groups(labels):
-    labels_groups = []
-    group = []
-
-    for line in labels:
-
-        # If line isn't empty add it to the group
-        if line is not "":
-            group.append(line)
-        # Else we have reached the end of the group
-        else:
-            labels_groups.append(group)
-            group = []
-    # Don't miss the last group
-    labels_groups.append(group)
-    return labels_groups
-
-
 # Creates a dialogue model from the specified dialogue dataset file
-def create_model(data_path, dataset_file, user_id):
+def create_model(data_path, dataset_file, user_id, user_data=False):
     # Load JSON files
     data = load_json_data(data_path, dataset_file)
-    practice_data = load_json_data(data_path, "practice")
 
     # If file is not valid or invalid JSON
-    if not data or not practice_data:
+    if not data:
         print("Unable to load JSON data...")
 
     # Create dialogue objects
     dialogues = dialogues_from_dict(data)
-    practice_dialogue = dialogue_from_dict(practice_data)
 
-    # Shuffle the actual dialogues and insert the practice at the start
-    shuffle(dialogues)
-    dialogues.insert(0, practice_dialogue)
+    # If we are using existing user data dont add practice and shuffle
+    if not user_data:
+        practice_data = load_json_data(data_path, "practice")
+        practice_dialogue = dialogue_from_dict(practice_data)
+
+        # Shuffle the actual dialogues and insert the practice at the start
+        shuffle(dialogues)
+        dialogues.insert(0, practice_dialogue)
 
     # If JSON is not valid or keys missing
     if not dialogues:

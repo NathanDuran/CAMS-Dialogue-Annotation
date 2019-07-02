@@ -299,6 +299,68 @@ function toggleButtonLabelledState(button, state) {
     }
 }
 
+// Opens a tooltip for the hovered label button
+function openTooltip(event) {
+    // Get the button that was hovered over
+    let hoveredBtn = event.target;
+
+    // Get the appropriate tooltip text
+    let labelType = hoveredBtn.id.split("_")[0];
+    let labelName = hoveredBtn.id.split("_")[1];
+
+    let labelGroups = labels[labelType];
+
+    // For each label group
+    for (let i = 0; i < labelGroups.length; i++) {
+        let group = labelGroups[i]['group'];
+        // For each label
+        for (let j = 0; j < group.length; j++) {
+            // Get label text from data
+            let labelText = group[j]['name'];
+            // If it is the correct label get the tooltip text
+            if (labelText === labelName) {
+                var tooltipText = "";
+                if(group[j]['alt_name']){
+                    tooltipText += group[j]['alt_name'] + "<br>";
+                }
+                if(group[j]['description']){
+                    tooltipText += group[j]['description'] + "<br>";
+                }
+                if(group[j]['example']){
+                    tooltipText += group[j]['example'] + "<br>";
+                }
+                break;
+            }
+        }
+    }
+
+    // Create the tooltip and append to its button
+    let tooltip = document.createElement("span");
+    tooltip.id = "tooltip_" + labelName;
+    tooltip.className = "tooltip";
+    tooltip.innerHTML = tooltipText;
+    document.getElementById(hoveredBtn.id).appendChild(tooltip);
+
+    // Set the position to above the center of its button
+    tooltip.style.top = (hoveredBtn.offsetTop - tooltip.offsetHeight - 10) + "px";
+    tooltip.style.left = ((hoveredBtn.offsetLeft + hoveredBtn.offsetWidth / 2) - tooltip.offsetWidth / 2) + "px";
+
+    // Set the open transition
+    setTimeout(function () {
+        tooltip.className += " tooltip-open";
+    }, 0)
+}
+
+// Closes the open tooltip
+function closeTooltip(event) {
+    // Get the button that was hovered over
+    let hoveredBtn = event.target;
+
+    // Select and remove tooltip element
+    let labelName = hoveredBtn.id.split("_")[1];
+    document.getElementById(hoveredBtn.id).removeChild(document.getElementById("tooltip_" + labelName));
+}
+
 // Checks if this utterance is completely labelled
 function checkUtteranceLabels(utterance) {
     return !(utterance.ap_label === defaultApLabel || utterance.da_label === defaultDaLabel);

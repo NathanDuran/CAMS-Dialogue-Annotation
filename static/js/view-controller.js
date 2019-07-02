@@ -19,7 +19,8 @@ var currentUttIndex = null;
 var dialogueStartTime = null;
 var utteranceStartTime = null;
 
-// Default labels
+// Default labels data
+var labels = null;
 var defaultApLabel = "AP-Label";
 var defaultDaLabel = "DA-Label";
 
@@ -139,9 +140,9 @@ function uttClearBtnClick() {
     let index = parseInt(this.id.split("_")[1]);
 
     // Set label elements to default
-    let apLabel = document.getElementById("ap-label_" + index);
+    let apLabel = document.getElementById("ap-labels_" + index);
     apLabel.innerHTML = defaultApLabel;
-    let daLabel = document.getElementById("da-label_" + index);
+    let daLabel = document.getElementById("da-labels_" + index);
     daLabel.innerHTML = defaultDaLabel;
 
     // Remove the labelled state
@@ -168,7 +169,7 @@ function labelBtnClick() {
     console.log(this.id + " button clicked...");
 
     // Get the label text and its type (DA or AP)
-    let labelText = this.innerHTML;
+    let labelText = this.innerText.split("\n")[0];
     let labelType = this.id.split("_")[0];
 
     // Check there is a button selected
@@ -179,9 +180,9 @@ function labelBtnClick() {
         label.innerHTML = labelText;
 
         // Also update the current dialogue
-        if (labelType === "ap-label") {
+        if (labelType === "ap-labels") {
             currentUtt.ap_label = labelText;
-        } else if (labelType === "da-label") {
+        } else if (labelType === "da-labels") {
             currentUtt.da_label = labelText;
         }
 
@@ -323,7 +324,7 @@ function createUtteranceList(dialogue) {
 
         // Create the AP label
         let apText = document.createElement("label");
-        apText.id = "ap-label_" + i;
+        apText.id = "ap-labels_" + i;
         apText.className = "label-container";
         if (utterance.ap_label === "") {
             apText.innerText = defaultApLabel;
@@ -333,7 +334,7 @@ function createUtteranceList(dialogue) {
 
         // Create the DA label
         let daText = document.createElement("label");
-        daText.id = "da-label_" + i;
+        daText.id = "da-labels_" + i;
         daText.className = "label-container";
         if (utterance.da_label === "") {
             daText.innerText = defaultDaLabel;
@@ -362,83 +363,93 @@ function createUtteranceList(dialogue) {
 // Builds the dialogue view label button bars
 function buildDialogueViewButtonBars(target) {
 
-    // Create AP button bar and group divs
-    let apBtnBar = document.createElement("div");
-    apBtnBar.className = "btn-bar";
-    apBtnBar.id = "ap-btn-bar";
+    $.ajax({
+        url: "get_labels.do",
+        dataType: "json",
+        success: function (labels_data) {
 
-    let apBtnBarLabel = document.createElement("label");
-    apBtnBarLabel.innerHTML = "Adjacency<br>Pairs";
+            // Save to the global var
+            labels = labels_data;
 
-    let apBtnBarGroup = document.createElement("div");
-    apBtnBarGroup.className = "btn-bar-group";
-    apBtnBarGroup.id = "ap-btn-bar-group";
+            // Create AP button bar and group divs
+            let apBtnBar = document.createElement("div");
+            apBtnBar.className = "btn-bar";
+            apBtnBar.id = "ap-btn-bar";
 
-    // Get and build the labels
-    createLabelBtns('ap_labels', "ap-label", apBtnBarGroup);
+            let apBtnBarGroup = document.createElement("div");
+            apBtnBarGroup.className = "btn-bar-group";
+            apBtnBarGroup.id = "ap-btn-bar-group";
 
-    // Append to the target
-    apBtnBarGroup.appendChild(apBtnBarLabel);
-    apBtnBar.appendChild(apBtnBarGroup);
-    target.appendChild(apBtnBar);
+            let apBtnBarLabel = document.createElement("label");
+            apBtnBarLabel.innerHTML = "Adjacency<br>Pairs";
+            apBtnBarGroup.appendChild(apBtnBarLabel);
 
-    // Create DA button bar and group divs
-    let daBtnBar = document.createElement("div");
-    daBtnBar.className = "btn-bar";
-    daBtnBar.id = "da-btn-bar";
+            // Get and build the labels
+            createLabelBtns("ap-labels", apBtnBarGroup);
 
-    let daBtnBarLabel = document.createElement("label");
-    daBtnBarLabel.innerHTML = "Dialogue<br>Acts";
+            // Append to the target
+            apBtnBar.appendChild(apBtnBarGroup);
+            target.appendChild(apBtnBar);
 
-    let daBtnBarGroup = document.createElement("div");
-    daBtnBarGroup.className = "btn-bar-group";
-    daBtnBarGroup.id = "da-btn-bar-group";
+            // Create DA button bar and group divs
+            let daBtnBar = document.createElement("div");
+            daBtnBar.className = "btn-bar";
+            daBtnBar.id = "da-btn-bar";
 
-    // Get and build the labels
-    createLabelBtns('da_labels', "da-label", daBtnBarGroup);
+            let daBtnBarGroup = document.createElement("div");
+            daBtnBarGroup.className = "btn-bar-group";
+            daBtnBarGroup.id = "da-btn-bar-group";
 
-    // Append to the target
-    daBtnBarGroup.appendChild(daBtnBarLabel);
-    daBtnBar.appendChild(daBtnBarGroup);
-    target.appendChild(daBtnBar);
+            let daBtnBarLabel = document.createElement("label");
+            daBtnBarLabel.innerHTML = "Dialogue<br>Acts";
+            daBtnBarGroup.appendChild(daBtnBarLabel);
 
+            // Get and build the labels
+            createLabelBtns("da-labels", daBtnBarGroup);
+
+            // Append to the target
+            daBtnBar.appendChild(daBtnBarGroup);
+            target.appendChild(daBtnBar);
+        }
+    });
 }
 
 // Creates button groups for the DA or AP labels and appends it to the target
-function createLabelBtns(labelGroup, groupType, target) {
+function createLabelBtns(labelType, target) {
 
-    $.ajax({
-        url: "get_labels/" + labelGroup,
-        dataType: "json",
-        success: function (labelGroups) {
+    // Get the correct label group
+    let labelGroups = labels[labelType];
 
-            // For each label group
-            for (let i = 0; i < labelGroups.length; i++) {
-                let group = labelGroups[i];
+    // For each label group
+    for (let i = 0; i < labelGroups.length; i++) {
+        let group = labelGroups[i]['group'];
 
-                // Create label group div
-                let labelGroupDiv = document.createElement("div");
-                labelGroupDiv.className = "label-group";
+        // Create label group div
+        let labelGroupDiv = document.createElement("div");
+        labelGroupDiv.className = "label-group";
 
-                // For each label
-                for (let j = 0; j < group.length; j++) {
+        // For each label
+        for (let j = 0; j < group.length; j++) {
 
-                    // Create button for label
-                    let labelBtn = document.createElement("button");
-                    labelBtn.className = "label-button";
-                    labelBtn.id = groupType + "_" + group[j];
-                    labelBtn.innerHTML = group[j];
-                    labelBtn.addEventListener("click", labelBtnClick);
+            // Get label text from data
+            let labelText = group[j]['name'];
 
-                    // Append to group
-                    labelGroupDiv.appendChild(labelBtn);
-                }
+            // Create button for label
+            let labelBtn = document.createElement("button");
+            labelBtn.className = "label-button";
+            labelBtn.id = labelType + "_" + labelText;
+            labelBtn.innerText = labelText;
+            labelBtn.addEventListener("click", labelBtnClick);
+            labelBtn.addEventListener("mouseover", openTooltip);
+            labelBtn.addEventListener("mouseout", closeTooltip);
 
-                // Append to target
-                target.append(labelGroupDiv);
-            }
+            // Append to group
+            labelGroupDiv.appendChild(labelBtn);
         }
-    });
+
+        // Append to target
+        target.append(labelGroupDiv);
+    }
 }
 
 

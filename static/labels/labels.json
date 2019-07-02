@@ -1,0 +1,334 @@
+{
+    "ap-labels": [
+        {
+            "group": [
+                {
+                    "name": "FPP-base",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "SPP-base",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                }
+            ]
+        },
+        {
+            "group": [
+                {
+                    "name": "FPP-pre",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "SPP-pre",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "Pre",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                }
+            ]
+        },
+        {
+            "group": [
+                {
+                    "name": "FPP-insert",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "SPP-insert",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "Insert",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                }
+            ]
+        },
+        {
+            "group": [
+                {
+                    "name": "FPP-post",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "SPP-post",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "Post",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                }
+            ]
+        }
+    ],
+    "da-labels": [
+        {
+            "group": [
+                {
+                    "name": "yesNoQuestion",
+                    "alt_name": "propositionalQuestion",
+                    "description": "",
+                    "example": "\"Does the meeting start at ten?\""
+                },
+                {
+                    "name": "setQuestion",
+                    "alt_name": "Who/What/Where/How Question",
+                    "description": "",
+                    "example": "\"How far is it to the station?\""
+                },
+                {
+                    "name": "choiceQuestion",
+                    "alt_name": "",
+                    "description": "Choice between two or more options.",
+                    "example": "\"Do you want jam or marmite?\""
+                },
+                {
+                    "name": "checkQuestion",
+                    "alt_name": "",
+                    "description": "Check on information that the speaker believes is correct.",
+                    "example": "\"The meeting starts at ten, right?\""
+                }
+            ]
+        },
+        {
+            "group": [
+                {
+                    "name": "inform",
+                    "alt_name": "statement",
+                    "description": "State, explain, elaborate etc some information.",
+                    "example": "\"The train leaves from platform 2.\""
+                },
+                {
+                    "name": "answer",
+                    "alt_name": "",
+                    "description": "A response to a question.",
+                    "example": "\"S: \"what does the display say?\"\nA: \"Send error document ready\""
+                },
+                {
+                    "name": "correction",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                }
+            ]
+        },
+        {
+            "group": [
+                {
+                    "name": "agreement",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "disagreement",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "confirm",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "disconfirm",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                }
+            ]
+        },
+        {
+            "group": [
+                {
+                    "name": "offer",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "addressOffer",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "acceptOffer",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "declineOffer",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                }
+            ]
+        },
+        {
+            "group": [
+                {
+                    "name": "request",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "addressRequest",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "acceptRequest",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "declineRequest",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                }
+            ]
+        },
+        {
+            "group": [
+                {
+                    "name": "suggest",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "addressSuggest",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "acceptSuggest",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "declineSuggest",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                }
+            ]
+        },
+        {
+            "group": [
+                {
+                    "name": "autoPositive",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "autoNegative",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "stalling",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "retraction",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                }
+            ]
+        },
+        {
+            "group": [
+                {
+                    "name": "initialGreeting",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "returnGreeting",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "initialGoodbye",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "returnGoodbye",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                }
+            ]
+        },
+        {
+            "group": [
+                {
+                    "name": "thanking",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "acceptThanking",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "apology",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                },
+                {
+                    "name": "acceptApology",
+                    "alt_name": "",
+                    "description": "",
+                    "example": ""
+                }
+            ]
+        }
+    ]
+}
