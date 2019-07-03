@@ -121,7 +121,7 @@
 
 /* Tooltip */
 .label-buttons .tooltip {
-    /*width: 120px;*/
+    max-width: 480px;
     background-color: var(--my-dark-grey);
     color: white;
     text-align: center;
@@ -175,6 +175,7 @@
     border: 1px solid black;
     border-radius: 4px;
     background: var(--my-dark-grey);
+    box-shadow: 4px 4px;
 }
 
 .label-group {

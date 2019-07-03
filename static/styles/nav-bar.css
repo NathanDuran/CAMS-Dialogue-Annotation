@@ -60,20 +60,19 @@
     border-bottom: 4px solid var(--my-blue-color);
 }
 
+#nav-menu #login.active-nav-menu-btn {
+    border-bottom: 4px solid var(--my-purple-color);
+}
+
+#nav-menu #login:hover {
+    border-bottom: 4px solid var(--my-purple-color);
+}
 #nav-menu #schema.active-nav-menu-btn {
     border-bottom: 4px solid var(--my-green-color);
 }
 
 #nav-menu #schema:hover {
     border-bottom: 4px solid var(--my-green-color);
-}
-
-#nav-menu #practice.active-nav-menu-btn {
-    border-bottom: 4px solid var(--my-purple-color);
-}
-
-#nav-menu #practice:hover {
-    border-bottom: 4px solid var(--my-purple-color);
 }
 
 #nav-menu #annotate.active-nav-menu-btn {

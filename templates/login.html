@@ -1,0 +1,15 @@
+<h1 class="title">Login</h1>
+<p class="title-paragraph">Please log in using your unique user-id.</p>
+<div class="content">
+    {% if not current_user.is_authenticated %}
+
+        <form id="login_form" action="javascript:login()">
+            <label for="username">Login ID{% if message %}&emsp;{{ message }}{% endif %}</label><br>
+            <input id="user-name" type=text name="username" value=""/>
+            <button class="login-out-btn">Start</button>
+        </form>
+
+    {% else %}
+        <button class="login-out-btn" onclick="logout()">Logout</button>
+    {% endif %}
+</div>

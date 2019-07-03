@@ -33,14 +33,14 @@ def home_page():
     return render_template('home.html')
 
 
+@app.route('/login')
+def practice_page():
+    return render_template('login.html')
+
+
 @app.route('/schema')
 def schema_page():
     return render_template('schema.html')
-
-
-@app.route('/practice')
-def practice_page():
-    return render_template('practice.html')
 
 
 @app.route('/annotate')
@@ -48,7 +48,7 @@ def practice_page():
 def annotate_page():
     # If the user is not logged in then redirect with a message
     if not current_user.is_authenticated:
-        return render_template('home.html', message='Please login first!')
+        return render_template('login.html', message='Please login first!')
     return render_template('annotate.html')
 
 

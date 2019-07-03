@@ -5,14 +5,14 @@
                 {
                     "name": "FPP-base",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "First of a basic sequence of two ordered turns of talk.",
+                    "example": "A: \"What time is it?\"\tFPP-base\nB: \"Three o clock.\"\tSPP-base"
                 },
                 {
                     "name": "SPP-base",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Second of a basic sequence of two ordered turns of talk.",
+                    "example": "A: \"What time is it?\"\tFPP-base\nB: \"Three o clock.\"\tSPP-base"
                 }
             ]
         },
@@ -21,20 +21,20 @@
                 {
                     "name": "FPP-pre",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Pre-expansions are preliminary to a base sequence, as preludes to some other action.",
+                    "example": "A: \"What you doing?\"\tFPP-pre\nB: \"Not much.\"\tSPP-pre\nA: \"Wanna drink?\"\tFPP-base"
                 },
                 {
                     "name": "SPP-pre",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Pre-expansions are preliminary to a base sequence, as preludes to some other action.",
+                    "example": "A: \"What you doing?\"\tFPP-pre\nB: \"Not much.\"\tSPP-pre\nA: \"Wanna drink?\"\tFPP-base"
                 },
                 {
                     "name": "Pre",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Minimal-pre-expansions are preliminary to a base sequence, with only one speaker turn.",
+                    "example": "A: \"My tooth hurts...\"\tPre\nA: \"When is my dentist appointment?\"\tFPP-base"
                 }
             ]
         },
@@ -43,20 +43,20 @@
                 {
                     "name": "FPP-insert",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Insert-expansions occur between base adjacency pairs, interrupting the activity previously underway, but are still relevant to that action.",
+                    "example": "A: \"Do you know the directions?\"\tFPP-base\nB: \"You driving or walking?\"\tFPP-insert\nA: \"Walking.\"\tSPP-insert\nB: \"Get on the subway.\"\tSPP-base"
                 },
                 {
                     "name": "SPP-insert",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Insert-expansions occur between base adjacency pairs, interrupting the activity previously underway, but are still relevant to that action.",
+                    "example": "A: \"Do you know the directions?\"\tFPP-base\nB: \"You driving or walking?\"\tFPP-insert\nA: \"Walking.\"\tSPP-insert\nB: \"Get on the subway.\"\tSPP-base"
                 },
                 {
                     "name": "Insert",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Minimal-insert-expansions occur between base adjacency pairs, with only one speaker turn.",
+                    "example": "A: \"When is my dentist appointment?\"\tFPP-base\nA: \"Who am I going with?\"\tInsert\nB: \"The appointment is at 11 am with your Aunt.\"\tSPP-base"
                 }
             ]
         },
@@ -65,20 +65,20 @@
                 {
                     "name": "FPP-post",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Post-expansions occur after the completion of the base SPP with talk that is recognisably associated with the preceding sequence.",
+                    "example": "B: \"Forecast for cloudy skies tomorrow.\"\tSPP-base\nA: \"Okay.\"\tFPP-post\nB: \"No problem.\"\tSPP-post"
                 },
                 {
                     "name": "SPP-post",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Post-expansions occur after the completion of the base SPP with talk that is recognisably associated with the preceding sequence.",
+                    "example": "B: \"Forecast for cloudy skies tomorrow.\"\tSPP-base\nA: \"Okay.\"\tFPP-post\nB: \"No problem.\"\tSPP-post"
                 },
                 {
                     "name": "Post",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Minimal-post-expansions expand talk after the base SPP, with only one speaker turn.",
+                    "example": "B: \"The appointment is at 11 am with your Aunt.\"\tSPP-base\nA: \"Thanks.\"\tPost"
                 }
             ]
         }
@@ -88,7 +88,7 @@
             "group": [
                 {
                     "name": "yesNoQuestion",
-                    "alt_name": "propositionalQuestion",
+                    "alt_name": "Propositional Question",
                     "description": "",
                     "example": "\"Does the meeting start at ten?\""
                 },
@@ -116,21 +116,21 @@
             "group": [
                 {
                     "name": "inform",
-                    "alt_name": "statement",
-                    "description": "State, explain, elaborate etc some information.",
+                    "alt_name": "Statement",
+                    "description": "State, explain, elaborate etc, some information.",
                     "example": "\"The train leaves from platform 2.\""
                 },
                 {
                     "name": "answer",
                     "alt_name": "",
-                    "description": "A response to a question.",
-                    "example": "\"S: \"what does the display say?\"\nA: \"Send error document ready\""
+                    "description": "Senders response to a question of addressee.",
+                    "example": "S: \"what does the display say?\"\nA: \"Send error document ready.\""
                 },
                 {
                     "name": "correction",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Informs addressee that their information is incorrect and the senders is correct.",
+                    "example": "\"To Montreal, not to Ottawa.\""
                 }
             ]
         },
@@ -139,26 +139,26 @@
                 {
                     "name": "agreement",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender informs addressee that a given proposition is true.",
+                    "example": "\"Exactly\""
                 },
                 {
                     "name": "disagreement",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender informs addressee that a given proposition is false.",
+                    "example": "S: \"Do you know where to find the ink cartridge?\"\nA: \"Oh I think to the left of the paper.\"\nS: \"Uh... no.\"\n"
                 },
                 {
                     "name": "confirm",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Informs addressee that information about which they are uncertain is indeed correct.",
+                    "example": "\"Indeed.\""
                 },
                 {
                     "name": "disconfirm",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Informs addressee that information about which they are uncertain is incorrect.",
+                    "example": "\"Nope.\""
                 }
             ]
         },
@@ -167,26 +167,26 @@
                 {
                     "name": "offer",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender indicates willingness and ability to perform an action.",
+                    "example": "\"Let me look that up for you.\""
                 },
                 {
                     "name": "addressOffer",
-                    "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "alt_name": "Consider Offer, Conditionally Accept Offer",
+                    "description": "Sender is considering that the possibility that the addressee performs the action, possibly with certain conditions that they make explicit.",
+                    "example": "\"That would be good!\""
                 },
                 {
                     "name": "acceptOffer",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender informs addressee that they would like them to perform an offered action.",
+                    "example": "\"Yes please.\""
                 },
                 {
                     "name": "declineOffer",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender informs addressee that they would not like them to perform an offered action.",
+                    "example": "\"No thank you.\""
                 }
             ]
         },
@@ -195,26 +195,26 @@
                 {
                     "name": "request",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender asks addressee to commit to performing a certain action.",
+                    "example": "\"Please turn to page five.\""
                 },
                 {
                     "name": "addressRequest",
-                    "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "alt_name": "Consider Request, Conditionally Accept Request",
+                    "description": "Sender indicates that they will consider the performance of an action that they were requested to perform, possibly depending on certain conditions that they make explicit.",
+                    "example": "A: \"Please give me the gun.\"\nS: \"If you push the bag to me.\""
                 },
                 {
                     "name": "acceptRequest",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender commits them self to perform an action that they have been requested to perform",
+                    "example": "\"Sure\""
                 },
                 {
                     "name": "declineRequest",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender indicates that they refuse to perform an action that they have been requested to perform.",
+                    "example": "\"Not now.\""
                 }
             ]
         },
@@ -223,26 +223,26 @@
                 {
                     "name": "suggest",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender asks addressee to consider performance of an action they believe is in the addressee's interest and is able to perform.",
+                    "example": "\"Let's wait for the speaker to finish.\""
                 },
                 {
                     "name": "addressSuggest",
-                    "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "alt_name": "Consider Suggest, Conditionally Accept Suggest",
+                    "description": "Sender indicates that they will consider the performance of an action that was suggested to them, possibly depending on certain conditions that they make explicit.",
+                    "example": "A: \"Let's go there together.\"\nS: \"Only if we're in full agreement about the way to proceed when we get there.\""
                 },
                 {
                     "name": "acceptSuggest",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender commits them self to perform an action that was suggested to them.",
+                    "example": "\"Lets do that.\""
                 },
                 {
                     "name": "declineSuggest",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender  indicates that they will not perform an action that was suggested.",
+                    "example": "\"I don't think so.\""
                 }
             ]
         },
@@ -250,27 +250,27 @@
             "group": [
                 {
                     "name": "autoPositive",
-                    "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "alt_name": "Positive Understanding/Feedback",
+                    "description": "Sender informs addressee their processing of the previous utterance(s) was successful.",
+                    "example": "\"Uh-huh\"; \"Okay\"; \"Yes\""
                 },
                 {
                     "name": "autoNegative",
-                    "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "alt_name": "Negative Understanding/Feedback",
+                    "description": "Sender informs addressee their processing of the previous utterance(s) was not successful.",
+                    "example": "\"Sorry?\"; \"What?\""
                 },
                 {
                     "name": "stalling",
-                    "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "alt_name": "Pausing",
+                    "description": "Sender creates a little extra time to construct their contribution or to suspend the dialogue for a short while.",
+                    "example": "\"Let me see...\"; \"Ehm...\""
                 },
                 {
                     "name": "retraction",
-                    "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "alt_name": "Abandon",
+                    "description": "Sender withdraws or abandons something that they just said within the same turn.",
+                    "example": "\"Then we're going to g-- \""
                 }
             ]
         },
@@ -279,26 +279,26 @@
                 {
                     "name": "initialGreeting",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender informs the addressee that they are present.",
+                    "example": "\"Hello!\";\"Good Morning\""
                 },
                 {
                     "name": "returnGreeting",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender acknowledges they are aware of addressee and the addressee has signalled their presence.",
+                    "example": "\"Hello!\";\"Good Morning\""
                 },
                 {
                     "name": "initialGoodbye",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender informs the addressee that they intend the current utterance to be their final contribution to the dialogue.",
+                    "example": "\"Bye bye, see you later.\""
                 },
                 {
                     "name": "returnGoodbye",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender acknowledges their awareness that the addressee has signalled their final contribution to the dialogue and signals their agreement.",
+                    "example": "\"Bye bye, see you.\""
                 }
             ]
         },
@@ -307,26 +307,26 @@
                 {
                     "name": "thanking",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender informs the addressee that they are grateful for some action performed.",
+                    "example": "\"Thanks a lot.\""
                 },
                 {
                     "name": "acceptThanking",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender indicates understanding of the feelings of gratitude which the addressee has expressed.",
+                    "example": "\"Don't mention it.\""
                 },
                 {
                     "name": "apology",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender signal they want the addressee to know that they regret something.",
+                    "example": "\"Sorry about that.\""
                 },
                 {
                     "name": "acceptApology",
                     "alt_name": "",
-                    "description": "",
-                    "example": ""
+                    "description": "Sender indicates understanding of the feelings of regret which the addressee has expressed.",
+                    "example": "\"No problem.\""
                 }
             ]
         }

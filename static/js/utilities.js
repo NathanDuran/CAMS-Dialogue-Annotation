@@ -107,7 +107,7 @@ function logout() {
             // If they were successfully logged out load home page
             if (result.success) {
                 console.log("Logged out: " + result.user_name);
-                loadContent('home')
+                loadContent('login')
             } else {
                 console.log("Failed to logout: " + result.user_name);
                 alert("Failed to logout!")
@@ -327,8 +327,12 @@ function openTooltip(event) {
                     tooltipText += group[j]['description'] + "<br>";
                 }
                 if(group[j]['example']){
+                    console.log(group[j]['example']);
                     tooltipText += group[j]['example'] + "<br>";
                 }
+                //Replace line breaks with html <br>
+                tooltipText = tooltipText.replace(/(?:\r\n|\r|\n)/g, '<br>');
+                tooltipText = tooltipText.replace(/(?:\t)/g, '&emsp;');
                 break;
             }
         }

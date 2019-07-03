@@ -40,6 +40,7 @@ def load_txt_data(path, file_name):
 
     return lines
 
+
 # Creates a dialogue model from the specified dialogue dataset file
 def create_model(data_path, dataset_file, user_id, user_data=False):
     # Load JSON files

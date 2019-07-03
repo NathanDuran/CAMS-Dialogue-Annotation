@@ -381,7 +381,7 @@ function buildDialogueViewButtonBars(target) {
             apBtnBarGroup.id = "ap-btn-bar-group";
 
             let apBtnBarLabel = document.createElement("label");
-            apBtnBarLabel.innerHTML = "Adjacency<br>Pairs";
+            apBtnBarLabel.innerHTML = "Adjacency<br>Pairs (AP)";
             apBtnBarGroup.appendChild(apBtnBarLabel);
 
             // Get and build the labels
@@ -401,7 +401,7 @@ function buildDialogueViewButtonBars(target) {
             daBtnBarGroup.id = "da-btn-bar-group";
 
             let daBtnBarLabel = document.createElement("label");
-            daBtnBarLabel.innerHTML = "Dialogue<br>Acts";
+            daBtnBarLabel.innerHTML = "Dialogue<br>Acts (DA)";
             daBtnBarGroup.appendChild(daBtnBarLabel);
 
             // Get and build the labels

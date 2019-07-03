@@ -34,6 +34,9 @@
         <span style="color: green; font-weight: bold">green</span>
         and the next unlabelled utterance will be automatically selected for you.<br><br>
 
+        If you hover over one of the label buttons a popup will appear an alternative name for that label and/or a short
+        description and an example.<br><br>
+
         You can remove the labels for any utterance by clicking on the
         <img alt="clear button" src="../static/images/delete_square.png" width="25" height="25"> button next to the
         labels.
@@ -50,10 +53,10 @@
         Here you will be asked to rate the DA and AP labels you have selected for this dialogue as well as the
         combination of labels i.e. the AP-type labels.<br><br>
 
-        You also have the opportunity to select any labels or combination of labels that you do not think adequately
+        You also have the opportunity to select any labels or combination of labels that you think do not adequately
         describe the dialogue.
-        You can select as many you want, or none, but please try and highlight any labels that you found difficult or
-        did not quite fit the utterance(s).<br><br>
+        You can select as many you want, or none, but please try and highlight any labels that you found difficult
+        to choose or did not quite fit the utterance(s).<br><br>
 
         Once you have finished the questionnaire click submit to finish the current dialogue. If you want to change
         your annotations or answers at any time just click the 'Revise Dialogue' button.<br><br>
@@ -67,21 +70,13 @@
     <img alt="questionnaire screen" src="../static/images/questionnaire_screen.png" width="1100" height="650">
 
     <h3>Login to Start</h3>
-    <p>If you are ready to start, please log in below using the user-id that has been provided to you.
+    <p>If you are ready to start, please
+        <a title="Link to Login" href="login" onclick="loadContent('login');return false;">Log in</a>
+        using the user-id that has been provided to you.
         You will be taken directly to the annotation page.
         Remember, you can return to the Home or Schema page at any time and your progress will be saved.<br><br>
 
-        Please log out here when you are finished and thank you for taking part!
+        Please log out when you are finished and thank you for taking part!
     </p>
-    {% if not current_user.is_authenticated %}
 
-        <form id="login_form" action="javascript:login()">
-            <label for="username">Login ID{% if message %}&emsp;{{ message }}{% endif %}</label><br>
-            <input id="user-name" type=text name="username" value=""/>
-            <button class="login-out-btn">Start</button>
-        </form>
-
-    {% else %}
-        <button class="login-out-btn" onclick="logout()">Logout</button>
-    {% endif %}
 </div>

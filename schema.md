@@ -117,13 +117,13 @@ Contents
 
 &emsp; [offer](#offer)
 
-&emsp; [addressRequest (Consider/On Condition)](#addressrequest-consideron-condition)
+&emsp; [addressRequest (Consider/Conditionally Accept)](#addressrequest-consideron-condition)
 
 &emsp; [acceptRequest](#acceptrequest)
 
 &emsp; [declineRequest](#declinerequest)
 
-&emsp; [addressSuggest (Consider/On Condition)](#addresssuggest-consideron-condition)
+&emsp; [addressSuggest (Consider/Conditionally Accept)](#addresssuggest-consideron-condition)
 
 &emsp; [acceptSuggest](#acceptsuggest)
 
@@ -136,7 +136,7 @@ Contents
 
 &emsp; [suggest](#suggest)
 
-&emsp; [addressOffer (Consider/On Condition)](#addressoffer-consideron-condition)
+&emsp; [addressOffer (Consider/Conditionally Accept)](#addressoffer-consideron-condition)
 
 &emsp; [acceptOffer](#acceptoffer)
 
@@ -276,7 +276,7 @@ sequences to be expanded after their SPP.
 
 **Example:**
 
-A: What is the weather like today in tomorrow? &emsp; **FPP-base - setQuestion**
+A: What is the weather like today in tomorrow? &emsp;**FPP-base - setQuestion**
 
 B: Forecast for cloudy skies today. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; **SPP-base - answer**
 
@@ -296,6 +296,8 @@ additional turns that behave as expansions but consist only of one turn.
 **Labels:** *Pre, Insert, Post*
 
 **Example:**
+
+A: My tooth hurts... &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; **Pre - inform**
 
 A: When is my dentist appointment? &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**FPP-base - setQuestion**
 
@@ -361,8 +363,8 @@ propositions is true, and S puts pressure on A to provide this information.
 It is not very common in annotation schemes to specifically distinguish the
 concept of choice questions from that of set questions. However, whereas it is
 common for the concept set question to carry the expectation that all members of
-the set with a given property should be returned by the addressee, for a choice-
-question the expectation is that there will be exactly one. The different
+the set with a given property should be returned by the addressee, for a 
+choice-question the expectation is that there will be exactly one. The different
 preconditions and effects indicate that these are semantically different
 concepts, and they have been treated here as such.
 
@@ -403,7 +405,7 @@ to know; S assumes that this information is correct.
 
 S: “what does the display say?”
 
-A: “Send error document ready”
+A: “Send error document ready.”
 
 ### agreement
 
@@ -415,7 +417,7 @@ DAMSL and SWBD-DAMSL use “Agreement” to refer to various degrees in which so
 previous proposal, plan, opinion or statement is accepted; “accept” is one of
 these degrees; “reject” is another.
 
-**Example:** “Exactly”
+**Example:** “Exactly.”
 
 ### disagreement
 
@@ -429,11 +431,11 @@ one of these degrees; “reject” is another.
 
 **Example:**
 
-S: “Do you know where to find ink saving?”
+S: “Do you know where to find the ink cartridge?”
 
-A: “ehm... oh I think to the left of the ink cartridge”
+A: “Oh I think to the left of the paper.”
 
-S: “ehm... no”
+S: “Uh... no.”
 
 ### correction
 
@@ -450,7 +452,7 @@ Communicative function of a dialogue act performed by the sender, S, in order to
 inform the addressee, A, that certain information that A wants to know, and
 concerning which A holds an uncertain belief, is indeed correct.
 
-**Example:** “Indeed”
+**Example:** “Indeed.”
 
 ### disconfirm
 
@@ -458,31 +460,31 @@ Communicative function of a dialogue act performed by the sender, S, in order to
 let the addressee, A, know that certain information that A wants to know, and
 concerning which A holds an uncertain belief, is incorrect.
 
-**Example:** “Nope”
+**Example:** “Nope.”
 
 Commissive Functions
 --------------------
 
 ### offer
 
-Communicative function of a dialogue act by which the sender, S, indicates his
+Communicative function of a dialogue act by which the sender, S, indicates their
 willingness and ability to perform the action, specified by the semantic
 content, conditional on the consent of addressee A that S do so.
 
-**Example:** “I will look that up for you”
+**Example:** “I will look that up for you.”
 
-### addressRequest (Consider/On Condition)
+### addressRequest (Consider/Conditionally Accept)
 
 Communicative function of a dialogue act by which the sender, S, indicates that
-he considers the performance of an action that he was requested to perform.
+they will consider the performance of an action that they were requested to perform,
+possibly depending on certain conditions that they make explicit.
 
 The addressRequest function covers a range of possible responses to a request.
-If the response does not express a condition, then the sender commits himself
-unconditionally to perform the requested action; this is the special case of
-acceptRequest. If the condition is specified that the action be performed zero
-times, then the sender in fact declines to perform the requested action (as he
-commits him- self to not perform the action). See also the data categories for
-the qualifiers /conditional/ and /partial/
+If the response does not express a condition, then the sender commits to unconditionally
+perform the requested action; this is the special case of acceptRequest.
+If the condition is specified that the action be performed zero times,
+then the sender in fact declines to perform the requested action
+(as they commit to not perform the action).
 
 **Example:**
 
@@ -492,25 +494,23 @@ S: “If you push the bag to me.”
 
 ### acceptRequest
 
-Communicative function of a dialogue act by which the sender, S, commits himself
-to perform an action that he has been requested to perform, possibly depending
-on certain conditions that he makes explicit.
+Communicative function of a dialogue act by which the sender, S, commits them self
+to perform an action that they have been requested to perform.
 
-**Example:** “Sure”
+**Example:** “Sure.”
 
 ### declineRequest
 
 Communicative function of a dialogue act by which the sender, S, indicates that
-he refuses to perform an action that he has been re- quested to perform,
-possibly depending on certain conditions that he makes explicit.
+they refuse to perform an action that they have been requested to perform.
 
-**Example:** “Not now”
+**Example:** “Not now.”
 
-### addressSuggest (Consider/On Condition)
+### addressSuggest (Consider/Conditionally Accept)
 
 Communicative function of a dialogue act by which the sender, S, indicates that
-he considers performing an action that was suggested to him, possibly depending
-on certain conditions that he makes explicit.
+they will consider performing an action that was suggested to them, possibly depending
+on certain conditions that they make explicit.
 
 **Example:**
 
@@ -520,19 +520,17 @@ S: “Only if we’re in full agreement about the way to proceed when we get the
 
 ### acceptSuggest
 
-Communicative function of a dialogue act by which the sender, S, commits himself
-to perform an action that was suggested to him, possibly with certain
-restrictions or conditions concerning manner or frequency of performance.
+Communicative function of a dialogue act by which the sender, S, commits them self
+to perform an action that was suggested to them.
 
-**Example:** “Let’s do that”
+**Example:** “Let’s do that.”
 
 ### declineSuggest
 
 Communicative function of a dialogue act by which the sender, S, indicates that
-he will not perform an action that was suggested to him, possibly depending on
-certain conditions that he makes explicit.
+they will not perform an action that was suggested.
 
-**Example:** “I don’t think so”
+**Example:** “I don’t think so.”
 
 Directive Functions
 -------------------
@@ -557,10 +555,11 @@ assumes that A is able to perform the action.
 
 **Example:** “Let’s wait for the speaker to finish.”
 
-### addressOffer (Consider/On Condition)
+### addressOffer (Consider/Conditionally Accept)
 
 Communicative function of a dialogue act performed by the sender, S, in order to
-indicate that he is considering the possibility that A performs the action.
+indicate that they are considering the possibility that A performs the action, 
+possibly with certain conditions that he makes explicit.
 
 **Example:** “That would be good!”
 
@@ -568,18 +567,17 @@ indicate that he is considering the possibility that A performs the action.
 
 Communicative function of a dialogue act performed by the sender, S, in order to
 inform the addressee, A, that S would like A to perform the action that A has
-offered to perform, possibly with certain conditions that he makes explicit.
+offered to perform.
 
-**Example:** “Yes please”
+**Example:** “Yes please.”
 
 ### declineOffer
 
 Communicative function of a dialogue act performed by the sender, S, in order to
 inform the addressee, A, that S does not want A to perform the action that A has
-offered to perform, possibly depending on certain conditions that he makes
-explicit.
+offered to perform.
 
-**Example:** “No thank you”
+**Example:** “No thank you.”
 
 Feedback Functions
 ------------------
@@ -591,7 +589,7 @@ inform the addressee, A that S believes that S’s processing of the previous
 utterance(s) was successful.
 
 Feedback mostly concerns the processing of the last utterance from the
-addressee, but sometimes, especially in the case of positive feed- back, it
+addressee, but sometimes, especially in the case of positive feedback, it
 concerns a longer stretch of dialogue.
 
 **Example:** “Uh-huh”; “Okay”; “Yes”
@@ -610,13 +608,13 @@ Time Management Functions
 ### stalling (Pausing)
 
 Communicative function of a dialogue act performed by the sender, S, in order to
-have a little extra time to construct his contribution or to suspend the
+have a little extra time to construct their contribution or to suspend the
 dialogue for a short while.
 
 Pausing occurs either in preparation of continuing the dialogue, or because
 something else came up which is more urgent for the sender to attend to.
 
-**Example: “**Let me see...”; “Ehm...”; “Just a moment”
+**Example:** “Let me see...”; “Ehm...”; “Just a moment”
 
 Own and Partner Communication Management Functions
 --------------------------------------------------
@@ -624,9 +622,9 @@ Own and Partner Communication Management Functions
 ### retraction (Abandon)
 
 Communicative function of a dialogue act performed by the sender, S, in order to
-withdraw something that he just said within the same turn.
+withdraw or abandon something that they just said within the same turn.
 
-**Example:** “then we’re going to g– ”
+**Example:** “Then we’re going to g– ”
 
 Social Obligations Management Functions
 ---------------------------------------
@@ -646,28 +644,28 @@ category corresponds to the first element of such a pair.
 
 Communicative function of a dialogue act performed by the sender, S, in order to
 acknowledge that S is aware of the presence of the addressee, A, and of A having
-signalled his presence to S.
+signalled their presence to S.
 
 ### initialGoodbye
 
 Communicative function of a dialogue act performed by the sender, S, in order to
-inform the addressee, A, that S intends the current utterance to be his final
+inform the addressee, A, that S intends the current utterance to be their final
 contribution to the dialogue; S puts pressure on A to acknowledge this.
 
 Goodbyes usually come in initiative-response pairs within a dialogue; this data
 category corresponds to the second element of such a pair. Initial and return
 goodbyes are commonly used to close a dialogue
 
-**Example:** “Bye bye, see you later”
+**Example:** “Bye bye, see you later.”
 
 ### returnGoodbye
 
 Communicative function of a dialogue act performed by the sender, S, in order to
-acknowledge his awareness that the addressee, A, has signalled his final
-contribution to the dialogue and S signals in return his agreement to end the
+acknowledge their awareness that the addressee, A, has signalled their final
+contribution to the dialogue and S signals in return their agreement to end the
 dialogue; S has been pressured to respond to an initialGoodbye by A.
 
-**Example: “**Bye bye, see you.”
+**Example:** “Bye bye, see you.”
 
 ### thanking
 
@@ -685,12 +683,12 @@ the dialogue.
 Communicative function of a dialogue act performed by the sender, S, in order to
 mitigate to the feelings of gratitude which the addressee, A’, has expressed.
 
-**Example:** “Don’t mention it”
+**Example:** “Don’t mention it.”
 
 ### apology
 
 Communicative function of a dialogue act performed by the sender, S, in order to
-signal that he wants the addressee, A, to know that S regrets something; S puts
+signal that they want the addressee, A, to know that S regrets something; S puts
 pressure on A to acknowledge this.
 
 **Example:** “Sorry about that.”
@@ -700,7 +698,7 @@ pressure on A to acknowledge this.
 Communicative function of a dialogue act performed by the sender, S, in order to
 mitigate, the feelings of regret that the addressee, A, has expressed.
 
-**Example: “**No problem.”
+**Example:** “No problem.”
 
 References
 ==========

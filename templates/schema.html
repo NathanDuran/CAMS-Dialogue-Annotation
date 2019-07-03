@@ -111,13 +111,13 @@
 
     <p>&emsp; <a href="#offer">offer</a></p>
 
-    <p>&emsp; <a href="#addressrequest-consideron-condition">addressRequest (Consider/On Condition)</a></p>
+    <p>&emsp; <a href="#addressrequest-consideron-condition">addressRequest (Consider/Conditionally Accept)</a></p>
 
     <p>&emsp; <a href="#acceptrequest">acceptRequest</a></p>
 
     <p>&emsp; <a href="#declinerequest">declineRequest</a></p>
 
-    <p>&emsp; <a href="#addresssuggest-consideron-condition">addressSuggest (Consider/On Condition)</a></p>
+    <p>&emsp; <a href="#addresssuggest-consideron-condition">addressSuggest (Consider/Conditionally Accept)</a></p>
 
     <p>&emsp; <a href="#acceptsuggest">acceptSuggest</a></p>
 
@@ -129,7 +129,7 @@
 
     <p>&emsp; <a href="#suggest">suggest</a></p>
 
-    <p>&emsp; <a href="#addressoffer-consideron-condition">addressOffer (Consider/On Condition)</a></p>
+    <p>&emsp; <a href="#addressoffer-consideron-condition">addressOffer (Consider/Conditionally Accept)</a></p>
 
     <p>&emsp; <a href="#acceptoffer">acceptOffer</a></p>
 
@@ -137,18 +137,15 @@
 
     <p><a href="#feedback-functions">Feedback Functions</a></p>
 
-    <p>&emsp; <a href="#autopositive-positive-understandingfeedback">autoPositive (Positive Understanding/Feedback)</a>
-    </p>
+    <p>&emsp; <a href="#autopositive-positive-understandingfeedback">autoPositive (Positive Understanding/Feedback)</a></p>
 
-    <p>&emsp; <a href="#autonegative-negative-understandingfeedback">autoNegative (Negative Understanding/Feedback)</a>
-    </p>
+    <p>&emsp; <a href="#autonegative-negative-understandingfeedback">autoNegative (Negative Understanding/Feedback)</a></p>
 
     <p><a href="#time-management-functions">Time Management Functions</a></p>
 
     <p>&emsp; <a href="#stalling-pausing">stalling (Pausing)</a></p>
 
-    <p><a href="#own-and-partner-communication-management-functions">Own and Partner Communication Management
-        Functions</a></p>
+    <p><a href="#own-and-partner-communication-management-functions">Own and Partner Communication Management Functions</a></p>
 
     <p>&emsp; <a href="#retraction-abandon">retraction (Abandon)</a></p>
 
@@ -174,8 +171,7 @@
 
     <h1 id="adjacency-pairs">Adjacency Pairs</h1>
 
-    <p>Adjacency pairs are the basic units on which sequences in conversation are
-        built. Their core features are:</p>
+    <p>Adjacency pairs are the basic units on which sequences in conversation are built. Their core features are:</p>
 
     <ol>
         <li><p>Consist of two turns (utterances) by different speakers.</p></li>
@@ -248,8 +244,7 @@
 
     <p>&emsp;B: You driving or walking? &emsp;&emsp;&emsp;&emsp;<strong>FPP-insert - choiceQuestion</strong></p>
 
-    <p>&emsp;A: Walking.&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>SPP-insert -
-        answer</strong></p>
+    <p>&emsp;A: Walking.&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>SPP-insert - answer</strong></p>
 
     <p>B: Get on the subway. &emsp;&emsp;&emsp;&emsp;&emsp;<strong>SPP-base - answer</strong></p>
 
@@ -270,12 +265,9 @@
 
     <p>B: Forecast for cloudy skies today. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <strong>SPP-base - answer</strong></p>
 
-    <p>&emsp; A: Okay. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>FPP-post
-        - autoPositive</strong></p>
+    <p>&emsp; A: Okay. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>FPP-post - autoPositive</strong></p>
 
-    <p>&emsp; B: No problem.
-        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>SPP-post -
-            acceptThanking</strong></p>
+    <p>&emsp; B: No problem.&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>SPP-post - acceptThanking</strong></p>
 
     <h2 id="minimal-expansions">Minimal-expansions</h2>
 
@@ -289,16 +281,15 @@
 
     <p><strong>Example:</strong></p>
 
-    <p>A: When is my dentist appointment? &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>FPP-base - setQuestion</strong>
-    </p>
+    <p>A: My tooth hurts... &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Pre - inform</strong></p>
 
-    <p>&emsp; A: Who am I going with? &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <strong>Insert
-        - setQuestion</strong></p>
+    <p>A: When is my dentist appointment? &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>FPP-base - setQuestion</strong></p>
+
+    <p>&emsp; A: Who am I going with? &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <strong>Insert - setQuestion</strong></p>
 
     <p>B: The appointment is at 11 am with your Aunt. &emsp;<strong>SPP-base - answer</strong></p>
 
-    <p>A: Thanks. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-        <strong>Post - thanking</strong></p>
+    <p>A: Thanks. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Post - thanking</strong></p>
 
     <h1 id="dialogue-acts">Dialogue Acts</h1>
 
@@ -340,8 +331,7 @@
         language specific term (it may be further noted that even in English, not all
         questioning words begin with ’wh’, e.g. “How?”).</p>
 
-    <p><strong>Example:</strong> “What time does the meeting start?”; “How far is it to the
-        station?”</p>
+    <p><strong>Example:</strong> “What time does the meeting start?”; “How far is it to the station?”</p>
 
     <h3 id="choicequestion">choiceQuestion</h3>
 
@@ -354,13 +344,12 @@
     <p>It is not very common in annotation schemes to specifically distinguish the
         concept of choice questions from that of set questions. However, whereas it is
         common for the concept set question to carry the expectation that all members of
-        the set with a given property should be returned by the addressee, for a choice-
-        question the expectation is that there will be exactly one. The different
+        the set with a given property should be returned by the addressee, for a
+        choice-question the expectation is that there will be exactly one. The different
         preconditions and effects indicate that these are semantically different
         concepts, and they have been treated here as such.</p>
 
-    <p><strong>Example:</strong> “Should the telephone cable go in telephone line or in external
-        line?”</p>
+    <p><strong>Example:</strong> “Should the telephone cable go in telephone line or in external line?”</p>
 
     <h3 id="checkquestion">checkQuestion</h3>
 
@@ -395,7 +384,7 @@
 
     <p>S: “what does the display say?”</p>
 
-    <p>A: “Send error document ready”</p>
+    <p>A: “Send error document ready.”</p>
 
     <h3 id="agreement">agreement</h3>
 
@@ -407,7 +396,7 @@
         previous proposal, plan, opinion or statement is accepted; “accept” is one of
         these degrees; “reject” is another.</p>
 
-    <p><strong>Example:</strong> “Exactly”</p>
+    <p><strong>Example:</strong> “Exactly.”</p>
 
     <h3 id="disagreement">disagreement</h3>
 
@@ -421,11 +410,11 @@
 
     <p><strong>Example:</strong></p>
 
-    <p>S: “Do you know where to find ink saving?”</p>
+    <p>S: “Do you know where to find the ink cartridge?”</p>
 
-    <p>A: “ehm... oh I think to the left of the ink cartridge”</p>
+    <p>A: “Oh I think to the left of the paper.”</p>
 
-    <p>S: “ehm... no”</p>
+    <p>S: “Uh... no.”</p>
 
     <h3 id="correction">correction</h3>
 
@@ -442,7 +431,7 @@
         inform the addressee, A, that certain information that A wants to know, and
         concerning which A holds an uncertain belief, is indeed correct.</p>
 
-    <p><strong>Example:</strong> “Indeed”</p>
+    <p><strong>Example:</strong> “Indeed.”</p>
 
     <h3 id="disconfirm">disconfirm</h3>
 
@@ -450,30 +439,31 @@
         let the addressee, A, know that certain information that A wants to know, and
         concerning which A holds an uncertain belief, is incorrect.</p>
 
-    <p><strong>Example:</strong> “Nope”</p>
+    <p><strong>Example:</strong> “Nope.”</p>
 
     <h2 id="commissive-functions">Commissive Functions</h2>
 
     <h3 id="offer">offer</h3>
 
-    <p>Communicative function of a dialogue act by which the sender, S, indicates his
+    <p>Communicative function of a dialogue act by which the sender, S, indicates their
         willingness and ability to perform the action, specified by the semantic
         content, conditional on the consent of addressee A that S do so.</p>
 
-    <p><strong>Example:</strong> “I will look that up for you”</p>
+    <p><strong>Example:</strong> “I will look that up for you.”</p>
 
-    <h3 id="addressrequest-consideron-condition">addressRequest (Consider/On Condition)</h3>
+    <h3 id="addressrequest-consideron-condition">addressRequest (Consider/Conditionally Accept)</h3>
 
-    <p>Communicative function of a dialogue act by which the sender, S, indicates that
-        he considers the performance of an action that he was requested to perform.</p>
+    <p>Communicative function of a dialogue act by which the sender, S,
+        indicates that they will consider the performance of an action that they were requested
+        to perform, possibly depending on certain conditions that they make explicit.</p>
 
     <p>The addressRequest function covers a range of possible responses to a request.
-        If the response does not express a condition, then the sender commits himself
-        unconditionally to perform the requested action; this is the special case of
-        acceptRequest. If the condition is specified that the action be performed zero
-        times, then the sender in fact declines to perform the requested action (as he
-        commits him- self to not perform the action). See also the data categories for
-        the qualifiers /conditional/ and /partial/</p>
+        If the response does not express a condition,
+        then the sender commits to unconditionally perform the requested action;
+        this is the special case of acceptRequest.
+        If the condition is specified that the action be performed zero times,
+        then the sender in fact declines to perform the requested action
+        as they commit to not perform the action).</p>
 
     <p><strong>Example:</strong></p>
 
@@ -483,25 +473,23 @@
 
     <h3 id="acceptrequest">acceptRequest</h3>
 
-    <p>Communicative function of a dialogue act by which the sender, S, commits himself
-        to perform an action that he has been requested to perform, possibly depending
-        on certain conditions that he makes explicit.</p>
+    <p>Communicative function of a dialogue act by which the sender, S, commits them self
+        to perform an action that they have been requested to perform.</p>
 
-    <p><strong>Example:</strong> “Sure”</p>
+    <p><strong>Example:</strong> “Sure.”</p>
 
     <h3 id="declinerequest">declineRequest</h3>
 
     <p>Communicative function of a dialogue act by which the sender, S, indicates that
-        he refuses to perform an action that he has been re- quested to perform,
-        possibly depending on certain conditions that he makes explicit.</p>
+        they refuse to perform an action that they have been requested to perform.</p>
 
-    <p><strong>Example:</strong> “Not now”</p>
+    <p><strong>Example:</strong> “Not now.”</p>
 
-    <h3 id="addresssuggest-consideron-condition">addressSuggest (Consider/On Condition)</h3>
+    <h3 id="addresssuggest-consideron-condition">addressSuggest (Consider/Conditionally Accept)</h3>
 
     <p>Communicative function of a dialogue act by which the sender, S, indicates that
-        he considers performing an action that was suggested to him, possibly depending
-        on certain conditions that he makes explicit.</p>
+        they will consider performing an action that was suggested to them, possibly depending
+        on certain conditions that they make explicit.</p>
 
     <p><strong>Example:</strong></p>
 
@@ -511,19 +499,17 @@
 
     <h3 id="acceptsuggest">acceptSuggest</h3>
 
-    <p>Communicative function of a dialogue act by which the sender, S, commits himself
-        to perform an action that was suggested to him, possibly with certain
-        restrictions or conditions concerning manner or frequency of performance.</p>
+    <p>Communicative function of a dialogue act by which the sender, S, commits them self
+        to perform an action that was suggested to them.</p>
 
-    <p><strong>Example:</strong> “Let’s do that”</p>
+    <p><strong>Example:</strong> “Let’s do that.”</p>
 
     <h3 id="declinesuggest">declineSuggest</h3>
 
-    <p>Communicative function of a dialogue act by which the sender, S, indicates that
-        he will not perform an action that was suggested to him, possibly depending on
-        certain conditions that he makes explicit.</p>
+    <p>Communicative function of a dialogue act by which the sender, S,
+        indicates that they will not perform an action that was suggested.</p>
 
-    <p><strong>Example:</strong> “I don’t think so”</p>
+    <p><strong>Example:</strong> “I don’t think so.”</p>
 
     <h2 id="directive-functions">Directive Functions</h2>
 
@@ -547,10 +533,11 @@
 
     <p><strong>Example:</strong> “Let’s wait for the speaker to finish.”</p>
 
-    <h3 id="addressoffer-consideron-condition">addressOffer (Consider/On Condition)</h3>
+    <h3 id="addressoffer-consideron-condition">addressOffer (Consider/Conditionally Accept)</h3>
 
     <p>Communicative function of a dialogue act performed by the sender, S, in order to
-        indicate that he is considering the possibility that A performs the action.</p>
+        indicate that they are considering the possibility that A performs the action,
+        possibly with certain conditions that he makes explicit.</p>
 
     <p><strong>Example:</strong> “That would be good!”</p>
 
@@ -558,18 +545,17 @@
 
     <p>Communicative function of a dialogue act performed by the sender, S, in order to
         inform the addressee, A, that S would like A to perform the action that A has
-        offered to perform, possibly with certain conditions that he makes explicit.</p>
+        offered to perform.</p>
 
-    <p><strong>Example:</strong> “Yes please”</p>
+    <p><strong>Example:</strong> “Yes please.”</p>
 
     <h3 id="declineoffer">declineOffer</h3>
 
     <p>Communicative function of a dialogue act performed by the sender, S, in order to
         inform the addressee, A, that S does not want A to perform the action that A has
-        offered to perform, possibly depending on certain conditions that he makes
-        explicit.</p>
+        offered to perform.</p>
 
-    <p><strong>Example:</strong> “No thank you”</p>
+    <p><strong>Example:</strong> “No thank you.”</p>
 
     <h2 id="feedback-functions">Feedback Functions</h2>
 
@@ -580,7 +566,7 @@
         utterance(s) was successful.</p>
 
     <p>Feedback mostly concerns the processing of the last utterance from the
-        addressee, but sometimes, especially in the case of positive feed- back, it
+        addressee, but sometimes, especially in the case of positive feedback, it
         concerns a longer stretch of dialogue.</p>
 
     <p><strong>Example:</strong> “Uh-huh”; “Okay”; “Yes”</p>
@@ -598,22 +584,22 @@
     <h3 id="stalling-pausing">stalling (Pausing)</h3>
 
     <p>Communicative function of a dialogue act performed by the sender, S, in order to
-        have a little extra time to construct his contribution or to suspend the
+        have a little extra time to construct their contribution or to suspend the
         dialogue for a short while.</p>
 
     <p>Pausing occurs either in preparation of continuing the dialogue, or because
         something else came up which is more urgent for the sender to attend to.</p>
 
-    <p><strong>Example: “</strong>Let me see...”; “Ehm...”; “Just a moment”</p>
+    <p><strong>Example:</strong> “Let me see...”; “Ehm...”; “Just a moment”</p>
 
     <h2 id="own-and-partner-communication-management-functions">Own and Partner Communication Management Functions</h2>
 
     <h3 id="retraction-abandon">retraction (Abandon)</h3>
 
     <p>Communicative function of a dialogue act performed by the sender, S, in order to
-        withdraw something that he just said within the same turn.</p>
+        withdraw or abandon something that they just said within the same turn.</p>
 
-    <p><strong>Example:</strong> “then we’re going to g– ”</p>
+    <p><strong>Example:</strong> “Then we’re going to g– ”</p>
 
     <h2 id="social-obligations-management-functions">Social Obligations Management Functions</h2>
 
@@ -632,28 +618,28 @@
 
     <p>Communicative function of a dialogue act performed by the sender, S, in order to
         acknowledge that S is aware of the presence of the addressee, A, and of A having
-        signalled his presence to S.</p>
+        signalled their presence to S.</p>
 
     <h3 id="initialgoodbye">initialGoodbye</h3>
 
     <p>Communicative function of a dialogue act performed by the sender, S, in order to
-        inform the addressee, A, that S intends the current utterance to be his final
+        inform the addressee, A, that S intends the current utterance to be their final
         contribution to the dialogue; S puts pressure on A to acknowledge this.</p>
 
     <p>Goodbyes usually come in initiative-response pairs within a dialogue; this data
         category corresponds to the second element of such a pair. Initial and return
         goodbyes are commonly used to close a dialogue</p>
 
-    <p><strong>Example:</strong> “Bye bye, see you later”</p>
+    <p><strong>Example:</strong> “Bye bye, see you later.”</p>
 
     <h3 id="returngoodbye">returnGoodbye</h3>
 
     <p>Communicative function of a dialogue act performed by the sender, S, in order to
-        acknowledge his awareness that the addressee, A, has signalled his final
-        contribution to the dialogue and S signals in return his agreement to end the
+        acknowledge their awareness that the addressee, A, has signalled their final
+        contribution to the dialogue and S signals in return their agreement to end the
         dialogue; S has been pressured to respond to an initialGoodbye by A.</p>
 
-    <p><strong>Example: “</strong>Bye bye, see you.”</p>
+    <p><strong>Example:</strong> “Bye bye, see you.”</p>
 
     <h3 id="thanking">thanking</h3>
 
@@ -661,8 +647,7 @@
         inform the addressee, A, that S is grateful for some action performed by A; S
         puts pressure on A to acknowledge this.</p>
 
-    <p>Utterances used for thanking often also indicate that the sender wants to end
-        the dialogue.</p>
+    <p>Utterances used for thanking often also indicate that the sender wants to end the dialogue.</p>
 
     <p><strong>Example:</strong> “Thanks a lot.”</p>
 
@@ -671,12 +656,12 @@
     <p>Communicative function of a dialogue act performed by the sender, S, in order to
         mitigate to the feelings of gratitude which the addressee, A’, has expressed.</p>
 
-    <p><strong>Example:</strong> “Don’t mention it”</p>
+    <p><strong>Example:</strong> “Don’t mention it.”</p>
 
     <h3 id="apology">apology</h3>
 
     <p>Communicative function of a dialogue act performed by the sender, S, in order to
-        signal that he wants the addressee, A, to know that S regrets something; S puts
+        signal that they want the addressee, A, to know that S regrets something; S puts
         pressure on A to acknowledge this.</p>
 
     <p><strong>Example:</strong> “Sorry about that.”</p>
@@ -686,7 +671,7 @@
     <p>Communicative function of a dialogue act performed by the sender, S, in order to
         mitigate, the feelings of regret that the addressee, A, has expressed.</p>
 
-    <p><strong>Example: “</strong>No problem.”</p>
+    <p><strong>Example:</strong> “No problem.”</p>
 
     <h1 id="references">References</h1>
 
