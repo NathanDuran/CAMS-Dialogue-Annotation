@@ -327,7 +327,6 @@ function openTooltip(event) {
                     tooltipText += group[j]['description'] + "<br>";
                 }
                 if(group[j]['example']){
-                    console.log(group[j]['example']);
                     tooltipText += group[j]['example'] + "<br>";
                 }
                 //Replace line breaks with html <br>
