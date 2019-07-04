@@ -8,9 +8,10 @@ A definition of the DA and AP labels can be found in the [CA schema](https://nat
 The server side implementation is written using Python 3.6 and [Flask](http://flask.pocoo.org/).
 
 ## TODO
-Add CABNC corpus link.
-Add study/paper link.
-Add overview of study.
+- Annotate Screenshots
+- Add CABNC corpus link.
+- Add study/paper link.
+- Add overview of study.
 
 ## Data
 Users are presented with one of 5 sets of dialogue that contain a mixture of task-oriented and non-task oriented dialogues
@@ -90,16 +91,16 @@ Once you have selected one of each label type (DA and AP) the utterance will tur
 
 If you hover over one of the label buttons a popup will appear an alternative name for that label and/or a short description and an example.  
 
-You can remove the labels for any utterance by clicking on the ![clear button](../static/images/delete_square.png) button next to the labels.
+You can remove the labels for any utterance by clicking on the ![clear button](/static/images/delete_square.png) button next to the labels.
 
 
 <p align="center">
-<img src="src="../static/images/annotation_screen.png" width="1100" height="650">
+<img src="src="/static/images/annotation_screen.png" width="1100" height="650">
 </p>
 
 ### Questionnaire Screen
 Once every utterance in the dialogue is labelled you can click the 'Complete Dialogue' button or either of the navigation buttons
-![prev button](../static/images/prev.png) ![next button](../static/images/next.png) to open the question popup for this dialogue.
+![prev button](/static/images/prev.png) ![next button](/static/images/next.png) to open the question popup for this dialogue.
 Here you will be asked to rate the DA and AP labels you have selected for this dialogue as well as the combination of labels i.e. the AP-type labels.  
 
 You also have the opportunity to select any labels or combination of labels that you think do not adequately describe the dialogue.
@@ -108,10 +109,10 @@ You can select as many you want, or none, but please try and highlight any label
 Once you have finished the questionnaire click submit to finish the current dialogue.
 If you want to change your annotations or answers at any time just click the 'Revise Dialogue' button.  
 
-You can now use the navigation buttons ![prev button](../static/images/prev.png) ![next button](../static/images/next.png) to move on to the next dialogue.
+You can now use the navigation buttons ![prev button](/static/images/prev.png) ![next button](/static/images/next.png) to move on to the next dialogue.
 
 <p align="center">
-<img src="src="../static/images/questionnaire_screen.png" width="1100" height="650">
+<img src="src="/static/images/questionnaire_screen.png" width="1100" height="650">
 </p>
 
 
