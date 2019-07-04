@@ -19,8 +19,7 @@ login_manager.init_app(app)
 
 # Load the valid user list
 current_users = dict()
-# valid_users = utils.load_txt_data(dialogue_data_path, "user_id_list")
-valid_users = ['usr-1', 'usr-2']  # TODO remove when deployed
+valid_users = utils.load_txt_data(dialogue_data_path, "user_id_list")
 
 
 @app.route('/')

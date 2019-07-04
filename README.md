@@ -95,7 +95,7 @@ You can remove the labels for any utterance by clicking on the ![clear button](/
 
 
 <p align="center">
-<img src="src="/static/images/annotation_screen.png" width="1100" height="650">
+<img src="/static/images/annotation_screen.png" width="1100" height="650">
 </p>
 
 ### Questionnaire Screen
@@ -112,7 +112,7 @@ If you want to change your annotations or answers at any time just click the 'Re
 You can now use the navigation buttons ![prev button](/static/images/prev.png) ![next button](/static/images/next.png) to move on to the next dialogue.
 
 <p align="center">
-<img src="src="/static/images/questionnaire_screen.png" width="1100" height="650">
+<img src="/static/images/questionnaire_screen.png" width="1100" height="650">
 </p>
 
 
