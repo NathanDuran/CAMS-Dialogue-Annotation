@@ -8,8 +8,11 @@ A definition of the DA and AP labels can be found in the [CA schema](https://nat
 The server side implementation is written using Python 3.6 and [Flask](http://flask.pocoo.org/).
 
 ## TODO
-- Annotate Screenshots
-- Add CABNC corpus link.
+
+- Add check for FPP and SPP by same speaker?
+- Add brief description and link to corpora in home screen
+- AP annotation instructions for home view or in schema
+
 - Add study/paper link.
 - Add overview of study.
 
@@ -17,7 +20,7 @@ The server side implementation is written using Python 3.6 and [Flask](http://fl
 Users are presented with one of 5 sets of dialogue that contain a mixture of task-oriented and non-task oriented dialogues
 from 4 different corpora.
 - [Saarbrücken Corpus of Spoken English (SCoSE)](https://github.com/NathanDuran/SCoSE-Copus)
-- CABNC
+- [CABNC](https://github.com/NathanDuran/CABNC-Corpus)
 - [CA-KVRET](https://github.com/NathanDuran/CA-KVRET)
 - [bAbI-Tasks](https://github.com/NathanDuran/bAbI-Tasks-Corpus)
 

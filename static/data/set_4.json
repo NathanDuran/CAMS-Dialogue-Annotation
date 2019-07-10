@@ -1,0 +1,378 @@
+{
+    "dataset": "set_4",
+    "num_dialogues": 4,
+    "dialogues": [
+        {
+            "dialogue_id": "lynne-hunter",
+            "num_utterances": 25,
+            "utterances": [
+                {
+                    "speaker": "JEA",
+                    "text": "wasn't that awful about the guy that went hunting and killed his son.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "ANN",
+                    "text": "oh, hooh.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "and then he killed himself.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "he didn't he shot him by mistake.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "he thought he was a deer, coming, y'know, coming in the woods.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "shot the kid.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "when he went to check, because he thought he shot a deer, he found he shot his son.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "dead.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "HEL",
+                    "text": "oh my god.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "and he turned the gun on himself.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "HEL",
+                    "text": "oh, how tragic.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "and he killed himself.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "because he probably couldn't, he probably knew he couldn't face his wife, and whatever, y'know.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "ANN",
+                    "text": "first time he took his son, too.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "yeah, that's why today's paper said make orange legal.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "ANN",
+                    "text": "yeah, you have to.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "make them wear the orange.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "That red and black check, you can't see that, when it blends in with everything.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "and you know I think it's just like a reaction.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "if they hear or see something through the corner of their eye, moving, and they just shoot, without waiting to see what it is.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "that was sad.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "I don't know how old the kid was.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "ANN",
+                    "text": "eighteen.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "eighteen.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "HEL",
+                    "text": "eighteen.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                }
+            ]
+        },
+        {
+            "dialogue_id": "test_129",
+            "num_utterances": 6,
+            "utterances": [
+                {
+                    "speaker": "USR",
+                    "text": "Where can I find a parking garage?",
+                    "ap_label": "",
+                    "da_label": ""
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "Palo Alto Garage R\tis at 481 Amaranta Ave.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {
+                        "poi_type": "parking garage"
+                    }
+                },
+                {
+                    "speaker": "USR",
+                    "text": "Is that the quickest route?",
+                    "ap_label": "",
+                    "da_label": ""
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "I will send on your screen the quickest route, sure, there is heavy traffic now and we will have to make the route slightly longer",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {
+                        "distance": "quickest route"
+                    }
+                },
+                {
+                    "speaker": "USR",
+                    "text": "Ok thanks for the notification.",
+                    "ap_label": "",
+                    "da_label": ""
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "You're welcome, we should arrive shortly.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                }
+            ],
+            "scenario": {
+                "db_id": "0631ff57-eaae-481d-add1-c22be464d261",
+                "db_type": "location information",
+                "task": "navigate",
+                "items": [
+                    {
+                        "distance": "5 miles",
+                        "traffic_info": "no traffic",
+                        "poi_type": "coffee or tea place",
+                        "address": "792 Bedoin Street",
+                        "poi": "Starbucks"
+                    },
+                    {
+                        "distance": "4 miles",
+                        "traffic_info": "heavy traffic",
+                        "poi_type": "chinese restaurant",
+                        "address": "113 Arbol Dr",
+                        "poi": "Jing Jing"
+                    },
+                    {
+                        "distance": "6 miles",
+                        "traffic_info": "heavy traffic",
+                        "poi_type": "hospital",
+                        "address": "214 El Camino Real",
+                        "poi": "Stanford Express Care"
+                    },
+                    {
+                        "distance": "4 miles",
+                        "traffic_info": "heavy traffic",
+                        "poi_type": "parking garage",
+                        "address": "481 Amaranta Ave",
+                        "poi": "Palo Alto Garage R"
+                    },
+                    {
+                        "distance": "5 miles",
+                        "traffic_info": "heavy traffic",
+                        "poi_type": "chinese restaurant",
+                        "address": "830 Almanor Ln",
+                        "poi": "tai pan"
+                    },
+                    {
+                        "distance": "5 miles",
+                        "traffic_info": "heavy traffic",
+                        "poi_type": "home",
+                        "address": "5671 barringer street",
+                        "poi": "home"
+                    },
+                    {
+                        "distance": "3 miles",
+                        "traffic_info": "no traffic",
+                        "poi_type": "coffee or tea place",
+                        "address": "583 Alester Ave",
+                        "poi": "Philz"
+                    }
+                ]
+            }
+        },
+        {
+            "dialogue_id": "task1_test_564",
+            "num_utterances": 5,
+            "utterances": [
+                {
+                    "speaker": "USR",
+                    "text": "good morning",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "hello what can i help you with today",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "USR",
+                    "text": "i'd like to book a table in london in a moderate price range for six with french cuisine",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "i'm on it",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "ok let me look into some options for you",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {
+                        "food_type": "french",
+                        "location": "london",
+                        "num_guests": "six",
+                        "price": "moderate"
+                    }
+                }
+            ],
+            "scenario": {
+                "db_id": "task1_test_564",
+                "db_type": "restaurant booking",
+                "task": "restaurant booking",
+                "items": []
+            }
+        },
+        {
+            "dialogue_id": "KE2RE00Y",
+            "num_utterances": 4,
+            "utterances": [
+                {
+                    "speaker": "PS0W4",
+                    "text": "That's filled you up has it.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "PS0W2",
+                    "text": "That's very nice yes yes.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "PS0W4",
+                    "text": "Do you want a bit of ice cream or.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "PS0W2",
+                    "text": "Yeah have ice cream have that lovely one we had the other day.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                }
+            ]
+        }
+    ]
+}

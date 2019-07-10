@@ -1,0 +1,344 @@
+{
+    "dataset": "set_3",
+    "num_dialogues": 4,
+    "dialogues": [
+        {
+            "dialogue_id": "jason-accident",
+            "num_utterances": 29,
+            "utterances": [
+                {
+                    "speaker": "JAS",
+                    "text": "we've kept everything pretty much under control though this year.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "that's right you can't wrestle around or bad things will happen.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "yeah, Roger got his nose.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "you know what happened to my one of my aunt's friends out in Iowa?",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "like when when she was younger, she had a headgear from braces, and these two girls were wrestling around just playing around, wrestling.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "and one girl pulled her headgear off her mouth and let it snap back.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "and it slid up her face and stuck in her eyes and blinded her.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "wow.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "isn't that horrid?",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "that's horrid.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "when my.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "blinded her for life.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "isn't that horrid.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "that's just I mean just from goofing around, just from screwing a little bit of screwing around.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "and if and another thing, it it it's terrible the things that can happen.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "that's why I don't like people screwing around with swords and trying to throw people in the showers and stuff like that, and everything like that.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "you know what happened to my aunt Florence when she was a little girl?",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "oh what happened.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "she was like screwing around like around Christmas time?",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "and like she, I I guess this was like when they had candles on trees?",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "she lit her hair on fire.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "oh wow.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "you met her.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "but did anything happen?",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "she get a burned head or something?",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "uh I don't know, maybe you could shave her and look for scar tissue.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "oh I don't want to shave your aunt Florence's head.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "DER",
+                    "text": "does your aunt Florence have like spinalbiffera or something like that?",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "I don't know.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                }
+            ]
+        },
+        {
+            "dialogue_id": "test_96",
+            "num_utterances": 4,
+            "utterances": [
+                {
+                    "speaker": "USR",
+                    "text": "Schedule a swimming activity with Jon for December 10th at 3pm.",
+                    "ap_label": "",
+                    "da_label": ""
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "Your swimming activity with Jon has been scheduled for Dec 10th at 3pm.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {
+                        "date": "December 10th",
+                        "party": "Jon ",
+                        "event": "swimming activity",
+                        "time": "3pm"
+                    }
+                },
+                {
+                    "speaker": "USR",
+                    "text": "Thank you.",
+                    "ap_label": "",
+                    "da_label": ""
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "It is my job and pleasure.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                }
+            ],
+            "scenario": {
+                "db_id": "1f10c85d-5cff-4c25-92c2-1abf267f6cc9",
+                "db_type": "calendar",
+                "task": "schedule",
+                "items": null
+            }
+        },
+        {
+            "dialogue_id": "task1_test_555",
+            "num_utterances": 5,
+            "utterances": [
+                {
+                    "speaker": "USR",
+                    "text": "hello",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "hello what can i help you with today",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "USR",
+                    "text": "i'd like to book a table for four in london in a moderate price range with italian cuisine",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "i'm on it",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "ok let me look into some options for you",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {
+                        "food_type": "italian",
+                        "location": "london",
+                        "num_guests": "four",
+                        "price": "moderate"
+                    }
+                }
+            ],
+            "scenario": {
+                "db_id": "task1_test_555",
+                "db_type": "restaurant booking",
+                "task": "restaurant booking",
+                "items": []
+            }
+        },
+        {
+            "dialogue_id": "KDARE00G",
+            "num_utterances": 4,
+            "utterances": [
+                {
+                    "speaker": "PS1GF",
+                    "text": "Don't tell me your mates just gone to the sun and the sand as well.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "PS1GE",
+                    "text": "Yeah oh he's well in love.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "PS1GF",
+                    "text": "Is he.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "PS1GE",
+                    "text": "Mm definite marriage case I don't know how I don't know how they can stand to be apart Ah.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                }
+            ]
+        }
+    ]
+}

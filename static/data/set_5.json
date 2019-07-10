@@ -1,0 +1,376 @@
+{
+    "dataset": "set_5",
+    "num_dialogues": 4,
+    "dialogues": [
+        {
+            "dialogue_id": "lynne-tipsy",
+            "num_utterances": 26,
+            "utterances": [
+                {
+                    "speaker": "ANN",
+                    "text": "and I always thought that her and vance just were great together.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "yeah.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "used to get.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "HEL",
+                    "text": "They were both good.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "ANN",
+                    "text": "yeah.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "ANN",
+                    "text": "they were really good.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "you could go over there around the holidays and get smashed before you left the place.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "HEL",
+                    "text": "Oh yeah.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "we used to have the last appointment, right?",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "remember, the two of us would go?",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "ANN",
+                    "text": "yeah, yeah.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "want some wine girls?",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "sure we'll have a glass of wine.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "you walk out of there you're half tipsy.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "ANN",
+                    "text": "you were under the dryers.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "well sure.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "and he'd be pouring the wine and we were tipsy by the time we walked out of that place.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "ANN",
+                    "text": "then he moved all the way out at rand road.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "near the town show, remember?",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "ANN",
+                    "text": "yeah.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "we went there.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "ANN",
+                    "text": "we used to go there.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "ANN",
+                    "text": "and then we went on to union road, when he was there.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "yeah.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "yeah.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "we followed him around.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                }
+            ]
+        },
+        {
+            "dialogue_id": "test_102",
+            "num_utterances": 4,
+            "utterances": [
+                {
+                    "speaker": "USR",
+                    "text": "Can you find out for me the date and parties attending my dinner?",
+                    "ap_label": "",
+                    "da_label": ""
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "Your dinner is on Tuesday with your sister.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {
+                        "event": "dinner"
+                    }
+                },
+                {
+                    "speaker": "USR",
+                    "text": "Thanks.",
+                    "ap_label": "",
+                    "da_label": ""
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "you're welcome",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                }
+            ],
+            "scenario": {
+                "db_id": "a78bbf7a-d1d2-42e3-85b0-77467f8f22a2",
+                "db_type": "calendar",
+                "task": "schedule",
+                "items": [
+                    {
+                        "room": "-",
+                        "agenda": "-",
+                        "time": "5pm",
+                        "date": "tuesday",
+                        "party": "sister",
+                        "event": "dinner"
+                    },
+                    {
+                        "room": "-",
+                        "agenda": "-",
+                        "time": "3pm",
+                        "date": "the 4th",
+                        "party": "Tom",
+                        "event": "tennis activity"
+                    },
+                    {
+                        "room": "-",
+                        "agenda": "-",
+                        "time": "7pm",
+                        "date": "the 5th",
+                        "party": "father",
+                        "event": "doctor appointment"
+                    },
+                    {
+                        "room": "-",
+                        "agenda": "-",
+                        "time": "7pm",
+                        "date": "the 13th",
+                        "party": "aunt",
+                        "event": "football activity"
+                    },
+                    {
+                        "room": "-",
+                        "agenda": "-",
+                        "time": "1pm",
+                        "date": "wednesday",
+                        "party": "brother",
+                        "event": "swimming activity"
+                    },
+                    {
+                        "room": "-",
+                        "agenda": "-",
+                        "time": "4pm",
+                        "date": "thursday",
+                        "party": "mother",
+                        "event": "taking medicine"
+                    }
+                ]
+            }
+        },
+        {
+            "dialogue_id": "task1_test_894",
+            "num_utterances": 5,
+            "utterances": [
+                {
+                    "speaker": "USR",
+                    "text": "good morning",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "hello what can i help you with today",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "USR",
+                    "text": "may i have a table in a cheap price range in london with spanish food for two",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "i'm on it",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "ok let me look into some options for you",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {
+                        "food_type": "spanish",
+                        "location": "london",
+                        "num_guests": "two",
+                        "price": "cheap"
+                    }
+                }
+            ],
+            "scenario": {
+                "db_id": "task1_test_894",
+                "db_type": "restaurant booking",
+                "task": "restaurant booking",
+                "items": []
+            }
+        },
+        {
+            "dialogue_id": "KBERE00G",
+            "num_utterances": 5,
+            "utterances": [
+                {
+                    "speaker": "PS04B",
+                    "text": "Can you turn that radio off I want to listen to the phone in.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "PS04J",
+                    "text": "I got the whatsname on.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "PS04B",
+                    "text": "What What.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "PS04J",
+                    "text": "The whatsname Don't ask me I du n no what it's called.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                },
+                {
+                    "speaker": "PS04B",
+                    "text": "What do you want that on for I'm trying to listen to the radio I want to listen to the phone in.",
+                    "ap_label": "",
+                    "da_label": "",
+                    "slots": {}
+                }
+            ]
+        }
+    ]
+}
