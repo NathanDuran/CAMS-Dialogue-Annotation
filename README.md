@@ -8,12 +8,6 @@ A definition of the DA and AP labels can be found in the [CA schema](https://nat
 The server side implementation is written using Python 3.6 and [Flask](http://flask.pocoo.org/).
 
 ## TODO
-
-
-- Add brief description and link to corpora in home screen
-- AP annotation instructions for home view or in schema
-
-- Add more links to schema ap and da in readme/instructions
 - Add study/paper link.
 - Add overview of study.
 
@@ -73,14 +67,25 @@ The following is an example of the JSON format created for each users annotation
 
 ## User Instructions
 You will be given a set of five unlabelled dialogues that are a mixture of task-oriented and non-task-oriented conversations.
+The first one you see will be short practice dialogue and the rest are selected from four different corpora,
+[SCoSE](https://github.com/NathanDuran/SCoSE-Copus), 
+[CABNC](https://github.com/NathanDuran/CABNC-Corpus), 
+[CA-KVRET](https://github.com/NathanDuran/CA-KVRET) and
+[bAbI-Tasks](https://github.com/NathanDuran/bAbI-Tasks-Corpus).
+In total there are ~40 utterances across all dialogues in a set.
+One dialogue in the set is longer than the rest, so dont worry if the first one you see is very long!
+
 For each dialogue you will be asked to label each utterance with one AP and one DA label which combine into an AP-type label.
-Once a dialogue is fully labelled you will be asked to rate the different AP,
-DA and DA-type labels you have provided using a 7 point scale.
-You will also be given the opportunity to highlight any labels,
-or combination of labels that you think do not adequately describe the dialogue.
+There is a lot of information in the Schema and you are not expected to remember all of the label types.
+However, please make sure you follow the short Annotation Guidelines when selecting labels.
+The label buttons on the annotation page have tooltips with short label descriptions, if you hover the mouse over them.
+You can also return to the schema page for reference at any time during annotation and your progress will be saved.
+        
+Once a dialogue is fully labelled you will be asked to rate the different AP, DA and DA-type labels you have provided using a 7 point scale.
+You will also be given the opportunity to highlight any labels, or combination of labels that you think do not adequately describe the dialogue.
 
 ### Annotation Screen
-Once you have logged in using your unique user-id you can access the annotation screen by clicking on the Annotate tab.
+Once you have logged in using your unique user-id you can access the annotation screen by clicking on the Annotate tab above.
 The first dialogue you see will be a short practice dialogue to give you an opportunity to get used to the tools controls
 and the process of applying the labels.  
 
@@ -90,10 +95,10 @@ As you can see, the first utterance is automatically selected for you.
 
 To apply labels to this utterance simply click on one of the AP buttons and one of the DA buttons from the set at the bottom of the screen.
 The labels to the right of the utterance will change to reflect your selection.
-Once you have selected one of each label type (DA and AP) the utterance will turn
-<span style="color: green; font-weight: bold">green</span> and the next unlabelled utterance will be automatically selected for you.  
+Once you have selected one of each label type (DA and AP) the utterance will turn <span style="color: green; font-weight: bold">green</span>,
+indicating that it is now labelled with an AP-type and the next unlabelled utterance will be automatically selected for you.  
 
-If you hover over one of the label buttons a popup will appear an alternative name for that label and/or a short description and an example.  
+If you hover over one of the label buttons a tooltip will appear with an alternative name for that label and/or a short description and an example.  
 
 You can remove the labels for any utterance by clicking on the ![clear button](/static/images/delete_square.png) button next to the labels.
 

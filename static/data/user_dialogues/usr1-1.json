@@ -85,7 +85,7 @@
             "dialogue_id": "jason-mammoth",
             "is_labelled": false,
             "is_complete": false,
-            "time": 33751928,
+            "time": 33753631,
             "questions": [],
             "num_utterances": 19,
             "utterances": [
@@ -95,7 +95,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 33751931,
+                    "time": 33753634,
                     "ap_flag": false,
                     "da_flag": false
                 },
@@ -285,17 +285,17 @@
             "dialogue_id": "task1_test_290",
             "is_labelled": false,
             "is_complete": false,
-            "time": 1213,
+            "time": 63108,
             "questions": [],
             "num_utterances": 7,
             "utterances": [
                 {
                     "speaker": "USR",
                     "text": "good morning",
-                    "ap_label": "AP-Label",
-                    "da_label": "DA-Label",
-                    "is_labelled": false,
-                    "time": 1213,
+                    "ap_label": "FPP-base",
+                    "da_label": "propQuestion",
+                    "is_labelled": true,
+                    "time": 13036,
                     "ap_flag": false,
                     "da_flag": false
                 },
@@ -305,7 +305,7 @@
                     "ap_label": "AP-Label",
                     "da_label": "DA-Label",
                     "is_labelled": false,
-                    "time": 0,
+                    "time": 50072,
                     "ap_flag": false,
                     "da_flag": false
                 },

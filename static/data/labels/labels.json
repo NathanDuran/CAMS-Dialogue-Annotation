@@ -5,13 +5,13 @@
                 {
                     "name": "FPP-base",
                     "alt_name": "",
-                    "description": "First of a basic sequence of two ordered turns of talk.",
+                    "description": "First part of a base sequence of two ordered turns of talk.",
                     "example": "A: \"What time is it?\"\tFPP-base\nB: \"Three o clock.\"\tSPP-base"
                 },
                 {
                     "name": "SPP-base",
                     "alt_name": "",
-                    "description": "Second of a basic sequence of two ordered turns of talk.",
+                    "description": "Second part of a base sequence of two ordered turns of talk.",
                     "example": "A: \"What time is it?\"\tFPP-base\nB: \"Three o clock.\"\tSPP-base"
                 }
             ]
@@ -87,9 +87,9 @@
         {
             "group": [
                 {
-                    "name": "yesNoQuestion",
-                    "alt_name": "Propositional Question",
-                    "description": "",
+                    "name": "propQuestion",
+                    "alt_name": "Yes/No Question",
+                    "description": "Propositional questions imply a yes/no answer but do not necessarily require one.",
                     "example": "\"Does the meeting start at ten?\""
                 },
                 {
@@ -228,7 +228,7 @@
                 },
                 {
                     "name": "addressSuggest",
-                    "alt_name": "Consider Suggest, Conditionally Accept Suggest",
+                    "alt_name": "Consider Suggestion, Conditionally Accept Suggestion",
                     "description": "Sender indicates that they will consider the performance of an action that was suggested to them, possibly depending on certain conditions that they make explicit.",
                     "example": "A: \"Let's go there together.\"\nS: \"Only if we're in full agreement about the way to proceed when we get there.\""
                 },
@@ -241,7 +241,7 @@
                 {
                     "name": "declineSuggest",
                     "alt_name": "",
-                    "description": "Sender  indicates that they will not perform an action that was suggested.",
+                    "description": "Sender indicates that they will not perform an action that was suggested.",
                     "example": "\"I don't think so.\""
                 }
             ]
@@ -249,14 +249,14 @@
         {
             "group": [
                 {
-                    "name": "autoPositive",
-                    "alt_name": "Positive Understanding/Feedback",
+                    "name": "feedbackPos",
+                    "alt_name": "autoPositive, Positive Understanding/Feedback",
                     "description": "Sender informs addressee their processing of the previous utterance(s) was successful.",
                     "example": "\"Uh-huh\"; \"Okay\"; \"Yes\""
                 },
                 {
-                    "name": "autoNegative",
-                    "alt_name": "Negative Understanding/Feedback",
+                    "name": "feedbackNeg",
+                    "alt_name": "autoNegative, Negative Understanding/Feedback",
                     "description": "Sender informs addressee their processing of the previous utterance(s) was not successful.",
                     "example": "\"Sorry?\"; \"What?\""
                 },
