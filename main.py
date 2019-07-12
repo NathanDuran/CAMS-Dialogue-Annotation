@@ -5,9 +5,10 @@ from user import User
 from flask_login import LoginManager, login_required, login_user, logout_user, current_user
 from flask import Flask, render_template, request
 
-label_data_path = "static/labels/"
-dialogue_data_path = "static/data/"
-user_data_path = "static/user_data/"
+data_path = "static/data/"
+label_data_path = os.path.join(data_path, "labels/")
+dialogue_data_path = os.path.join(data_path, "dialogues/")
+user_data_path = os.path.join(data_path, "user_dialogues/")
 
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
@@ -19,7 +20,7 @@ login_manager.init_app(app)
 
 # Load the valid user list
 current_users = dict()
-valid_users = utils.load_txt_data(dialogue_data_path, "user_id_list")
+valid_users = utils.load_txt_data(data_path, "user_id_list")
 
 
 @app.route('/')

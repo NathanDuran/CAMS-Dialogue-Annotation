@@ -58,6 +58,24 @@ body {
     flex-direction: column;
 }
 
+h1, h2, h3 {
+    color: var(--title-font-color);
+}
+
+
+a {
+    color: var(--title-font-color);
+    text-decoration: none;
+}
+
+hr {
+    display: block;
+    margin: 0;
+    border-style: inset;
+    border-width: 1px;
+    opacity: 0.5;
+}
+
 form {
     margin: 5px auto;
 }

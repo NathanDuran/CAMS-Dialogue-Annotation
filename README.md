@@ -1,7 +1,7 @@
 # Conversation Analysis Dialogue Tagger
 The CA-Dialogue-Tagger facilitates annotation of dialogues with Dialogue Acts (DA) and Adjacency Pairs (AP) to create *AP-types* 
 that are closely aligned with the concept of typed AP in Conversation Analysis (CA).
-A full explanation of the intended use for CA the labelled corpus can be found in the paper 
+A full explanation of the intended use for the CA labelled corpus can be found in the paper 
 [Conversation Analysis Structured Dialogue for Multi-Domain Dialogue Management](https://www.researchgate.net/publication/329809503_Conversation_Analysis_Structured_Dialogue_for_Multi-Domain_Dialogue_Management).
 A definition of the DA and AP labels can be found in the [CA schema](https://nathanduran.github.io/CA-Schema/).
 
@@ -9,15 +9,16 @@ The server side implementation is written using Python 3.6 and [Flask](http://fl
 
 ## TODO
 
-- Add check for FPP and SPP by same speaker?
+
 - Add brief description and link to corpora in home screen
 - AP annotation instructions for home view or in schema
 
+- Add more links to schema ap and da in readme/instructions
 - Add study/paper link.
 - Add overview of study.
 
 ## Data
-Users are presented with one of 5 sets of dialogue that contain a mixture of task-oriented and non-task oriented dialogues
+Users are presented with one of 5 sets of dialogue that contain a mixture of task-oriented and non-task oriented interactions
 from 4 different corpora.
 - [Saarbrücken Corpus of Spoken English (SCoSE)](https://github.com/NathanDuran/SCoSE-Copus)
 - [CABNC](https://github.com/NathanDuran/CABNC-Corpus)
@@ -76,7 +77,7 @@ For each dialogue you will be asked to label each utterance with one AP and one 
 Once a dialogue is fully labelled you will be asked to rate the different AP,
 DA and DA-type labels you have provided using a 7 point scale.
 You will also be given the opportunity to highlight any labels,
-or combination of labels that you do not think adequately describe the dialogue.
+or combination of labels that you think do not adequately describe the dialogue.
 
 ### Annotation Screen
 Once you have logged in using your unique user-id you can access the annotation screen by clicking on the Annotate tab.
