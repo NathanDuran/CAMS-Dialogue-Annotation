@@ -1,6 +1,6 @@
 
 class DialogueModel:
-    def __init__(self, dataset, dialogues, user_id):
+    def __init__(self, dataset, dialogues, current_dialogue_index,  user_id):
 
         # Load data
         self.dataset = dataset
@@ -13,7 +13,7 @@ class DialogueModel:
         self.num_dialogues = len(self.dialogues)
 
         # Current dialogue
-        self.current_dialogue_index = 0
+        self.current_dialogue_index = current_dialogue_index
 
         # Labelled and completed dialogue counts
         self.num_labelled = 0
@@ -30,6 +30,7 @@ class DialogueModel:
         to_string += "Num Dialogues: " + str(self.num_dialogues) + "\n"
         to_string += "Num Labelled: " + str(self.num_labelled) + "\n"
         to_string += "Num Unlabelled: " + str(self.num_unlabelled) + "\n"
+        to_string += "Current Dialogue Index: " + str(self.current_dialogue_index)
         return to_string
 
     def get_current_dialogue(self):

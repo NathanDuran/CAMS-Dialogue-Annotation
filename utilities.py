@@ -42,20 +42,14 @@ def load_txt_data(path, file_name):
 
 
 # Creates a dialogue model from the specified dialogue dataset file
-def create_model(data_path, dataset_file, user_id, user_data=False):
-    # Load JSON files
-    data = load_json_data(data_path, dataset_file)
-
-    # If file is not valid or invalid JSON
-    if not data:
-        print("Unable to load JSON data...")
+def create_model(dialogue_data_path, data, user_id, user_data=False):
 
     # Create dialogue objects
     dialogues = dialogues_from_dict(data)
 
-    # If we are using existing user data dont add practice and shuffle
+    # If we are not using existing user data add practice and shuffle
     if not user_data:
-        practice_data = load_json_data(data_path, "practice")
+        practice_data = load_json_data(dialogue_data_path, "practice")
         practice_dialogue = dialogue_from_dict(practice_data)
 
         # Shuffle the actual dialogues and insert the practice at the start
@@ -66,13 +60,18 @@ def create_model(data_path, dataset_file, user_id, user_data=False):
     if not dialogues:
         print("Unable to load dialogues JSON data...")
 
+    if 'current_dialogue_index' in data.keys():
+        current_dialogue_index = data['current_dialogue_index']
+    else:
+        current_dialogue_index = 0
+
     # Create the dialogue model
-    model = DialogueModel(data['dataset'], dialogues, user_id)
+    model = DialogueModel(data['dataset'], dialogues, current_dialogue_index, user_id)
 
     return model
 
 
-def save_model(data_path, model, user_id):
+def model_to_dict(model):
 
     # Convert model to dictionary
     model_dict = dict()
@@ -83,10 +82,10 @@ def save_model(data_path, model, user_id):
     model_dict['num_unlabelled'] = model.num_unlabelled
     model_dict['num_complete'] = model.num_complete
     model_dict['num_incomplete'] = model.num_incomplete
+    model_dict['current_dialogue_index'] = model.current_dialogue_index
     model_dict['dialogues'] = dialogues_to_dict(model.dialogues)
 
-    # Save to JSON
-    return save_json_data(data_path, user_id, model_dict)
+    return model_dict
 
 
 # Creates dialogue objects from dataset dictionary/json

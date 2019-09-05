@@ -30,7 +30,7 @@ function prevBtnClick() {
     console.log("Prev button clicked...");
 
     // Call save dialogue function
-    saveDialogue(currentDialogue);
+    //saveDialogue(currentDialogue);
 
     // Check if we need to open the questionnaire because it is labelled but not is_complete
     if (checkDialogueLabels(currentDialogue) && !currentDialogue.is_complete) {
@@ -41,8 +41,11 @@ function prevBtnClick() {
 
         // Call prev dialogue function
         $.ajax({
+            type: 'post',
             url: "/get_prev_dialogue.do",
-            dataType: "text",
+            data: JSON.stringify(currentDialogue),
+            dataType: "json",
+            contentType: 'application/json;charset=UTF-8',
             success: function (result) {
 
                 // Rebuild dialogue view with new current dialogue
@@ -57,7 +60,7 @@ function nextBtnClick() {
     console.log("Next button clicked...");
 
     // Call save dialogue function
-    saveDialogue(currentDialogue);
+    //saveDialogue(currentDialogue);
 
     // Check if we need to open the questionnaire because it is labelled but not is_complete
     if (checkDialogueLabels(currentDialogue) && !currentDialogue.is_complete) {
@@ -68,8 +71,11 @@ function nextBtnClick() {
 
         // Call next dialogue function
         $.ajax({
+            type: 'post',
             url: "/get_next_dialogue.do",
-            dataType: "text",
+            data: JSON.stringify(currentDialogue),
+            dataType: "json",
+            contentType: 'application/json;charset=UTF-8',
             success: function (result) {
 
                 // Rebuild dialogue view with new current dialogue

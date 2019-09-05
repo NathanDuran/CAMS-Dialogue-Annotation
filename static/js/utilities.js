@@ -159,7 +159,7 @@ function startDialogueTimer() {
         console.log("Timer started @ " + new Date().toUTCString());
         console.log("Current dialogue time: " + currentDialogue.time);
     } else {
-        alert("No dialogue selected! cannot start timer!")
+        console.log("No dialogue selected! cannot start timer!")
     }
 }
 
@@ -175,7 +175,7 @@ function endDialogueTimer() {
         console.log("Current dialogue time: " + currentDialogue.time);
         dialogueStartTime = null;
     } else {
-        alert("No dialogue selected! cannot start timer!")
+        console.log("No dialogue selected! cannot end timer!")
     }
 }
 
@@ -190,7 +190,7 @@ function startUtteranceTimer() {
         console.log("Timer started @ " + new Date().toUTCString());
         console.log("Current utterance time: " + currentUtt.time);
     } else {
-        alert("No utterance selected! cannot start timer!")
+        console.log("No utterance selected! cannot start timer!")
     }
 }
 
@@ -207,7 +207,7 @@ function endUtteranceTimer() {
         utteranceStartTime = null;
         currentUtt = null;
     } else {
-        alert("No utterance selected! cannot start timer!")
+        console.log("No utterance selected! cannot end timer!")
     }
 }
 
