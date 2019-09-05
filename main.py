@@ -5,22 +5,21 @@ from user import User
 from flask_login import LoginManager, login_required, login_user, logout_user, current_user
 from flask import Flask, render_template, request
 
-data_path = "static/data/"
-label_data_path = os.path.join(data_path, "labels/")
-dialogue_data_path = os.path.join(data_path, "dialogues/")
-user_data_path = os.path.join(data_path, "user_dialogues/")
-
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
-# app.config['TESTING'] = False
-# app.config['LOGIN_DISABLED'] = True
 
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+data_path = "static/data/"
+# data_path = "/home/NuDelta/mysite/static/data" # For Python Anywhere
+label_data_path = os.path.join(data_path, "labels/")
+dialogue_data_path = os.path.join(data_path, "dialogues/")
+user_data_path = os.path.join(data_path, "user_dialogues/")
+
 # Load the valid user list
-current_users = dict()
 valid_users = utils.load_txt_data(data_path, "user_id_list")
+current_users = dict()
 
 
 @app.route('/')
@@ -55,7 +54,11 @@ def annotate_page():
 # callback to reload the user object
 @login_manager.user_loader
 def load_user(user_id):
-    return User(user_id)
+
+    if user_id in current_users:
+        return current_users[user_id]
+    else:
+        return None
 
 
 @app.route('/login.do', methods=['POST'])
@@ -66,22 +69,29 @@ def login():
         user_name = request.get_data(as_text=True)
         # If the user is valid and not already logged in
         if user_name in valid_users and user_name not in current_users.keys():
+
             # Create user and add to list
             user = User(user_name)
             current_users[user_name] = user
+
             # Login the user
-            login_user(user)
+            login_user(user, remember=True)
 
             # Get the relevant dialogue file and create a model for the user
             # If the user already has a file return that
             if os.path.isfile(user_data_path + user.get_id() + ".json"):
                 dialogue_file = user.get_id()
-                success = user.set_model(utils.create_model(user_data_path, dialogue_file, user.get_id(), user_data=True))
+                json_data = utils.load_json_data(user_data_path, dialogue_file)
+                model = utils.create_model(dialogue_data_path, json_data, user.get_id(), user_data=True)
+                success = user.set_model(model)
+
             # Else determine which one of the originals to return
             else:
                 user_dataset = user.get_id().split('-')[1]
                 dialogue_file = "set_" + user_dataset
-                success = user.set_model(utils.create_model(dialogue_data_path, dialogue_file, user.get_id(), user_data=False))
+                json_data = utils.load_json_data(dialogue_data_path, dialogue_file)
+                model = utils.create_model(dialogue_data_path, json_data, user.get_id(), user_data=False)
+                success = user.set_model(model)
 
     return json.dumps({'success': success}), 200, {'ContentType': 'application/json'}
 
@@ -89,11 +99,14 @@ def login():
 @app.route('/logout.do')
 @login_required
 def logout():
+
     # Get the user to be logged out and remove from current users
     user_name = current_user.user_name
     del current_users[user_name]
+
     # Log them out
     success = logout_user()
+
     return json.dumps({'success': success, 'user_name': user_name}), 200, {'ContentType': 'application/json'}
 
 
@@ -136,29 +149,62 @@ def save_current_dialogue():
     model.set_dialogue(dialogue)
 
     # Save to the users JSON file
-    success = utils.save_model(user_data_path, model, user.get_id())
+    model_dict = utils.model_to_dict(model)
+
+    success = utils.save_json_data(user_data_path, current_user.get_id(), model_dict)
+
     return json.dumps({'success': success}), 200, {'ContentType': 'application/json'}
 
 
-@app.route('/get_prev_dialogue.do')
+@app.route('/get_prev_dialogue.do', methods=['POST'])
 def get_prev_dialogue():
     # Get the current users model
     user = current_users[current_user.get_id()]
     model = user.get_model()
 
+    # Parse the request JSON
+    dialogue_data = request.get_json()
+
+    # Convert dialogue JSON/Dict to dialogue object
+    dialogue = utils.dialogue_from_dict(dialogue_data)
+
+    # Update the model with the new dialogue
+    model.set_dialogue(dialogue)
+
     # Increment to models next dialogue
-    success = model.dec_current_dialogue()
+    model.dec_current_dialogue()
+
+    # Save to the users JSON file
+    model_dict = utils.model_to_dict(model)
+
+    success = utils.save_json_data(user_data_path, current_user.get_id(), model_dict)
+
     return json.dumps({'success': success}), 200, {'ContentType': 'application/json'}
 
 
-@app.route('/get_next_dialogue.do')
+@app.route('/get_next_dialogue.do', methods=['POST'])
 def get_next_dialogue():
     # Get the current users model
     user = current_users[current_user.get_id()]
     model = user.get_model()
 
+    # Parse the request JSON
+    dialogue_data = request.get_json()
+
+    # Convert dialogue JSON/Dict to dialogue object
+    dialogue = utils.dialogue_from_dict(dialogue_data)
+
+    # Update the model with the new dialogue
+    model.set_dialogue(dialogue)
+
     # Increment to models next dialogue
-    success = model.inc_current_dialogue()
+    model.inc_current_dialogue()
+
+    # Save to the users JSON file
+    model_dict = utils.model_to_dict(model)
+
+    success = utils.save_json_data(user_data_path, current_user.get_id(), model_dict)
+
     return json.dumps({'success': success}), 200, {'ContentType': 'application/json'}
 
 

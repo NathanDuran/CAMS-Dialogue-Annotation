@@ -29,9 +29,6 @@ var defaultDaLabel = "DA-Label";
 function prevBtnClick() {
     console.log("Prev button clicked...");
 
-    // Call save dialogue function
-    //saveDialogue(currentDialogue);
-
     // Check if we need to open the questionnaire because it is labelled but not is_complete
     if (checkDialogueLabels(currentDialogue) && !currentDialogue.is_complete) {
         openQuestionnaire();
@@ -58,9 +55,6 @@ function prevBtnClick() {
 
 function nextBtnClick() {
     console.log("Next button clicked...");
-
-    // Call save dialogue function
-    //saveDialogue(currentDialogue);
 
     // Check if we need to open the questionnaire because it is labelled but not is_complete
     if (checkDialogueLabels(currentDialogue) && !currentDialogue.is_complete) {

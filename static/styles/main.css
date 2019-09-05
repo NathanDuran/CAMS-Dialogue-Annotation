@@ -97,6 +97,14 @@ input[type=text] {
     margin: 5px auto;
 }
 
+#to-top-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+}
+
 button {
     display: block;
     margin: 2px 5px;

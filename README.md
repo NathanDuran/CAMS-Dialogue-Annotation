@@ -9,12 +9,12 @@ The server side implementation is written using Python 3.6 and [Flask](http://fl
 
 ## TODO
 
-- Add check for FPP and SPP by same speaker?
-- Add brief description and link to corpora in home screen
-- AP annotation instructions for home view or in schema
+- Add check for FPP and SPP by same speaker? / are in pairs?
+- Add message when all dialogues complete
 
 - Add study/paper link.
 - Add overview of study.
+- Add Corpora descriptions
 
 ## Data
 Users are presented with one of 5 sets of dialogue that contain a mixture of task-oriented and non-task oriented dialogues
@@ -71,7 +71,7 @@ The following is an example of the JSON format created for each users annotation
 ```
 
 ## User Instructions
-You will be given a set of five unlabelled dialogues that are a mixture of task-oriented and non-task-oriented conversations.
+You will be given a set of **five unlabelled dialogues** that are a mixture of task-oriented and non-task-oriented conversations.
 For each dialogue you will be asked to label each utterance with one AP and one DA label which combine into an AP-type label.
 Once a dialogue is fully labelled you will be asked to rate the different AP,
 DA and DA-type labels you have provided using a 7 point scale.

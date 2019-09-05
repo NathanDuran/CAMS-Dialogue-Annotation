@@ -35,6 +35,26 @@ window.onbeforeunload = function () {
     }
 };
 
+// Checks fro scrolling on the home and schema pages
+function scrollView() {
+
+    // If we are on home or schema page check for scrolling
+    if (currentView === 'home' || currentView === 'schema') {
+
+        // If so enable back to top button
+        if (document.getElementById("main-content-container").scrollTop > 20) {
+            document.getElementById("to-top-btn").style.display = "block";
+        } else {
+            document.getElementById("to-top-btn").style.display = "none";
+        }
+    }
+}
+
+// Scrolls main content div back to top (Home and Schema pages)
+function toTopBtnClick() {
+    document.getElementById("main-content-container").scrollTop = 0;
+}
+
 // Loads the specified content to the content container
 function loadContent(content) {
 
@@ -54,6 +74,9 @@ function loadContent(content) {
     // Load the specified content and update the current view
     $("#main-content-container").load("/" + content, function () {
         currentView = content;
+
+        // Disable 'back to top' button
+        document.getElementById("to-top-btn").style.display = "none";
 
         // If we are loading the annotate view then build it
         if (currentView === 'annotate' &&
@@ -230,7 +253,6 @@ function updateCurrentStats() {
     document.getElementById('num-dialogues-lbl_2').innerText = numDialogues;
 }
 
-
 // Gets the next unlabelled utterance index
 function getUnlabelledUttIndex(dialogue, index) {
 
@@ -320,13 +342,13 @@ function openTooltip(event) {
             // If it is the correct label get the tooltip text
             if (labelText === labelName) {
                 var tooltipText = "";
-                if(group[j]['alt_name']){
+                if (group[j]['alt_name']) {
                     tooltipText += group[j]['alt_name'] + "<br>";
                 }
-                if(group[j]['description']){
+                if (group[j]['description']) {
                     tooltipText += group[j]['description'] + "<br>";
                 }
-                if(group[j]['example']){
+                if (group[j]['example']) {
                     tooltipText += group[j]['example'] + "<br>";
                 }
                 //Replace line breaks with html <br>
