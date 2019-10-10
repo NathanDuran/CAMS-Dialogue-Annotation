@@ -95,7 +95,7 @@
                 {
                     "name": "setQuestion",
                     "alt_name": "Who/What/Where/How Question",
-                    "description": "",
+                    "description": "General question form. Often starts with ‘who, what, where, how’ words.",
                     "example": "\"How far is it to the station?\""
                 },
                 {
@@ -129,7 +129,7 @@
                 {
                     "name": "correction",
                     "alt_name": "",
-                    "description": "Informs addressee that their information is incorrect and the senders is correct.",
+                    "description": "Informs addressee that their information is incorrect, and the senders is correct.",
                     "example": "\"To Montreal, not to Ottawa.\""
                 }
             ]
@@ -140,13 +140,13 @@
                     "name": "agreement",
                     "alt_name": "",
                     "description": "Sender informs addressee that a given proposition is true.",
-                    "example": "\"Exactly\""
+                    "example": "\"Exactly.\""
                 },
                 {
                     "name": "disagreement",
                     "alt_name": "",
                     "description": "Sender informs addressee that a given proposition is false.",
-                    "example": "S: \"Do you know where to find the ink cartridge?\"\nA: \"Oh I think to the left of the paper.\"\nS: \"Uh... no.\"\n"
+                    "example": "S: \"Oh I think I left it in the kitchen.\"\nS: \"Uh... no.\""
                 },
                 {
                     "name": "confirm",
@@ -171,78 +171,39 @@
                     "example": "\"Let me look that up for you.\""
                 },
                 {
-                    "name": "addressOffer",
-                    "alt_name": "Consider Offer, Conditionally Accept Offer",
-                    "description": "Sender is considering that the possibility that the addressee performs the action, possibly with certain conditions that they make explicit.",
-                    "example": "\"That would be good!\""
-                },
-                {
-                    "name": "acceptOffer",
-                    "alt_name": "",
-                    "description": "Sender informs addressee that they would like them to perform an offered action.",
-                    "example": "\"Yes please.\""
-                },
-                {
-                    "name": "declineOffer",
-                    "alt_name": "",
-                    "description": "Sender informs addressee that they would not like them to perform an offered action.",
-                    "example": "\"No thank you.\""
-                }
-            ]
-        },
-        {
-            "group": [
-                {
                     "name": "request",
                     "alt_name": "",
                     "description": "Sender asks addressee to commit to performing a certain action.",
                     "example": "\"Please turn to page five.\""
                 },
                 {
-                    "name": "addressRequest",
-                    "alt_name": "Consider Request, Conditionally Accept Request",
-                    "description": "Sender indicates that they will consider the performance of an action that they were requested to perform, possibly depending on certain conditions that they make explicit.",
-                    "example": "A: \"Please give me the gun.\"\nS: \"If you push the bag to me.\""
-                },
-                {
-                    "name": "acceptRequest",
+                    "name": "suggest",
                     "alt_name": "",
-                    "description": "Sender commits them self to perform an action that they have been requested to perform",
-                    "example": "\"Sure\""
-                },
-                {
-                    "name": "declineRequest",
-                    "alt_name": "",
-                    "description": "Sender indicates that they refuse to perform an action that they have been requested to perform.",
-                    "example": "\"Not now.\""
+                    "description": "Sender asks addressee to consider performance of an action they believe is in the addressee's interest and is able to perform.",
+                    "example": "\"Let's wait for the speaker to finish.\""
                 }
             ]
         },
         {
             "group": [
+
                 {
-                    "name": "suggest",
-                    "alt_name": "",
-                    "description": "Sender asks addressee to consider performance of an action they believe is in the addressee's interest and is able to perform.",
-                    "example": "\"Let's wait for the speaker to finish.\""
+                    "name": "conditionalAccept",
+                    "alt_name": "Consider/Address a Request/Suggestion/Offer",
+                    "description": "Sender will consider the performance of a requested or suggested action, or a previous offer from the addressee, but with an added condition that must be met.",
+                    "example": "A: \"Please give me the gun.\"\nS: \"If you push the bag to me.\""
                 },
                 {
-                    "name": "addressSuggest",
-                    "alt_name": "Consider Suggestion, Conditionally Accept Suggestion",
-                    "description": "Sender indicates that they will consider the performance of an action that was suggested to them, possibly depending on certain conditions that they make explicit.",
-                    "example": "A: \"Let's go there together.\"\nS: \"Only if we're in full agreement about the way to proceed when we get there.\""
+                    "name": "accept",
+                    "alt_name": "Accept Request/Suggestion/Offer",
+                    "description": "Sender agrees to perform a requested or suggested action or accepts a previous offer from the addressee.",
+                    "example": "A: \"Would you like help with that?\"\nS: \"Sure.\""
                 },
                 {
-                    "name": "acceptSuggest",
-                    "alt_name": "",
-                    "description": "Sender commits them self to perform an action that was suggested to them.",
-                    "example": "\"Lets do that.\""
-                },
-                {
-                    "name": "declineSuggest",
-                    "alt_name": "",
-                    "description": "Sender indicates that they will not perform an action that was suggested.",
-                    "example": "\"I don't think so.\""
+                    "name": "decline",
+                    "alt_name": "Decline Request/Suggestion/Offer",
+                    "description": "Sender refuses to perform a requested or suggested action or declines a previous offer from the addressee.",
+                    "example": "A: \"Would you like help with that?\"\nS: \"No thank you.\""
                 }
             ]
         },
@@ -264,7 +225,7 @@
                     "name": "stalling",
                     "alt_name": "Pausing",
                     "description": "Sender creates a little extra time to construct their contribution or to suspend the dialogue for a short while.",
-                    "example": "\"Let me see...\"; \"Ehm...\""
+                    "example": "\"Let me see...\"; \"Ehm...\"; \"Umm..\""
                 },
                 {
                     "name": "retraction",
@@ -277,28 +238,16 @@
         {
             "group": [
                 {
-                    "name": "initialGreeting",
+                    "name": "greeting",
                     "alt_name": "",
-                    "description": "Sender informs the addressee that they are present.",
+                    "description": "Sender informs the addressee that they are present or acknowledges the others presence.",
                     "example": "\"Hello!\";\"Good Morning\""
                 },
                 {
-                    "name": "returnGreeting",
-                    "alt_name": "",
-                    "description": "Sender acknowledges they are aware of addressee and the addressee has signalled their presence.",
-                    "example": "\"Hello!\";\"Good Morning\""
-                },
-                {
-                    "name": "initialGoodbye",
+                    "name": "goodbye",
                     "alt_name": "",
                     "description": "Sender informs the addressee that they intend the current utterance to be their final contribution to the dialogue.",
                     "example": "\"Bye bye, see you later.\""
-                },
-                {
-                    "name": "returnGoodbye",
-                    "alt_name": "",
-                    "description": "Sender acknowledges their awareness that the addressee has signalled their final contribution to the dialogue and signals their agreement.",
-                    "example": "\"Bye bye, see you.\""
                 }
             ]
         },

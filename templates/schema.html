@@ -54,13 +54,14 @@
 
     <h5>&emsp;<a href="#information-seeking-functions">Information-seeking Functions</a></h5>
 
-    <p>&emsp; <a href="#propositional-question-yes-no">propoitionalQuestion (Yes/No)</a></p>
+    <p>&emsp; <a href="#propositional-question-yes-no">propositionalQuestion (Yes/No)</a></p>
 
     <p>&emsp; <a href="#set-question-who-what-where-how">setQuestion (Who/What/Where/How)</a></p>
 
     <p>&emsp; <a href="#choice-question">choiceQuestion</a></p>
 
     <p>&emsp; <a href="#check-question">checkQuestion</a></p>
+
 
     <h5>&emsp;<a href="#information-providing-functions">Information-providing Functions</a></h5>
 
@@ -78,21 +79,17 @@
 
     <p>&emsp; <a href="#disconfirm">disconfirm</a></p>
 
+
     <h5>&emsp;<a href="#commissive-functions">Commissive Functions</a></h5>
 
     <p>&emsp; <a href="#offer">offer</a></p>
 
-    <p>&emsp; <a href="#address-request-consider-conditionally-accept">addressRequest (Consider/Conditionally Accept)</a></p>
+    <p>&emsp; <a href="#conditional-accept-consider-address">conditionalAccept (Consider/Address a Request/Suggestion/Offer)</a></p>
 
-    <p>&emsp; <a href="#accept-request">acceptRequest</a></p>
+    <p>&emsp; <a href="#accept">accept (Request/Suggestion/Offer)</a></p>
 
-    <p>&emsp; <a href="#decline-request">declineRequest</a></p>
+    <p>&emsp; <a href="#decline">decline (Request/Suggestion/Offer)</a></p>
 
-    <p>&emsp; <a href="#address-suggest-consider-conditionally-accept">addressSuggest (Consider/Conditionally Accept)</a></p>
-
-    <p>&emsp; <a href="#accept-suggest">acceptSuggest</a></p>
-
-    <p>&emsp; <a href="#decline-suggest">declineSuggest</a></p>
 
     <h5>&emsp;<a href="#directive-functions">Directive Functions</a></h5>
 
@@ -100,11 +97,6 @@
 
     <p>&emsp; <a href="#suggest">suggest</a></p>
 
-    <p>&emsp; <a href="#address-offer-consider-conditionally-accept">addressOffer (Consider/Conditionally Accept)</a></p>
-
-    <p>&emsp; <a href="#accept-offer">acceptOffer</a></p>
-
-    <p>&emsp; <a href="#decline-offer">declineOffer</a></p>
 
     <h5>&emsp;<a href="#feedback-functions">Feedback Functions</a></h5>
 
@@ -112,23 +104,22 @@
 
     <p>&emsp; <a href="#auto-negative-negative-understanding-feedback">autoNegative (Negative Understanding/Feedback)</a></p>
 
+
     <h5>&emsp;<a href="#time-management-functions">Time Management Functions</a></h5>
 
     <p>&emsp; <a href="#stalling-pausing">stalling (Pausing)</a></p>
+
 
     <h5>&emsp;<a href="#own-and-partner-communication-management-functions">Own and Partner Communication Management Functions</a></h5>
 
     <p>&emsp; <a href="#retraction-abandon">retraction (Abandon)</a></p>
 
+
     <h5>&emsp;<a href="#social-obligations-management-functions">Social Obligations Management Functions</a></h5>
 
-    <p>&emsp; <a href="#initial-greeting">initialGreeting</a></p>
+    <p>&emsp; <a href="#greeting">greeting</a></p>
 
-    <p>&emsp; <a href="#return-greeting">returnGreeting</a></p>
-
-    <p>&emsp; <a href="#initial-goodbye">initialGoodbye</a></p>
-
-    <p>&emsp; <a href="#return-goodbye">returnGoodbye</a></p>
+    <p>&emsp; <a href="#goodbye">goodbye</a></p>
 
     <p>&emsp; <a href="#thanking">thanking</a></p>
 
@@ -158,7 +149,7 @@
         AP. These are closely related to the idea of minimal-expansions (Schegloff, 2007), in that they are not designed to
         project any further sequences of talk, but rather open, close or add to sequences respectively.</p>
 
-    <p>The set of 35 DA are derived from the Dialogue Act Mark-up Language (DiAML) as defined in ISO 24617 (British
+    <p>The set of 27 DA are derived from the Dialogue Act Mark-up Language (DiAML) as defined in ISO 24617 (British
         Standards Institution, 2012). DiAML was developed as an empirically and theoretically well founded, application
         independent, DA annotation scheme and is also intended to be used by both human annotators and automatic annotation
         methods.</p>
@@ -202,7 +193,7 @@
         formulate a response.</p>
 
     <pre><code>
-        A: Do you know the directions to the Zoo?          propQuestion
+        A: Do you know the directions to the Zoo?          propositionalQuestion
 
         B: Get on the subway.                              answer
     </code></pre>
@@ -216,7 +207,7 @@
         label for each utterance of a dialogue.</p>
 
     <pre><code>
-        A: Do you know the directions to the Zoo?          FPP-base - propQuestion
+        A: Do you know the directions to the Zoo?          FPP-base - propositionalQuestion
 
             B: You driving or walking?                         FPP-insert - choiceQuestion
 
@@ -292,7 +283,7 @@
         utterance of different types in succession or for a speaker to produce one utterance that does not belong to
         (initiate or conclude) an AP.</p>
 
-    <p><em>Minimal-expansions</em> have fewer restriction that pair-sequences to allow for flexibility when annotating.
+    <p><em>Minimal-expansions</em> have fewer restrictions than pair-sequences to allow for flexibility when annotating.
         However, they should abide by their semantic intent. For example, a <em>pre-minimal-expansion</em> should be
         relating to a future base-type sequence, a <em>post-minimal-expansion</em> to a previous base-type sequence and an
         <em>insert-minimal-expansion</em> within a sequence.</p>
@@ -316,10 +307,6 @@
 
         <li><p>SPP are likely to have associated DA labels that are within the <em>Information-providing</em> and <em>Commissive</em>
             Function categories.</p></li>
-
-        <li><p>DA within the <em>Social Obligations Management</em> Functions have initiating and responsive versions, i.e.
-            <em>initialGreeting</em> and <em>returnGreeting</em>, and these naturally lend themselves to FPP and SPP
-            respectively.</p></li>
     </ul>
 
     <!-- Label Definitions -->
@@ -596,15 +583,16 @@
 
     <p><strong>Example:</strong> “I will look that up for you.”</p>
 
-    <h4 id="address-request-consider-conditionally-accept">addressRequest (Consider/Conditionally Accept)</h4>
+    <h4 id="conditional-accept-consider-address">conditionalAccept (Consider/Address a Request/Suggestion/Offer)</h4>
 
-    <p>Communicative function of a dialogue act by which the sender, S, indicates that they will consider the performance of
-        an action that they were requested to perform, possibly depending on certain conditions that they make explicit.</p>
+    <p>Communicative function of a dialogue act by which the sender, S, indicates that they will consider the
+        performance of an action, depending on certain conditions that they make explicit. The action may be one that
+        they were requested to perform or was suggested that they perform. Or to indicate that they are considering
+        the possibility that the addressee, A, performs the action that A has previously offered to perform.</p>
 
-    <p>The addressRequest function covers a range of possible responses to a request. If the response does not express a
-        condition, then the sender commits to unconditionally perform the requested action; this is the special case of
-        acceptRequest. If the condition is specified that the action be performed zero times, then the sender in fact
-        declines to perform the requested action (as they commit to not perform the action).</p>
+    <p>The conditionalAccept function covers a range of possible responses to a request, suggestion or offer.
+        If the condition specified is met the sender commits to the action, or accepts the offer,
+        otherwise the sender in fact declines to perform the requested action or accept the offer.</p>
 
     <p><strong>Example:</strong></p>
 
@@ -612,44 +600,29 @@
 
     <p>S: “If you push the bag to me.”</p>
 
-    <h4 id="accept-request">acceptRequest</h4>
+    <h4 id="accept">accept (Request/Suggestion/Offer)</h4>
 
-    <p>Communicative function of a dialogue act by which the sender, S, commits them self to perform an action that they
-        have been requested to perform.</p>
-
-    <p><strong>Example:</strong> “Sure.”</p>
-
-    <h4 id="decline-request">declineRequest</h4>
-
-    <p>Communicative function of a dialogue act by which the sender, S, indicates that they refuse to perform an action that
-        they have been requested to perform.</p>
-
-    <p><strong>Example:</strong> “Not now.”</p>
-
-    <h4 id="address-suggest-consider-conditionally-accept">addressSuggest (Consider/Conditionally Accept)</h4>
-
-    <p>Communicative function of a dialogue act by which the sender, S, indicates that they will consider performing an
-        action that was suggested to them, possibly depending on certain conditions that they make explicit.</p>
+    <p>Communicative function of a dialogue act by which the sender, S, commits them self to perform an action that
+        they have been requested to perform or was suggested that they perform. Or to inform the addressee, A, that S
+        would like A to perform the action that A has previously offered to perform.</p>
 
     <p><strong>Example:</strong></p>
 
-    <p>A: “Let’s go there together.”</p>
+    <p>A: “Would you like help with that?”</p>
 
-    <p>S: “Only if we’re in full agreement about the way to proceed when we get there.”</p>
+    <p>S: “Sure.”</p>
 
-    <h4 id="accept-suggest">acceptSuggest</h4>
+    <h4 id="decline">decline (Request/Suggestion/Offer)</h4>
 
-    <p>Communicative function of a dialogue act by which the sender, S, commits them self to perform an action that was
-        suggested to them.</p>
+    <p>Communicative function of a dialogue act by which the sender, S, indicates that they refuse to perform an action
+        that they have been requested to perform or was suggested that they perform. Or to inform the addressee, A, that
+        S does not want A to perform the action that A has previously offered to perform.</p>
 
-    <p><strong>Example:</strong> “Let’s do that.”</p>
+    <p><strong>Example:</strong></p>
 
-    <h4 id="decline-suggest">declineSuggest</h4>
+    <p>A: “Would you like help with that?”</p>
 
-    <p>Communicative function of a dialogue act by which the sender, S, indicates that they will not perform an action that
-        was suggested.</p>
-
-    <p><strong>Example:</strong> “I don’t think so.”</p>
+    <p>S: “No thank you.”</p>
 
     <h2 id="directive-functions">Directive Functions</h2>
 
@@ -669,28 +642,6 @@
         and assumes that A is able to perform the action.</p>
 
     <p><strong>Example:</strong> “Let’s wait for the speaker to finish.”</p>
-
-    <h4 id="address-offer-consider-conditionally-accept">addressOffer (Consider/Conditionally Accept)</h4>
-
-    <p>Communicative function of a dialogue act performed by the sender, S, in order to indicate that they are considering
-        the possibility that A performs the action or accepts on condition, possibly with certain conditions that he makes
-        explicit.</p>
-
-    <p><strong>Example:</strong> “That would be good!”</p>
-
-    <h4 id="accept-offer">acceptOffer</h4>
-
-    <p>Communicative function of a dialogue act performed by the sender, S, in order to inform the addressee, A, that S
-        would like A to perform the action that A has offered to perform.</p>
-
-    <p><strong>Example:</strong> “Yes please.”</p>
-
-    <h4 id="decline-offer">declineOffer</h4>
-
-    <p>Communicative function of a dialogue act performed by the sender, S, in order to inform the addressee, A, that S does
-        not want A to perform the action that A has offered to perform.</p>
-
-    <p><strong>Example:</strong> “No thank you.”</p>
 
     <h2 id="feedback-functions">Feedback Functions</h2>
 
@@ -721,7 +672,7 @@
     <p>Pausing occurs either in preparation of continuing the dialogue, or because something else came up which is more
         urgent for the sender to attend to.</p>
 
-    <p><strong>Example:</strong> “Let me see...”; “Ehm...”; “Just a moment”</p>
+    <p><strong>Example:</strong> “Let me see...”; “Ehm...”; “Just a moment”; “Umm...”</p>
 
     <h2 id="own-and-partner-communication-management-functions">Own and Partner Communication Management Functions</h2>
 
@@ -734,39 +685,23 @@
 
     <h2 id="social-obligations-management-functions">Social Obligations Management Functions</h2>
 
-    <h4 id="initial-greeting">initialGreeting</h4>
+    <h4 id="greeting">greeting</h4>
 
-    <p>Communicative function of a dialogue act performed by the sender, S, in order to inform the addressee, A that S is
-        present and aware of A’s presence; S puts pressure on A to acknowledge this.</p>
+    <p>Communicative function of a dialogue act performed by the sender, S, in order to inform the addressee,
+        A that S is present and aware of A’s presence.</p>
 
-    <p>Greetings usually come in initiative-response pairs within a dialogue; this data category corresponds to the first
-        element of such a pair.</p>
+    <p>Greetings usually come in initiative-response pairs and are commonly used to open a dialogue.</p>
 
     <p><strong>Example:</strong> “Hello!”; “Good morning”</p>
 
-    <h4 id="return-greeting">returnGreeting</h4>
-
-    <p>Communicative function of a dialogue act performed by the sender, S, in order to acknowledge that S is aware of the
-        presence of the addressee, A, and of A having signalled their presence to S.</p>
-
-    <h4 id="initial-goodbye">initialGoodbye</h4>
+    <h4 id="goodbye">goodbye</h4>
 
     <p>Communicative function of a dialogue act performed by the sender, S, in order to inform the addressee, A, that S
-        intends the current utterance to be their final contribution to the dialogue; S puts pressure on A to acknowledge
-        this.</p>
+        intends the current utterance to be their final contribution to the dialogue.</p>
 
-    <p>Goodbyes usually come in initiative-response pairs within a dialogue; this data category corresponds to the second
-        element of such a pair. Initial and return goodbyes are commonly used to close a dialogue.</p>
+    <p>Goodbyes usually come in initiative-response pairs and are commonly used to close a dialogue.</p>
 
     <p><strong>Example:</strong> “Bye bye, see you later.”</p>
-
-    <h4 id="return-goodbye">returnGoodbye</h4>
-
-    <p>Communicative function of a dialogue act performed by the sender, S, in order to acknowledge their awareness that the
-        addressee, A, has signalled their final contribution to the dialogue and S signals in return their agreement to end
-        the dialogue.</p>
-
-    <p><strong>Example:</strong> “Bye bye, see you.”</p>
 
     <h4 id="thanking">thanking</h4>
 
@@ -800,20 +735,15 @@
 
     <h1 id="references">References</h1>
 
-    <p>British Standards Institution (2012) ‘ISO 24617-2: Language Resource Management
-        <em>-</em> Semantic Annotation Framework (SemAF) Part 2: Dialogue acts’. British
-        Standards Institution.</p>
+    <p>Boyer, K.E., Ha, E.Y., Phillips, R., Wallis, M.D., Vouk, M.A. and Lester, J. (2009) Inferring Tutorial Dialogue Structure with Hidden Markov Modeling. In: <em>Proceedings of the Fourth Workshop on Innovative Use of NLP for Building Educational Applications</em> - EdAppsNLP ’09 [online]. 2009 pp. 19–26. Available from: https://www.cs.rochester.edu/~tetreaul/bea4/Boyer-BEA4.pdfdoi:10.3115/1609843.1609846 [Accessed 18 November 2017].</p>
 
-    <p>Bunt, H. <em>et al.</em> (2012) ‘ISO 24617-2 : A Semantically-based Standard for
-        Dialogue Annotation’, in <em>Proceedings of LREC 2012</em>, pp. 430–437.</p>
+    <p>British Standards Institution (2012) ISO 24617-2: <em>Language Resource Management - Semantic Annotation Framework (SemAF) Part 2: Dialogue acts</em> [online]. Available from: https://bsol-bsigroup-com.</p>
 
-    <p>Liddicoat, A. J. (2007) <em>An Introduction to Conversation Analysis</em>. London:
-        Continuum.</p>
+    <p>Bunt, H., Alexandersson, J., Choe, J.-W., Fang, A.C., Hasida, K., Petukhova, V., Popescu-belis, A. and Traum, D. (2012) ISO 24617-2 : A Semantically-based Standard for Dialogue Annotation. In: <em>Proceedings of LREC 2012</em> [online]. 2012 pp. 430–437. Available from: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.381.2726&rep=rep1&type=pdf [Accessed 16 November 2017].</p>
 
-    <p>Schegloff, E. A. (2007) <em>Sequence Oranization in Interaction: A Primer in
-        Conversation Analysis I</em>. Cambridge: Cambridge University Press. doi:
-        10.1017/CBO9780511791208.</p>
+    <p>SLiddicoat, A.J. (2007) <em>An Introduction to Conversation Analysis.</em>  London: Continuum.</p>
 
-    <p>Sidnell, J. (2010) <em>Conversation Analysis - An Introduction</em>. Whiley-Blackwell.
-        doi: 10.1093/acrefore/9780199384655.013.40.</p>
+    <p>Schegloff, E.A. (2007) <em>Sequence Organization in Interaction: A Primer in Conversation Analysis I</em> [online]. Cambridge: Cambridge University Press. [Accessed 17 November 2017].</p>
+
+    <p>Sidnell, J. (2010) <em>Conversation Analysis - An Introduction</em> [online]. (no place) Whiley-Blackwell. [Accessed 8 January 2018].</p>
 </div>
