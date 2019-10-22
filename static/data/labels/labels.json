@@ -95,7 +95,7 @@
                 {
                     "name": "setQuestion",
                     "alt_name": "Who/What/Where/How Question",
-                    "description": "General question form. Often starts with ‘who, what, where, how’ words.",
+                    "description": "General question form. Often starts with 'who, what, where, how' words.",
                     "example": "\"How far is it to the station?\""
                 },
                 {
