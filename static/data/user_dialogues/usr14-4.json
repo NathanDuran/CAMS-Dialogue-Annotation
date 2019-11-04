@@ -1,0 +1,542 @@
+{
+    "num_unlabelled": 0,
+    "user_id": "usr14-4",
+    "dataset": "set_4",
+    "dialogues": [
+        {
+            "num_utterances": 6,
+            "is_labelled": true,
+            "dialogue_id": "practice",
+            "time": 59976,
+            "is_complete": true,
+            "questions": [
+                "3",
+                "4",
+                "3"
+            ],
+            "utterances": [
+                {
+                    "text": "is it going to snow this week",
+                    "speaker": "USR",
+                    "ap_label": "SPP-pre",
+                    "da_flag": false,
+                    "time": 145245,
+                    "da_label": "propQuestion",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "Where should I check for snow?",
+                    "speaker": "SYS",
+                    "ap_label": "FPP-base",
+                    "da_flag": false,
+                    "time": 17855,
+                    "da_label": "setQuestion",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "Corona",
+                    "speaker": "USR",
+                    "ap_label": "FPP-insert",
+                    "da_flag": false,
+                    "time": 20377,
+                    "da_label": "answer",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "There will be no snow in Corona this week.",
+                    "speaker": "SYS",
+                    "ap_label": "SPP-insert",
+                    "da_flag": false,
+                    "time": 21240,
+                    "da_label": "inform",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "Thank you car!",
+                    "speaker": "USR",
+                    "ap_label": "Post",
+                    "da_flag": false,
+                    "time": 20039,
+                    "da_label": "thanking",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "No problem my driver!",
+                    "speaker": "SYS",
+                    "ap_label": "Post",
+                    "da_flag": false,
+                    "time": 1736,
+                    "da_label": "acceptThanking",
+                    "ap_flag": false,
+                    "is_labelled": true
+                }
+            ]
+        },
+        {
+            "num_utterances": 5,
+            "is_labelled": true,
+            "dialogue_id": "task1_test_564",
+            "time": 119996,
+            "is_complete": true,
+            "questions": [
+                "3",
+                "4",
+                "4"
+            ],
+            "utterances": [
+                {
+                    "text": "good morning",
+                    "speaker": "USR",
+                    "ap_label": "Pre",
+                    "da_flag": false,
+                    "time": 17744,
+                    "da_label": "greeting",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "hello what can i help you with today",
+                    "speaker": "SYS",
+                    "ap_label": "SPP-base",
+                    "da_flag": false,
+                    "time": 43728,
+                    "da_label": "setQuestion",
+                    "ap_flag": true,
+                    "is_labelled": true
+                },
+                {
+                    "text": "i'd like to book a table in london in a moderate price range for six with french cuisine",
+                    "speaker": "USR",
+                    "ap_label": "SPP-base",
+                    "da_flag": false,
+                    "time": 34790,
+                    "da_label": "request",
+                    "ap_flag": true,
+                    "is_labelled": true
+                },
+                {
+                    "text": "i'm on it",
+                    "speaker": "SYS",
+                    "ap_label": "FPP-insert",
+                    "da_flag": false,
+                    "time": 46808,
+                    "da_label": "stalling",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "ok let me look into some options for you",
+                    "speaker": "SYS",
+                    "ap_label": "Insert",
+                    "da_flag": false,
+                    "time": 37728,
+                    "da_label": "stalling",
+                    "ap_flag": false,
+                    "is_labelled": true
+                }
+            ]
+        },
+        {
+            "num_utterances": 25,
+            "is_labelled": true,
+            "dialogue_id": "lynne-hunter",
+            "time": 392065,
+            "is_complete": true,
+            "questions": [
+                "2",
+                "4",
+                "3"
+            ],
+            "utterances": [
+                {
+                    "text": "wasn't that awful about the guy that went hunting and killed his son.",
+                    "speaker": "JEA",
+                    "ap_label": "FPP-insert",
+                    "da_flag": false,
+                    "time": 169173,
+                    "da_label": "setQuestion",
+                    "ap_flag": true,
+                    "is_labelled": true
+                },
+                {
+                    "text": "oh, hooh.",
+                    "speaker": "ANN",
+                    "ap_label": "SPP-insert",
+                    "da_flag": false,
+                    "time": 47303,
+                    "da_label": "feedbackPos",
+                    "ap_flag": true,
+                    "is_labelled": true
+                },
+                {
+                    "text": "and then he killed himself.",
+                    "speaker": "JEA",
+                    "ap_label": "SPP-base",
+                    "da_flag": false,
+                    "time": 15689,
+                    "da_label": "inform",
+                    "ap_flag": true,
+                    "is_labelled": true
+                },
+                {
+                    "text": "he didn't he shot him by mistake.",
+                    "speaker": "JEA",
+                    "ap_label": "FPP-insert",
+                    "da_flag": false,
+                    "time": 20920,
+                    "da_label": "inform",
+                    "ap_flag": true,
+                    "is_labelled": true
+                },
+                {
+                    "text": "he thought he was a deer, coming, y'know, coming in the woods.",
+                    "speaker": "JEA",
+                    "ap_label": "SPP-pre",
+                    "da_flag": false,
+                    "time": 27159,
+                    "da_label": "answer",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "shot the kid.",
+                    "speaker": "JEA",
+                    "ap_label": "FPP-insert",
+                    "da_flag": false,
+                    "time": 15681,
+                    "da_label": "setQuestion",
+                    "ap_flag": true,
+                    "is_labelled": true
+                },
+                {
+                    "text": "when he went to check, because he thought he shot a deer, he found he shot his son.",
+                    "speaker": "JEA",
+                    "ap_label": "FPP-post",
+                    "da_flag": false,
+                    "time": 18903,
+                    "da_label": "inform",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "dead.",
+                    "speaker": "JEA",
+                    "ap_label": "SPP-insert",
+                    "da_flag": false,
+                    "time": 10015,
+                    "da_label": "feedbackPos",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "oh my god.",
+                    "speaker": "HEL",
+                    "ap_label": "Insert",
+                    "da_flag": false,
+                    "time": 79481,
+                    "da_label": "answer",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "and he turned the gun on himself.",
+                    "speaker": "JEA",
+                    "ap_label": "SPP-insert",
+                    "da_flag": false,
+                    "time": 25735,
+                    "da_label": "inform",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "oh, how tragic.",
+                    "speaker": "HEL",
+                    "ap_label": "Insert",
+                    "da_flag": false,
+                    "time": 11264,
+                    "da_label": "setQuestion",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "and he killed himself.",
+                    "speaker": "JEA",
+                    "ap_label": "SPP-pre",
+                    "da_flag": false,
+                    "time": 7784,
+                    "da_label": "inform",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "because he probably couldn't, he probably knew he couldn't face his wife, and whatever, y'know.",
+                    "speaker": "JEA",
+                    "ap_label": "SPP-pre",
+                    "da_flag": false,
+                    "time": 12617,
+                    "da_label": "inform",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "first time he took his son, too.",
+                    "speaker": "ANN",
+                    "ap_label": "SPP-insert",
+                    "da_flag": false,
+                    "time": 17247,
+                    "da_label": "inform",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "yeah, that's why today's paper said make orange legal.",
+                    "speaker": "JEA",
+                    "ap_label": "SPP-insert",
+                    "da_flag": false,
+                    "time": 12441,
+                    "da_label": "inform",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "yeah, you have to.",
+                    "speaker": "ANN",
+                    "ap_label": "SPP-post",
+                    "da_flag": false,
+                    "time": 17280,
+                    "da_label": "conditionalAccept",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "make them wear the orange.",
+                    "speaker": "JEA",
+                    "ap_label": "SPP-insert",
+                    "da_flag": false,
+                    "time": 25960,
+                    "da_label": "retraction",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "That red and black check, you can't see that, when it blends in with everything.",
+                    "speaker": "JEA",
+                    "ap_label": "FPP-base",
+                    "da_flag": false,
+                    "time": 21888,
+                    "da_label": "correction",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "and you know I think it's just like a reaction.",
+                    "speaker": "JEA",
+                    "ap_label": "Insert",
+                    "da_flag": false,
+                    "time": 16663,
+                    "da_label": "disagreement",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "if they hear or see something through the corner of their eye, moving, and they just shoot, without waiting to see what it is.",
+                    "speaker": "JEA",
+                    "ap_label": "Insert",
+                    "da_flag": false,
+                    "time": 25000,
+                    "da_label": "inform",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "that was sad.",
+                    "speaker": "JEA",
+                    "ap_label": "SPP-base",
+                    "da_flag": false,
+                    "time": 13624,
+                    "da_label": "agreement",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "I don't know how old the kid was.",
+                    "speaker": "JEA",
+                    "ap_label": "Insert",
+                    "da_flag": false,
+                    "time": 65135,
+                    "da_label": "inform",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "eighteen.",
+                    "speaker": "ANN",
+                    "ap_label": "FPP-insert",
+                    "da_flag": false,
+                    "time": 8833,
+                    "da_label": "answer",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "eighteen.",
+                    "speaker": "JEA",
+                    "ap_label": "Insert",
+                    "da_flag": false,
+                    "time": 3184,
+                    "da_label": "answer",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "eighteen.",
+                    "speaker": "HEL",
+                    "ap_label": "Insert",
+                    "da_flag": false,
+                    "time": 4695,
+                    "da_label": "answer",
+                    "ap_flag": false,
+                    "is_labelled": true
+                }
+            ]
+        },
+        {
+            "num_utterances": 4,
+            "is_labelled": true,
+            "dialogue_id": "KE2RE00Y",
+            "time": 142986,
+            "is_complete": true,
+            "questions": [
+                "4",
+                "5",
+                "4"
+            ],
+            "utterances": [
+                {
+                    "text": "That's filled you up has it.",
+                    "speaker": "PS0W4",
+                    "ap_label": "Pre",
+                    "da_flag": false,
+                    "time": 48820,
+                    "da_label": "checkQuestion",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "That's very nice yes yes.",
+                    "speaker": "PS0W2",
+                    "ap_label": "FPP-insert",
+                    "da_flag": false,
+                    "time": 22711,
+                    "da_label": "answer",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "Do you want a bit of ice cream or.",
+                    "speaker": "PS0W4",
+                    "ap_label": "FPP-insert",
+                    "da_flag": false,
+                    "time": 30288,
+                    "da_label": "propQuestion",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "Yeah have ice cream have that lovely one we had the other day.",
+                    "speaker": "PS0W2",
+                    "ap_label": "FPP-post",
+                    "da_flag": false,
+                    "time": 41168,
+                    "da_label": "suggest",
+                    "ap_flag": false,
+                    "is_labelled": true
+                }
+            ]
+        },
+        {
+            "num_utterances": 6,
+            "is_labelled": true,
+            "dialogue_id": "test_129",
+            "time": 100309,
+            "is_complete": true,
+            "questions": [
+                "3",
+                "4",
+                "3"
+            ],
+            "utterances": [
+                {
+                    "text": "Where can I find a parking garage?",
+                    "speaker": "USR",
+                    "ap_label": "FPP-base",
+                    "da_flag": false,
+                    "time": 10925,
+                    "da_label": "setQuestion",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "Palo Alto Garage R\tis at 481 Amaranta Ave.",
+                    "speaker": "SYS",
+                    "ap_label": "SPP-insert",
+                    "da_flag": false,
+                    "time": 11960,
+                    "da_label": "answer",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "Is that the quickest route?",
+                    "speaker": "USR",
+                    "ap_label": "SPP-pre",
+                    "da_flag": false,
+                    "time": 23320,
+                    "da_label": "propQuestion",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "I will send on your screen the quickest route, sure, there is heavy traffic now and we will have to make the route slightly longer",
+                    "speaker": "SYS",
+                    "ap_label": "Insert",
+                    "da_flag": false,
+                    "time": 100568,
+                    "da_label": "agreement",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "Ok thanks for the notification.",
+                    "speaker": "USR",
+                    "ap_label": "Post",
+                    "da_flag": false,
+                    "time": 19878,
+                    "da_label": "thanking",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "You're welcome, we should arrive shortly.",
+                    "speaker": "SYS",
+                    "ap_label": "Post",
+                    "da_flag": false,
+                    "time": 13913,
+                    "da_label": "acceptThanking",
+                    "ap_flag": false,
+                    "is_labelled": true
+                }
+            ]
+        }
+    ],
+    "num_labelled": 5,
+    "num_complete": 5,
+    "num_incomplete": 0,
+    "num_dialogues": 5,
+    "current_dialogue_index": 4
+}

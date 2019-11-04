@@ -1,0 +1,542 @@
+{
+    "num_unlabelled": 0,
+    "user_id": "usr15-5",
+    "dataset": "set_5",
+    "dialogues": [
+        {
+            "num_utterances": 6,
+            "is_labelled": true,
+            "dialogue_id": "practice",
+            "time": 520367,
+            "is_complete": true,
+            "questions": [
+                "6",
+                "5",
+                "5"
+            ],
+            "utterances": [
+                {
+                    "text": "is it going to snow this week",
+                    "speaker": "USR",
+                    "ap_label": "FPP-base",
+                    "da_flag": false,
+                    "time": 259990,
+                    "da_label": "propQuestion",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "Where should I check for snow?",
+                    "speaker": "SYS",
+                    "ap_label": "FPP-insert",
+                    "da_flag": false,
+                    "time": 19712,
+                    "da_label": "setQuestion",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "Corona",
+                    "speaker": "USR",
+                    "ap_label": "SPP-insert",
+                    "da_flag": false,
+                    "time": 32102,
+                    "da_label": "answer",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "There will be no snow in Corona this week.",
+                    "speaker": "SYS",
+                    "ap_label": "SPP-base",
+                    "da_flag": false,
+                    "time": 131618,
+                    "da_label": "answer",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "Thank you car!",
+                    "speaker": "USR",
+                    "ap_label": "Post",
+                    "da_flag": false,
+                    "time": 18287,
+                    "da_label": "thanking",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "No problem my driver!",
+                    "speaker": "SYS",
+                    "ap_label": "Post",
+                    "da_flag": false,
+                    "time": 18857,
+                    "da_label": "acceptThanking",
+                    "ap_flag": false,
+                    "is_labelled": true
+                }
+            ]
+        },
+        {
+            "num_utterances": 26,
+            "is_labelled": true,
+            "dialogue_id": "lynne-tipsy",
+            "time": 958834,
+            "is_complete": true,
+            "questions": [
+                "3",
+                "2",
+                "2"
+            ],
+            "utterances": [
+                {
+                    "text": "and I always thought that her and vance just were great together.",
+                    "speaker": "ANN",
+                    "ap_label": "FPP-base",
+                    "da_flag": false,
+                    "time": 79104,
+                    "da_label": "inform",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "yeah.",
+                    "speaker": "JEA",
+                    "ap_label": "SPP-base",
+                    "da_flag": false,
+                    "time": 12975,
+                    "da_label": "feedbackPos",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "used to get.",
+                    "speaker": "JEA",
+                    "ap_label": "SPP-post",
+                    "da_flag": false,
+                    "time": 69409,
+                    "da_label": "stalling",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "They were both good.",
+                    "speaker": "HEL",
+                    "ap_label": "Post",
+                    "da_flag": false,
+                    "time": 52764,
+                    "da_label": "agreement",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "yeah.",
+                    "speaker": "ANN",
+                    "ap_label": "Post",
+                    "da_flag": false,
+                    "time": 30686,
+                    "da_label": "feedbackPos",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "they were really good.",
+                    "speaker": "ANN",
+                    "ap_label": "Post",
+                    "da_flag": false,
+                    "time": 22560,
+                    "da_label": "feedbackPos",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "you could go over there around the holidays and get smashed before you left the place.",
+                    "speaker": "JEA",
+                    "ap_label": "FPP-base",
+                    "da_flag": false,
+                    "time": 33824,
+                    "da_label": "suggest",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "Oh yeah.",
+                    "speaker": "HEL",
+                    "ap_label": "SPP-base",
+                    "da_flag": false,
+                    "time": 14639,
+                    "da_label": "feedbackPos",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "we used to have the last appointment, right?",
+                    "speaker": "JEA",
+                    "ap_label": "FPP-insert",
+                    "da_flag": false,
+                    "time": 37399,
+                    "da_label": "checkQuestion",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "remember, the two of us would go?",
+                    "speaker": "JEA",
+                    "ap_label": "FPP-insert",
+                    "da_flag": false,
+                    "time": 59794,
+                    "da_label": "checkQuestion",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "yeah, yeah.",
+                    "speaker": "ANN",
+                    "ap_label": "Post",
+                    "da_flag": false,
+                    "time": 38820,
+                    "da_label": "feedbackPos",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "want some wine girls?",
+                    "speaker": "JEA",
+                    "ap_label": "FPP-base",
+                    "da_flag": false,
+                    "time": 31359,
+                    "da_label": "propQuestion",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "sure we'll have a glass of wine.",
+                    "speaker": "JEA",
+                    "ap_label": "SPP-base",
+                    "da_flag": false,
+                    "time": 32023,
+                    "da_label": "answer",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "you walk out of there you're half tipsy.",
+                    "speaker": "JEA",
+                    "ap_label": "Post",
+                    "da_flag": false,
+                    "time": 195567,
+                    "da_label": "inform",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "you were under the dryers.",
+                    "speaker": "ANN",
+                    "ap_label": "SPP-insert",
+                    "da_flag": false,
+                    "time": 30119,
+                    "da_label": "inform",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "well sure.",
+                    "speaker": "JEA",
+                    "ap_label": "Post",
+                    "da_flag": false,
+                    "time": 7471,
+                    "da_label": "accept",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "and he'd be pouring the wine and we were tipsy by the time we walked out of that place.",
+                    "speaker": "JEA",
+                    "ap_label": "FPP-base",
+                    "da_flag": false,
+                    "time": 27568,
+                    "da_label": "inform",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "then he moved all the way out at rand road.",
+                    "speaker": "ANN",
+                    "ap_label": "SPP-base",
+                    "da_flag": false,
+                    "time": 13744,
+                    "da_label": "confirm",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "near the town show, remember?",
+                    "speaker": "JEA",
+                    "ap_label": "FPP-insert",
+                    "da_flag": false,
+                    "time": 19552,
+                    "da_label": "checkQuestion",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "yeah.",
+                    "speaker": "ANN",
+                    "ap_label": "SPP-base",
+                    "da_flag": false,
+                    "time": 8711,
+                    "da_label": "feedbackPos",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "we went there.",
+                    "speaker": "JEA",
+                    "ap_label": "SPP-base",
+                    "da_flag": false,
+                    "time": 14136,
+                    "da_label": "inform",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "we used to go there.",
+                    "speaker": "ANN",
+                    "ap_label": "SPP-base",
+                    "da_flag": false,
+                    "time": 12319,
+                    "da_label": "confirm",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "and then we went on to union road, when he was there.",
+                    "speaker": "ANN",
+                    "ap_label": "SPP-insert",
+                    "da_flag": false,
+                    "time": 23929,
+                    "da_label": "inform",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "yeah.",
+                    "speaker": "JEA",
+                    "ap_label": "Post",
+                    "da_flag": false,
+                    "time": 6918,
+                    "da_label": "feedbackPos",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "yeah.",
+                    "speaker": "JEA",
+                    "ap_label": "Post",
+                    "da_flag": false,
+                    "time": 7512,
+                    "da_label": "feedbackPos",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "we followed him around.",
+                    "speaker": "JEA",
+                    "ap_label": "Post",
+                    "da_flag": false,
+                    "time": 14777,
+                    "da_label": "confirm",
+                    "ap_flag": false,
+                    "is_labelled": true
+                }
+            ]
+        },
+        {
+            "num_utterances": 4,
+            "is_labelled": true,
+            "dialogue_id": "test_102",
+            "time": 169647,
+            "is_complete": true,
+            "questions": [
+                "6",
+                "6",
+                "6"
+            ],
+            "utterances": [
+                {
+                    "text": "Can you find out for me the date and parties attending my dinner?",
+                    "speaker": "USR",
+                    "ap_label": "FPP-base",
+                    "da_flag": false,
+                    "time": 79881,
+                    "da_label": "propQuestion",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "Your dinner is on Tuesday with your sister.",
+                    "speaker": "SYS",
+                    "ap_label": "SPP-pre",
+                    "da_flag": false,
+                    "time": 69199,
+                    "da_label": "inform",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "Thanks.",
+                    "speaker": "USR",
+                    "ap_label": "Post",
+                    "da_flag": false,
+                    "time": 7655,
+                    "da_label": "thanking",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "you're welcome",
+                    "speaker": "SYS",
+                    "ap_label": "SPP-post",
+                    "da_flag": false,
+                    "time": 12384,
+                    "da_label": "acceptThanking",
+                    "ap_flag": false,
+                    "is_labelled": true
+                }
+            ]
+        },
+        {
+            "num_utterances": 5,
+            "is_labelled": true,
+            "dialogue_id": "KBERE00G",
+            "time": 232317,
+            "is_complete": true,
+            "questions": [
+                "3",
+                "3",
+                "3"
+            ],
+            "utterances": [
+                {
+                    "text": "Can you turn that radio off I want to listen to the phone in.",
+                    "speaker": "PS04B",
+                    "ap_label": "FPP-base",
+                    "da_flag": false,
+                    "time": 41652,
+                    "da_label": "propQuestion",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "I got the whatsname on.",
+                    "speaker": "PS04J",
+                    "ap_label": "SPP-insert",
+                    "da_flag": false,
+                    "time": 39488,
+                    "da_label": "disagreement",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "What What.",
+                    "speaker": "PS04B",
+                    "ap_label": "FPP-post",
+                    "da_flag": false,
+                    "time": 25864,
+                    "da_label": "feedbackNeg",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "The whatsname Don't ask me I du n no what it's called.",
+                    "speaker": "PS04J",
+                    "ap_label": "Insert",
+                    "da_flag": false,
+                    "time": 33783,
+                    "da_label": "decline",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "What do you want that on for I'm trying to listen to the radio I want to listen to the phone in.",
+                    "speaker": "PS04B",
+                    "ap_label": "FPP-insert",
+                    "da_flag": false,
+                    "time": 90050,
+                    "da_label": "disagreement",
+                    "ap_flag": false,
+                    "is_labelled": true
+                }
+            ]
+        },
+        {
+            "num_utterances": 5,
+            "is_labelled": true,
+            "dialogue_id": "task1_test_894",
+            "time": 107875,
+            "is_complete": true,
+            "questions": [
+                "4",
+                "4",
+                "4"
+            ],
+            "utterances": [
+                {
+                    "text": "good morning",
+                    "speaker": "USR",
+                    "ap_label": "FPP-pre",
+                    "da_flag": false,
+                    "time": 27829,
+                    "da_label": "greeting",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "hello what can i help you with today",
+                    "speaker": "SYS",
+                    "ap_label": "FPP-base",
+                    "da_flag": false,
+                    "time": 14415,
+                    "da_label": "checkQuestion",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "may i have a table in a cheap price range in london with spanish food for two",
+                    "speaker": "USR",
+                    "ap_label": "SPP-base",
+                    "da_flag": false,
+                    "time": 30896,
+                    "da_label": "propQuestion",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "i'm on it",
+                    "speaker": "SYS",
+                    "ap_label": "SPP-post",
+                    "da_flag": false,
+                    "time": 16432,
+                    "da_label": "offer",
+                    "ap_flag": false,
+                    "is_labelled": true
+                },
+                {
+                    "text": "ok let me look into some options for you",
+                    "speaker": "SYS",
+                    "ap_label": "Post",
+                    "da_flag": false,
+                    "time": 17574,
+                    "da_label": "accept",
+                    "ap_flag": false,
+                    "is_labelled": true
+                }
+            ]
+        }
+    ],
+    "num_labelled": 5,
+    "num_complete": 5,
+    "num_incomplete": 0,
+    "num_dialogues": 5,
+    "current_dialogue_index": 4
+}
