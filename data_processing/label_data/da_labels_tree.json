@@ -1,0 +1,185 @@
+{
+  "name": "root",
+  "children": [
+    {
+      "name": "Information Transfer",
+      "children": [
+        {
+          "name": "Information Seeking",
+          "children": [
+            {
+              "name": "propQuestion",
+              "children": [
+                {
+                  "name": "checkQuestion"
+                }
+              ]
+            },
+            {
+              "name": "setQuestion"
+            },
+            {
+              "name": "choiceQuestion"
+            }
+          ]
+        },
+        {
+          "name": "Information Providing",
+          "children": [
+            {
+              "name": "answer"
+            },
+            {
+              "name": "inform"
+            },
+            {
+              "name": "correction"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Responsive",
+      "children": [
+        {
+          "name": "Positive",
+          "children": [
+            {
+              "name": "accept",
+              "children": [
+                {
+                  "name": "conditionalAccept"
+                }
+              ]
+            },
+            {
+              "name": "agreement"
+            },
+            {
+              "name": "confirm"
+            },
+            {
+              "name": "Feedback Positive",
+              "children": [
+                {
+                  "name": "feedbackPos"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Negative",
+          "children": [
+            {
+              "name": "decline"
+            },
+            {
+              "name": "disagreement"
+            },
+            {
+              "name": "disconfirm"
+            },
+            {
+              "name": "Feedback Negative",
+              "children": [
+                {
+                  "name": "feedbackNeg"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Action Discussion",
+      "children": [
+        {
+          "name": "Directive",
+          "children": [
+            {
+              "name": "suggest"
+            },
+            {
+              "name": "request"
+            }
+          ]
+        },
+        {
+          "name": "Commisive",
+          "children": [
+            {
+              "name": "offer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Management",
+      "children": [
+        {
+          "name": "Social",
+          "children": [
+            {
+              "name": "Salutation",
+              "children": [
+                {
+                  "name": "greeting"
+                }
+              ]
+            },
+            {
+              "name": "Valediction",
+              "children": [
+                {
+                  "name": "goodbye"
+                }
+              ]
+            },
+            {
+              "name": "Thanks",
+              "children": [
+                {
+                  "name": "thanking"
+                },
+                {
+                  "name": "acceptThanking"
+                }
+              ]
+            },
+            {
+              "name": "Apology",
+              "children": [
+                {
+                  "name": "apology"
+                },
+                {
+                  "name": "acceptApology"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Time",
+          "children": [
+            {
+              "name": "stalling"
+            }
+          ]
+        },
+        {
+          "name": "Communication",
+          "children": [
+            {
+              "name": "retraction"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

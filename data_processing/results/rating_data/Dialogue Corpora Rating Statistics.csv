@@ -1,0 +1,9 @@
+,DA,DA,DA,DA,DA,DA,DA,DA,DA,AP,AP,AP,AP,AP,AP,AP,AP,AP,AP type,AP type,AP type,AP type,AP type,AP type,AP type,AP type,AP type,All,All,All,All,All,All,All,All,All
+,group1,group2,meandiff,p-value,lower,upper,reject,eta_sq,omega_sq,group1,group2,meandiff,p-value,lower,upper,reject,eta_sq,omega_sq,group1,group2,meandiff,p-value,lower,upper,reject,eta_sq,omega_sq,group1,group2,meandiff,p-value,lower,upper,reject,eta_sq,omega_sq
+0,babl,cabnc,-0.4,0.6855,-1.3874,0.5874,False,,,babl,cabnc,-0.1333,0.9,-1.1308,0.8642,False,,,babl,cabnc,-0.7333,0.1261,-1.602,0.1354,False,,,babl,cabnc,-0.4222,0.1736,-0.9561,0.1117,False,,
+1,babl,kvret,0.5333,0.4867,-0.4541,1.5207,False,,,babl,kvret,1.1333,0.0199,0.1358,2.1308,True,,,babl,kvret,0.3333,0.7169,-0.5354,1.202,False,,,babl,kvret,0.6667,0.0078,0.1328,1.2006,True,,
+2,babl,scose,-0.5333,0.4867,-1.5207,0.4541,False,,,babl,scose,-0.2,0.9,-1.1975,0.7975,False,,,babl,scose,-0.8667,0.0507,-1.7354,0.002,False,,,babl,scose,-0.5333,0.0504,-1.0672,0.0006,False,,
+3,cabnc,kvret,0.9333,0.0705,-0.0541,1.9207,False,,,cabnc,kvret,1.2667,0.0074,0.2692,2.2642,True,,,cabnc,kvret,1.0667,0.0102,0.198,1.9354,True,,,cabnc,kvret,1.0889,0.001,0.555,1.6228,True,,
+4,cabnc,scose,-0.1333,0.9,-1.1207,0.8541,False,,,cabnc,scose,-0.0667,0.9,-1.0642,0.9308,False,,,cabnc,scose,-0.1333,0.9,-1.002,0.7354,False,,,cabnc,scose,-0.1111,0.9,-0.645,0.4228,False,,
+5,kvret,scose,-1.0667,0.0294,-2.0541,-0.0793,True,,,kvret,scose,-1.3333,0.0044,-2.3308,-0.3358,True,,,kvret,scose,-1.2,0.0031,-2.0687,-0.3313,True,,,kvret,scose,-1.2,0.001,-1.7339,-0.6661,True,,
+6,,,,0.026707945920352593,,,,0.150339476236664,0.10325530608066665,,,,0.0020793359004643336,,,,0.22931034482758647,0.18547089015094023,,,,0.0010458246713002457,,,,0.24896150650789298,0.20596502186133708,,,,3.369443141284683e-08,,,,0.1920597126728907,0.1774732996575524

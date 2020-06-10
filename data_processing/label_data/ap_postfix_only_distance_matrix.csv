@@ -1,0 +1,12 @@
+labels,FPP-base,SPP-base,FPP-pre,SPP-pre,Pre,FPP-insert,SPP-insert,Insert,FPP-post,SPP-post,Post
+FPP-base,0,0,1,1,1,1,1,1,1,1,1
+SPP-base,0,0,1,1,1,1,1,1,1,1,1
+FPP-pre,1,1,0,0,0,1,1,1,1,1,1
+SPP-pre,1,1,0,0,0,1,1,1,1,1,1
+Pre,1,1,0,0,0,1,1,1,1,1,1
+FPP-insert,1,1,1,1,1,0,0,0,1,1,1
+SPP-insert,1,1,1,1,1,0,0,0,1,1,1
+Insert,1,1,1,1,1,0,0,0,1,1,1
+FPP-post,1,1,1,1,1,1,1,1,0,0,0
+SPP-post,1,1,1,1,1,1,1,1,0,0,0
+Post,1,1,1,1,1,1,1,1,0,0,0

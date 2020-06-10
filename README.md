@@ -1,16 +1,12 @@
-# Conversation Analysis Dialogue Tagger
+# Conversation Analysis Modelling Schema Dialogue Annotation
 The CA-Dialogue-Tagger facilitates annotation of dialogues with Dialogue Acts (DA) and Adjacency Pairs (AP) to create *AP-types* 
 that are closely aligned with the concept of typed AP in Conversation Analysis (CA).
-A full explanation of the intended use for CA the labelled corpus can be found in the paper 
-[Conversation Analysis Structured Dialogue for Multi-Domain Dialogue Management](https://www.researchgate.net/publication/329809503_Conversation_Analysis_Structured_Dialogue_for_Multi-Domain_Dialogue_Management).
-A definition of the DA and AP labels can be found in the [CA schema](https://nathanduran.github.io/CA-Schema/).
+
+A definition of the DA and AP labels can be found in the [Conversation Analysis Modelling Schema](https://nathanduran.github.io/Conversation-Analysis-Modelling-Schema/).
 
 The server side implementation is written using Python 3.6 and [Flask](http://flask.pocoo.org/).
 
 ## TODO
-
-- Add check for FPP and SPP by same speaker? / are in pairs?
-- Add message when all dialogues complete
 
 - Add study/paper link.
 - Add overview of study.
@@ -21,7 +17,7 @@ Users are presented with one of 5 sets of dialogue that contain a mixture of tas
 from 4 different corpora.
 - [Saarbrücken Corpus of Spoken English (SCoSE)](https://github.com/NathanDuran/SCoSE-Copus)
 - [CABNC](https://github.com/NathanDuran/CABNC-Corpus)
-- [CA-KVRET](https://github.com/NathanDuran/CA-KVRET)
+- [CAMS-KVRET](https://github.com/NathanDuran/CAMS-KVRET)
 - [bAbI-Tasks](https://github.com/NathanDuran/bAbI-Tasks-Corpus)
 
 ### Example JSON Format

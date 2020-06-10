@@ -1,0 +1,6 @@
+,Alpha,Alpha,Alpha,Alpha,Alpha,Alpha,Alpha,Alpha,Alpha,Beta,Beta,Beta,Beta,Beta,Beta,Beta,Beta,Beta
+,group1,group2,meandiff,p-value,lower,upper,reject,eta_sq,omega_sq,group1,group2,meandiff,p-value,lower,upper,reject,eta_sq,omega_sq
+0,ap,ap type,0.1195,0.203,-0.0467,0.2858,False,,,ap,ap type,0.0569,0.2206,-0.0244,0.1382,False,,
+1,ap,da,0.2442,0.0023,0.0779,0.4105,True,,,ap,da,0.1163,0.0031,0.035,0.1976,True,,
+2,ap type,da,0.1247,0.1774,-0.0416,0.2909,False,,,ap type,da,0.0594,0.1925,-0.0218,0.1407,False,,
+3,,,,0.0035226441855332282,,,,0.17978969708975726,0.14886822588852527,,,,0.004582268042588161,,,,0.17218622520918447,0.14109105557953278
