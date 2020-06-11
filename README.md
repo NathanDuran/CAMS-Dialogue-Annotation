@@ -8,7 +8,7 @@ The tool was created as part of a study to measure inter-annotator agreement whe
 
 TODO-ADD CITATION INFO
 
-This repository contains all necessary code to run the tool, the annotation data produced,
+This repository contains all necessary code to run the tool, the annotated datasets,
 and the Python scripts used to calculate inter-annotator agreement and analyse the results.
 The server side implementation is written using Python 3.6 and [Flask](http://flask.pocoo.org/),
 and client side written in JavaScript.
@@ -38,7 +38,8 @@ and comparison of task and non-task-oriented dialogues.
 
 ## Dialogue Data<a name="dialogue-data-link">
 Users are presented with one of 5 sets of dialogue that contain a mixture of task-oriented and non-task oriented dialogues
-from 4 different corpora.
+from 4 different corpora:
+
 - [Saarbrücken Corpus of Spoken English (SCoSE)](https://github.com/NathanDuran/SCoSE-Copus)
 - [Conversation Analytic of the British National CorpusCABNC](https://github.com/NathanDuran/CABNC-Corpus)
 - [CAMS-KVRET](https://github.com/NathanDuran/CAMS-KVRET)
@@ -147,5 +148,4 @@ You can now use the navigation buttons ![prev button](/static/images/prev.png) !
 <p align="center">
 <img src="/static/images/questionnaire_screen.png" width="1100" height="650">
 </p>
-
 
