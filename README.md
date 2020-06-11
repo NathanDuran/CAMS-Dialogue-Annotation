@@ -1,24 +1,58 @@
 # Conversation Analysis Modelling Schema Dialogue Annotation
-The CA-Dialogue-Tagger facilitates annotation of dialogues with Dialogue Acts (DA) and Adjacency Pairs (AP) to create *AP-types* 
-that are closely aligned with the concept of typed AP in Conversation Analysis (CA).
+This tool facilitates annotation of dialogues with the Conversation Analysis Modelling Schema (CAMS).
+CAMS combines the Conversation Analysis concept of Adjacency Pairs (AP), with Dialogue Acts (DA),
+to create *AP-types*, descriptive labels that capture the semantic and syntactic structure of dialogue.
+A full definition of the schema labels and annotation instructions can be found in the
+[Conversation Analysis Modelling Schema](https://nathanduran.github.io/Conversation-Analysis-Modelling-Schema/).
+The tool was created as part of a study to measure inter-annotator agreement when applying CAMS to a range of dialogues.
 
-A definition of the DA and AP labels can be found in the [Conversation Analysis Modelling Schema](https://nathanduran.github.io/Conversation-Analysis-Modelling-Schema/).
+TODO-ADD CITATION INFO
 
-The server side implementation is written using Python 3.6 and [Flask](http://flask.pocoo.org/).
+This repository contains all necessary code to run the tool, the annotation data produced,
+and the Python scripts used to calculate inter-annotator agreement and analyse the results.
+The server side implementation is written using Python 3.6 and [Flask](http://flask.pocoo.org/),
+and client side written in JavaScript.
 
-## TODO
+## Contents
+- [Overview](#overview-link)
+- [Dialogue Data](#dialogue-data-link)
+- [User Instructions](#user-instructions-link)
+- [Data Processing/Analysis](/data_processing/README.md)
 
-- Add study/paper link.
-- Add overview of study.
-- Add Corpora descriptions
+## Overview<a name="overview-link">
+The study participants were asked to label 5 dialogues, containing both task and non-task-oriented conversations.
+In total, 15 participants took part in the study, and each was assigned one of 5 different sets of dialogue for
+annotation. The dialogue sets were evenly distributed among the participants, resulting in 3 annotators per set.
+The first dialogue in each set is a practice dialogue,
+followed by the 4 dialogues in their respective set (2 task-oriented and 2 non-task-oriented).
+The latter 4 dialogues were shown to participants in a random order to encourage independent annotation,
+and mitigate any learning effect of the software, or schema, on annotation results.
+The participants were given one hour to annotate all dialogues,
+and had no previous training using the annotation tool or knowledge of CAMS.
+Upon completion of each dialogue, participants were asked to rate, by means of a Likert Scale,
+how well their annotations fit the data. Timing data was also collected during the annotation process,
+which recorded how long participants spent annotating each utterance of dialogue.
+The timing and rating data were used, in addition to the calculated inter-annotator agreement,
+for further analysis of the manner in which annotators apply the schema,
+and comparison of task and non-task-oriented dialogues.
 
-## Data
+## Dialogue Data<a name="dialogue-data-link">
 Users are presented with one of 5 sets of dialogue that contain a mixture of task-oriented and non-task oriented dialogues
 from 4 different corpora.
 - [Saarbrücken Corpus of Spoken English (SCoSE)](https://github.com/NathanDuran/SCoSE-Copus)
-- [CABNC](https://github.com/NathanDuran/CABNC-Corpus)
+- [Conversation Analytic of the British National CorpusCABNC](https://github.com/NathanDuran/CABNC-Corpus)
 - [CAMS-KVRET](https://github.com/NathanDuran/CAMS-KVRET)
 - [bAbI-Tasks](https://github.com/NathanDuran/bAbI-Tasks-Corpus)
+
+
+|     Set     |     KVRET       |     # Utts    |     bAbl              |     # Utts    |     CABNC       |     # Utts    |     SCoSE             |     # Utts    |     Total    |
+|-------------|-----------------|---------------|-----------------------|---------------|-----------------|---------------|-----------------------|---------------|--------------|
+|     1       |     test_28     |     7         |     task1_test_290    |     7         |     KB7RE015    |     9         |     jason-mammoth     |     19        |     48       |
+|     2       |     test_52     |     8         |     task1_test_428    |     7         |     KBKRE03G    |     6         |     jason-clone       |     19        |     46       |
+|     3       |     test_96     |     4         |     task1_test_555    |     5         |     KDARE00G    |     4         |     jason-accident    |     29        |     48       |
+|     4       |     test_129    |     6         |     task1_test_564    |     5         |     KE2RE00Y    |     4         |     lynne-hunter      |     25        |     46       |
+|     5       |     test_102    |     4         |     task1_test_894    |     5         |     KBERE00G    |     5         |     lynne-tipsy       |     26        |     46       |
+|     Mean    |                 |     5.8       |                       |     5.8       |                 |     5.6       |                       |     23.6      |     46.8     |
 
 ### Example JSON Format
 The following is an example of the JSON format created for each users annotations.
@@ -66,7 +100,7 @@ The following is an example of the JSON format created for each users annotation
 }
 ```
 
-## User Instructions
+## User Instructions<a name="user-instructions-link">
 You will be given a set of **five unlabelled dialogues** that are a mixture of task-oriented and non-task-oriented conversations.
 For each dialogue you will be asked to label each utterance with one AP and one DA label which combine into an AP-type label.
 Once a dialogue is fully labelled you will be asked to rate the different AP,
