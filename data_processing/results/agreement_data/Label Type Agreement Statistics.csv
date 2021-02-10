@@ -1,6 +1,6 @@
-,Alpha,Alpha,Alpha,Alpha,Alpha,Alpha,Alpha,Alpha,Alpha,Beta,Beta,Beta,Beta,Beta,Beta,Beta,Beta,Beta
-,group1,group2,meandiff,p-value,lower,upper,reject,eta_sq,omega_sq,group1,group2,meandiff,p-value,lower,upper,reject,eta_sq,omega_sq
-0,ap,ap type,0.1235,0.1253,-0.0263,0.2733,False,,,ap,ap type,0.0572,0.1414,-0.0144,0.1288,False,,
-1,ap,da,0.2462,0.001,0.0964,0.396,True,,,ap,da,0.1153,0.001,0.0438,0.1869,True,,
-2,ap type,da,0.1227,0.1288,-0.0271,0.2724,False,,,ap type,da,0.0581,0.1328,-0.0134,0.1297,False,,
-3,,,,0.000997886769674803,,,,0.21529827777822624,0.1852150840955114,,,,0.0012619267297815228,,,,0.20880797756442543,0.17856822666497033
+,Alpha,Alpha,Alpha,Alpha,Alpha,Alpha,Alpha,Alpha,Alpha,Alpha,Alpha,Alpha,Alpha,Alpha,Beta,Beta,Beta,Beta,Beta,Beta,Beta,Beta,Beta,Beta,Beta,Beta,Beta,Beta
+,group1,group2,meandiff,p-value,lower,upper,reject,eta_sq,omega_sq,cohen_f,n,exp_n,power,exp_power,group1,group2,meandiff,p-value,lower,upper,reject,eta_sq,omega_sq,cohen_f,n,exp_n,power,exp_power
+0,ap,ap type,0.1235,0.1253,-0.0263,0.2733,False,,,,,,,,ap,ap type,0.0572,0.1414,-0.0144,0.1288,False,,,,,,,
+1,ap,da,0.2462,0.001,0.0964,0.396,True,,,,,,,,ap,da,0.1153,0.001,0.0438,0.1869,True,,,,,,,
+2,ap type,da,0.1227,0.1288,-0.0271,0.2724,False,,,,,,,,ap type,da,0.0581,0.1328,-0.0134,0.1297,False,,,,,,,
+3,,,,0.000997886769674803,,,,0.21529827777822624,0.1852150840955114,0.2606510959479062,60.0,40.1168164612812,0.9415031322077002,0.8,,,,0.0012619267297815228,,,,0.20880797756442543,0.17856822666497033,0.2507198923411236,60.0,41.57528080880479,0.9325800202355731,0.8

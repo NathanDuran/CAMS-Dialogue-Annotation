@@ -343,29 +343,28 @@ def generate_dialogue_type_timing_statistics(group_data, groups, group_name, sav
     stats_frame = t_test(data, 'group', 'value')
 
     # Generate the anova data for effect size
-    anova_frame = anova_test(data, 'group', 'value')
-
-    # Add effect size to data
-    stats_frame['eta_sq'] = anova_frame.loc['C(group)', 'eta_sq']
-    stats_frame['omega_sq'] = anova_frame.loc['C(group)', 'omega_sq']
+    # anova_frame = anova_test(data, 'group', 'value')
+    # # Add effect size to data
+    # stats_frame['eta_sq'] = anova_frame.loc['C(group)', 'eta_sq']
+    # stats_frame['omega_sq'] = anova_frame.loc['C(group)', 'omega_sq']
 
     # Get mean, sd and min/max for groups per agreement statistic
     basic_stat_frame = data.groupby(['group'], sort=False).agg({'value': ['min', 'max', 'mean', 'std']})
     basic_stat_frame.columns = basic_stat_frame.columns.droplevel()
     basic_stat_frame = basic_stat_frame.T
 
-    # Test for normality and heteroscedasticity
-    task_values = data.loc[data['group'] == 'task-oriented']['value'].to_list()
-    non_task_values = data.loc[data['group'] == 'task-oriented']['value'].to_list()
-    print("Test for normal distribution:")
-    task_w, task_p = shapiro(task_values)
-    print("task w: " + str(round(task_w, 6)) + " p-value: " + str(round(task_p, 6)))
-    non_task_w, non_task_p = shapiro(non_task_values)
-    print("non-task w: " + str(round(non_task_w, 6)) + " p-value: " + str(round(non_task_p, 6)))
-
-    print("Test for heteroscedasticity:")
-    levene_t, levene_p = levene(task_values, non_task_values)
-    print("t: " + str(round(levene_t, 6)) + " p-value: " + str(round(levene_p, 6)))
+    # # Test for normality and heteroscedasticity
+    # task_values = data.loc[data['group'] == 'task-oriented']['value'].to_list()
+    # non_task_values = data.loc[data['group'] == 'task-oriented']['value'].to_list()
+    # print("Test for normal distribution:")
+    # task_w, task_p = shapiro(task_values)
+    # print("task w: " + str(round(task_w, 6)) + " p-value: " + str(round(task_p, 6)))
+    # non_task_w, non_task_p = shapiro(non_task_values)
+    # print("non-task w: " + str(round(non_task_w, 6)) + " p-value: " + str(round(non_task_p, 6)))
+    #
+    # print("Test for heteroscedasticity:")
+    # levene_t, levene_p = levene(task_values, non_task_values)
+    # print("t: " + str(round(levene_t, 6)) + " p-value: " + str(round(levene_p, 6)))
 
     # Save and show results
     if show:
@@ -410,24 +409,29 @@ def generate_corpora_timing_statistics(group_data, groups, group_name, save_dir,
     stats_frame.loc[6, 'p-value'] = anova_labels.loc['C(group)', 'PR(>F)']
     stats_frame.loc[6, 'eta_sq'] = anova_labels.loc['C(group)', 'eta_sq']
     stats_frame.loc[6, 'omega_sq'] = anova_labels.loc['C(group)', 'omega_sq']
+    stats_frame.loc[6, 'cohen_f'] = anova_labels.loc['C(group)', 'cohen_f']
+    stats_frame.loc[6, 'n'] = anova_labels.loc['C(group)', 'n']
+    stats_frame.loc[6, 'exp_n'] = anova_labels.loc['C(group)', 'exp_n']
+    stats_frame.loc[6, 'power'] = anova_labels.loc['C(group)', 'power']
+    stats_frame.loc[6, 'exp_power'] = anova_labels.loc['C(group)', 'exp_power']
 
     # Get mean, sd and min/max for groups per agreement statistic
     basic_stat_frame = data.groupby(['group'], sort=False).agg({'value': ['min', 'max', 'mean', 'std']})
     basic_stat_frame.columns = basic_stat_frame.columns.droplevel()
     basic_stat_frame = basic_stat_frame.T
 
-    # Test for normality and heteroscedasticity
-    groups_values = []
-    for group in data.group.unique():
-        print(group)
-        group_values = data.loc[data['group'] == group]['value'].to_list()
-        print("Test for normal distribution:")
-        w, p = shapiro(group_values)
-        print("w: " + str(round(w, 6)) + " p-value: " + str(round(p, 6)))
-        groups_values.append(group_values)
-    print("Test for heteroscedasticity:")
-    levene_t, levene_p = levene(*groups_values)
-    print("t: " + str(round(levene_t, 6)) + " p-value: " + str(round(levene_p, 6)))
+    # # Test for normality and heteroscedasticity
+    # groups_values = []
+    # for group in data.group.unique():
+    #     print(group)
+    #     group_values = data.loc[data['group'] == group]['value'].to_list()
+    #     print("Test for normal distribution:")
+    #     w, p = shapiro(group_values)
+    #     print("w: " + str(round(w, 6)) + " p-value: " + str(round(p, 6)))
+    #     groups_values.append(group_values)
+    # print("Test for heteroscedasticity:")
+    # levene_t, levene_p = levene(*groups_values)
+    # print("t: " + str(round(levene_t, 6)) + " p-value: " + str(round(levene_p, 6)))
 
     # Save and show results
     if show:

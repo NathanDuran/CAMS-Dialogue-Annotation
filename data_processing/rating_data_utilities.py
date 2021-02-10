@@ -23,7 +23,7 @@ def get_user_rating_data(path, user_data, sets_list, dialogue_groups):
     """
     # If the file exists just load it, else generate the data and save
     if os.path.exists(path):
-        rating_data = load_pickle(path)
+        rating_data = pd.read_pickle(path)
     else:
         rating_data = dict()
         rating_data['sets_ratings'] = get_user_ratings_by_sets(user_data, sets_list)
@@ -345,7 +345,7 @@ def generate_dialogue_type_rating_statistics(group_data, groups, group_name, sav
     # Set da to first row and rename label type column
     dialogue_type_frame.reset_index(inplace=True)
     dialogue_type_frame["new"] = range(1, len(dialogue_type_frame)+1)
-    dialogue_type_frame.ix[2, 'new'] = 0
+    dialogue_type_frame.loc[2, 'new'] = 0
     dialogue_type_frame = dialogue_type_frame.sort_values("new").reset_index(drop='True').drop('new', axis=1)
     dialogue_type_frame.rename(columns={'index': 'label_type'}, inplace=True)
 
@@ -354,9 +354,9 @@ def generate_dialogue_type_rating_statistics(group_data, groups, group_name, sav
     dialogue_type_frame.loc[3, 'label_type'] = 'all'
 
     # Add the anova for the full group effect size
-    anova_groups = anova_test(data, 'group', 'value')
-    dialogue_type_frame.loc[3, 'eta_sq'] = anova_groups.loc['C(group)', 'eta_sq']
-    dialogue_type_frame.loc[3, 'omega_sq'] = anova_groups.loc['C(group)', 'omega_sq']
+    # anova_groups = anova_test(data, 'group', 'value')
+    # dialogue_type_frame.loc[3, 'eta_sq'] = anova_groups.loc['C(group)', 'eta_sq']
+    # dialogue_type_frame.loc[3, 'omega_sq'] = anova_groups.loc['C(group)', 'omega_sq']
 
     # Get mean, sd and min/max for groups per agreement statistic
     basic_stat_frame = pd.DataFrame()
@@ -377,21 +377,21 @@ def generate_dialogue_type_rating_statistics(group_data, groups, group_name, sav
         basic_stat_frame = pd.concat([basic_stat_frame, tmp], axis=1)
 
         # Test for normality and heteroscedasticity
-        da_values = group_data.loc[group_data['label_type'] == 'da']['value'].to_list()
-        ap_values = group_data.loc[group_data['label_type'] == 'ap']['value'].to_list()
-        ap_type_values = group_data.loc[group_data['label_type'] == 'ap type']['value'].to_list()
-        print(group)
-        print("Test for normal distribution:")
-        da_w, da_p = shapiro(da_values)
-        print("DA w: " + str(round(da_w, 6)) + " p-value: " + str(round(da_p, 6)))
-        ap_w, ap_p = shapiro(ap_values)
-        print("AP w: " + str(round(ap_w, 6)) + " p-value: " + str(round(ap_p, 6)))
-        ap_type_w, ap_type_p = shapiro(ap_type_values)
-        print("AP-type w: " + str(round(ap_type_w, 6)) + " p-value: " + str(round(ap_type_p, 6)))
-
-        print("Test for heteroscedasticity:")
-        levene_t, levene_p = levene(da_values, ap_values, ap_type_values)
-        print("t: " + str(round(levene_t, 6)) + " p-value: " + str(round(levene_p, 6)))
+        # da_values = group_data.loc[group_data['label_type'] == 'da']['value'].to_list()
+        # ap_values = group_data.loc[group_data['label_type'] == 'ap']['value'].to_list()
+        # ap_type_values = group_data.loc[group_data['label_type'] == 'ap type']['value'].to_list()
+        # print(group)
+        # print("Test for normal distribution:")
+        # da_w, da_p = shapiro(da_values)
+        # print("DA w: " + str(round(da_w, 6)) + " p-value: " + str(round(da_p, 6)))
+        # ap_w, ap_p = shapiro(ap_values)
+        # print("AP w: " + str(round(ap_w, 6)) + " p-value: " + str(round(ap_p, 6)))
+        # ap_type_w, ap_type_p = shapiro(ap_type_values)
+        # print("AP-type w: " + str(round(ap_type_w, 6)) + " p-value: " + str(round(ap_type_p, 6)))
+        #
+        # print("Test for heteroscedasticity:")
+        # levene_t, levene_p = levene(da_values, ap_values, ap_type_values)
+        # print("t: " + str(round(levene_t, 6)) + " p-value: " + str(round(levene_p, 6)))
 
     # Save and show results
     if show:
@@ -446,6 +446,11 @@ def generate_corpora_rating_statistics(group_data, groups, group_name, save_dir,
         label_type_frame.loc[6, 'p-value'] = anova_corpora.loc['C(group)', 'PR(>F)']
         label_type_frame.loc[6, 'eta_sq'] = anova_corpora.loc['C(group)', 'eta_sq']
         label_type_frame.loc[6, 'omega_sq'] = anova_corpora.loc['C(group)', 'omega_sq']
+        label_type_frame.loc[6, 'cohen_f'] = anova_corpora.loc['C(group)', 'cohen_f']
+        label_type_frame.loc[6, 'n'] = anova_corpora.loc['C(group)', 'n']
+        label_type_frame.loc[6, 'exp_n'] = anova_corpora.loc['C(group)', 'exp_n']
+        label_type_frame.loc[6, 'power'] = anova_corpora.loc['C(group)', 'power']
+        label_type_frame.loc[6, 'exp_power'] = anova_corpora.loc['C(group)', 'exp_power']
 
         label_type_frame.columns = pd.MultiIndex.from_product([[label_type], label_type_frame.columns])
         corpora_type_frame = pd.concat([corpora_type_frame, label_type_frame], axis=1)
@@ -468,22 +473,22 @@ def generate_corpora_rating_statistics(group_data, groups, group_name, save_dir,
         tmp.columns = pd.MultiIndex.from_product([[group.split()[0]], tmp.columns])
         basic_stat_frame = pd.concat([basic_stat_frame, tmp], axis=1)
 
-        # Test for normality and heteroscedasticity
-        da_values = group_data.loc[group_data['label_type'] == 'da']['value'].to_list()
-        ap_values = group_data.loc[group_data['label_type'] == 'ap']['value'].to_list()
-        ap_type_values = group_data.loc[group_data['label_type'] == 'ap type']['value'].to_list()
-        print(group)
-        print("Test for normal distribution:")
-        da_w, da_p = shapiro(da_values)
-        print("DA w: " + str(round(da_w, 6)) + " p-value: " + str(round(da_p, 6)))
-        ap_w, ap_p = shapiro(ap_values)
-        print("AP w: " + str(round(ap_w, 6)) + " p-value: " + str(round(ap_p, 6)))
-        ap_type_w, ap_type_p = shapiro(ap_type_values)
-        print("AP-type w: " + str(round(ap_type_w, 6)) + " p-value: " + str(round(ap_type_p, 6)))
-
-        print("Test for heteroscedasticity:")
-        levene_t, levene_p = levene(da_values, ap_values, ap_type_values)
-        print("t: " + str(round(levene_t, 6)) + " p-value: " + str(round(levene_p, 6)))
+        # # Test for normality and heteroscedasticity
+        # da_values = group_data.loc[group_data['label_type'] == 'da']['value'].to_list()
+        # ap_values = group_data.loc[group_data['label_type'] == 'ap']['value'].to_list()
+        # ap_type_values = group_data.loc[group_data['label_type'] == 'ap type']['value'].to_list()
+        # print(group)
+        # print("Test for normal distribution:")
+        # da_w, da_p = shapiro(da_values)
+        # print("DA w: " + str(round(da_w, 6)) + " p-value: " + str(round(da_p, 6)))
+        # ap_w, ap_p = shapiro(ap_values)
+        # print("AP w: " + str(round(ap_w, 6)) + " p-value: " + str(round(ap_p, 6)))
+        # ap_type_w, ap_type_p = shapiro(ap_type_values)
+        # print("AP-type w: " + str(round(ap_type_w, 6)) + " p-value: " + str(round(ap_type_p, 6)))
+        #
+        # print("Test for heteroscedasticity:")
+        # levene_t, levene_p = levene(da_values, ap_values, ap_type_values)
+        # print("t: " + str(round(levene_t, 6)) + " p-value: " + str(round(levene_p, 6)))
 
     # Save and show results
     if show:
@@ -529,22 +534,27 @@ def generate_label_type_rating_statistics(group_data, groups, group_name, save_d
     label_type_frame.loc[3, 'p-value'] = anova_labels.loc['C(label_type)', 'PR(>F)']
     label_type_frame.loc[3, 'eta_sq'] = anova_labels.loc['C(label_type)', 'eta_sq']
     label_type_frame.loc[3, 'omega_sq'] = anova_labels.loc['C(label_type)', 'omega_sq']
+    label_type_frame.loc[3, 'cohen_f'] = anova_labels.loc['C(label_type)', 'cohen_f']
+    label_type_frame.loc[3, 'n'] = anova_labels.loc['C(label_type)', 'n']
+    label_type_frame.loc[3, 'exp_n'] = anova_labels.loc['C(label_type)', 'exp_n']
+    label_type_frame.loc[3, 'power'] = anova_labels.loc['C(label_type)', 'power']
+    label_type_frame.loc[3, 'exp_power'] = anova_labels.loc['C(label_type)', 'exp_power']
 
     # Test for normality and heteroscedasticity
-    da_values = data.loc[data['label_type'] == 'da']['value'].to_list()
-    ap_values = data.loc[data['label_type'] == 'ap']['value'].to_list()
-    ap_type_values = data.loc[data['label_type'] == 'ap type']['value'].to_list()
-    print("Test for normal distribution:")
-    da_w, da_p = shapiro(da_values)
-    print("DA w: " + str(round(da_w, 6)) + " p-value: " + str(round(da_p, 6)))
-    ap_w, ap_p = shapiro(ap_values)
-    print("AP w: " + str(round(ap_w, 6)) + " p-value: " + str(round(ap_p, 6)))
-    ap_type_w, ap_type_p = shapiro(ap_type_values)
-    print("AP-type w: " + str(round(ap_type_w, 6)) + " p-value: " + str(round(ap_type_p, 6)))
-
-    print("Test for heteroscedasticity:")
-    levene_t, levene_p = levene(da_values, ap_values, ap_type_values)
-    print("t: " + str(round(levene_t, 6)) + " p-value: " + str(round(levene_p, 6)))
+    # da_values = data.loc[data['label_type'] == 'da']['value'].to_list()
+    # ap_values = data.loc[data['label_type'] == 'ap']['value'].to_list()
+    # ap_type_values = data.loc[data['label_type'] == 'ap type']['value'].to_list()
+    # print("Test for normal distribution:")
+    # da_w, da_p = shapiro(da_values)
+    # print("DA w: " + str(round(da_w, 6)) + " p-value: " + str(round(da_p, 6)))
+    # ap_w, ap_p = shapiro(ap_values)
+    # print("AP w: " + str(round(ap_w, 6)) + " p-value: " + str(round(ap_p, 6)))
+    # ap_type_w, ap_type_p = shapiro(ap_type_values)
+    # print("AP-type w: " + str(round(ap_type_w, 6)) + " p-value: " + str(round(ap_type_p, 6)))
+    #
+    # print("Test for heteroscedasticity:")
+    # levene_t, levene_p = levene(da_values, ap_values, ap_type_values)
+    # print("t: " + str(round(levene_t, 6)) + " p-value: " + str(round(levene_p, 6)))
 
     # Save and show results
     if show:

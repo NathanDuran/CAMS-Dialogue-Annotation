@@ -5,6 +5,66 @@ from scipy.stats import ttest_ind, chi2, chi2_contingency
 import statsmodels.api as sm
 from statsmodels.formula.api import ols
 from statsmodels.stats.multicomp import MultiComparison
+from statsmodels.stats.power import TTestIndPower, FTestAnovaPower
+from statsmodels.stats.oneway import effectsize_oneway
+from math import sqrt
+from statistics import variance, mean
+
+
+def cohen_d(data_a, data_b):
+    """"Cohens d effect size, for calculating the difference between the mean value of groups.
+
+    Args:
+        data_a (list): One group of samples.
+        data_b (list): One group of samples.
+
+    Returns:
+        cohens_d (float): Cohens d effect size.
+    """
+    # Calculate the size of samples
+    n1, n2 = len(data_a), len(data_b)
+
+    # Calculate the variance of the samples
+    s1, s2 = np.var(data_a, ddof=1), np.var(data_b, ddof=1)
+
+    # Calculate the pooled standard deviation
+    s = sqrt(((n1 - 1) * s1 + (n2 - 1) * s2) / (n1 + n2 - 2))
+
+    # Calculate the means of the samples
+    u1, u2 = np.mean(data_a), np.mean(data_b)
+
+    # Calculate the effect size
+    return (u1 - u2) / s
+
+
+def t_test_power_analysis(data_a, data_b, alpha=0.05, power=0.8):
+    """Performs statistical power analysis for t-test.
+    First calculates cohens d effect size,
+    then calculates an expected number of samples for given power, and the actual power given the actual sample size.
+
+    Args:
+        data_a (list): One group of samples.
+        data_b (list): One group of samples.
+        alpha (float): Significance level.
+        power (float): Desired statistical power for calculating the expected num samples.
+
+    Returns:
+        cohens_d (float): Cohens d effect size.
+        exp_n_samples (float): The expected number of samples given desired power, effect size and alpha.
+        act_power (float): The actual power given the actual n_samples, effect size and alpha.
+    """
+    # Parameters for power analysis
+    effect = cohen_d(data_a, data_b)  # Cohens d effect size
+    n_samples = len(data_a)
+
+    # perform power analysis
+    analysis = TTestIndPower()
+    exp_n_samples = analysis.solve_power(effect_size=effect, power=power, ratio=1.0, alpha=alpha)
+    # print('Expected Sample Size: %.3f' % exp_n_samples)
+
+    act_power = analysis.solve_power(effect_size=effect, nobs1=n_samples, ratio=1.0, alpha=alpha)
+    # print('Actual Power: %.3f' % act_power)
+    return effect, exp_n_samples, act_power
 
 
 def t_test(data, groups, metric):
@@ -30,11 +90,15 @@ def t_test(data, groups, metric):
     data_a = data.loc[(data[groups] == group_names[0])]
     data_b = data.loc[(data[groups] == group_names[1])]
 
+    # Perform power analysis
+    effect, exp_n, act_power = t_test_power_analysis(data_a[metric], data_b[metric], alpha=0.05, power=0.8)
+
     # T-test
     t_and_p = ttest_ind(data_a[metric], data_b[metric])
 
     # Create dataframe
-    t_test_frame = pd.DataFrame({'t-statistic': [t_and_p[0]], 'p-value': [t_and_p[1]]})
+    t_test_frame = pd.DataFrame({'t-statistic': t_and_p[0], 'p-value': t_and_p[1], 'cohen-d': effect,
+                                 'n': len(data_a), 'exp_n': exp_n, 'power': act_power, 'exp_power': 0.8}, index=[0])
 
     return t_test_frame
 
@@ -69,15 +133,72 @@ def multi_t_test(data, groups, experiment_type, metric):
         data_a = data.loc[(data[groups] == group_names[0]) & (data[experiment_type] == exp_type)]
         data_b = data.loc[(data[groups] == group_names[1]) & (data[experiment_type] == exp_type)]
 
+        # Perform power analysis
+        effect, exp_n, act_power = t_test_power_analysis(data_a[metric], data_b[metric], alpha=0.05, power=0.8)
+
         # T-test
         t_and_p = ttest_ind(data_a[metric], data_b[metric])
 
-        results_dict[exp_type] = {'t-statistic': t_and_p[0], 'p-value': t_and_p[1]}
+        results_dict[exp_type] = {'t-statistic': t_and_p[0], 'p-value': t_and_p[1], 'cohen-d': effect,
+                                  'n': len(data_a), 'exp_n': exp_n, 'power': act_power, 'exp_power': 0.8}
 
     # Create dataframe
     t_test_frame = pd.DataFrame.from_dict(results_dict, orient='index').reindex(results_dict.keys())
 
     return t_test_frame
+
+
+def coehen_f(data, groups, metric):
+    """"Cohens f, for calculating the effect size for anova power analysis.
+
+    Args:
+        data (DataFrame): DataFrame with columns 'groups' and 'metric'.
+        groups (str): Name of the groups column in the data, i.e. the groups for the anova test.
+        metric (str): Name of the metric column in the data, i.e. the dependant variable.
+
+    Returns:
+        cohens_f (float): Cohens f effect size.
+    """
+    # Get the means and variance of the data
+    means = data.groupby([groups], sort=False).apply(lambda x: mean(x[metric])).to_list()
+    variances = data.groupby([groups], sort=False).apply(lambda x: variance(x[metric])).to_list()
+
+    # Calculate effect size
+    cohens_f = effectsize_oneway(means, variances, len(data), use_var='equal')
+    return cohens_f
+
+
+def anova_power_analysis(data, groups, metric, alpha=0.05, power=0.8):
+    """Performs statistical power analysis for t-test.
+    First calculates cohens d effect size,
+    then calculates an expected number of samples for given power, and the actual power given the actual sample size.
+
+    Args:
+        data (DataFrame): DataFrame with columns 'groups' and 'metric'.
+        groups (str): Name of the groups column in the data, i.e. the groups for the anova test.
+        metric (str): Name of the metric column in the data, i.e. the dependant variable.
+        alpha (float): Significance level.
+        power (float): Desired statistical power for calculating the expected num samples.
+
+    Returns:
+        cohens_f (float): Cohens f effect size.
+        exp_n_samples (float): The expected number of samples given desired power, effect size and alpha.
+        act_power (float): The actual power given the actual n_samples, effect size and alpha.
+    """
+    # Calculate Cohen's f effect size
+    effect = coehen_f(data, groups, metric)
+
+    # Number of samples
+    n_samples = len(data)
+    n_groups = len(data[groups].unique())
+
+    # Expected num samples
+    exp_n_samples = FTestAnovaPower().solve_power(effect_size=sqrt(effect), alpha=alpha, power=power, k_groups=n_groups)
+    # print('Expected Sample Size: %.3f' % exp_n_samples)
+    act_power = FTestAnovaPower().solve_power(effect_size=sqrt(effect), nobs=n_samples, alpha=alpha, k_groups=n_groups)
+    # print('Actual Power: %.3f' % act_power)
+
+    return effect, exp_n_samples, act_power
 
 
 def anova_test(data, groups, metric):
@@ -116,8 +237,15 @@ def anova_test(data, groups, metric):
 
     # Calculate the stats table
     anova_table = sm.stats.anova_lm(anova, typ=2)
+
     # Add effect size to table
     anova_frame = _anova_table(anova_table)
+
+    # Add power analysis
+    effect, exp_n, power = anova_power_analysis(data, groups, metric, alpha=0.05, power=0.8)
+
+    power_analysis_cols = {'cohen_f': effect, 'n': len(data), 'exp_n': exp_n, 'power': power, 'exp_power': 0.8}
+    anova_frame = anova_frame.assign(**power_analysis_cols)
 
     # Round to 6 decimal places
     # anova_frame = anova_frame.round(6)

@@ -505,10 +505,10 @@ def generate_dialogue_type_agreement_statistics(group_name, save_dir, save=True,
         type_frame = type_frame.append(t_test(stat_type_data, 'group', 'value'), ignore_index=True, sort=False)
         type_frame.loc[3, 'label_type'] = 'all'
 
-        # Add the anova for the full group effect size
-        anova_groups = anova_test(stat_type_data, 'group', 'value')
-        type_frame.loc[3, 'eta_sq'] = anova_groups.loc['C(group)', 'eta_sq']
-        type_frame.loc[3, 'omega_sq'] = anova_groups.loc['C(group)', 'omega_sq']
+        # # Add the anova for the full group effect size
+        # anova_groups = anova_test(stat_type_data, 'group', 'value')
+        # type_frame.loc[3, 'eta_sq'] = anova_groups.loc['C(group)', 'eta_sq']
+        # type_frame.loc[3, 'omega_sq'] = anova_groups.loc['C(group)', 'omega_sq']
 
         # Concatenate the type frame
         type_frame.columns = pd.MultiIndex.from_product([[stat_type], type_frame.columns])
@@ -597,6 +597,11 @@ def generate_corpora_agreement_statistics(group_name, save_dir, save=True, show=
             label_type_frame.loc[6, 'p-value'] = anova_corpora.loc['C(group)', 'PR(>F)']
             label_type_frame.loc[6, 'eta_sq'] = anova_corpora.loc['C(group)', 'eta_sq']
             label_type_frame.loc[6, 'omega_sq'] = anova_corpora.loc['C(group)', 'omega_sq']
+            label_type_frame.loc[6, 'cohen_f'] = anova_corpora.loc['C(group)', 'cohen_f']
+            label_type_frame.loc[6, 'n'] = anova_corpora.loc['C(group)', 'n']
+            label_type_frame.loc[6, 'exp_n'] = anova_corpora.loc['C(group)', 'exp_n']
+            label_type_frame.loc[6, 'power'] = anova_corpora.loc['C(group)', 'power']
+            label_type_frame.loc[6, 'exp_power'] = anova_corpora.loc['C(group)', 'exp_power']
 
             label_type_frame.columns = pd.MultiIndex.from_product([[stat_type + " " + label_type], label_type_frame.columns])
             corpora_type_frame = pd.concat([corpora_type_frame, label_type_frame], axis=1)
@@ -676,6 +681,11 @@ def generate_label_type_agreement_statistics(group_name, save_dir, save=True, sh
         label_frame.loc[3, 'p-value'] = anova_labels.loc['C(label_type)', 'PR(>F)']
         label_frame.loc[3, 'eta_sq'] = anova_labels.loc['C(label_type)', 'eta_sq']
         label_frame.loc[3, 'omega_sq'] = anova_labels.loc['C(label_type)', 'omega_sq']
+        label_frame.loc[3, 'cohen_f'] = anova_labels.loc['C(label_type)', 'cohen_f']
+        label_frame.loc[3, 'n'] = anova_labels.loc['C(label_type)', 'n']
+        label_frame.loc[3, 'exp_n'] = anova_labels.loc['C(label_type)', 'exp_n']
+        label_frame.loc[3, 'power'] = anova_labels.loc['C(label_type)', 'power']
+        label_frame.loc[3, 'exp_power'] = anova_labels.loc['C(label_type)', 'exp_power']
 
         # Concatenate the label frame
         label_frame.columns = pd.MultiIndex.from_product([[stat_type], label_frame.columns])
