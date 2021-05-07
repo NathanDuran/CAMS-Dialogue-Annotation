@@ -1,3 +1,5 @@
 *.pyc
 *.pyo
 .idea
+# Jupyter Notebook
+.ipynb_checkpoints

@@ -1068,7 +1068,7 @@ def generate_user_label_distributions(user_data, groups, labels, group_name, sav
         bar_g.savefig(os.path.join(save_dir, group_name + " Label Assignments.png"))
         dist_g.savefig(os.path.join(save_dir, group_name + " Label Distributions.png"))
 
-    return count_frame, bar_plt, dist_fig
+    return count_frame, chi_frame, js_frame, bar_plt, dist_fig
 
 
 def generate_postfix_only_plot(agreement_data_dir, save=True, show=True):

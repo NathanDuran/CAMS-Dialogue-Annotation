@@ -15,8 +15,11 @@ labels_dir = os.path.join(data_dir, 'labels')
 # Processed data and label data directories
 results_dir = 'results'
 label_data_dir = 'label_data'
+postfix_only = False
 # Paths to label agreement, timing and confidence rating data
 agreement_data_dir = os.path.join(results_dir, 'agreement_data')
+if postfix_only:
+    agreement_data_dir = os.path.join(agreement_data_dir, 'postfix_only')
 timing_data_dir = os.path.join(results_dir, 'timing_data')
 rating_data_dir = os.path.join(results_dir, 'rating_data')
 distr_data_dir = os.path.join(results_dir, 'distribution_data')
@@ -45,7 +48,6 @@ dialogue_corpora_groups = ['kvret_dialogues', 'babl_dialogues', 'scose_dialogues
 print("========================= Agreement Values =========================")
 # If user label data has already been generated then load, else create it
 user_label_data = get_user_label_data(os.path.join(agreement_data_dir, 'user_label_data.pkl'), user_data, labels, sets_list, dialogue_groups)
-postfix_only = False
 
 print("========================= Set:")
 generate_set_agreement_data(user_label_data['sets_labels'], labels, 'Dialogue Set Agreement', agreement_data_dir, postfix_only=postfix_only)
@@ -90,8 +92,8 @@ generate_combined_rating_data(user_rating_data['sets_ratings'], user_rating_data
 
 print("========================= Type:")
 generate_group_rating_data(user_rating_data, dialogue_type_groups + ['practice_dialogue'], 'Dialogue Type Confidence Scores', rating_data_dir)
-#
-# print("========================= Corpus:")
+
+print("========================= Corpus:")
 generate_group_rating_data(user_rating_data, dialogue_corpora_groups, 'Dialogue Corpora Confidence Scores', rating_data_dir)
 
 print("========================= Statistics =========================")
@@ -113,8 +115,8 @@ generate_label_type_rating_statistics(user_rating_data, dialogue_type_groups, 'L
 print("========================= Label Distributions =========================")
 print("========================= Type Distributions:")
 generate_group_label_distributions(user_label_data, dialogue_type_groups, labels, 'Dialogue Type', distr_data_dir)
-#
-# print("========================= Corpora Distributions:")
+
+print("========================= Corpora Distributions:")
 generate_group_label_distributions(user_label_data, dialogue_corpora_groups, labels, 'Dialogue Corpora', distr_data_dir)
 
 print("========================= User Distributions:")
