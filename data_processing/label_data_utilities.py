@@ -1092,7 +1092,7 @@ def generate_postfix_only_plot(agreement_data_dir, save=True, show=True):
     corpora_pf_data.drop('mean', inplace=True)
     corpora_pf_data.drop('da', axis=1, level=1, inplace=True)
     # Rename labels
-    corpora_pf_data.columns.set_levels(['', 'ap (postfix)', 'ap type (postfix)', 'da (postfix)'], level=1, inplace=True)
+    corpora_pf_data.columns.set_levels(['', 'ap (sufffix)', 'ap type (sufffix)', 'da (sufffix)'], level=1, inplace=True)
     # Rename labels
     corpora_pf_data = corpora_pf_data.reset_index().melt(id_vars=['index', 'group'])
     corpora_pf_data = corpora_pf_data.rename(columns={'variable_0': 'metric', 'variable_1': 'label_type'})
