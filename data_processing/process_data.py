@@ -125,4 +125,5 @@ generate_user_label_distributions(user_label_data['sets_labels'], sets_list, lab
 print("========================= Postfix Only Plot =========================")
 generate_postfix_only_plot(agreement_data_dir)
 
-
+print("========================= Label assignments =========================")
+get_user_label_assignments(user_data, user_label_data, dialogue_corpora_groups + ['practice_dialogue'], dialogue_groups)

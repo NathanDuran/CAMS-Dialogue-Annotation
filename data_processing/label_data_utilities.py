@@ -1142,3 +1142,38 @@ def annotate_landis_koch(g, plt):
             ax.axhline(1.0, ls='-', color='#cccccc', zorder=-1)
             ax.text(max_x, 0.9, "Perfect", verticalalignment='center', rotation=90)
     return g, plt
+
+
+def get_user_label_assignments(user_data, user_label_data, groups, dialogue_groups):
+    """Gets all user label assignments in text form and saves as dictionary with dialogue name as keys."""
+    assingments = {}
+    for group in groups:
+        for target_dialogue in dialogue_groups[group]:
+            # Get list of users who labelled that dialogue
+            for key in user_label_data.keys():
+                if target_dialogue in user_label_data[key].keys():
+                    users = user_label_data[key][target_dialogue].keys()
+
+            # Get each users assignments
+            frame = None
+            for user in users:
+                # Get the user and their target dialogue
+                for i in range(len(user_data)):
+                    if user_data[i]['user_id'] == user:
+                        user_dialogues = user_data[i]['dialogues']
+                        for j in range(len(user_dialogues)):
+                            if user_dialogues[j]['dialogue_id'] == target_dialogue:
+                                user_dialogue = user_dialogues[j]
+
+                                # If this is the first time seeing this dialogue create the frame
+                                if frame is None:
+                                    frame = pd.DataFrame(user_dialogue['utterances'], columns=['speaker', 'text'])
+                                    frame.insert(loc=0, column='dialogue', value=target_dialogue)
+
+                                # Add the users assignments
+                                label_assignments = []
+                                for utt in user_dialogue['utterances']:
+                                    label_assignments.append(utt['ap_label'] + ' ' + utt['da_label'])
+                                frame[user] = label_assignments
+            assingments[target_dialogue] = frame
+    save_pickle(os.path.join('results', 'agreement_data', 'user_label_assignments.pkl'), assingments)
