@@ -30,6 +30,8 @@ triples = triple_red + triple_green + triple_blue + triple_purple + triple_orang
 rgb = ['#EF5A5B', '#73C05B', '#63A3CC']
 # Red, green, blue, orange, purple
 five_colour = ['#EF5A5B', '#73C05B', '#63A3CC', '#FE9F38', '#9A78B8']
+# Paired dark
+paired_dark = ['#58a2ca', '#103d5c', '#7dc93b', '#1a5016', '#f73936', '#891012', '#fb9209', '#994d00', '#9d6fb3', '#372050', '#ffff33', '#603016']
 
 colour_palettes = {'xkcd_red': xkcd_red, 'xkcd_green': xkcd_green, 'xkcd_blue': xkcd_blue,
                    'xkcd_orange': xkcd_orange, 'xkcd_purple': xkcd_purple,
@@ -37,7 +39,7 @@ colour_palettes = {'xkcd_red': xkcd_red, 'xkcd_green': xkcd_green, 'xkcd_blue': 
                    'triple_red': triple_red, 'triple_green': triple_green, 'triple_blue': triple_blue,
                    'triple_orange': triple_orange, 'triple_purple': triple_purple,
                    'triples_rgb': triples_rgb, 'triples': triples, 'five_colour': five_colour, 'rgb': rgb,
-                   'default': sns.color_palette('tab10')}
+                   'paired_dark': paired_dark, 'default': sns.color_palette('tab10')}
 
 
 def create_colour_map(boundaries=None, pallet='RdBu_r'):

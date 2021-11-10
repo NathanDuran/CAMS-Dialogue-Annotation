@@ -1,8 +1,9 @@
 import os
 import pandas as pd
+import seaborn as sns
 from itertools import combinations
 from scipy.stats import levene, shapiro
-from data_processing.agreement_statistics import multi_pi, multi_kappa, alpha, alpha_prime, beta
+from data_processing.agreement_statistics import multi_pi, multi_kappa, alpha, alpha_prime, beta, bias
 from data_processing.data_utilities import load_dataframe, save_dataframe, load_pickle, save_pickle, dataframe_wide_to_long
 from data_processing.plot_utilities import plot_facetgrid, plot_dist_chart
 from data_processing.stats_utilites import t_test, multi_t_test, anova_test, tukey_hsd, chi_squared, jensen_shannnon
@@ -270,6 +271,51 @@ def get_multi_kappa(data, labels, add_mean=True):
     return multi_kappa_df
 
 
+def get_bias(data, labels, add_mean=True, postfix_only=False):
+    """Calculates bias of weighted measures according to Artstein, R. and Poesio, M. (2005) Kappa 3 = Alpha (or Beta)
+
+    Args:
+        data (dict): Dictionary with set or dialogue names as keys and Dictionary as values
+                    (values dict has user_names as keys and Dataframe of individual labels for set/dialogue).
+        labels (dict): Dictionary of all labels.
+        add_mean (bool): Whether to add a mean row to the resulting dataframe. Default=True.
+        postfix_only (bool): Whether to use the postfix only distance function. Default=False.
+
+    Returns:
+        bias_df (DataFrame): Rows are set or dialogue id, columns are label type and items are bias.
+    """
+
+    bias_dict = dict()
+    # For each set or dialogue in items list
+    for item in data.keys():
+        current = dict()
+        users_dict = data[item]
+
+        # Get each label type data as a dataframe
+        da = get_label_type(users_dict, 'da', labels)
+        ap = get_label_type(users_dict, 'ap', labels)
+        ap_type = get_label_type(users_dict, 'ap_type', labels)
+
+        # Get the bias for each label type
+        current['da'] = bias(da, da_distance)
+        if not postfix_only:
+            current['ap'] = bias(ap, ap_distance)
+            current['ap type'] = bias(ap_type, ap_type_distance)
+        else:
+            current['ap'] = bias(ap, ap_postfix_only_distance)
+            current['ap type'] = bias(ap_type, ap_type_postfix_only_distance)
+
+        # Remove '_' from names and add to exp_dis dict
+        bias_dict[item.replace("_", " ")] = current
+
+    # Create bias_df dataframe and add mean for each row
+    bias_df = pd.DataFrame.from_dict(bias_dict, orient='index')
+    if add_mean:
+        bias_df.loc['mean'] = bias_df.mean()
+
+    return bias_df
+
+
 def get_weighted_agreement(data, labels, stat_type, add_mean=True, postfix_only=False):
     """Gets Alpha, Alpha Prime or Beta for each label type of a given set or dialogue set.
 
@@ -284,7 +330,7 @@ def get_weighted_agreement(data, labels, stat_type, add_mean=True, postfix_only=
         postfix_only (bool): Whether to use the postfix only distance function. Default=False.
 
     Returns:
-        weighted_df (DataFrame): Rows are set or dialogue id, columns are label type and items are alpha prime.
+        weighted_df (DataFrame): Rows are set or dialogue id, columns are label type and items are stat_type.
     """
     # Get the desired agreement function
     if stat_type.lower() == 'alpha':
@@ -328,7 +374,7 @@ def get_weighted_agreement(data, labels, stat_type, add_mean=True, postfix_only=
     return weighted_df
 
 
-def generate_set_agreement_data(users_data, labels, group_name, save_dir, save=True, show=True, add_mean=True, postfix_only=False):
+def generate_set_agreement_data(users_data, labels, group_name, save_dir, save=True, show=True, add_mean=True, add_bias=False, postfix_only=False):
     """Utility function that generates all agreement statistics for dialogue sets.
 
     Creates a DataFrame of the results and saves to .csv and creates a multi-graph plot and saves to .png.
@@ -342,6 +388,7 @@ def generate_set_agreement_data(users_data, labels, group_name, save_dir, save=T
         save (bool): Whether to save the resulting .csv and .png files. Default=True.
         show (bool): Whether to print/show the resulting graphs and dataframes. Default=True.
         add_mean (bool): Whether to add a mean row to the data. Default=True.
+        add_bias (bool): Whether to calculate and add bias to data and plot. Default=False.
         postfix_only (bool): Whether to use the postfix only distance function. Default=False.
     """
     # Create dataframe of agreement by set
@@ -357,6 +404,19 @@ def generate_set_agreement_data(users_data, labels, group_name, save_dir, save=T
                             legend_loc='upper right', num_legend_col=1)
     g, plt = annotate_landis_koch(g, plt)  # Annotate with landis and koch range
 
+    # Calculate bias and add to groups frame and plot
+    if add_bias:
+        bias_df = get_bias(users_data, labels)
+
+        # Sort data for plotting
+        bias_plt_df = dataframe_wide_to_long(bias_df)
+        bias_plt_df = bias_plt_df.rename(columns={'variable': 'label_type', 'index': 'group'})
+        bias_plt_df = bias_plt_df.dropna()
+
+        g, plt = add_bias_plot(bias_plt_df, g, plt)  # Add bias plot
+        bias_df.columns = pd.MultiIndex.from_product([['bias'], bias_df.columns])
+        group_frame = pd.concat([group_frame, bias_df], axis=1)
+
     # Save and show results
     if show:
         print(group_frame)
@@ -368,7 +428,7 @@ def generate_set_agreement_data(users_data, labels, group_name, save_dir, save=T
     return group_frame, plt
 
 
-def generate_group_agreement_data(group_data, groups,  labels, group_name, save_dir, save=True, show=True, add_mean=True, postfix_only=False):
+def generate_group_agreement_data(group_data, groups,  labels, group_name, save_dir, save=True, show=True, add_mean=True, add_bias=False, postfix_only=False):
     """Utility function that generates all mean agreement statistics for a given group of data.
 
     Creates a DataFrame of the results and saves to .csv and creates a multi-graph plot and saves to .png.
@@ -383,10 +443,12 @@ def generate_group_agreement_data(group_data, groups,  labels, group_name, save_
         save (bool): Whether to save the resulting .csv and .png files. Default=True.
         show (bool): Whether to print/show the resulting graphs and dataframes. Default=True.
         add_mean (bool): Whether to add a mean row to the data. Default=True.
+        add_bias (bool): Whether to calculate and add bias to data and plot. Default=False.
         postfix_only (bool): Whether to use the postfix only distance function. Default=False.
     """
     # Create dataframe of agreement by group
     groups_frame = pd.DataFrame()
+    bias_frame = pd.DataFrame()
     for group in groups:
         # Get alpha and beta
         alpha_df = get_weighted_agreement(group_data[group], labels, 'Alpha', add_mean=add_mean, postfix_only=postfix_only)
@@ -398,14 +460,32 @@ def generate_group_agreement_data(group_data, groups,  labels, group_name, save_
         # Add to groups frame
         groups_frame = pd.concat([groups_frame, group_frame], axis=0)
 
+        # Calculate bias too
+        if add_bias:
+            bias_df = get_bias(group_data[group], labels, add_mean=True)
+            # Add to groups frame
+            bias_df.insert(loc=0, column='group', value=group.replace("_", " ").split()[0])
+            bias_frame = pd.concat([bias_frame, bias_df], axis=0)
+
     # Generate a group plot for all stats
     data = groups_frame.reset_index().melt(id_vars=['index', 'group'])
     data = data.rename(columns={'variable_0': 'metric', 'variable_1': 'label_type'})
     data = data.dropna()
     g, plt = plot_facetgrid(data, x='group', y='value', hue='label_type', title='', axis_titles=True,
                             num_col=1, share_y=False, show_bar_value=True, ci=None,
-                            legend_loc='upper right',num_legend_col=1)
+                            legend_loc='upper right', num_legend_col=1)
     g, plt = annotate_landis_koch(g, plt)  # Annotate with landis and koch range
+
+    # Add to groups frame and plot
+    if add_bias:
+        # Sort data for plotting
+        bias_plt_df = bias_frame.reset_index().melt(id_vars=['index', 'group'])
+        bias_plt_df = bias_plt_df.rename(columns={'variable': 'label_type'})
+        bias_plt_df = bias_plt_df.dropna()
+
+        g, plt = add_bias_plot(bias_plt_df, g, plt)  # Add bias plot
+        bias_frame.columns = pd.MultiIndex.from_product([['bias'], bias_frame.columns])
+        groups_frame = pd.concat([groups_frame, bias_frame], axis=1)
 
     # Save and show results
     if show:
@@ -1141,6 +1221,31 @@ def annotate_landis_koch(g, plt):
         if max_y > 0.9:
             ax.axhline(1.0, ls='-', color='#cccccc', zorder=-1)
             ax.text(max_x, 0.9, "Perfect", verticalalignment='center', rotation=90)
+    return g, plt
+
+
+def add_bias_plot(data, g, plt):
+    """Utility function that bias to a plot with Beta coefficient."""
+
+    # Set darker colours
+    colours = ['#58a2ca', '#103d5c', '#7dc93b', '#1a5016', '#f73936', '#891012', '#fb9209', '#994d00', '#9d6fb3', '#372050', '#ffff33', '#603016']
+    palette = dict(zip(data['label_type'].unique(), colours))
+
+    # Crate new axis
+    axes = g.axes.flatten()
+    ax = axes[1].twinx()
+    ax = sns.barplot(data=data, x='group', y='value', hue='label_type', palette=palette, ci='sd', errwidth=1.5, errcolor='#CACACB')
+    sns.despine(ax=ax, left=True, right=True)
+
+    # Set the yaxis range
+    ax.set(ylim=(0.0, 1.0))
+    # Remove yaxis ticks and labels
+    ax.set_yticks([])
+    ax.set(yticklabels=[])
+    ax.axes.get_yaxis().set_visible(False)
+
+    # Remove legend
+    ax.legend_.remove()
     return g, plt
 
 

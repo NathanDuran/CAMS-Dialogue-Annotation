@@ -1,3 +1,4 @@
+import itertools
 import os
 import pandas as pd
 from itertools import combinations
@@ -87,6 +88,28 @@ def test_agreement_statistics():
     print("alpha - " + str(0.8156))
     print("alpha prime - " + str(0.8146))
     print("beta - " + str(0.8163))
+
+    # Test bias
+    uniform_path = os.path.join("label_data", "bias_uniform.txt")
+    unequal_path = os.path.join("label_data", "bias_unequal.txt")
+    b_uniform = get_user_labels(uniform_path)
+    b_unequal = get_user_labels(unequal_path)
+
+    print("Bias with example_users:")
+    print("alpha - {0:.4f}".format(alpha(example_users, test_distance_func)))
+    print("beta - {0:.4f}".format(beta(example_users, test_distance_func)))
+    print("Bias - {0:.4f}".format(bias(example_users, test_distance_func)))
+
+    # Test uniform first
+    print("Bias with uniform:")
+    print("alpha - {0:.4f}".format(alpha(b_uniform, test_distance_func)))
+    print("beta - {0:.4f}".format(beta(b_uniform, test_distance_func)))
+    print("Bias - {0:.4f}".format(bias(b_uniform, test_distance_func)))
+
+    print("Bias with unequal:")
+    print("alpha - {0:.4f}".format(alpha(b_unequal, test_distance_func)))
+    print("beta - {0:.4f}".format(beta(b_unequal, test_distance_func)))
+    print("Bias - {0:.4f}".format(bias(b_unequal, test_distance_func)))
 
 
 def create_coder_cumulative_matrix(data):
@@ -299,6 +322,46 @@ def multi_pi(data):
     obs_agr = (1 / num_items) * sum(pi)
 
     return (obs_agr - exp_agr) / (1 - exp_agr)
+
+
+def bias(data, dist_func):
+    """Calculates bias of weighted measures according to Artstein, R. and Poesio, M. (2005) Kappa 3 = Alpha (or Beta)"""
+
+    # Get data as summary matrix
+    sum_matrix = create_coder_sum_matrix(data)
+
+    # Get useful vars
+    num_coders = len(sum_matrix)
+    labels = list(sum_matrix.columns.values)
+    num_items = sum_matrix.iloc[0].sum(axis=0)
+
+    # All values need to be divided by num_items, so easier to do it with the dataframe
+    sum_matrix = sum_matrix.apply(lambda x: x / num_items)
+
+    # Calculate bias
+    bias_val = 0
+    # For each label pair
+    for label_a in labels:
+        for label_b in labels:
+            label_pair = (label_a, label_b)
+
+            # Individual and paired coder probs
+            lhs, rhs, = 0, 0
+            # For each coder get sum of probs for all label pairs
+            for coder in sum_matrix.index.tolist():
+                lhs += num_coders * sum_matrix.loc[coder, label_pair[0]] * sum_matrix.loc[coder, label_pair[1]]
+            # lhs *= num_coders
+
+            # For each pair of coders get sum of probs for all label pairs
+            for coder_a in sum_matrix.index.tolist():
+                for coder_b in sum_matrix.index.tolist():
+                    rhs += sum_matrix.loc[coder_a, label_pair[0]] * sum_matrix.loc[coder_b, label_pair[1]]
+
+            # 1/num_coders^2 * (lhs - rhs) * distance for label pair
+            bias_val += (1 / num_coders**2) * (abs(lhs - rhs) * dist_func(label_pair[0], label_pair[1]))
+
+    bias_val /= num_coders - 1
+    return bias_val
 
 
 def observed_disagreement(items, num_ratings, distance):
