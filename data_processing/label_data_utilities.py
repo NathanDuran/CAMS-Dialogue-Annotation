@@ -24,7 +24,7 @@ except FileNotFoundError:
           "the generate_label_distance_matrices() function in label_distance_utilities.py.")
 
 
-def get_user_label_data(path, user_data, labels, sets_list, dialogue_groups):
+def get_user_label_data(path, user_data, labels, sets_list, dialogue_groups, load=True):
     """Utility function either loads user_label_data dictionary or generates and saves it.
 
     Args:
@@ -33,6 +33,7 @@ def get_user_label_data(path, user_data, labels, sets_list, dialogue_groups):
         labels (dict): Dictionary of all labels.
         sets_list (list): List of all dialogue sets.
         dialogue_groups (dict): Dictionary of all dialogue groups (task/non-task and corpora).
+        load (bool): Whether to try and load label data or force getting new set.
 
     Returns:
         label_data (dict): Dictionary of all dataframes created.
@@ -44,7 +45,7 @@ def get_user_label_data(path, user_data, labels, sets_list, dialogue_groups):
         (values dict has user_names as keys and Dataframe of individual labels for set/dialogue).
     """
     # If the file exists just load it, else generate the data and save
-    if os.path.exists(path):
+    if os.path.exists(path) and load:
         user_label_data = load_pickle(path)
     else:
         user_label_data = dict()
