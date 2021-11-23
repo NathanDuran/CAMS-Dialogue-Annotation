@@ -1,0 +1,562 @@
+{
+    "dataset": "set_3",
+    "user_id": "n-3",
+    "num_dialogues": 5,
+    "num_labelled": 5,
+    "num_unlabelled": 0,
+    "num_complete": 5,
+    "num_incomplete": 0,
+    "current_dialogue_index": 0,
+    "dialogues": [
+        {
+            "dialogue_id": "practice",
+            "is_labelled": true,
+            "is_complete": true,
+            "time": 23647,
+            "questions": [
+                "4",
+                "4",
+                "4"
+            ],
+            "num_utterances": 6,
+            "utterances": [
+                {
+                    "speaker": "USR",
+                    "text": "is it going to snow this week",
+                    "ap_label": "FPP-base",
+                    "da_label": "propQuestion",
+                    "is_labelled": true,
+                    "time": 4150,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "Where should I check for snow?",
+                    "ap_label": "FPP-insert",
+                    "da_label": "setQuestion",
+                    "is_labelled": true,
+                    "time": 3800,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "USR",
+                    "text": "Corona",
+                    "ap_label": "SPP-insert",
+                    "da_label": "answer",
+                    "is_labelled": true,
+                    "time": 7769,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "There will be no snow in Corona this week.",
+                    "ap_label": "SPP-base",
+                    "da_label": "answer",
+                    "is_labelled": true,
+                    "time": 3992,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "USR",
+                    "text": "Thank you car!",
+                    "ap_label": "FPP-base",
+                    "da_label": "thanking",
+                    "is_labelled": true,
+                    "time": 1676,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "No problem my driver!",
+                    "ap_label": "SPP-base",
+                    "da_label": "acceptThanking",
+                    "is_labelled": true,
+                    "time": 2259,
+                    "ap_flag": false,
+                    "da_flag": false
+                }
+            ]
+        },
+        {
+            "dialogue_id": "jason-accident",
+            "is_labelled": true,
+            "is_complete": true,
+            "time": 801783,
+            "questions": [
+                "4",
+                "4",
+                "4"
+            ],
+            "num_utterances": 29,
+            "utterances": [
+                {
+                    "speaker": "JAS",
+                    "text": "we've kept everything pretty much under control though this year.",
+                    "ap_label": "FPP-base",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 17346,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "that's right you can't wrestle around or bad things will happen.",
+                    "ap_label": "SPP-base",
+                    "da_label": "agreement",
+                    "is_labelled": true,
+                    "time": 8052,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "yeah, Roger got his nose.",
+                    "ap_label": "Post",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 13119,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "you know what happened to my one of my aunt's friends out in Iowa?",
+                    "ap_label": "FPP-base",
+                    "da_label": "propQuestion",
+                    "is_labelled": true,
+                    "time": 3767,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "like when when she was younger, she had a headgear from braces, and these two girls were wrestling around just playing around, wrestling.",
+                    "ap_label": "Insert",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 7871,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "and one girl pulled her headgear off her mouth and let it snap back.",
+                    "ap_label": "Insert",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 112139,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "and it slid up her face and stuck in her eyes and blinded her.",
+                    "ap_label": "Insert",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 3419,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "wow.",
+                    "ap_label": "SPP-base",
+                    "da_label": "feedbackPos",
+                    "is_labelled": true,
+                    "time": 26651,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "isn't that horrid?",
+                    "ap_label": "FPP-base",
+                    "da_label": "propQuestion",
+                    "is_labelled": true,
+                    "time": 43116,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "that's horrid.",
+                    "ap_label": "Insert",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 9718,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "when my.",
+                    "ap_label": "SPP-base",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 91620,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "blinded her for life.",
+                    "ap_label": "Post",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 192781,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "isn't that horrid.",
+                    "ap_label": "Post",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 7307,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "that's just I mean just from goofing around, just from screwing a little bit of screwing around.",
+                    "ap_label": "Post",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 3147,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "and if and another thing, it it it's terrible the things that can happen.",
+                    "ap_label": "Post",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 2220,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "that's why I don't like people screwing around with swords and trying to throw people in the showers and stuff like that, and everything like that.",
+                    "ap_label": "Post",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 3375,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "you know what happened to my aunt Florence when she was a little girl?",
+                    "ap_label": "FPP-base",
+                    "da_label": "setQuestion",
+                    "is_labelled": true,
+                    "time": 24501,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "oh what happened.",
+                    "ap_label": "SPP-base",
+                    "da_label": "answer",
+                    "is_labelled": true,
+                    "time": 12793,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "she was like screwing around like around Christmas time?",
+                    "ap_label": "FPP-base",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 48349,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "and like she, I I guess this was like when they had candles on trees?",
+                    "ap_label": "Insert",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 1863,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "she lit her hair on fire.",
+                    "ap_label": "Insert",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 2547,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "oh wow.",
+                    "ap_label": "SPP-base",
+                    "da_label": "feedbackPos",
+                    "is_labelled": true,
+                    "time": 2743,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "you met her.",
+                    "ap_label": "Post",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 4693,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "but did anything happen?",
+                    "ap_label": "FPP-base",
+                    "da_label": "setQuestion",
+                    "is_labelled": true,
+                    "time": 8914,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "she get a burned head or something?",
+                    "ap_label": "Insert",
+                    "da_label": "setQuestion",
+                    "is_labelled": true,
+                    "time": 18582,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "uh I don't know, maybe you could shave her and look for scar tissue.",
+                    "ap_label": "SPP-base",
+                    "da_label": "answer",
+                    "is_labelled": true,
+                    "time": 33366,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "oh I don't want to shave your aunt Florence's head.",
+                    "ap_label": "Post",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 31074,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "DER",
+                    "text": "does your aunt Florence have like spinalbiffera or something like that?",
+                    "ap_label": "FPP-base",
+                    "da_label": "propQuestion",
+                    "is_labelled": true,
+                    "time": 57501,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JAS",
+                    "text": "I don't know.",
+                    "ap_label": "SPP-base",
+                    "da_label": "answer",
+                    "is_labelled": true,
+                    "time": 9209,
+                    "ap_flag": false,
+                    "da_flag": false
+                }
+            ]
+        },
+        {
+            "dialogue_id": "test_96",
+            "is_labelled": true,
+            "is_complete": true,
+            "time": 14788,
+            "questions": [
+                "4",
+                "4",
+                "4"
+            ],
+            "num_utterances": 4,
+            "utterances": [
+                {
+                    "speaker": "USR",
+                    "text": "Schedule a swimming activity with Jon for December 10th at 3pm.",
+                    "ap_label": "FPP-base",
+                    "da_label": "request",
+                    "is_labelled": true,
+                    "time": 3517,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "Your swimming activity with Jon has been scheduled for Dec 10th at 3pm.",
+                    "ap_label": "SPP-base",
+                    "da_label": "accept",
+                    "is_labelled": true,
+                    "time": 7518,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "USR",
+                    "text": "Thank you.",
+                    "ap_label": "FPP-base",
+                    "da_label": "thanking",
+                    "is_labelled": true,
+                    "time": 1848,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "It is my job and pleasure.",
+                    "ap_label": "SPP-base",
+                    "da_label": "acceptThanking",
+                    "is_labelled": true,
+                    "time": 1906,
+                    "ap_flag": false,
+                    "da_flag": false
+                }
+            ]
+        },
+        {
+            "dialogue_id": "task1_test_555",
+            "is_labelled": true,
+            "is_complete": true,
+            "time": 55646,
+            "questions": [
+                "4",
+                "4",
+                "4"
+            ],
+            "num_utterances": 5,
+            "utterances": [
+                {
+                    "speaker": "USR",
+                    "text": "hello",
+                    "ap_label": "Pre",
+                    "da_label": "greeting",
+                    "is_labelled": true,
+                    "time": 7508,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "hello what can i help you with today",
+                    "ap_label": "FPP-base",
+                    "da_label": "setQuestion",
+                    "is_labelled": true,
+                    "time": 3932,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "USR",
+                    "text": "i'd like to book a table for four in london in a moderate price range with italian cuisine",
+                    "ap_label": "SPP-base",
+                    "da_label": "answer",
+                    "is_labelled": true,
+                    "time": 2550,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "i'm on it",
+                    "ap_label": "Post",
+                    "da_label": "stalling",
+                    "is_labelled": true,
+                    "time": 15793,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "SYS",
+                    "text": "ok let me look into some options for you",
+                    "ap_label": "Post",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 25862,
+                    "ap_flag": false,
+                    "da_flag": false
+                }
+            ]
+        },
+        {
+            "dialogue_id": "KDARE00G",
+            "is_labelled": true,
+            "is_complete": true,
+            "time": 66172,
+            "questions": [
+                "4",
+                "4",
+                "4"
+            ],
+            "num_utterances": 4,
+            "utterances": [
+                {
+                    "speaker": "PS1GF",
+                    "text": "Don't tell me your mates just gone to the sun and the sand as well.",
+                    "ap_label": "FPP-base",
+                    "da_label": "propQuestion",
+                    "is_labelled": true,
+                    "time": 49008,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "PS1GE",
+                    "text": "Yeah oh he's well in love.",
+                    "ap_label": "SPP-base",
+                    "da_label": "confirm",
+                    "is_labelled": true,
+                    "time": 2347,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "PS1GF",
+                    "text": "Is he.",
+                    "ap_label": "FPP-base",
+                    "da_label": "propQuestion",
+                    "is_labelled": true,
+                    "time": 5719,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "PS1GE",
+                    "text": "Mm definite marriage case I don't know how I don't know how they can stand to be apart Ah.",
+                    "ap_label": "SPP-base",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 9098,
+                    "ap_flag": false,
+                    "da_flag": false
+                }
+            ]
+        }
+    ]
+}

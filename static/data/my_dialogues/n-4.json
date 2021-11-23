@@ -1,6 +1,6 @@
 {
-    "dataset": "set_1",
-    "user_id": "n-1",
+    "dataset": "set_4",
+    "user_id": "n-4",
     "num_dialogues": 5,
     "num_labelled": 5,
     "num_unlabelled": 0,
@@ -12,7 +12,7 @@
             "dialogue_id": "practice",
             "is_labelled": true,
             "is_complete": true,
-            "time": 74149,
+            "time": 30047,
             "questions": [
                 "4",
                 "4",
@@ -26,7 +26,7 @@
                     "ap_label": "FPP-base",
                     "da_label": "propQuestion",
                     "is_labelled": true,
-                    "time": 25863,
+                    "time": 6290,
                     "ap_flag": false,
                     "da_flag": false
                 },
@@ -36,7 +36,7 @@
                     "ap_label": "FPP-insert",
                     "da_label": "setQuestion",
                     "is_labelled": true,
-                    "time": 21996,
+                    "time": 2634,
                     "ap_flag": false,
                     "da_flag": false
                 },
@@ -46,7 +46,7 @@
                     "ap_label": "SPP-insert",
                     "da_label": "answer",
                     "is_labelled": true,
-                    "time": 10524,
+                    "time": 4368,
                     "ap_flag": false,
                     "da_flag": false
                 },
@@ -56,7 +56,7 @@
                     "ap_label": "SPP-base",
                     "da_label": "answer",
                     "is_labelled": true,
-                    "time": 8597,
+                    "time": 11412,
                     "ap_flag": false,
                     "da_flag": false
                 },
@@ -66,7 +66,7 @@
                     "ap_label": "FPP-base",
                     "da_label": "thanking",
                     "is_labelled": true,
-                    "time": 4009,
+                    "time": 2357,
                     "ap_flag": false,
                     "da_flag": false
                 },
@@ -76,127 +76,77 @@
                     "ap_label": "SPP-base",
                     "da_label": "acceptThanking",
                     "is_labelled": true,
-                    "time": 3159,
+                    "time": 2986,
                     "ap_flag": false,
                     "da_flag": false
                 }
             ]
         },
         {
-            "dialogue_id": "KB7RE015",
+            "dialogue_id": "KE2RE00Y",
             "is_labelled": true,
             "is_complete": true,
-            "time": 356961,
+            "time": 53250,
             "questions": [
                 "4",
                 "4",
                 "4"
             ],
-            "num_utterances": 9,
+            "num_utterances": 4,
             "utterances": [
                 {
-                    "speaker": "PS02H",
-                    "text": "Hey Ann.",
-                    "ap_label": "FPP-pre",
-                    "da_label": "greeting",
-                    "is_labelled": true,
-                    "time": 126768,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "PS02G",
-                    "text": "What.",
-                    "ap_label": "SPP-pre",
-                    "da_label": "feedbackPos",
-                    "is_labelled": true,
-                    "time": 7650,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "PS02H",
-                    "text": "Did you read your stars today.",
+                    "speaker": "PS0W4",
+                    "text": "That's filled you up has it.",
                     "ap_label": "FPP-base",
                     "da_label": "propQuestion",
                     "is_labelled": true,
-                    "time": 6690,
+                    "time": 18433,
                     "ap_flag": false,
                     "da_flag": false
                 },
                 {
-                    "speaker": "PS02G",
-                    "text": "No.",
+                    "speaker": "PS0W2",
+                    "text": "That's very nice yes yes.",
                     "ap_label": "SPP-base",
-                    "da_label": "answer",
+                    "da_label": "confirm",
                     "is_labelled": true,
-                    "time": 32037,
+                    "time": 10042,
                     "ap_flag": false,
                     "da_flag": false
                 },
                 {
-                    "speaker": "PS02H",
-                    "text": "You didn't.",
-                    "ap_label": "Pre",
-                    "da_label": "checkQuestion",
-                    "is_labelled": true,
-                    "time": 26978,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "PS02G",
-                    "text": "What's it say.",
+                    "speaker": "PS0W4",
+                    "text": "Do you want a bit of ice cream or.",
                     "ap_label": "FPP-base",
-                    "da_label": "setQuestion",
+                    "da_label": "propQuestion",
                     "is_labelled": true,
-                    "time": 33984,
+                    "time": 19694,
                     "ap_flag": false,
                     "da_flag": false
                 },
                 {
-                    "speaker": "PS02H",
-                    "text": "Saturn your ruler is in exceptionally mood now so it is likely that you will have to put up with rather spartan conditions but you know how much is at stake for the future so you are happy to do without.",
+                    "speaker": "PS0W2",
+                    "text": "Yeah have ice cream have that lovely one we had the other day.",
                     "ap_label": "SPP-base",
-                    "da_label": "inform",
+                    "da_label": "confirm",
                     "is_labelled": true,
-                    "time": 13111,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "PS02G",
-                    "text": "That was.",
-                    "ap_label": "FPP-post",
-                    "da_label": "stalling",
-                    "is_labelled": true,
-                    "time": 24392,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "PS02H",
-                    "text": "How about that darling.",
-                    "ap_label": "SPP-post",
-                    "da_label": "setQuestion",
-                    "is_labelled": true,
-                    "time": 85350,
+                    "time": 5080,
                     "ap_flag": false,
                     "da_flag": false
                 }
             ]
         },
         {
-            "dialogue_id": "task1_test_290",
+            "dialogue_id": "task1_test_564",
             "is_labelled": true,
             "is_complete": true,
-            "time": 98799,
+            "time": 25788,
             "questions": [
                 "4",
                 "4",
                 "4"
             ],
-            "num_utterances": 7,
+            "num_utterances": 5,
             "utterances": [
                 {
                     "speaker": "USR",
@@ -204,7 +154,7 @@
                     "ap_label": "Pre",
                     "da_label": "greeting",
                     "is_labelled": true,
-                    "time": 18608,
+                    "time": 9515,
                     "ap_flag": false,
                     "da_flag": false
                 },
@@ -214,17 +164,17 @@
                     "ap_label": "FPP-base",
                     "da_label": "setQuestion",
                     "is_labelled": true,
-                    "time": 18062,
+                    "time": 3117,
                     "ap_flag": false,
                     "da_flag": false
                 },
                 {
                     "speaker": "USR",
-                    "text": "i'd like to book a table with spanish cuisine for two people in a moderate price range",
+                    "text": "i'd like to book a table in london in a moderate price range for six with french cuisine",
                     "ap_label": "SPP-base",
                     "da_label": "answer",
                     "is_labelled": true,
-                    "time": 22165,
+                    "time": 4322,
                     "ap_flag": false,
                     "da_flag": false
                 },
@@ -234,27 +184,7 @@
                     "ap_label": "Post",
                     "da_label": "stalling",
                     "is_labelled": true,
-                    "time": 6837,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "SYS",
-                    "text": "where should it be",
-                    "ap_label": "FPP-base",
-                    "da_label": "setQuestion",
-                    "is_labelled": true,
-                    "time": 5353,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "USR",
-                    "text": "in london",
-                    "ap_label": "SPP-base",
-                    "da_label": "answer",
-                    "is_labelled": true,
-                    "time": 2187,
+                    "time": 4548,
                     "ap_flag": false,
                     "da_flag": false
                 },
@@ -264,295 +194,345 @@
                     "ap_label": "Post",
                     "da_label": "inform",
                     "is_labelled": true,
-                    "time": 25585,
+                    "time": 4286,
                     "ap_flag": false,
                     "da_flag": false
                 }
             ]
         },
         {
-            "dialogue_id": "test_28",
+            "dialogue_id": "test_129",
             "is_labelled": true,
             "is_complete": true,
-            "time": 45069,
+            "time": 33272,
             "questions": [
                 "4",
                 "4",
                 "4"
             ],
-            "num_utterances": 7,
+            "num_utterances": 6,
             "utterances": [
                 {
                     "speaker": "USR",
-                    "text": "what's the weather forecast for today and tomorrow",
+                    "text": "Where can I find a parking garage?",
                     "ap_label": "FPP-base",
                     "da_label": "setQuestion",
                     "is_labelled": true,
-                    "time": 8872,
+                    "time": 7945,
                     "ap_flag": false,
                     "da_flag": false
                 },
                 {
                     "speaker": "SYS",
-                    "text": "In what city are you interested?",
-                    "ap_label": "FPP-insert",
-                    "da_label": "setQuestion",
+                    "text": "Palo Alto Garage R\tis at 481 Amaranta Ave.",
+                    "ap_label": "SPP-base",
+                    "da_label": "answer",
                     "is_labelled": true,
-                    "time": 3308,
+                    "time": 2208,
                     "ap_flag": false,
                     "da_flag": false
                 },
                 {
                     "speaker": "USR",
-                    "text": "Los Angeles",
-                    "ap_label": "SPP-insert",
-                    "da_label": "answer",
+                    "text": "Is that the quickest route?",
+                    "ap_label": "FPP-base",
+                    "da_label": "propQuestion",
                     "is_labelled": true,
-                    "time": 7494,
+                    "time": 4938,
                     "ap_flag": false,
                     "da_flag": false
                 },
                 {
                     "speaker": "SYS",
-                    "text": "In Los Angeles, it will rain today and be 40-60F.  ",
+                    "text": "I will send on your screen the quickest route, sure, there is heavy traffic now and we will have to make the route slightly longer",
                     "ap_label": "SPP-base",
                     "da_label": "inform",
                     "is_labelled": true,
-                    "time": 12229,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "SYS",
-                    "text": "Tomorrow, it will be warm and 60-80F.",
-                    "ap_label": "Post",
-                    "da_label": "inform",
-                    "is_labelled": true,
-                    "time": 8198,
+                    "time": 12875,
                     "ap_flag": false,
                     "da_flag": false
                 },
                 {
                     "speaker": "USR",
-                    "text": "Thanks.",
+                    "text": "Ok thanks for the notification.",
                     "ap_label": "FPP-base",
                     "da_label": "thanking",
                     "is_labelled": true,
-                    "time": 2180,
+                    "time": 2913,
                     "ap_flag": false,
                     "da_flag": false
                 },
                 {
                     "speaker": "SYS",
-                    "text": "No problem.",
+                    "text": "You're welcome, we should arrive shortly.",
                     "ap_label": "SPP-base",
                     "da_label": "acceptThanking",
                     "is_labelled": true,
-                    "time": 2788,
+                    "time": 2392,
                     "ap_flag": false,
                     "da_flag": false
                 }
             ]
         },
         {
-            "dialogue_id": "jason-mammoth",
+            "dialogue_id": "lynne-hunter",
             "is_labelled": true,
             "is_complete": true,
-            "time": 374095,
+            "time": 1016933,
             "questions": [
                 "4",
                 "4",
                 "4"
             ],
-            "num_utterances": 19,
+            "num_utterances": 25,
             "utterances": [
                 {
-                    "speaker": "ERI",
-                    "text": "didn't they, didn't you ever hear that they, they found an entire woolly mammoth, frozen.",
+                    "speaker": "JEA",
+                    "text": "wasn't that awful about the guy that went hunting and killed his son.",
                     "ap_label": "FPP-base",
                     "da_label": "propQuestion",
                     "is_labelled": true,
-                    "time": 89219,
+                    "time": 131891,
                     "ap_flag": false,
                     "da_flag": false
                 },
                 {
-                    "speaker": "JAC",
-                    "text": "yeah, and they ate it.",
+                    "speaker": "ANN",
+                    "text": "oh, hooh.",
                     "ap_label": "SPP-base",
-                    "da_label": "confirm",
+                    "da_label": "stalling",
                     "is_labelled": true,
-                    "time": 30896,
+                    "time": 199933,
                     "ap_flag": false,
                     "da_flag": false
                 },
                 {
-                    "speaker": "ERI",
-                    "text": "an entire one though.",
+                    "speaker": "JEA",
+                    "text": "and then he killed himself.",
                     "ap_label": "FPP-base",
                     "da_label": "inform",
                     "is_labelled": true,
-                    "time": 6335,
+                    "time": 10158,
                     "ap_flag": false,
                     "da_flag": false
                 },
                 {
-                    "speaker": "JAC",
-                    "text": "yeah.",
+                    "speaker": "JEA",
+                    "text": "he didn't he shot him by mistake.",
+                    "ap_label": "Insert",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 4150,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "he thought he was a deer, coming, y'know, coming in the woods.",
+                    "ap_label": "Insert",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 1612,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "shot the kid.",
+                    "ap_label": "Insert",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 2370,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "when he went to check, because he thought he shot a deer, he found he shot his son.",
+                    "ap_label": "Insert",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 13268,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "dead.",
+                    "ap_label": "Insert",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 2141,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "HEL",
+                    "text": "oh my god.",
                     "ap_label": "SPP-base",
                     "da_label": "feedbackPos",
                     "is_labelled": true,
-                    "time": 10467,
+                    "time": 63853,
                     "ap_flag": false,
                     "da_flag": false
                 },
                 {
-                    "speaker": "ERI",
-                    "text": "almost practically whole.",
+                    "speaker": "JEA",
+                    "text": "and he turned the gun on himself.",
+                    "ap_label": "FPP-base",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 9475,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "HEL",
+                    "text": "oh, how tragic.",
+                    "ap_label": "SPP-base",
+                    "da_label": "feedbackPos",
+                    "is_labelled": true,
+                    "time": 11394,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "and he killed himself.",
+                    "ap_label": "Post",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 45103,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "because he probably couldn't, he probably knew he couldn't face his wife, and whatever, y'know.",
+                    "ap_label": "Post",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 197893,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "ANN",
+                    "text": "first time he took his son, too.",
+                    "ap_label": "Post",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 7394,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "yeah, that's why today's paper said make orange legal.",
+                    "ap_label": "FPP-base",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 65445,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "ANN",
+                    "text": "yeah, you have to.",
+                    "ap_label": "SPP-base",
+                    "da_label": "agreement",
+                    "is_labelled": true,
+                    "time": 128522,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "make them wear the orange.",
+                    "ap_label": "Post",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 91993,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "That red and black check, you can't see that, when it blends in with everything.",
+                    "ap_label": "Post",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 1862,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "and you know I think it's just like a reaction.",
+                    "ap_label": "Post",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 1457,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "if they hear or see something through the corner of their eye, moving, and they just shoot, without waiting to see what it is.",
+                    "ap_label": "Post",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 5601,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "that was sad.",
+                    "ap_label": "Post",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 4823,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "I don't know how old the kid was.",
+                    "ap_label": "FPP-base",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 6961,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "ANN",
+                    "text": "eighteen.",
+                    "ap_label": "SPP-base",
+                    "da_label": "inform",
+                    "is_labelled": true,
+                    "time": 4693,
+                    "ap_flag": false,
+                    "da_flag": false
+                },
+                {
+                    "speaker": "JEA",
+                    "text": "eighteen.",
                     "ap_label": "FPP-post",
                     "da_label": "inform",
                     "is_labelled": true,
-                    "time": 68092,
+                    "time": 2333,
                     "ap_flag": false,
                     "da_flag": false
                 },
                 {
-                    "speaker": "JAC",
-                    "text": "yeah, like almost perfectly, preserved.",
+                    "speaker": "HEL",
+                    "text": "eighteen.",
                     "ap_label": "SPP-post",
-                    "da_label": "feedbackPos",
-                    "is_labelled": true,
-                    "time": 4179,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "ERI",
-                    "text": "yeah, Mark was Mark thought it was like they just found a leg.",
-                    "ap_label": "FPP-base",
                     "da_label": "inform",
                     "is_labelled": true,
-                    "time": 11275,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "ERI",
-                    "text": "I told him they found the entire woolly mammoth.",
-                    "ap_label": "Insert",
-                    "da_label": "inform",
-                    "is_labelled": true,
-                    "time": 5125,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "JAC",
-                    "text": "and they y'know that it just weighed so much that they just ate part of it.",
-                    "ap_label": "SPP-base",
-                    "da_label": "confirm",
-                    "is_labelled": true,
-                    "time": 35199,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "JAC",
-                    "text": "I think they had some scientist guys, and they had like a banquet and they ate it.",
-                    "ap_label": "FPP-base",
-                    "da_label": "inform",
-                    "is_labelled": true,
-                    "time": 7224,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "ERI",
-                    "text": "where did you see that <unk>?",
-                    "ap_label": "FPP-insert",
-                    "da_label": "setQuestion",
-                    "is_labelled": true,
-                    "time": 6181,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "JAC",
-                    "text": "I don't remember where.",
-                    "ap_label": "SPP-insert",
-                    "da_label": "answer",
-                    "is_labelled": true,
-                    "time": 5284,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "JAC",
-                    "text": "maybe I just dreamed it.",
-                    "ap_label": "Insert",
-                    "da_label": "inform",
-                    "is_labelled": true,
-                    "time": 33622,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "JAC",
-                    "text": "I dream things and mistake them for reality.",
-                    "ap_label": "Insert",
-                    "da_label": "inform",
-                    "is_labelled": true,
-                    "time": 2291,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "JAC",
-                    "text": "but I think it's real.",
-                    "ap_label": "Insert",
-                    "da_label": "inform",
-                    "is_labelled": true,
-                    "time": 3037,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "ERI",
-                    "text": "I thought it was real, too.",
-                    "ap_label": "SPP-base",
-                    "da_label": "inform",
-                    "is_labelled": true,
-                    "time": 11936,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "ERI",
-                    "text": "so",
-                    "ap_label": "Post",
-                    "da_label": "stalling",
-                    "is_labelled": true,
-                    "time": 33360,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "JAC",
-                    "text": "maybe I told, you though.",
-                    "ap_label": "FPP-base",
-                    "da_label": "propQuestion",
-                    "is_labelled": true,
-                    "time": 5316,
-                    "ap_flag": false,
-                    "da_flag": false
-                },
-                {
-                    "speaker": "ERI",
-                    "text": "no, you, I read it somewhere.",
-                    "ap_label": "SPP-base",
-                    "da_label": "disconfirm",
-                    "is_labelled": true,
-                    "time": 5056,
+                    "time": 2606,
                     "ap_flag": false,
                     "da_flag": false
                 }
