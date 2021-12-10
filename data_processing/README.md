@@ -18,3 +18,12 @@ Including .csv files of results and statistics and .png plots.
 analysis of their respective data type.
 - stats_utilities.py, plot_utilities.py and data_utilities.py - contain helper functions for calculating statistics,
 generating plots and processing/saving data.
+  
+## DA Relationship Graph
+Calculation of inter-annotator agreement using weighted agreement coefficients used distance functions defined in
+label_distance_utilities.py
+The following depicts the undirected graph used for DA labels.
+
+<p align="center">
+<img src="/data_processing/label_data/DA Tree Diagram.png" width="1100" height="650">
+</p>
