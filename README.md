@@ -55,6 +55,51 @@ from 4 different corpora:
 |     5       |     test_102    |     4         |     task1_test_894    |     5         |     KBERE00G    |     5         |     lynne-tipsy       |     26        |     46       |
 |     Mean    |                 |     5.8       |                       |     5.8       |                 |     5.6       |                       |     23.6      |     46.8     |
 
+### Example Dialogues
+#### KVRET
+A1:	Where can I find a parking garage?
+
+B1:	Palo Alto Garage is at 481 Amaranta Ave.
+
+A2:	Is that the quickest route?
+
+B2:	I will send on your screen the quickest route, sure, there is heavy traffic now and we will have to make the route slightly longer
+
+A3:	Ok thanks for the notification.
+
+#### bAbI
+A1:	good morning
+
+B1:	hello what can i help you with today
+
+A2:	i’d like to book a table in london in a moderate price range for six with French cuisine
+
+B2:	i’m on it
+
+B3:	ok let me look into some options for you
+
+#### CABNC
+A1:	That’s filled you up has it.
+
+B1:	That’s very nice yes yes.
+
+A2:	Do you want a bit of ice cream or.
+
+B2:	Yeah have ice cream have that lovely one we had the other day.
+
+#### SCoSE
+A1:	didn’t they, didn’t you ever hear that they, they found an entire woolly mammoth, frozen.
+
+B1:	yeah, and they ate it.
+
+A2:	an entire one though.
+
+B2:	yeah
+
+A3:	almost practically whole
+
+A3:	yeah, like almost perfectly, preserved.
+
 ### Example JSON Format
 The following is an example of the JSON format created for each users annotations.
 ```json

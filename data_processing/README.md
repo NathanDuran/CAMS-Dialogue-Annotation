@@ -3,7 +3,7 @@
 The data_processing directory contains the Python scripts for calculating inter-annotator agreement and analysing the
 agreement, rating and timing data produced in the study.
 
-The results.ipynb contains results for all experiments reported.
+The [results.ipynb](/data_processing/results.ipynb) contains results for all experiments reported.
 
 ## Directories
 - label_data - contains all DA, AP and AP type distance matrices, generated with label_distance_utilities.py,
@@ -22,8 +22,9 @@ generating plots and processing/saving data.
 ## DA Relationship Graph
 Calculation of inter-annotator agreement using weighted agreement coefficients used distance functions defined in
 label_distance_utilities.py
-The following depicts the undirected graph used for DA labels.
+The following depicts the undirected graph used for DA labels. Leaf nodes are DA, while intermediate nodes represent
+the communicative function subcategories. 
 
 <p align="center">
-<img src="/data_processing/label_data/DA Tree Diagram.png" width="1100" height="650">
+<img src="/data_processing/label_data/DA Tree Diagram.png" width="1100">
 </p>
