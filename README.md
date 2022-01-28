@@ -5,10 +5,10 @@ to create *AP-types*, descriptive labels that capture the semantic and syntactic
 A full definition of the schema labels and annotation instructions can be found in the
 [Conversation Analysis Modelling Schema](https://nathanduran.github.io/Conversation-Analysis-Modelling-Schema/).
 The tool was created as part of a study to measure inter-annotator agreement when applying CAMS to a range of dialogues.
+This repository contains all data and results/analysis for the paper
+[Inter-annotator Agreement Using the Conversation Analysis Modelling Schema, for Dialogue.](https://www.tandfonline.com/doi/full/10.1080/19312458.2021.2020229)
 
-TODO-ADD CITATION INFO
-
-This repository contains all necessary code to run the tool, the annotated datasets,
+This repository also contains all necessary code to run the tool, the annotated datasets,
 and the Python scripts used to calculate inter-annotator agreement and analyse the results.
 The server side implementation is written using Python 3.6 and [Flask](http://flask.pocoo.org/),
 and client side written in JavaScript.
@@ -194,3 +194,7 @@ You can now use the navigation buttons ![prev button](/static/images/prev.png) !
 <img src="/static/images/questionnaire_screen.png" width="1100" height="650">
 </p>
 
+---------------
+# Citation
+
+If you are using any code or data from this project in your work please cite: [Nathan Duran, Steve Battle & Jim Smith (2022) Inter-annotator Agreement Using the Conversation Analysis Modelling Schema, for Dialogue, Communication Methods and Measures, DOI: 10.1080/19312458.2021.2020229](https://www.tandfonline.com/doi/full/10.1080/19312458.2021.2020229)
